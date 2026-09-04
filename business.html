@@ -1,1 +1,625 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>KIRAVA BUSINESS — Business Intelligence</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #10213f;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(7,21,47,.94);
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #61e6ff;
+        }
+
+        .nav {
+            display: flex;
+            gap: 28px;
+            color: #d8e4ff;
+            font-size: 14px;
+        }
+
+        .nav a:hover {
+            color: #61e6ff;
+        }
+
+        .hero {
+            padding: 170px 0 110px;
+            background:
+                radial-gradient(circle at 80% 30%, rgba(70,120,255,.3), transparent 30%),
+                #07152f;
+            color: white;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border: 1px solid rgba(97,230,255,.4);
+            border-radius: 30px;
+            color: #61e6ff;
+            font-size: 12px;
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            font-size: clamp(44px, 6vw, 72px);
+            line-height: 1.05;
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        .gradient {
+            background: linear-gradient(90deg,#61e6ff,#7895ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            color: #b9c8e5;
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #07152f;
+        }
+
+        .dashboard {
+            padding: 28px;
+            border-radius: 25px;
+            background: rgba(255,255,255,.07);
+            border: 1px solid rgba(255,255,255,.12);
+            box-shadow: 0 30px 80px rgba(0,0,0,.25);
+        }
+
+        .dashboard-title {
+            color: #aebdd7;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .stat {
+            padding: 20px;
+            border-radius: 16px;
+            background: rgba(255,255,255,.07);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 25px;
+            color: white;
+        }
+
+        .stat span {
+            font-size: 12px;
+            color: #aebdd7;
+        }
+
+        section {
+            padding: 95px 0;
+        }
+
+        .heading {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 55px;
+        }
+
+        .heading small {
+            color: #4274ff;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .heading h2 {
+            font-size: clamp(32px,4vw,48px);
+            line-height: 1.15;
+            margin: 12px 0 18px;
+        }
+
+        .heading p {
+            color: #68758a;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+        }
+
+        .card {
+            padding: 30px;
+            background: white;
+            border: 1px solid #e3e9f3;
+            border-radius: 22px;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px rgba(31,62,110,.1);
+        }
+
+        .icon {
+            font-size: 30px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #68758a;
+            font-size: 14px;
+        }
+
+        .government {
+            background: #eef4fb;
+        }
+
+        .gov-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .gov-text h2 {
+            font-size: 42px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .gov-text p {
+            color: #68758a;
+            margin-bottom: 25px;
+        }
+
+        .flow {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .flow-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #e1e8f2;
+        }
+
+        .flow-item strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .flow-item span {
+            color: #68758a;
+            font-size: 13px;
+        }
+
+        .ai {
+            background: #07152f;
+            color: white;
+            text-align: center;
+        }
+
+        .ai p {
+            max-width: 680px;
+            margin: auto;
+            color: #aebdd7;
+        }
+
+        .ai h2 {
+            font-size: clamp(35px,5vw,55px);
+            margin-bottom: 18px;
+        }
+
+        .cta {
+            text-align: center;
+            background: white;
+        }
+
+        .cta h2 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #68758a;
+            max-width: 650px;
+            margin: auto auto 25px;
+        }
+
+        footer {
+            background: #040d20;
+            color: #91a2c2;
+            padding: 35px 0;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        @media(max-width:850px) {
+
+            .nav {
+                display: none;
+            }
+
+            .hero-grid,
+            .gov-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media(max-width:550px) {
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .cta h2 {
+                font-size: 35px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="container navbar">
+
+        <a href="index.html" class="logo">
+            KIRAVA<span>.</span>
+        </a>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="index.html#produk">Solutions</a>
+            <a href="#pemerintah">Pemerintahan</a>
+            <a href="#ai">AI</a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+        <div>
+
+            <div class="badge">
+                KIRAVA BUSINESS
+            </div>
+
+            <h1>
+                Dari transaksi
+                menjadi
+                <span class="gradient">
+                    intelligence.
+                </span>
+            </h1>
+
+            <p>
+                KIRAVA BUSINESS membantu pelaku usaha
+                mengelola transaksi, stok dan operasional,
+                sekaligus membuka jalan menuju Business
+                Intelligence berbasis AI.
+            </p>
+
+            <a href="#fitur" class="btn btn-primary">
+                Jelajahi KIRAVA BUSINESS
+            </a>
+
+        </div>
+
+
+        <div class="dashboard">
+
+            <div class="dashboard-title">
+                BUSINESS INTELLIGENCE
+            </div>
+
+            <div class="stat-grid">
+
+                <div class="stat">
+                    <strong>1,248</strong>
+                    <span>UMKM Terdata</span>
+                </div>
+
+                <div class="stat">
+                    <strong>86%</strong>
+                    <span>Usaha Aktif</span>
+                </div>
+
+                <div class="stat">
+                    <strong>24</strong>
+                    <span>Sektor Usaha</span>
+                </div>
+
+                <div class="stat">
+                    <strong>+18%</strong>
+                    <span>Pertumbuhan</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="fitur">
+
+    <div class="container">
+
+        <div class="heading">
+
+            <small>UNTUK BISNIS</small>
+
+            <h2>
+                Semua yang dibutuhkan
+                untuk mengelola usaha.
+            </h2>
+
+            <p>
+                Pondasi digital untuk membantu usaha
+                berkembang berdasarkan data.
+            </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+            <div class="card">
+                <div class="icon">🧾</div>
+                <h3>POS</h3>
+                <p>
+                    Pencatatan transaksi penjualan
+                    secara digital.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📦</div>
+                <h3>Stok</h3>
+                <p>
+                    Mengelola persediaan dan
+                    pergerakan barang.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📊</div>
+                <h3>Laporan</h3>
+                <p>
+                    Melihat performa bisnis
+                    melalui data.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🤖</div>
+                <h3>AI Insight</h3>
+                <p>
+                    Membantu menemukan pola,
+                    peluang dan masalah bisnis.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="government" id="pemerintah">
+
+    <div class="container gov-grid">
+
+        <div class="gov-text">
+
+            <small>KIRAVA GOVERNMENT INTELLIGENCE</small>
+
+            <h2>
+                Dari data UMKM
+                menuju keputusan pemerintah.
+            </h2>
+
+            <p>
+                Data yang berasal dari aktivitas usaha
+                dapat dikembangkan menjadi dashboard
+                monitoring untuk pemerintah daerah
+                dan dinas terkait.
+            </p>
+
+            <a href="#ai" class="btn btn-primary">
+                Pelajari Konsep
+            </a>
+
+        </div>
+
+
+        <div class="flow">
+
+            <div class="flow-item">
+                <strong>🏪 UMKM</strong>
+                <span>Aktivitas usaha tercatat secara digital.</span>
+            </div>
+
+            <div class="flow-item">
+                <strong>📊 Data</strong>
+                <span>Data dikumpulkan dan diolah.</span>
+            </div>
+
+            <div class="flow-item">
+                <strong>🗺️ Pemetaan</strong>
+                <span>UMKM dapat dipetakan berdasarkan wilayah dan sektor.</span>
+            </div>
+
+            <div class="flow-item">
+                <strong>🏛️ Dinas</strong>
+                <span>Dashboard memberikan gambaran kondisi UMKM.</span>
+            </div>
+
+            <div class="flow-item">
+                <strong>🤖 AI</strong>
+                <span>AI membantu menghasilkan insight dan rekomendasi.</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="ai" id="ai">
+
+    <div class="container">
+
+        <h2>
+            Intelligence di balik bisnis.
+        </h2>
+
+        <p>
+            KIRAVA BUSINESS dirancang agar data tidak hanya
+            menjadi laporan, tetapi dapat menjadi sumber
+            informasi untuk membantu manusia mengambil
+            keputusan yang lebih baik.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+            Siap membangun bisnis
+            berbasis data?
+        </h2>
+
+        <p>
+            KIRAVA membuka peluang kolaborasi dengan
+            pelaku usaha, koperasi, perusahaan,
+            pemerintah daerah dan lembaga terkait.
+        </p>
+
+        <a href="mailto:hello@kirava.id"
+           class="btn btn-primary">
+            Hubungi KIRAVA
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="container">
+
+        © 2026 KIRAVA — AI & IoT untuk Dunia Nyata
+
+    </div>
+
+</footer>
+
+</body>
+</html>
