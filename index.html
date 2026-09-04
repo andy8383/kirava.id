@@ -2,22 +2,16 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="KIRAVA - AI Robot untuk pendidikan, pembelajaran interaktif, dan teknologi masa depan.">
+          content="KIRAVA adalah ekosistem teknologi AI, IoT dan otomasi untuk pendidikan, bisnis, pemerintahan, pertanian, peternakan dan perikanan.">
 
     <meta name="theme-color" content="#07152f">
 
-    <title>KIRAVA — AI Robot untuk Pendidikan</title>
+    <title>KIRAVA — AI & IoT untuk Dunia Nyata</title>
 
     <style>
-
-        /* =========================================================
-           RESET
-        ========================================================= */
 
         * {
             margin: 0;
@@ -30,17 +24,9 @@
         }
 
         body {
-            font-family:
-                Inter,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Roboto,
-                Arial,
-                sans-serif;
-
-            color: #172033;
-            background: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #10213f;
             line-height: 1.6;
         }
 
@@ -49,38 +35,28 @@
             color: inherit;
         }
 
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
         .container {
             width: min(1180px, 92%);
             margin: auto;
         }
 
-
-        /* =========================================================
-           HEADER
-        ========================================================= */
+        /* =========================
+           NAVBAR
+        ========================== */
 
         header {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
+            right: 0;
             z-index: 1000;
-
-            background: rgba(7, 21, 47, 0.88);
+            background: rgba(7, 21, 47, 0.92);
             backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,.08);
         }
 
-        .nav {
-            height: 74px;
-
+        .navbar {
+            height: 76px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -90,893 +66,573 @@
             display: flex;
             align-items: center;
             gap: 10px;
-
-            font-size: 24px;
+            color: white;
             font-weight: 800;
-            letter-spacing: 1px;
-
-            color: #ffffff;
+            font-size: 25px;
+            letter-spacing: 2px;
         }
 
         .logo-icon {
-            width: 38px;
-            height: 38px;
-
-            border-radius: 12px;
-
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #5ee7ff, #4274ff);
             display: flex;
             align-items: center;
             justify-content: center;
-
-            background: linear-gradient(
-                135deg,
-                #6ee7ff,
-                #6c63ff
-            );
-
             color: #07152f;
             font-weight: 900;
         }
 
-        .nav-menu {
+        .nav-links {
             display: flex;
+            gap: 30px;
             align-items: center;
-            gap: 32px;
-
-            color: #d9e4ff;
+            color: #d8e4ff;
             font-size: 14px;
         }
 
-        .nav-menu a {
-            transition: 0.25s;
-        }
-
-        .nav-menu a:hover {
-            color: #6ee7ff;
+        .nav-links a:hover {
+            color: #5ee7ff;
         }
 
         .nav-button {
-            padding: 10px 18px;
-
-            border-radius: 10px;
-
+            padding: 11px 20px;
+            border-radius: 25px;
             background: #ffffff;
             color: #07152f !important;
-
-            font-weight: 700;
+            font-weight: bold;
         }
 
-        .menu-toggle {
+        .menu-btn {
             display: none;
-
-            border: none;
-            background: transparent;
-
             color: white;
             font-size: 28px;
-
             cursor: pointer;
         }
 
-
-        /* =========================================================
+        /* =========================
            HERO
-        ========================================================= */
+        ========================== */
 
         .hero {
-            min-height: 100vh;
-
+            min-height: 760px;
             padding-top: 150px;
-            padding-bottom: 80px;
-
-            display: flex;
-            align-items: center;
-
-            color: white;
-
             background:
-                radial-gradient(
-                    circle at 80% 30%,
-                    rgba(74, 122, 255, 0.28),
-                    transparent 35%
-                ),
-                radial-gradient(
-                    circle at 15% 80%,
-                    rgba(46, 209, 255, 0.18),
-                    transparent 30%
-                ),
+                radial-gradient(circle at 75% 35%, rgba(54,123,255,.30), transparent 30%),
+                radial-gradient(circle at 25% 60%, rgba(30,210,220,.12), transparent 25%),
                 #07152f;
+            color: white;
+            overflow: hidden;
         }
 
-        .hero-grid {
+        .hero-content {
             display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
-
-            gap: 70px;
-
+            grid-template-columns: 1.05fr .95fr;
+            gap: 60px;
             align-items: center;
         }
 
         .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-
-            padding: 8px 14px;
-
+            display: inline-block;
+            padding: 8px 15px;
             border-radius: 30px;
-
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.12);
-
-            color: #9eeaff;
-
+            border: 1px solid rgba(94,231,255,.35);
+            color: #76eaff;
             font-size: 13px;
-            font-weight: 600;
-
-            margin-bottom: 22px;
+            margin-bottom: 25px;
+            background: rgba(94,231,255,.06);
         }
 
         .hero h1 {
-            font-size: clamp(42px, 6vw, 72px);
+            font-size: clamp(45px, 6vw, 76px);
             line-height: 1.05;
-
-            letter-spacing: -2px;
-
-            margin-bottom: 24px;
+            letter-spacing: -3px;
+            margin-bottom: 25px;
         }
 
         .gradient-text {
-            background:
-                linear-gradient(
-                    90deg,
-                    #6ee7ff,
-                    #8d82ff
-                );
-
+            background: linear-gradient(90deg, #63e9ff, #7894ff);
             -webkit-background-clip: text;
-            background-clip: text;
-
             color: transparent;
         }
 
-        .hero-description {
-            max-width: 620px;
-
-            color: #b9c7e4;
-
-            font-size: 18px;
-
-            margin-bottom: 34px;
+        .hero p {
+            color: #b9c8e5;
+            max-width: 650px;
+            font-size: 19px;
+            margin-bottom: 35px;
         }
 
         .hero-buttons {
             display: flex;
+            gap: 15px;
             flex-wrap: wrap;
-
-            gap: 14px;
         }
 
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 14px 22px;
-
-            border-radius: 12px;
-
-            font-weight: 700;
-
-            transition:
-                transform 0.2s,
-                box-shadow 0.2s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
+            padding: 14px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            transition: .25s;
         }
 
         .btn-primary {
-            background: linear-gradient(
-                135deg,
-                #6ee7ff,
-                #6c63ff
-            );
-
+            background: white;
             color: #07152f;
-
-            box-shadow:
-                0 12px 30px rgba(87, 142, 255, 0.25);
         }
 
-        .btn-secondary {
-            border: 1px solid rgba(255,255,255,0.18);
+        .btn-primary:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,.25);
             color: white;
-
-            background: rgba(255,255,255,0.05);
         }
 
+        .btn-outline:hover {
+            background: rgba(255,255,255,.08);
+        }
 
-        /* =========================================================
-           ROBOT VISUAL
-        ========================================================= */
+        /* =========================
+           AI VISUAL
+        ========================== */
 
-        .robot-area {
+        .ai-visual {
+            height: 460px;
             position: relative;
-
-            min-height: 460px;
-
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .robot-glow {
-            position: absolute;
+        .ai-core {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ffffff, #62ddff 35%, #3777ff 70%);
+            box-shadow:
+                0 0 50px rgba(94,231,255,.7),
+                0 0 120px rgba(65,110,255,.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #07152f;
+            font-weight: 900;
+            font-size: 25px;
+            position: relative;
+            z-index: 3;
+        }
 
+        .orbit {
+            position: absolute;
+            border: 1px solid rgba(94,231,255,.25);
+            border-radius: 50%;
+        }
+
+        .orbit.one {
             width: 300px;
             height: 300px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(99, 218, 255, 0.28),
-                    transparent 68%
-                );
-
-            filter: blur(8px);
         }
 
-        .robot {
-            position: relative;
-            z-index: 2;
-
-            width: 245px;
-            height: 300px;
-
-            border-radius: 48px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #f7fbff,
-                    #dce8f7
-                );
-
-            box-shadow:
-                0 35px 80px rgba(0,0,0,0.35),
-                inset 0 2px 4px white;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            padding-top: 38px;
+        .orbit.two {
+            width: 430px;
+            height: 430px;
+            transform: rotate(25deg);
         }
 
-        .robot-head {
-            width: 180px;
-            height: 120px;
-
-            border-radius: 38px;
-
-            background: #07152f;
-
-            border: 6px solid #c7d8eb;
-
+        .node {
+            position: absolute;
+            width: 100px;
+            height: 70px;
+            border-radius: 16px;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.15);
+            backdrop-filter: blur(10px);
             display: flex;
             align-items: center;
             justify-content: center;
-
-            gap: 30px;
-
-            box-shadow:
-                inset 0 0 25px rgba(91,194,255,0.18);
+            text-align: center;
+            color: #dce8ff;
+            font-size: 12px;
+            font-weight: bold;
         }
 
-        .eye {
-            width: 30px;
-            height: 30px;
+        .node-edu { top: 30px; left: 50%; transform: translateX(-50%); }
+        .node-business { right: 0; top: 170px; }
+        .node-livestock { right: 45px; bottom: 20px; }
+        .node-farm { left: 45px; bottom: 20px; }
+        .node-aqua { left: 0; top: 170px; }
 
-            border-radius: 50%;
-
-            background: #6ee7ff;
-
-            box-shadow:
-                0 0 18px #6ee7ff;
-        }
-
-        .robot-mouth {
-            width: 75px;
-            height: 9px;
-
-            border-radius: 10px;
-
-            background: #b9cde4;
-
-            margin-top: 22px;
-        }
-
-        .robot-body {
-            width: 145px;
-            height: 95px;
-
-            margin-top: 20px;
-
-            border-radius: 25px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #dce9f7,
-                    #b9cce1
-                );
-
-            position: relative;
-        }
-
-        .robot-light {
-            position: absolute;
-
-            left: 50%;
-            top: 50%;
-
-            transform: translate(-50%, -50%);
-
-            width: 35px;
-            height: 35px;
-
-            border-radius: 50%;
-
-            background: #6ee7ff;
-
-            box-shadow:
-                0 0 20px rgba(110,231,255,0.9);
-        }
-
-        .floating-card {
-            position: absolute;
-            z-index: 5;
-
-            padding: 14px 18px;
-
-            border-radius: 15px;
-
-            background: rgba(255,255,255,0.09);
-            border: 1px solid rgba(255,255,255,0.14);
-
-            backdrop-filter: blur(15px);
-
-            color: white;
-
-            box-shadow:
-                0 15px 40px rgba(0,0,0,0.2);
-
-            font-size: 13px;
-        }
-
-        .card-ai {
-            top: 45px;
-            right: 5px;
-        }
-
-        .card-voice {
-            bottom: 60px;
-            left: 0;
-        }
-
-
-        /* =========================================================
+        /* =========================
            SECTION
-        ========================================================= */
+        ========================== */
 
         section {
             padding: 100px 0;
         }
 
-        .section-header {
-            max-width: 700px;
-
-            margin: 0 auto 55px;
-
+        .section-heading {
             text-align: center;
+            max-width: 720px;
+            margin: 0 auto 60px;
         }
 
-        .section-label {
-            color: #5869e8;
-
+        .section-heading span {
+            color: #4274ff;
             font-size: 13px;
-            font-weight: 800;
-
+            font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-
-            margin-bottom: 12px;
+            letter-spacing: 2px;
         }
 
-        .section-header h2 {
+        .section-heading h2 {
             font-size: clamp(32px, 4vw, 48px);
-
             line-height: 1.15;
-
-            margin-bottom: 18px;
-
-            color: #101b33;
+            margin: 12px 0 18px;
         }
 
-        .section-header p {
-            color: #68748c;
-
-            font-size: 16px;
+        .section-heading p {
+            color: #65728a;
         }
 
+        /* =========================
+           ECOSYSTEM
+        ========================== */
 
-        /* =========================================================
-           ABOUT
-        ========================================================= */
-
-        .about {
-            background: #f7faff;
-        }
-
-        .about-grid {
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 70px;
-
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 30px;
-            margin-bottom: 18px;
-        }
-
-        .about-text p {
-            color: #647087;
-            margin-bottom: 18px;
-        }
-
-        .about-list {
-            list-style: none;
-
-            display: grid;
-            gap: 13px;
-
-            margin-top: 25px;
-        }
-
-        .about-list li {
-            display: flex;
-            gap: 12px;
-
-            align-items: flex-start;
-        }
-
-        .check {
-            width: 25px;
-            height: 25px;
-
-            flex-shrink: 0;
-
-            border-radius: 50%;
-
-            background: #e7f9ff;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: #3a9ed2;
-
-            font-size: 13px;
-            font-weight: 900;
-        }
-
-        .about-visual {
-            min-height: 350px;
-
-            border-radius: 28px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #0b1c3d,
-                    #172f63
-                );
-
-            position: relative;
-
-            overflow: hidden;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .about-visual::before {
-            content: "";
-
-            position: absolute;
-
-            width: 350px;
-            height: 350px;
-
-            border-radius: 50%;
-
-            border: 1px solid rgba(255,255,255,0.12);
-        }
-
-        .about-icon {
-            position: relative;
-            z-index: 2;
-
-            width: 130px;
-            height: 130px;
-
-            border-radius: 35px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #6ee7ff,
-                    #756dff
-                );
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 55px;
-        }
-
-
-        /* =========================================================
-           FEATURES
-        ========================================================= */
-
-        .features-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 22px;
-        }
-
-        .feature {
-            padding: 30px;
-
-            border-radius: 20px;
-
-            border: 1px solid #e6ebf4;
-
+        .ecosystem {
             background: white;
-
-            transition:
-                transform 0.25s,
-                box-shadow 0.25s;
         }
 
-        .feature:hover {
-            transform: translateY(-6px);
-
-            box-shadow:
-                0 20px 45px rgba(34,60,100,0.09);
-        }
-
-        .feature-icon {
-            width: 52px;
-            height: 52px;
-
-            border-radius: 15px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: #edf5ff;
-
-            font-size: 23px;
-
-            margin-bottom: 20px;
-        }
-
-        .feature h3 {
-            font-size: 19px;
-            margin-bottom: 10px;
-        }
-
-        .feature p {
-            color: #6c778d;
-            font-size: 14px;
-        }
-
-
-        /* =========================================================
-           TARGET
-        ========================================================= */
-
-        .target {
-            background: #f7faff;
-        }
-
-        .target-grid {
+        .product-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
+            grid-template-columns: repeat(5, 1fr);
             gap: 18px;
         }
 
-        .target-card {
+        .product-card {
             padding: 28px 22px;
-
-            background: white;
-
-            border-radius: 20px;
-
-            border: 1px solid #e5ebf5;
-
-            text-align: center;
-        }
-
-        .target-card .icon {
-            font-size: 32px;
-
-            margin-bottom: 15px;
-        }
-
-        .target-card h3 {
-            font-size: 17px;
-            margin-bottom: 7px;
-        }
-
-        .target-card p {
-            font-size: 13px;
-            color: #778198;
-        }
-
-
-        /* =========================================================
-           HOW IT WORKS
-        ========================================================= */
-
-        .steps {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 30px;
-        }
-
-        .step {
-            position: relative;
-
-            padding: 32px;
-
             border-radius: 22px;
-
-            background: #07152f;
-
-            color: white;
+            border: 1px solid #e3e9f3;
+            background: #fff;
+            transition: .3s;
         }
 
-        .step-number {
-            font-size: 14px;
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(31,62,110,.10);
+        }
 
-            color: #6ee7ff;
-
-            font-weight: 800;
-
+        .product-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            background: #edf5ff;
             margin-bottom: 20px;
         }
 
-        .step h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
+        .product-card h3 {
+            margin-bottom: 8px;
         }
 
-        .step p {
-            color: #aebdd8;
+        .product-card p {
+            color: #68758a;
             font-size: 14px;
         }
 
-
-        /* =========================================================
-           CTA
-        ========================================================= */
-
-        .cta {
-            padding: 90px 0;
+        .product-tag {
+            display: inline-block;
+            margin-top: 18px;
+            font-size: 11px;
+            font-weight: bold;
+            color: #4274ff;
         }
 
-        .cta-box {
-            position: relative;
+        /* =========================
+           BUSINESS
+        ========================== */
 
-            overflow: hidden;
-
-            padding: 70px 40px;
-
-            border-radius: 30px;
-
-            text-align: center;
-
+        .business {
+            background: #07152f;
             color: white;
-
-            background:
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(110,231,255,0.22),
-                    transparent 30%
-                ),
-                linear-gradient(
-                    135deg,
-                    #07152f,
-                    #162e61
-                );
         }
 
-        .cta-box h2 {
-            font-size: clamp(32px, 5vw, 50px);
-
-            line-height: 1.1;
-
-            margin-bottom: 18px;
-        }
-
-        .cta-box p {
-            max-width: 600px;
-
-            margin: 0 auto 28px;
-
-            color: #bac8e3;
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-            padding: 45px 0;
-
-            background: #050e20;
-
-            color: #9aa8c2;
-        }
-
-        .footer-grid {
-            display: flex;
-
-            justify-content: space-between;
-
-            gap: 30px;
-
+        .business-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
             align-items: center;
         }
 
-        .footer-logo {
+        .business .section-heading {
+            text-align: left;
+            margin: 0;
+        }
+
+        .business .section-heading h2 {
             color: white;
-
-            font-size: 21px;
-
-            font-weight: 800;
         }
 
-        .footer-copy {
-            font-size: 13px;
+        .business .section-heading p {
+            color: #aebdd7;
         }
 
-        .footer-links {
+        .business-flow {
             display: flex;
-            gap: 22px;
+            flex-direction: column;
+            gap: 15px;
+        }
 
+        .flow-item {
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 16px;
+            background: rgba(255,255,255,.04);
+        }
+
+        .flow-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .flow-item span {
+            font-size: 13px;
+            color: #aebdd7;
+        }
+
+        /* =========================
+           GOVERNMENT
+        ========================== */
+
+        .government {
+            background: #f0f5fb;
+        }
+
+        .gov-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gov-card {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            border: 1px solid #e1e8f2;
+        }
+
+        .gov-number {
+            font-size: 32px;
+            font-weight: 900;
+            color: #4274ff;
+            margin-bottom: 10px;
+        }
+
+        .gov-card p {
+            color: #68758a;
+            font-size: 14px;
+        }
+
+        /* =========================
+           TECHNOLOGY
+        ========================== */
+
+        .technology {
+            background: white;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .tech-card {
+            padding: 30px;
+            border-radius: 20px;
+            background: #f7f9fc;
+            text-align: center;
+        }
+
+        .tech-card .icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .tech-card p {
+            color: #68758a;
+            font-size: 14px;
+        }
+
+        /* =========================
+           BUSINESS MODEL
+        ========================== */
+
+        .model {
+            background: #f7f9fc;
+        }
+
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .model-card {
+            padding: 35px;
+            background: white;
+            border-radius: 22px;
+            border: 1px solid #e3e9f3;
+        }
+
+        .model-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .model-card p {
+            color: #68758a;
+            font-size: 14px;
+        }
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            padding: 90px 0;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(78,126,255,.3), transparent 35%),
+                #07152f;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: clamp(35px, 5vw, 58px);
+            margin-bottom: 18px;
+        }
+
+        .cta p {
+            color: #b9c8e5;
+            max-width: 650px;
+            margin: auto auto 30px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #040d20;
+            color: #91a2c2;
+            padding: 50px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            color: white;
+            font-size: 23px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        footer h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        footer a {
+            display: block;
+            margin-bottom: 8px;
             font-size: 13px;
         }
 
-        .footer-links a:hover {
+        footer a:hover {
             color: white;
         }
 
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,.08);
+            padding-top: 20px;
+            font-size: 12px;
+            text-align: center;
+        }
 
-        /* =========================================================
-           RESPONSIVE TABLET
-        ========================================================= */
+        /* =========================
+           MOBILE
+        ========================== */
 
-        @media (max-width: 900px) {
+        @media(max-width: 900px) {
 
-            .nav-menu {
-                position: absolute;
-
-                top: 74px;
-                left: 0;
-
-                width: 100%;
-
+            .nav-links {
                 display: none;
-
-                flex-direction: column;
-
+                position: absolute;
+                top: 76px;
+                left: 0;
+                right: 0;
                 padding: 25px;
-
                 background: #07152f;
-
-                border-top: 1px solid rgba(255,255,255,0.08);
+                flex-direction: column;
             }
 
-            .nav-menu.active {
+            .nav-links.active {
                 display: flex;
             }
 
-            .menu-toggle {
+            .menu-btn {
                 display: block;
             }
 
-            .hero-grid {
-                grid-template-columns: 1fr;
-
-                text-align: center;
-
-                gap: 30px;
+            .hero {
+                min-height: auto;
+                padding-bottom: 80px;
             }
 
-            .hero-description {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .robot-area {
-                min-height: 400px;
-            }
-
-            .about-grid {
+            .hero-content {
                 grid-template-columns: 1fr;
             }
 
-            .features-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
+            .ai-visual {
+                height: 390px;
             }
 
-            .target-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .steps {
+            .business-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .gov-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
+        @media(max-width: 600px) {
 
-        /* =========================================================
-           RESPONSIVE MOBILE
-        ========================================================= */
-
-        @media (max-width: 600px) {
-
-            .container {
-                width: 90%;
-            }
-
-            .nav {
-                height: 66px;
-            }
-
-            .nav-menu {
-                top: 66px;
+            .navbar {
+                height: 68px;
             }
 
             .hero {
@@ -984,11 +640,28 @@
             }
 
             .hero h1 {
-                font-size: 43px;
+                letter-spacing: -2px;
             }
 
-            .hero-description {
+            .hero p {
                 font-size: 16px;
+            }
+
+            .ai-visual {
+                transform: scale(.78);
+                margin: -30px 0;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+
+            .product-grid,
+            .gov-grid,
+            .tech-grid,
+            .model-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
             }
 
             .hero-buttons {
@@ -996,111 +669,41 @@
             }
 
             .btn {
-                width: 100%;
-            }
-
-            .robot-area {
-                min-height: 350px;
-            }
-
-            .robot {
-                transform: scale(0.8);
-            }
-
-            .floating-card {
-                font-size: 11px;
-                padding: 10px 12px;
-            }
-
-            .card-ai {
-                right: -5px;
-            }
-
-            .card-voice {
-                left: -5px;
-            }
-
-            section {
-                padding: 75px 0;
-            }
-
-            .features-grid,
-            .target-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-visual {
-                min-height: 280px;
-            }
-
-            .cta-box {
-                padding: 55px 25px;
-            }
-
-            .footer-grid {
-                flex-direction: column;
-
                 text-align: center;
             }
 
-            .footer-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
         }
 
     </style>
 </head>
 
-
 <body>
 
-
-<!-- =========================================================
-     HEADER
-========================================================= -->
+<!-- =========================
+     NAVBAR
+========================== -->
 
 <header>
 
-    <div class="container nav">
+    <div class="container navbar">
 
         <a href="#" class="logo">
-
-            <div class="logo-icon">
-                K
-            </div>
-
+            <div class="logo-icon">K</div>
             KIRAVA
-
         </a>
 
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-        <button
-            class="menu-toggle"
-            onclick="toggleMenu()"
-            aria-label="Menu">
+        <nav class="nav-links" id="navLinks">
 
-            ☰
-
-        </button>
-
-
-        <nav class="nav-menu" id="navMenu">
-
+            <a href="#produk">Produk</a>
+            <a href="#business">Business</a>
+            <a href="#government">Pemerintahan</a>
+            <a href="#teknologi">Teknologi</a>
             <a href="#tentang">Tentang</a>
 
-            <a href="#fitur">Fitur</a>
-
-            <a href="#solusi">Solusi</a>
-
-            <a href="#cara-kerja">Cara Kerja</a>
-
-            <a
-                href="#kontak"
-                class="nav-button">
-
+            <a href="#kontak" class="nav-button">
                 Hubungi Kami
-
             </a>
 
         </nav>
@@ -1110,60 +713,43 @@
 </header>
 
 
-
-<!-- =========================================================
+<!-- =========================
      HERO
-========================================================= -->
+========================== -->
 
 <section class="hero">
 
-    <div class="container hero-grid">
-
+    <div class="container hero-content">
 
         <div>
 
             <div class="badge">
-                ✦ AI • ROBOTICS • EDUCATION
+                AI • IoT • AUTOMATION
             </div>
 
-
             <h1>
-
-                Belajar dengan
+                Satu teknologi.
+                <br>
                 <span class="gradient-text">
-                    cara yang lebih cerdas.
+                    Banyak kemungkinan.
                 </span>
-
             </h1>
 
-
-            <p class="hero-description">
-
-                KIRAVA adalah platform AI Robot yang
-                dirancang untuk menghadirkan pengalaman
-                belajar yang lebih interaktif, personal,
-                dan menyenangkan.
-
+            <p>
+                KIRAVA membangun ekosistem teknologi berbasis
+                Artificial Intelligence, Internet of Things dan
+                otomasi untuk membantu manusia bekerja,
+                belajar dan mengambil keputusan dengan lebih cerdas.
             </p>
-
 
             <div class="hero-buttons">
 
-                <a
-                    href="#fitur"
-                    class="btn btn-primary">
-
-                    Kenali KIRAVA →
-
+                <a href="#produk" class="btn btn-primary">
+                    Jelajahi KIRAVA
                 </a>
 
-
-                <a
-                    href="#kontak"
-                    class="btn btn-secondary">
-
-                    Hubungi Kami
-
+                <a href="#kontak" class="btn btn-outline">
+                    Bangun Bersama Kami
                 </a>
 
             </div>
@@ -1171,47 +757,170 @@
         </div>
 
 
+        <div class="ai-visual">
 
-        <!-- ROBOT -->
+            <div class="orbit one"></div>
+            <div class="orbit two"></div>
 
-        <div class="robot-area">
+            <div class="ai-core">
+                AI
+            </div>
 
-            <div class="robot-glow"></div>
+            <div class="node node-edu">
+                🎓<br>
+                KIRAVA EDU
+            </div>
+
+            <div class="node node-business">
+                🏪<br>
+                BUSINESS
+            </div>
+
+            <div class="node node-livestock">
+                🐔<br>
+                LIVESTOCK
+            </div>
+
+            <div class="node node-farm">
+                🌱<br>
+                FARM
+            </div>
+
+            <div class="node node-aqua">
+                🐟<br>
+                AQUA
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-            <div class="floating-card card-ai">
+<!-- =========================
+     ECOSYSTEM
+========================== -->
 
-                ✦ AI Assistant
+<section class="ecosystem" id="produk">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>KIRAVA Ecosystem</span>
+
+            <h2>
+                Teknologi untuk berbagai kebutuhan.
+            </h2>
+
+            <p>
+                Satu fondasi teknologi yang dapat diterapkan
+                di berbagai sektor kehidupan dan industri.
+            </p>
+
+        </div>
+
+
+        <div class="product-grid">
+
+
+            <div class="product-card">
+
+                <div class="product-icon">
+                    🎓
+                </div>
+
+                <h3>KIRAVA EDU</h3>
+
+                <p>
+                    Teknologi AI dan robotika untuk pembelajaran,
+                    sekolah, guru dan peserta didik.
+                </p>
+
+                <span class="product-tag">
+                    AI EDUCATION
+                </span>
 
             </div>
 
 
-            <div class="floating-card card-voice">
+            <div class="product-card">
 
-                🎙 Voice Interaction
+                <div class="product-icon">
+                    🏪
+                </div>
+
+                <h3>KIRAVA BUSINESS</h3>
+
+                <p>
+                    POS, manajemen usaha dan Business Intelligence
+                    untuk UMKM hingga pemerintah daerah.
+                </p>
+
+                <span class="product-tag">
+                    BUSINESS INTELLIGENCE
+                </span>
 
             </div>
 
 
-            <div class="robot">
+            <div class="product-card">
 
-                <div class="robot-head">
-
-                    <div class="eye"></div>
-
-                    <div class="eye"></div>
-
+                <div class="product-icon">
+                    🐔
                 </div>
 
+                <h3>KIRAVA LIVESTOCK</h3>
 
-                <div class="robot-mouth"></div>
+                <p>
+                    Monitoring dan otomasi kandang untuk membantu
+                    peternak mengelola kondisi lingkungan.
+                </p>
+
+                <span class="product-tag">
+                    SMART LIVESTOCK
+                </span>
+
+            </div>
 
 
-                <div class="robot-body">
+            <div class="product-card">
 
-                    <div class="robot-light"></div>
-
+                <div class="product-icon">
+                    🌱
                 </div>
+
+                <h3>KIRAVA FARM</h3>
+
+                <p>
+                    Monitoring lahan, sensor lingkungan dan
+                    otomasi penyiraman untuk pertanian cerdas.
+                </p>
+
+                <span class="product-tag">
+                    SMART FARMING
+                </span>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-icon">
+                    🐟
+                </div>
+
+                <h3>KIRAVA AQUA</h3>
+
+                <p>
+                    Feeder otomatis dan monitoring kualitas
+                    lingkungan kolam berbasis IoT dan AI.
+                </p>
+
+                <span class="product-tag">
+                    SMART AQUACULTURE
+                </span>
 
             </div>
 
@@ -1222,275 +931,287 @@
 </section>
 
 
+<!-- =========================
+     BUSINESS
+========================== -->
 
-<!-- =========================================================
-     ABOUT
-========================================================= -->
+<section class="business" id="business">
 
-<section
-    class="about"
-    id="tentang">
+    <div class="container business-grid">
 
-    <div class="container">
+        <div class="section-heading">
 
-
-        <div class="section-header">
-
-            <div class="section-label">
-                Tentang KIRAVA
-            </div>
+            <span>KIRAVA BUSINESS</span>
 
             <h2>
-                Teknologi yang dibuat
-                untuk manusia.
+                Dari transaksi UMKM
+                menjadi data yang bernilai.
             </h2>
 
             <p>
-                KIRAVA menggabungkan kecerdasan buatan,
-                robotika, dan teknologi pendidikan untuk
-                menciptakan interaksi yang lebih alami.
+                KIRAVA BUSINESS tidak berhenti sebagai aplikasi POS.
+                Data aktivitas usaha dapat dikembangkan menjadi
+                Business Intelligence untuk membantu pelaku usaha,
+                koperasi, pemerintah daerah dan dinas terkait
+                memahami kondisi ekonomi secara lebih nyata.
             </p>
 
         </div>
 
 
+        <div class="business-flow">
 
-        <div class="about-grid">
+            <div class="flow-item">
 
+                <strong>🏪 UMKM & Pelaku Usaha</strong>
 
-            <div class="about-text">
-
-                <h3>
-                    Bukan sekadar robot.
-                </h3>
-
-
-                <p>
-                    KIRAVA dirancang sebagai teman interaksi
-                    digital yang dapat membantu proses
-                    pembelajaran dan aktivitas pendidikan.
-                </p>
-
-
-                <p>
-                    Dengan teknologi AI, KIRAVA dapat
-                    memahami pertanyaan, memberikan respons,
-                    dan berinteraksi melalui suara.
-                </p>
-
-
-                <ul class="about-list">
-
-                    <li>
-
-                        <span class="check">✓</span>
-
-                        <span>
-                            Interaksi berbasis suara
-                        </span>
-
-                    </li>
-
-
-                    <li>
-
-                        <span class="check">✓</span>
-
-                        <span>
-                            AI yang dapat dikembangkan
-                        </span>
-
-                    </li>
-
-
-                    <li>
-
-                        <span class="check">✓</span>
-
-                        <span>
-                            Dirancang untuk lingkungan pendidikan
-                        </span>
-
-                    </li>
-
-
-                    <li>
-
-                        <span class="check">✓</span>
-
-                        <span>
-                            Dapat dikembangkan untuk kebutuhan institusi
-                        </span>
-
-                    </li>
-
-                </ul>
+                <span>
+                    Transaksi, produk, stok dan aktivitas usaha
+                    tercatat secara digital.
+                </span>
 
             </div>
 
 
+            <div class="flow-item">
 
-            <div class="about-visual">
+                <strong>📊 Business Intelligence</strong>
 
-                <div class="about-icon">
+                <span>
+                    Data diolah menjadi indikator,
+                    tren dan informasi yang mudah dipahami.
+                </span>
+
+            </div>
+
+
+            <div class="flow-item">
+
+                <strong>🏛️ Dinas & Pemerintah Daerah</strong>
+
+                <span>
+                    Dashboard membantu monitoring,
+                    pembinaan dan pemetaan kondisi UMKM.
+                </span>
+
+            </div>
+
+
+            <div class="flow-item">
+
+                <strong>🤖 AI Decision Support</strong>
+
+                <span>
+                    AI membantu menemukan pola dan memberikan
+                    insight untuk mendukung pengambilan keputusan.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GOVERNMENT
+========================== -->
+
+<section class="government" id="government">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>Government Intelligence</span>
+
+            <h2>
+                Data UMKM untuk kebijakan
+                yang lebih tepat.
+            </h2>
+
+            <p>
+                KIRAVA dapat menjadi jembatan antara aktivitas
+                ekonomi masyarakat dengan kebutuhan informasi
+                pemerintah daerah.
+            </p>
+
+        </div>
+
+
+        <div class="gov-grid">
+
+
+            <div class="gov-card">
+
+                <div class="gov-number">
+                    01
+                </div>
+
+                <h3>
+                    Monitoring
+                </h3>
+
+                <p>
+                    Melihat perkembangan UMKM
+                    secara berkala berdasarkan data.
+                </p>
+
+            </div>
+
+
+            <div class="gov-card">
+
+                <div class="gov-number">
+                    02
+                </div>
+
+                <h3>
+                    Pemetaan
+                </h3>
+
+                <p>
+                    Memetakan sektor usaha,
+                    wilayah dan potensi ekonomi.
+                </p>
+
+            </div>
+
+
+            <div class="gov-card">
+
+                <div class="gov-number">
+                    03
+                </div>
+
+                <h3>
+                    Pembinaan
+                </h3>
+
+                <p>
+                    Menentukan UMKM yang membutuhkan
+                    pelatihan atau pendampingan.
+                </p>
+
+            </div>
+
+
+            <div class="gov-card">
+
+                <div class="gov-number">
+                    04
+                </div>
+
+                <h3>
+                    Decision Support
+                </h3>
+
+                <p>
+                    AI membantu menghasilkan insight
+                    untuk mendukung keputusan.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TECHNOLOGY
+========================== -->
+
+<section class="technology" id="teknologi">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>Technology</span>
+
+            <h2>
+                Satu fondasi teknologi.
+                Banyak aplikasi.
+            </h2>
+
+            <p>
+                Semua lini KIRAVA dibangun dengan pendekatan
+                teknologi yang dapat berkembang bersama kebutuhan.
+            </p>
+
+        </div>
+
+
+        <div class="tech-grid">
+
+
+            <div class="tech-card">
+
+                <div class="icon">
                     🤖
                 </div>
 
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     FEATURES
-========================================================= -->
-
-<section id="fitur">
-
-    <div class="container">
-
-
-        <div class="section-header">
-
-            <div class="section-label">
-                Teknologi KIRAVA
-            </div>
-
-            <h2>
-                Satu platform,
-                banyak kemungkinan.
-            </h2>
-
-            <p>
-                KIRAVA dapat terus berkembang mengikuti
-                kebutuhan pengguna dan institusi.
-            </p>
-
-        </div>
-
-
-
-        <div class="features-grid">
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    🧠
-                </div>
-
-                <h3>
-                    Artificial Intelligence
-                </h3>
+                <h3>Artificial Intelligence</h3>
 
                 <p>
-                    Memanfaatkan teknologi AI untuk
-                    memahami pertanyaan dan memberikan
-                    respons yang relevan.
+                    AI untuk analisis, rekomendasi,
+                    interaksi dan pengambilan keputusan.
                 </p>
 
             </div>
 
 
+            <div class="tech-card">
 
-            <div class="feature">
-
-                <div class="feature-icon">
-                    🎙
+                <div class="icon">
+                    📡
                 </div>
 
-                <h3>
-                    Voice Interaction
-                </h3>
+                <h3>Internet of Things</h3>
 
                 <p>
-                    Pengguna dapat berinteraksi dengan
-                    KIRAVA menggunakan suara secara natural.
+                    Sensor menghubungkan dunia nyata
+                    dengan sistem digital.
                 </p>
 
             </div>
 
 
+            <div class="tech-card">
 
-            <div class="feature">
-
-                <div class="feature-icon">
-                    📚
-                </div>
-
-                <h3>
-                    Educational Assistant
-                </h3>
-
-                <p>
-                    Membantu aktivitas belajar dan memberikan
-                    pengalaman pendidikan yang lebih interaktif.
-                </p>
-
-            </div>
-
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
+                <div class="icon">
                     ⚙️
                 </div>
 
-                <h3>
-                    Customizable
-                </h3>
+                <h3>Automation</h3>
 
                 <p>
-                    Sistem dapat dikembangkan dan disesuaikan
-                    dengan kebutuhan sekolah atau institusi.
+                    Mengubah keputusan digital
+                    menjadi tindakan otomatis.
                 </p>
 
             </div>
 
 
+            <div class="tech-card">
 
-            <div class="feature">
-
-                <div class="feature-icon">
+                <div class="icon">
                     ☁️
                 </div>
 
-                <h3>
-                    Cloud & AI Services
-                </h3>
+                <h3>Cloud Platform</h3>
 
                 <p>
-                    Dapat terhubung dengan berbagai layanan
-                    AI dan cloud sesuai kebutuhan aplikasi.
+                    Data dan aplikasi dapat dikelola
+                    secara terpusat dan scalable.
                 </p>
 
             </div>
-
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    🔒
-                </div>
-
-                <h3>
-                    Managed Service
-                </h3>
-
-                <p>
-                    KIRAVA dapat dikembangkan menjadi layanan
-                    berlangganan untuk institusi.
-                </p>
-
-            </div>
-
 
         </div>
 
@@ -1499,115 +1220,73 @@
 </section>
 
 
+<!-- =========================
+     BUSINESS MODEL
+========================== -->
 
-<!-- =========================================================
-     SOLUSI
-========================================================= -->
-
-<section
-    class="target"
-    id="solusi">
+<section class="model">
 
     <div class="container">
 
+        <div class="section-heading">
 
-        <div class="section-header">
-
-            <div class="section-label">
-                Untuk siapa?
-            </div>
+            <span>Business Model</span>
 
             <h2>
-                KIRAVA dapat hadir
-                di berbagai lingkungan.
+                Hardware, software dan layanan.
             </h2>
 
             <p>
-                Teknologi yang dapat dikembangkan
-                untuk berbagai kebutuhan.
+                KIRAVA dirancang untuk berkembang menjadi
+                ekosistem teknologi dengan pendapatan berulang.
             </p>
 
         </div>
 
 
+        <div class="model-grid">
 
-        <div class="target-grid">
 
-
-            <div class="target-card">
-
-                <div class="icon">
-                    🏫
-                </div>
+            <div class="model-card">
 
                 <h3>
-                    Sekolah
+                    Hardware
                 </h3>
 
                 <p>
-                    Mendukung pembelajaran dan aktivitas
-                    interaktif di sekolah.
+                    Robot, sensor, feeder, controller,
+                    perangkat IoT dan perangkat otomasi.
                 </p>
 
             </div>
 
 
-
-            <div class="target-card">
-
-                <div class="icon">
-                    👩‍🏫
-                </div>
+            <div class="model-card">
 
                 <h3>
-                    Guru
+                    Software
                 </h3>
 
                 <p>
-                    Membantu menghadirkan pengalaman belajar
-                    yang lebih menarik.
+                    Aplikasi, dashboard, monitoring,
+                    POS dan sistem manajemen.
                 </p>
 
             </div>
 
 
-
-            <div class="target-card">
-
-                <div class="icon">
-                    🏢
-                </div>
+            <div class="model-card">
 
                 <h3>
-                    Institusi
+                    SaaS
                 </h3>
 
                 <p>
-                    Solusi AI dan robotika yang dapat
-                    dikustomisasi.
+                    Layanan berlangganan bulanan atau tahunan
+                    untuk sekolah, bisnis, perusahaan dan instansi.
                 </p>
 
             </div>
-
-
-
-            <div class="target-card">
-
-                <div class="icon">
-                    🏛
-                </div>
-
-                <h3>
-                    Pemerintah
-                </h3>
-
-                <p>
-                    Potensi penerapan teknologi AI untuk
-                    layanan dan program pendidikan.
-                </p>
-
-            </div>
-
 
         </div>
 
@@ -1616,190 +1295,137 @@
 </section>
 
 
+<!-- =========================
+     ABOUT
+========================== -->
 
-<!-- =========================================================
-     CARA KERJA
-========================================================= -->
-
-<section id="cara-kerja">
+<section id="tentang">
 
     <div class="container">
 
+        <div class="section-heading">
 
-        <div class="section-header">
-
-            <div class="section-label">
-                Cara Kerja
-            </div>
+            <span>Tentang KIRAVA</span>
 
             <h2>
-                Sederhana bagi pengguna.
+                Teknologi harus menyelesaikan
+                masalah nyata.
             </h2>
 
             <p>
-                Interaksi manusia dan teknologi
-                dibuat sesederhana mungkin.
+                KIRAVA dibangun dengan visi menggabungkan
+                Artificial Intelligence, IoT dan otomasi
+                untuk menciptakan solusi yang benar-benar
+                digunakan di dunia nyata.
             </p>
 
         </div>
 
-
-
-        <div class="steps">
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    01 — INTERACT
-                </div>
-
-                <h3>
-                    Berbicara
-                </h3>
-
-                <p>
-                    Pengguna memanggil KIRAVA dan
-                    menyampaikan pertanyaan atau perintah
-                    melalui suara.
-                </p>
-
-            </div>
-
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    02 — UNDERSTAND
-                </div>
-
-                <h3>
-                    AI Memahami
-                </h3>
-
-                <p>
-                    Sistem memproses input dan menentukan
-                    respons yang paling sesuai.
-                </p>
-
-            </div>
-
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    03 — RESPOND
-                </div>
-
-                <h3>
-                    KIRAVA Menjawab
-                </h3>
-
-                <p>
-                    KIRAVA memberikan respons melalui
-                    suara, layar, atau tindakan robot.
-                </p>
-
-            </div>
-
-
-        </div>
-
     </div>
 
 </section>
 
 
-
-<!-- =========================================================
+<!-- =========================
      CTA
-========================================================= -->
+========================== -->
 
-<section
-    class="cta"
-    id="kontak">
+<section class="cta" id="kontak">
 
     <div class="container">
 
-        <div class="cta-box">
+        <h2>
+            Mari bangun masa depan
+            bersama KIRAVA.
+        </h2>
 
-            <h2>
-                Mari membangun
-                masa depan bersama.
-            </h2>
+        <p>
+            Kami terbuka untuk kolaborasi dengan sekolah,
+            UMKM, perusahaan, peternak, petani,
+            pembudidaya ikan, pemerintah daerah
+            dan berbagai institusi.
+        </p>
 
-            <p>
-                KIRAVA masih terus dikembangkan.
-                Jika Anda tertarik dengan teknologi
-                AI Robot untuk pendidikan dan institusi,
-                mari berdiskusi bersama.
-            </p>
-
-
-            <a
-                href="mailto:hello@kirava.id"
-                class="btn btn-primary">
-
-                Hubungi KIRAVA →
-
-            </a>
-
-        </div>
+        <a href="mailto:hello@kirava.id"
+           class="btn btn-primary">
+            Hubungi KIRAVA
+        </a>
 
     </div>
 
 </section>
 
 
-
-<!-- =========================================================
+<!-- =========================
      FOOTER
-========================================================= -->
+========================== -->
 
 <footer>
 
-    <div class="container footer-grid">
+    <div class="container">
+
+        <div class="footer-grid">
 
 
-        <div>
+            <div>
 
-            <div class="footer-logo">
-                KIRAVA
+                <div class="footer-brand">
+                    KIRAVA
+                </div>
+
+                <p>
+                    AI & IoT untuk dunia nyata.
+                </p>
+
             </div>
 
-            <div class="footer-copy">
-                AI • Robotics • Education
+
+            <div>
+
+                <h4>Solutions</h4>
+
+                <a href="#produk">KIRAVA EDU</a>
+                <a href="#business">KIRAVA BUSINESS</a>
+                <a href="#produk">KIRAVA LIVESTOCK</a>
+                <a href="#produk">KIRAVA FARM</a>
+                <a href="#produk">KIRAVA AQUA</a>
+
             </div>
+
+
+            <div>
+
+                <h4>Technology</h4>
+
+                <a href="#teknologi">Artificial Intelligence</a>
+                <a href="#teknologi">IoT</a>
+                <a href="#teknologi">Automation</a>
+                <a href="#teknologi">Cloud</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Contact</h4>
+
+                <a href="mailto:hello@kirava.id">
+                    hello@kirava.id
+                </a>
+
+                <a href="#kontak">
+                    Partnership
+                </a>
+
+            </div>
+
 
         </div>
 
 
-        <div class="footer-links">
+        <div class="copyright">
 
-            <a href="#tentang">
-                Tentang
-            </a>
-
-            <a href="#fitur">
-                Fitur
-            </a>
-
-            <a href="#solusi">
-                Solusi
-            </a>
-
-            <a href="#kontak">
-                Kontak
-            </a>
-
-        </div>
-
-
-        <div class="footer-copy">
-
-            © 2026 KIRAVA
+            © 2026 KIRAVA. All rights reserved.
 
         </div>
 
@@ -1808,44 +1434,17 @@
 </footer>
 
 
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-
 <script>
 
     function toggleMenu() {
 
-        const menu =
-            document.getElementById("navMenu");
-
-        menu.classList.toggle("active");
+        document
+            .getElementById("navLinks")
+            .classList.toggle("active");
 
     }
 
-
-    // Tutup menu setelah link diklik
-
-    document
-        .querySelectorAll(".nav-menu a")
-        .forEach(function(link) {
-
-            link.addEventListener(
-                "click",
-                function() {
-
-                    document
-                        .getElementById("navMenu")
-                        .classList.remove("active");
-
-                }
-            );
-
-        });
-
 </script>
-
 
 </body>
 </html>
