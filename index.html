@@ -285,132 +285,360 @@
         }
 
         /* =========================
-           HERO VISUAL
+           HERO VISUAL (CYBER-NEURAL ECOSYSTEM)
         ========================= */
 
         .hero-visual {
             position: relative;
-            min-height: 380px;
+            min-height: 440px;
             display: flex;
             align-items: center;
             justify-content: center;
+            user-select: none;
         }
 
-        .visual-main {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background:
-                radial-gradient(circle,
-                #ffffff 20%,
-                #dbeafe 21%,
-                #dbeafe 22%,
-                transparent 23%),
-                #eff6ff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 30px 80px rgba(37, 99, 235, 0.16);
-            border: 1px solid rgba(191, 219, 254, 0.6);
+        .neural-net-stage {
             position: relative;
+            width: 100%;
+            max-width: 440px;
+            aspect-ratio: 1 / 1;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 50% 50%, #0e1e35 0%, #081324 60%, #040914 100%);
+            border-radius: 36px;
+            border: 1px solid rgba(56, 189, 248, 0.28);
+            box-shadow:
+                0 25px 60px -15px rgba(4, 9, 20, 0.45),
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                inset 0 0 70px rgba(0, 245, 255, 0.06);
+            overflow: visible;
         }
 
-        .visual-pulse-ring {
+        /* SVG Background Neural Layer (Beaded Roots & Constellation) */
+        .neural-svg {
             position: absolute;
-            inset: -12px;
-            border-radius: 50%;
-            border: 1px dashed rgba(37, 99, 235, 0.25);
-            animation: spin-slow 35s linear infinite;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: visible;
+            z-index: 1;
         }
 
-        @keyframes spin-slow {
+        /* 1. Underlying Bioluminescent Vapor Aura */
+        .root-aura {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+            opacity: 0.25;
+            filter: url(#neonAuraBlur);
+        }
+
+        /* 2. Primary Neon Blue Beaded Root Strand */
+        .root-beads-shell {
+            fill: none;
+            stroke-width: 4.2;
+            stroke-linecap: round;
+            stroke-dasharray: 0 11.5;
+            filter: url(#neonGlow);
+            animation: beads-stream 16s linear infinite;
+        }
+
+        /* 3. Luminous Photonic Core (White hot center of each bead) */
+        .root-beads-core {
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-dasharray: 0 11.5;
+            opacity: 0.95;
+            animation: beads-stream 16s linear infinite;
+        }
+
+        /* 4. Outer Ring of Starlight Neon Beads */
+        .root-ring-beads {
+            fill: none;
+            stroke-width: 2.8;
+            stroke-linecap: round;
+            stroke-dasharray: 0 11;
+            opacity: 0.6;
+            filter: url(#neonGlow);
+            animation: beads-stream-reverse 24s linear infinite;
+        }
+
+        .root-ring-core {
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 1.4;
+            stroke-linecap: round;
+            stroke-dasharray: 0 11;
+            opacity: 0.85;
+            animation: beads-stream-reverse 24s linear infinite;
+        }
+
+        /* Continuous gentle flow of beads */
+        @keyframes beads-stream {
+            to {
+                stroke-dashoffset: -115;
+            }
+        }
+
+        @keyframes beads-stream-reverse {
+            to {
+                stroke-dashoffset: 110;
+            }
+        }
+
+        /* Macro Node Pearls (Luminous pearls along the root inflection) */
+        .pearl-node {
+            fill: #ffffff;
+            stroke: #00f5ff;
+            stroke-width: 2.2;
+            filter: url(#neonGlow);
+            animation: pearl-glow 3.6s ease-in-out infinite alternate;
+        }
+
+        @keyframes pearl-glow {
+            0% {
+                r: 3.2;
+                opacity: 0.75;
+                filter: drop-shadow(0 0 4px #00f5ff);
+            }
+            100% {
+                r: 4.8;
+                opacity: 1;
+                filter: drop-shadow(0 0 10px #00f5ff);
+            }
+        }
+
+        /* Secondary Rootlet Branches (Cabang Akar Berupa Manik Halus) */
+        .rootlet-beads {
+            fill: none;
+            stroke: #00f5ff;
+            stroke-width: 2.4;
+            stroke-linecap: round;
+            stroke-dasharray: 0 9;
+            opacity: 0.55;
+            filter: url(#neonGlow);
+        }
+
+        /* Central Smart Technology Core */
+        .core-hub {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 112px;
+            height: 112px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            cursor: default;
+        }
+
+        .core-radar-ring {
+            position: absolute;
+            inset: -14px;
+            border-radius: 50%;
+            border: 1.5px dashed rgba(0, 245, 255, 0.45);
+            animation: spin-radar 22s linear infinite;
+        }
+
+        .core-radar-ring-2 {
+            position: absolute;
+            inset: -28px;
+            border-radius: 50%;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            animation: pulse-aura 4s ease-in-out infinite;
+        }
+
+        @keyframes spin-radar {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
 
-        .visual-core {
-            width: 150px;
-            height: 150px;
-            border-radius: 32px;
-            background: #07111f;
-            color: white;
+        @keyframes pulse-aura {
+            0%, 100% {
+                transform: scale(0.96);
+                opacity: 0.35;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.85;
+            }
+        }
+
+        .core-body {
+            position: relative;
+            width: 92px;
+            height: 92px;
+            border-radius: 28px;
+            background: radial-gradient(circle at 35% 35%, #152945 0%, #081324 70%, #030812 100%);
+            border: 2px solid rgba(0, 245, 255, 0.65);
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            z-index: 2;
+            box-shadow:
+                0 0 35px rgba(0, 245, 255, 0.4),
+                0 18px 45px rgba(4, 9, 20, 0.65),
+                inset 0 0 20px rgba(0, 245, 255, 0.2);
+            transition: all 0.3s ease;
         }
 
-        .visual-core strong {
-            font-size: 34px;
-            letter-spacing: -2px;
-            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .core-body:hover {
+            transform: scale(1.06);
+            border-color: #00f5ff;
+            box-shadow:
+                0 0 45px rgba(0, 245, 255, 0.65),
+                0 22px 55px rgba(4, 9, 20, 0.75),
+                inset 0 0 25px rgba(0, 245, 255, 0.35);
         }
 
-        .visual-core small {
-            color: #94a3b8;
-            margin-top: 4px;
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
+        .core-tech-icon {
+            width: 48px;
+            height: 48px;
+            display: block;
+            filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.8));
+            animation: core-breath 3.4s ease-in-out infinite;
         }
 
-        .floating {
+        @keyframes core-breath {
+            0%, 100% {
+                filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.65));
+                transform: scale(0.97);
+            }
+            50% {
+                filter: drop-shadow(0 0 16px rgba(0, 245, 255, 0.95));
+                transform: scale(1.03);
+            }
+        }
+
+        /* Satellite Domain Nodes (Frosted Cyber Nodes - Anchored Perfectly to Root Tips) */
+        .satellite-node {
             position: absolute;
-            padding: 13px 17px;
-            background: white;
-            border: 1px solid #e7ebf0;
-            border-radius: 14px;
-            box-shadow: 0 15px 40px rgba(15, 23, 42, 0.09);
-            font-size: 13px;
-            font-weight: 600;
-            display: inline-flex;
+            width: 58px;
+            height: 58px;
+            border-radius: 18px;
+            background: rgba(12, 23, 38, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1.5px solid rgba(56, 189, 248, 0.4);
+            display: flex;
             align-items: center;
-            gap: 6px;
-            z-index: 3;
-            transition: transform 0.2s ease;
+            justify-content: center;
+            z-index: 4;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+            cursor: pointer;
         }
 
-        .floating:hover {
-            transform: scale(1.05);
+        .satellite-node:hover {
+            transform: translate(-50%, -50%) scale(1.18);
+            z-index: 6;
         }
 
-        .floating.one {
-            top: 35px;
-            right: 10px;
-            animation: float-one 4.5s ease-in-out infinite;
+        .satellite-node svg {
+            width: 28px;
+            height: 28px;
+            display: block;
+            transition: transform 0.25s ease;
         }
 
-        .floating.two {
-            bottom: 50px;
-            left: 5px;
-            animation: float-two 5s ease-in-out infinite;
+        .satellite-node:hover svg {
+            transform: scale(1.1);
         }
 
-        .floating.three {
-            bottom: 10px;
-            right: 35px;
-            animation: float-three 4.2s ease-in-out infinite;
+        /* Positions & Domain Accents (Breathing In-Place without X/Y translation displacement) */
+        /* 1. Smart Farm - Top */
+        .node-farm {
+            left: 50%;
+            top: 15.5%;
+            border-color: rgba(16, 185, 129, 0.65);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(16, 185, 129, 0.25);
+            animation: pulse-farm 4.2s ease-in-out infinite;
+        }
+        .node-farm:hover {
+            border-color: #00f5a0;
+            box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5), 0 0 28px rgba(0, 245, 160, 0.55);
         }
 
-        @keyframes float-one {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-7px); }
+        /* 2. Smart Livestock - Top Right */
+        .node-livestock {
+            left: 84.5%;
+            top: 37.7%;
+            border-color: rgba(245, 158, 11, 0.65);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(245, 158, 11, 0.25);
+            animation: pulse-livestock 4.6s ease-in-out infinite;
+        }
+        .node-livestock:hover {
+            border-color: #fbbf24;
+            box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5), 0 0 28px rgba(251, 191, 36, 0.55);
         }
 
-        @keyframes float-two {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(6px); }
+        /* 3. Smart Bisnis - Bottom Right */
+        .node-bisnis {
+            left: 75.5%;
+            top: 77.7%;
+            border-color: rgba(99, 102, 241, 0.65);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(99, 102, 241, 0.25);
+            animation: pulse-bisnis 4.4s ease-in-out infinite;
+        }
+        .node-bisnis:hover {
+            border-color: #818cf8;
+            box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5), 0 0 28px rgba(129, 140, 248, 0.55);
         }
 
-        @keyframes float-three {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-6px); }
+        /* 4. Smart School - Bottom Left */
+        .node-school {
+            left: 24.5%;
+            top: 77.7%;
+            border-color: rgba(14, 165, 233, 0.65);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(14, 165, 233, 0.25);
+            animation: pulse-school 4.8s ease-in-out infinite;
+        }
+        .node-school:hover {
+            border-color: #38bdf8;
+            box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5), 0 0 28px rgba(56, 189, 248, 0.55);
+        }
+
+        /* 5. Smart Home - Top Left */
+        .node-home {
+            left: 15.5%;
+            top: 37.7%;
+            border-color: rgba(37, 99, 235, 0.65);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(37, 99, 235, 0.25);
+            animation: pulse-home 4.0s ease-in-out infinite;
+        }
+        .node-home:hover {
+            border-color: #60a5fa;
+            box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5), 0 0 28px rgba(96, 165, 250, 0.55);
+        }
+
+        /* Subtle In-Place Breathing Animations (No Translation Offset) */
+        @keyframes pulse-farm {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.04); }
+        }
+        @keyframes pulse-livestock {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.04); }
+        }
+        @keyframes pulse-bisnis {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.04); }
+        }
+        @keyframes pulse-school {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.04); }
+        }
+        @keyframes pulse-home {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.04); }
         }
 
         /* =========================
@@ -896,40 +1124,46 @@
 
             .hero-visual {
                 min-height: 320px;
+                padding: 10px 0;
             }
 
-            .visual-main {
-                width: 250px;
-                height: 250px;
+            .neural-net-stage {
+                max-width: 320px;
             }
 
-            .visual-core {
-                width: 125px;
-                height: 125px;
+            .core-hub {
+                width: 86px;
+                height: 86px;
             }
 
-            .visual-core strong {
-                font-size: 28px;
+            .core-radar-ring {
+                inset: -10px;
             }
 
-            .floating {
-                font-size: 12px;
-                padding: 10px 14px;
+            .core-radar-ring-2 {
+                inset: -20px;
             }
 
-            .floating.one {
-                top: 20px;
-                right: -5px;
+            .core-body {
+                width: 72px;
+                height: 72px;
+                border-radius: 22px;
             }
 
-            .floating.two {
-                bottom: 35px;
-                left: -5px;
+            .core-tech-icon {
+                width: 38px;
+                height: 38px;
             }
 
-            .floating.three {
-                bottom: 5px;
-                right: 15px;
+            .satellite-node {
+                width: 46px;
+                height: 46px;
+                border-radius: 14px;
+            }
+
+            .satellite-node svg {
+                width: 22px;
+                height: 22px;
             }
 
             .section {
@@ -1110,27 +1344,303 @@
 
 
         <div class="hero-visual" id="heroVisual">
+            <div class="neural-net-stage" id="neuralNetStage">
 
-            <div class="visual-main">
-                <div class="visual-pulse-ring"></div>
-                <div class="visual-core">
-                    <strong>AI</strong>
-                    <small>+ IoT</small>
+                <!-- Animated AI Synapses SVG Canvas (Cyber-Bioluminescent Neural Constellation) -->
+                <svg class="neural-svg" viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <!-- High-Definition Quantum Glow Filters -->
+                        <filter id="neonGlow" x="-40%" y="-40%" width="180%" height="180%">
+                            <feGaussianBlur stdDeviation="2.8" result="blur1" />
+                            <feGaussianBlur stdDeviation="6.5" result="blur2" />
+                            <feMerge>
+                                <feMergeNode in="blur2" />
+                                <feMergeNode in="blur1" />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+
+                        <filter id="neonAuraBlur" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="7.5" />
+                        </filter>
+
+                        <!-- Radial core electric aura -->
+                        <radialGradient id="neonCoreAura" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#00f5ff" stop-opacity="0.38" />
+                            <stop offset="45%" stop-color="#0284c7" stop-opacity="0.18" />
+                            <stop offset="75%" stop-color="#0369a1" stop-opacity="0.05" />
+                            <stop offset="100%" stop-color="#040914" stop-opacity="0" />
+                        </radialGradient>
+
+                        <!-- Domain-Specific Root Gradients (Blending from Core Neon Cyan to Domain Colors) -->
+                        <!-- 1. Farm (Cyan to Neon Emerald/Mint) -->
+                        <linearGradient id="gradFarm" x1="50%" y1="100%" x2="50%" y2="0%">
+                            <stop offset="0%" stop-color="#00f5ff" />
+                            <stop offset="55%" stop-color="#00e5a3" />
+                            <stop offset="100%" stop-color="#10b981" />
+                        </linearGradient>
+
+                        <!-- 2. Livestock (Cyan to Golden Topaz) -->
+                        <linearGradient id="gradLivestock" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#00f5ff" />
+                            <stop offset="55%" stop-color="#38bdf8" />
+                            <stop offset="100%" stop-color="#fbbf24" />
+                        </linearGradient>
+
+                        <!-- 3. Bisnis (Cyan to Electric Violet/Indigo) -->
+                        <linearGradient id="gradBisnis" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00f5ff" />
+                            <stop offset="50%" stop-color="#60a5fa" />
+                            <stop offset="100%" stop-color="#818cf8" />
+                        </linearGradient>
+
+                        <!-- 4. School (Cyan to Pure Azure Sky) -->
+                        <linearGradient id="gradSchool" x1="100%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#00f5ff" />
+                            <stop offset="60%" stop-color="#38bdf8" />
+                            <stop offset="100%" stop-color="#0ea5e9" />
+                        </linearGradient>
+
+                        <!-- 5. Home (Cyan to Royal Blue) -->
+                        <linearGradient id="gradHome" x1="100%" y1="100%" x2="0%" y2="0%">
+                            <stop offset="0%" stop-color="#00f5ff" />
+                            <stop offset="55%" stop-color="#38bdf8" />
+                            <stop offset="100%" stop-color="#3b82f6" />
+                        </linearGradient>
+
+                        <!-- Outer Constellation Ring Gradient -->
+                        <linearGradient id="gradRing" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00f5ff" />
+                            <stop offset="25%" stop-color="#10b981" />
+                            <stop offset="50%" stop-color="#fbbf24" />
+                            <stop offset="75%" stop-color="#818cf8" />
+                            <stop offset="100%" stop-color="#00f5ff" />
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Background Deep Space / Holographic Coordinate Mesh -->
+                    <circle cx="220" cy="220" r="165" fill="url(#neonCoreAura)" />
+                    <circle cx="220" cy="220" r="145" stroke="rgba(0, 245, 255, 0.08)" stroke-width="1" stroke-dasharray="2 6" fill="none" />
+                    <circle cx="220" cy="220" r="115" stroke="rgba(56, 189, 248, 0.12)" stroke-width="1" fill="none" />
+                    <circle cx="220" cy="220" r="75" stroke="rgba(0, 245, 255, 0.15)" stroke-width="1.2" stroke-dasharray="4 8" fill="none" />
+
+                    <!-- Outer Connecting Constellation of Micro Neon Beads -->
+                    <path class="root-ring-beads" stroke="url(#gradRing)" d="M 220 68 C 285 80, 342 110, 372 166 C 392 225, 370 290, 332 342 C 280 378, 160 378, 108 342 C 70 290, 48 225, 68 166 C 98 110, 155 80, 220 68 Z" />
+                    <path class="root-ring-core" d="M 220 68 C 285 80, 342 110, 372 166 C 392 225, 370 290, 332 342 C 280 378, 160 378, 108 342 C 70 290, 48 225, 68 166 C 98 110, 155 80, 220 68 Z" />
+
+                    <!-- 5 MAIN ROOTS: LAYER 1 - Soft Bioluminescent Vapor Auras -->
+                    <g class="roots-aura-group">
+                        <path class="root-aura" stroke="url(#gradFarm)" d="M 220 220 C 210 170, 230 118, 220 68" />
+                        <path class="root-aura" stroke="url(#gradLivestock)" d="M 220 220 C 265 235, 320 175, 372 166" />
+                        <path class="root-aura" stroke="url(#gradBisnis)" d="M 220 220 C 245 270, 315 275, 332 342" />
+                        <path class="root-aura" stroke="url(#gradSchool)" d="M 220 220 C 195 270, 125 275, 108 342" />
+                        <path class="root-aura" stroke="url(#gradHome)" d="M 220 220 C 175 235, 120 175, 68 166" />
+                    </g>
+
+                    <!-- Delicate Organic Secondary Rootlets (Cabang Akar Berupa Manik Halus) -->
+                    <g class="rootlets-group">
+                        <path class="rootlet-beads" d="M 216 150 C 234 140, 246 128, 255 116" />
+                        <path class="rootlet-beads" d="M 295 190 C 315 178, 328 152, 336 135" />
+                        <path class="rootlet-beads" d="M 285 275 C 308 274, 325 268, 338 258" />
+                        <path class="rootlet-beads" d="M 155 275 C 132 274, 115 268, 102 258" />
+                        <path class="rootlet-beads" d="M 145 190 C 125 178, 112 152, 104 135" />
+                    </g>
+
+                    <!-- 5 MAIN ROOTS: LAYER 2 - Primary Beaded Neon Shell (Rangkaian Lingkaran Kecil Neon) -->
+                    <g class="roots-beads-shell-group">
+                        <path class="root-beads-shell" stroke="url(#gradFarm)" d="M 220 220 C 210 170, 230 118, 220 68" />
+                        <path class="root-beads-shell" stroke="url(#gradLivestock)" d="M 220 220 C 265 235, 320 175, 372 166" />
+                        <path class="root-beads-shell" stroke="url(#gradBisnis)" d="M 220 220 C 245 270, 315 275, 332 342" />
+                        <path class="root-beads-shell" stroke="url(#gradSchool)" d="M 220 220 C 195 270, 125 275, 108 342" />
+                        <path class="root-beads-shell" stroke="url(#gradHome)" d="M 220 220 C 175 235, 120 175, 68 166" />
+                    </g>
+
+                    <!-- 5 MAIN ROOTS: LAYER 3 - High-Luminance Photonic Core (Inti Putih Terang di Tengah Setiap Manik) -->
+                    <g class="roots-beads-core-group">
+                        <path class="root-beads-core" d="M 220 220 C 210 170, 230 118, 220 68" />
+                        <path class="root-beads-core" d="M 220 220 C 265 235, 320 175, 372 166" />
+                        <path class="root-beads-core" d="M 220 220 C 245 270, 315 275, 332 342" />
+                        <path class="root-beads-core" d="M 220 220 C 195 270, 125 275, 108 342" />
+                        <path class="root-beads-core" d="M 220 220 C 175 235, 120 175, 68 166" />
+                    </g>
+
+                    <!-- Macro Pearl Nodes along Root Junctions (Mutiara Cahaya di Titik Sambungan Akar) -->
+                    <circle cx="216" cy="150" class="pearl-node" />
+                    <circle cx="295" cy="190" class="pearl-node" style="animation-delay: -0.8s;" />
+                    <circle cx="285" cy="275" class="pearl-node" style="animation-delay: -1.6s;" />
+                    <circle cx="155" cy="275" class="pearl-node" style="animation-delay: -2.4s;" />
+                    <circle cx="145" cy="190" class="pearl-node" style="animation-delay: -3.2s;" />
+
+                    <!-- Photon Synaptic Pulses (Satu Cahaya Halus Meluncur Tenang & Elegan Menuju Masing-Masing Domain) -->
+                    <!-- Pulse 1: Center -> Farm -->
+                    <circle r="4" fill="#ffffff" stroke="#00f5ff" stroke-width="2.2" filter="url(#neonGlow)">
+                        <animateMotion path="M 220 220 C 210 170, 230 118, 220 68" dur="3.4s" repeatCount="indefinite" />
+                    </circle>
+
+                    <!-- Pulse 2: Center -> Livestock -->
+                    <circle r="4" fill="#ffffff" stroke="#fbbf24" stroke-width="2.2" filter="url(#neonGlow)">
+                        <animateMotion path="M 220 220 C 265 235, 320 175, 372 166" dur="3.4s" begin="0.68s" repeatCount="indefinite" />
+                    </circle>
+
+                    <!-- Pulse 3: Center -> Bisnis -->
+                    <circle r="4" fill="#ffffff" stroke="#818cf8" stroke-width="2.2" filter="url(#neonGlow)">
+                        <animateMotion path="M 220 220 C 245 270, 315 275, 332 342" dur="3.4s" begin="1.36s" repeatCount="indefinite" />
+                    </circle>
+
+                    <!-- Pulse 4: Center -> School -->
+                    <circle r="4" fill="#ffffff" stroke="#38bdf8" stroke-width="2.2" filter="url(#neonGlow)">
+                        <animateMotion path="M 220 220 C 195 270, 125 275, 108 342" dur="3.4s" begin="2.04s" repeatCount="indefinite" />
+                    </circle>
+
+                    <!-- Pulse 5: Center -> Home -->
+                    <circle r="4" fill="#ffffff" stroke="#60a5fa" stroke-width="2.2" filter="url(#neonGlow)">
+                        <animateMotion path="M 220 220 C 175 235, 120 175, 68 166" dur="3.4s" begin="2.72s" repeatCount="indefinite" />
+                    </circle>
+
+                    <!-- Synaptic Receptor Rings at Domain Docking Ports -->
+                    <circle cx="220" cy="68" r="6.5" fill="none" stroke="#10b981" stroke-width="1.8" opacity="0.85" filter="url(#neonGlow)" />
+                    <circle cx="372" cy="166" r="6.5" fill="none" stroke="#fbbf24" stroke-width="1.8" opacity="0.85" filter="url(#neonGlow)" />
+                    <circle cx="332" cy="342" r="6.5" fill="none" stroke="#818cf8" stroke-width="1.8" opacity="0.85" filter="url(#neonGlow)" />
+                    <circle cx="108" cy="342" r="6.5" fill="none" stroke="#38bdf8" stroke-width="1.8" opacity="0.85" filter="url(#neonGlow)" />
+                    <circle cx="68" cy="166" r="6.5" fill="none" stroke="#60a5fa" stroke-width="1.8" opacity="0.85" filter="url(#neonGlow)" />
+                </svg>
+
+                <!-- CENTRAL NODE: TEKNOLOGI CERDAS (AI Neural Processor Core - NO TEXT) -->
+                <div class="core-hub" id="coreHub">
+                    <div class="core-radar-ring"></div>
+                    <div class="core-radar-ring-2"></div>
+                    <div class="core-body">
+                        <!-- AI Smart Technology / Neural Core Vector Graphic -->
+                        <svg class="core-tech-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Circuit Board Microchip Base -->
+                            <rect x="10" y="10" width="28" height="28" rx="8" fill="#0c192c" stroke="#38bdf8" stroke-width="1.8" />
+                            
+                            <!-- Outer Chip Connection Pins -->
+                            <!-- Top Pins -->
+                            <line x1="16" y1="6" x2="16" y2="10" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+                            <line x1="24" y1="6" x2="24" y2="10" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+                            <line x1="32" y1="6" x2="32" y2="10" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+                            <!-- Bottom Pins -->
+                            <line x1="16" y1="38" x2="16" y2="42" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+                            <line x1="24" y1="38" x2="24" y2="42" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+                            <line x1="32" y1="38" x2="32" y2="42" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+                            <!-- Left Pins -->
+                            <line x1="6" y1="16" x2="10" y2="16" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+                            <line x1="6" y1="24" x2="10" y2="24" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+                            <line x1="6" y1="32" x2="10" y2="32" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+                            <!-- Right Pins -->
+                            <line x1="38" y1="16" x2="42" y2="16" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+                            <line x1="38" y1="24" x2="42" y2="24" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+                            <line x1="38" y1="32" x2="42" y2="32" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+
+                            <!-- Neural Synaptic Constellation inside Chip -->
+                            <!-- Connecting Circuit Tracks -->
+                            <path d="M17 17 L24 24 L31 17" stroke="#60a5fa" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M17 31 L24 24 L31 31" stroke="#60a5fa" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M17 24 L31 24" stroke="#38bdf8" stroke-width="1.2" stroke-linecap="round" />
+
+                            <!-- Neural Brain / AI Nodes -->
+                            <circle cx="24" cy="24" r="3.2" fill="#ffffff" stroke="#38bdf8" stroke-width="1.5" />
+                            <circle cx="17" cy="17" r="2.2" fill="#38bdf8" />
+                            <circle cx="31" cy="17" r="2.2" fill="#38bdf8" />
+                            <circle cx="17" cy="31" r="2.2" fill="#38bdf8" />
+                            <circle cx="31" cy="31" r="2.2" fill="#38bdf8" />
+
+                            <!-- Glowing Central Spark -->
+                            <circle cx="24" cy="24" r="1.4" fill="#38bdf8" />
+                        </svg>
+                    </div>
                 </div>
-            </div>
 
-            <div class="floating one" id="floatingFarm">
-                🌱 Smart Farm
-            </div>
+                <!-- 1. SATELLITE: SMART FARM (TOP - NO TEXT) -->
+                <div class="satellite-node node-farm" data-open-modal="farm" id="nodeFarm" title="Smart Farm">
+                    <!-- Sprout / Precision Agriculture SVG Icon -->
+                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Curved Ground Line -->
+                        <path d="M6 26C10 24.5 22 24.5 26 26" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" />
+                        <!-- Plant Stem -->
+                        <path d="M16 25V14" stroke="#34d399" stroke-width="2" stroke-linecap="round" />
+                        <!-- Left Leaf with Vein -->
+                        <path d="M16 18C12.5 17.5 9 14.5 9 10C13 9.5 15.5 13 16 18Z" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round" />
+                        <!-- Right Leaf with Vein -->
+                        <path d="M16 14C19.5 13.5 23 10.5 23 6C19 5.5 16.5 9 16 14Z" fill="rgba(52, 211, 153, 0.35)" stroke="#34d399" stroke-width="1.8" stroke-linejoin="round" />
+                        <!-- Smart Sensor Wireless Wave / Moisture Drop -->
+                        <path d="M8 6C8 6 10 4 12 4" stroke="#00f5a0" stroke-width="1.5" stroke-linecap="round" />
+                        <circle cx="6" cy="7" r="1.2" fill="#00f5a0" />
+                    </svg>
+                </div>
 
-            <div class="floating two" id="floatingLivestock">
-                🐔 Smart Livestock
-            </div>
+                <!-- 2. SATELLITE: SMART LIVESTOCK (TOP-RIGHT - NO TEXT) -->
+                <div class="satellite-node node-livestock" data-open-modal="livestock" id="nodeLivestock" title="Smart Livestock">
+                    <!-- Livestock Silhouette & Smart Sensor Telemetry Icon -->
+                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Modern Livestock Head / Horns Silhouette -->
+                        <path d="M7 9C9 13 11 14 11 18C11 22 13 25 16 25C19 25 21 22 21 18C21 14 23 13 25 9C22 10.5 19 11 16 11C13 11 10 10.5 7 9Z" fill="rgba(245, 158, 11, 0.18)" stroke="#fbbf24" stroke-width="1.8" stroke-linejoin="round" />
+                        <!-- Snout & Nostrils -->
+                        <ellipse cx="16" cy="20" rx="3" ry="2" fill="rgba(251, 191, 36, 0.35)" stroke="#f59e0b" stroke-width="1.2" />
+                        <circle cx="15" cy="20" r="0.6" fill="#fef3c7" />
+                        <circle cx="17" cy="20" r="0.6" fill="#fef3c7" />
+                        <!-- Eyes -->
+                        <circle cx="13" cy="15" r="1" fill="#fde68a" />
+                        <circle cx="19" cy="15" r="1" fill="#fde68a" />
+                        <!-- Smart IoT Broadcast Pulse above Animal -->
+                        <path d="M13 5C14 4.3 15 4 16 4C17 4 18 4.3 19 5" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" />
+                        <circle cx="16" cy="7" r="1" fill="#fbbf24" />
+                    </svg>
+                </div>
 
-            <div class="floating three" id="floatingBusiness">
-                📊 Smart Business
-            </div>
+                <!-- 3. SATELLITE: SMART BISNIS (BOTTOM-RIGHT - NO TEXT) -->
+                <div class="satellite-node node-bisnis" data-open-modal="business" id="nodeBisnis" title="Smart Business">
+                    <!-- Modern Business Analytics & POS Growth Icon -->
+                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Bar Chart Base Line -->
+                        <line x1="6" y1="25" x2="26" y2="25" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" />
+                        <!-- Bar 1 -->
+                        <rect x="8" y="18" width="4" height="7" rx="1.5" fill="rgba(99, 102, 241, 0.25)" stroke="#818cf8" stroke-width="1.5" />
+                        <!-- Bar 2 -->
+                        <rect x="14" y="13" width="4" height="12" rx="1.5" fill="rgba(129, 140, 248, 0.4)" stroke="#a5b4fc" stroke-width="1.5" />
+                        <!-- Bar 3 -->
+                        <rect x="20" y="8" width="4" height="17" rx="1.5" fill="rgba(165, 180, 252, 0.7)" stroke="#c7d2fe" stroke-width="1.5" />
+                        <!-- Trend Arrow Upward -->
+                        <path d="M9 13L15 8L20 11L25 5" stroke="#c7d2fe" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        <polyline points="21 5 25 5 25 9" stroke="#c7d2fe" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
 
+                <!-- 4. SATELLITE: SMART SCHOOL / EDU (BOTTOM-LEFT - NO TEXT) -->
+                <div class="satellite-node node-school" data-open-modal="edu" id="nodeSchool" title="Smart School">
+                    <!-- Academic Graduation Mortarboard & Digital Knowledge Icon -->
+                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Mortarboard Cap Diamond Top -->
+                        <polygon points="16,6 27,11.5 16,17 5,11.5" fill="rgba(14, 165, 233, 0.25)" stroke="#38bdf8" stroke-width="1.8" stroke-linejoin="round" />
+                        <!-- Skull Cap Underneath -->
+                        <path d="M10 14.5V19C10 21 12.5 23 16 23C19.5 23 22 21 22 19V14.5" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" />
+                        <!-- Tassel Hanging Down Right -->
+                        <path d="M24 13V21" stroke="#7dd3fc" stroke-width="1.5" stroke-linecap="round" />
+                        <circle cx="24" cy="22" r="1.2" fill="#bae6fd" />
+                        <!-- Digital Learning Sparkle / AI Node Below -->
+                        <path d="M13 26C14.5 25.5 17.5 25.5 19 26" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+                        <circle cx="16" cy="27" r="1" fill="#00f5ff" />
+                    </svg>
+                </div>
+
+                <!-- 5. SATELLITE: SMART HOME (TOP-LEFT - NO TEXT) -->
+                <div class="satellite-node node-home" data-open-modal="home" id="nodeHome" title="Smart Home">
+                    <!-- Connected House & IoT Signal Radiations Icon -->
+                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- House Roof -->
+                        <path d="M6 14L16 6L26 14" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <!-- House Walls -->
+                        <path d="M9 13V24C9 24.8 9.7 25.5 10.5 25.5H21.5C22.3 25.5 23 24.8 23 24V13" fill="rgba(37, 99, 235, 0.25)" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        <!-- Smart Circuit Door -->
+                        <path d="M14 25.5V19C14 18.5 14.5 18 15 18H17C17.5 18 18 18.5 18 19V25.5" stroke="#93c5fd" stroke-width="1.6" />
+                        <circle cx="17" cy="21" r="0.8" fill="#bfdbfe" />
+                        <!-- Smart Wireless Radiation Wave above Chimney/Apex -->
+                        <path d="M13 4C14 3.3 15 3 16 3C17 3 18 3.3 19 4" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                </div>
+
+            </div>
         </div>
 
     </div>
