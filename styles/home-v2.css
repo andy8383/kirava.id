@@ -57,3 +57,15 @@ footer { padding:27px 0; background:var(--blue-950); color:#9ab0ca; font-size:12
 @keyframes particleDrift { 0%,100% { transform:translate(0,0); } 50% { transform:translate(16px,-18px); } }
 @media (max-width:900px) { .neural-visual { min-height:400px; } }
 @media (max-width:680px) { .neural-visual { min-height:335px; transform:scale(.82); margin:-18px 0; } .neural-icon { width:57px; height:57px; border-radius:17px; } .neural-icon svg { width:27px; height:27px; } .neural-core { width:92px; height:92px; font-size:30px; } }
+
+/* Detailed solution cards */
+.solution-card { display:flex; flex-direction:column; padding:0; min-height:0; }
+.solution-photo { height:190px; overflow:hidden; background:var(--ice); }
+.solution-photo img { width:100%; height:100%; display:block; object-fit:cover; transition:transform .7s var(--ease); }
+.solution-card:hover .solution-photo img { transform:scale(1.06); }
+.solution-content { padding:22px 24px 25px; }
+.solution-card h3 { margin-top:18px; font-size:24px; }
+.solution-card p { margin-top:9px; }
+.solution-card ul { display:flex; flex-wrap:wrap; gap:7px; margin-top:17px; padding:0; list-style:none; }
+.solution-card li { padding:5px 9px; border-radius:999px; background:var(--ice); color:var(--blue-800); font:700 10px 'Manrope',sans-serif; }
+@media (max-width:680px) { .solution-photo { height:180px; } .solution-content { padding:20px; } }
