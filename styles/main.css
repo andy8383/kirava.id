@@ -3150,3 +3150,53 @@ footer {
             }
         }
 
+          /* =========================================================
+             HOMEPAGE POLISH
+             ========================================================= */
+
+          .hero-title {
+            color: #ffffff;
+            text-wrap: balance;
+          }
+
+          .hero-description {
+            color: #b8c8da;
+            max-width: 540px;
+          }
+
+          .hero-actions .btn-primary {
+            position: relative;
+            overflow: hidden;
+          }
+
+          .hero-actions .btn-primary::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(110deg, transparent 25%, rgba(255, 255, 255, .22) 48%, transparent 72%);
+            transform: translateX(-120%);
+            transition: transform .7s var(--ease);
+            pointer-events: none;
+          }
+
+          .hero-actions .btn-primary:hover::after {
+            transform: translateX(120%);
+          }
+
+          .product-brochure {
+            border-color: rgba(47, 140, 255, .14);
+          }
+
+          .product-brochure:hover {
+            border-color: rgba(67, 230, 255, .35);
+          }
+
+          .product-number {
+            box-shadow: 0 8px 20px rgba(47, 140, 255, .1);
+          }
+
+          :where(a, button):focus-visible {
+            outline: 3px solid rgba(67, 230, 255, .75);
+            outline-offset: 4px;
+          }
+
