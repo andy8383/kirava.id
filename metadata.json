@@ -1,0 +1,6 @@
+{
+  "name": "KIRAVA — AI, Automation & Digital Solutions",
+  "description": "KIRAVA — AI, Automation & Digital Solutions for Real-World Industries. Teknologi cerdas untuk pertanian, peternakan, perikanan, pendidikan, dan UMKM.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

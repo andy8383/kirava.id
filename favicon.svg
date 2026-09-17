@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34" width="34" height="34">
+  <defs>
+    <linearGradient id="kiravaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#062b57" />
+      <stop offset="100%" stop-color="#1167c9" />
+    </linearGradient>
+  </defs>
+  <rect width="34" height="34" rx="10" fill="url(#kiravaGrad)" />
+  <circle cx="27" cy="7" r="4" fill="#79bd32" />
+  <text x="17" y="25" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="20" fill="#ffffff" text-anchor="middle">K</text>
+</svg>

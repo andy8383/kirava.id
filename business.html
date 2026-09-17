@@ -1,625 +1,869 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#060b14">
+  <meta name="description" content="KIRAVA BUSINESS — Business Intelligence & POS Platform bertenaga AI untuk UMKM, Enterprise, dan Pemerintah Daerah.">
+  <title>KIRAVA BUSINESS — Business & Government Intelligence</title>
 
-    <title>KIRAVA BUSINESS — Business Intelligence</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
+    :root {
+      --bg: #060b16;
+      --bg-card: #0b1326;
+      --bg-card-hover: #0f1b36;
+      --bg-surface: #101c38;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(59, 130, 246, 0.4);
+      --primary: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-green: #10b981;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f7f9fc;
-            color: #10213f;
-            line-height: 1.6;
-        }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
 
-        .container {
-            width: min(1180px, 92%);
-            margin: auto;
-        }
+    .container {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+    }
 
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(7,21,47,.94);
-            backdrop-filter: blur(12px);
-        }
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        .navbar {
-            height: 76px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+    .bg-glow {
+      position: fixed;
+      top: -220px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(6, 11, 22, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        .logo {
-            color: white;
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6, 11, 22, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
 
-        .logo span {
-            color: #61e6ff;
-        }
+    .navbar-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
 
-        .nav {
-            display: flex;
-            gap: 28px;
-            color: #d8e4ff;
-            font-size: 14px;
-        }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: #fff;
+    }
 
-        .nav a:hover {
-            color: #61e6ff;
-        }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 0 20px rgba(2, 132, 199, 0.35);
+      position: relative;
+    }
 
-        .hero {
-            padding: 170px 0 110px;
-            background:
-                radial-gradient(circle at 80% 30%, rgba(70,120,255,.3), transparent 30%),
-                #07152f;
-            color: white;
-        }
+    .brand-mark::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
-            align-items: center;
-        }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
 
-        .badge {
-            display: inline-block;
-            padding: 8px 15px;
-            border: 1px solid rgba(97,230,255,.4);
-            border-radius: 30px;
-            color: #61e6ff;
-            font-size: 12px;
-            margin-bottom: 22px;
-        }
+    .nav-links a:hover {
+      color: #fff;
+    }
 
-        h1 {
-            font-size: clamp(44px, 6vw, 72px);
-            line-height: 1.05;
-            letter-spacing: -3px;
-            margin-bottom: 25px;
-        }
+    .nav-cta {
+      padding: 9px 18px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: #fff !important;
+      font-weight: 600;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-        .gradient {
-            background: linear-gradient(90deg,#61e6ff,#7895ff);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
+    .nav-cta:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
 
-        .hero p {
-            color: #b9c8e5;
-            font-size: 18px;
-            max-width: 600px;
-            margin-bottom: 30px;
-        }
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 14px 24px;
-            border-radius: 30px;
-            font-weight: bold;
-        }
+    .btn-primary {
+      background: #0284c7;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(2, 132, 199, 0.35);
+    }
 
-        .btn-primary {
-            background: white;
-            color: #07152f;
-        }
+    .btn-primary:hover {
+      background: #0369a1;
+      transform: translateY(-1px);
+    }
 
-        .dashboard {
-            padding: 28px;
-            border-radius: 25px;
-            background: rgba(255,255,255,.07);
-            border: 1px solid rgba(255,255,255,.12);
-            box-shadow: 0 30px 80px rgba(0,0,0,.25);
-        }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border: 1px solid var(--border);
+    }
 
-        .dashboard-title {
-            color: #aebdd7;
-            font-size: 13px;
-            margin-bottom: 20px;
-        }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
 
-        .stat-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 96px 0;
+    }
 
-        .stat {
-            padding: 20px;
-            border-radius: 16px;
-            background: rgba(255,255,255,.07);
-        }
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 56px;
+    }
 
-        .stat strong {
-            display: block;
-            font-size: 25px;
-            color: white;
-        }
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(2, 132, 199, 0.12);
+      border: 1px solid rgba(2, 132, 199, 0.3);
+      color: #38bdf8;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
 
-        .stat span {
-            font-size: 12px;
-            color: #aebdd7;
-        }
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 6px var(--accent-cyan);
+    }
 
-        section {
-            padding: 95px 0;
-        }
+    h1, h2, h3, h4 {
+      color: #fff;
+      letter-spacing: -0.025em;
+      font-weight: 700;
+      line-height: 1.15;
+    }
 
-        .heading {
-            text-align: center;
-            max-width: 720px;
-            margin: 0 auto 55px;
-        }
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      margin-bottom: 16px;
+    }
 
-        .heading small {
-            color: #4274ff;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
 
-        .heading h2 {
-            font-size: clamp(32px,4vw,48px);
-            line-height: 1.15;
-            margin: 12px 0 18px;
-        }
+    /* Hero */
+    .hero {
+      padding: 80px 0 100px;
+    }
 
-        .heading p {
-            color: #68758a;
-        }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 48px;
+      align-items: center;
+    }
 
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 20px;
-        }
+    .hero-title {
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.08;
+      margin-bottom: 22px;
+    }
 
-        .card {
-            padding: 30px;
-            background: white;
-            border: 1px solid #e3e9f3;
-            border-radius: 22px;
-            transition: .3s;
-        }
+    .hero-title .highlight {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 45px rgba(31,62,110,.1);
-        }
+    .hero-desc {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      line-height: 1.65;
+    }
 
-        .icon {
-            font-size: 30px;
-            margin-bottom: 18px;
-        }
+    .hero-cta-group {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
 
-        .card h3 {
-            margin-bottom: 10px;
-        }
+    /* Interactive Live Business Dashboard Card */
+    .dashboard-preview {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 30px rgba(2, 132, 199, 0.15);
+    }
 
-        .card p {
-            color: #68758a;
-            font-size: 14px;
-        }
+    .dash-header {
+      padding: 12px 18px;
+      background: #091020;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        .government {
-            background: #eef4fb;
-        }
+    .dash-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.2);
+    }
 
-        .gov-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
+    .dash-tab {
+      padding: 12px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
 
-        .gov-text h2 {
-            font-size: 42px;
-            line-height: 1.15;
-            margin-bottom: 20px;
-        }
+    .dash-tab.active {
+      color: #38bdf8;
+      border-bottom-color: #0284c7;
+      background: rgba(2, 132, 199, 0.08);
+    }
 
-        .gov-text p {
-            color: #68758a;
-            margin-bottom: 25px;
-        }
+    .dash-body {
+      padding: 24px;
+    }
 
-        .flow {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+    .stats-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
 
-        .flow-item {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #e1e8f2;
-        }
+    .stat-tile {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
 
-        .flow-item strong {
-            display: block;
-            margin-bottom: 4px;
-        }
+    .stat-tile-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
 
-        .flow-item span {
-            color: #68758a;
-            font-size: 13px;
-        }
+    .stat-tile-val {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+    }
 
-        .ai {
-            background: #07152f;
-            color: white;
-            text-align: center;
-        }
+    .stat-tile-sub {
+      font-size: 11px;
+      color: var(--accent-green);
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
 
-        .ai p {
-            max-width: 680px;
-            margin: auto;
-            color: #aebdd7;
-        }
+    .ai-insight-box {
+      background: #070c18;
+      border: 1px solid rgba(2, 132, 199, 0.25);
+      border-radius: 12px;
+      padding: 16px;
+    }
 
-        .ai h2 {
-            font-size: clamp(35px,5vw,55px);
-            margin-bottom: 18px;
-        }
+    .ai-insight-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 8px;
+    }
 
-        .cta {
-            text-align: center;
-            background: white;
-        }
+    .ai-insight-text {
+      font-size: 13px;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
 
-        .cta h2 {
-            font-size: 45px;
-            margin-bottom: 15px;
-        }
+    /* Core Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
 
-        .cta p {
-            color: #68758a;
-            max-width: 650px;
-            margin: auto auto 25px;
-        }
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.25s ease;
+    }
 
-        footer {
-            background: #040d20;
-            color: #91a2c2;
-            padding: 35px 0;
-            text-align: center;
-            font-size: 13px;
-        }
+    .feature-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-focus);
+      transform: translateY(-3px);
+    }
 
-        @media(max-width:850px) {
+    .feat-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(2, 132, 199, 0.1);
+      border: 1px solid rgba(2, 132, 199, 0.2);
+      display: grid;
+      place-items: center;
+      color: #38bdf8;
+      margin-bottom: 20px;
+    }
 
-            .nav {
-                display: none;
-            }
+    .feat-title {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
 
-            .hero-grid,
-            .gov-grid {
-                grid-template-columns: 1fr;
-            }
+    .feat-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
 
-            .feature-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+    /* Government Intelligence Section */
+    .gov-section {
+      background: rgba(11, 19, 38, 0.3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
 
-        }
+    .gov-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
 
-        @media(max-width:550px) {
+    .pipeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
+    .pipeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
-            .hero {
-                padding-top: 130px;
-            }
+    .pipeline-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(2, 132, 199, 0.15);
+      color: #38bdf8;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
 
-            .cta h2 {
-                font-size: 35px;
-            }
+    .pipeline-content h4 {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
 
-        }
+    .pipeline-content p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
 
-    </style>
+    /* CTA Section */
+    .cta-banner {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.15), rgba(37, 99, 235, 0.08));
+      border: 1px solid rgba(2, 132, 199, 0.3);
+      border-radius: 24px;
+      padding: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 0;
+      background: #040810;
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid, .gov-grid {
+        grid-template-columns: 1fr;
+      }
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .cta-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-2x2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
 
-    <div class="container navbar">
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo" id="biz-nav-brand">
+        <div class="brand-mark">K</div>
+        KIRAVA <span>BUSINESS</span>
+      </a>
 
-        <a href="index.html" class="logo">
-            KIRAVA<span>.</span>
+      <nav class="nav-links">
+        <a href="index.html" id="biz-nav-home">Home</a>
+        <a href="index.html#solusi" id="biz-nav-solusi">Solusi Industri</a>
+        <a href="#fitur" id="biz-nav-fitur">Fitur POS & AI</a>
+        <a href="#pemerintahan" id="biz-nav-gov">Pemerintahan</a>
+        <a href="https://wa.me/628887013150" target="_blank" rel="noopener" class="nav-cta" id="biz-nav-cta">
+          <span>Konsultasi Demo</span>
         </a>
-
-        <nav class="nav">
-            <a href="index.html">Home</a>
-            <a href="index.html#produk">Solutions</a>
-            <a href="#pemerintah">Pemerintahan</a>
-            <a href="#ai">AI</a>
-        </nav>
-
+      </nav>
     </div>
+  </header>
 
-</header>
-
-
-<section class="hero">
-
-    <div class="container hero-grid">
-
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
         <div>
+          <div class="badge-tag">
+            <span class="badge-dot"></span> KIRAVA BUSINESS INTELLIGENCE
+          </div>
 
-            <div class="badge">
-                KIRAVA BUSINESS
-            </div>
+          <h1 class="hero-title">
+            Dari Transaksi Menjadi <span class="highlight">Intelligence.</span>
+          </h1>
 
-            <h1>
-                Dari transaksi
-                menjadi
-                <span class="gradient">
-                    intelligence.
-                </span>
-            </h1>
+          <p class="hero-desc">
+            Menggabungkan operasional kasir (POS), stok inventaris real-time, dan analitik multi-cabang dengan asisten AI prediktif untuk pelaku usaha, korporasi ritel, dan instansi pembuat kebijakan ekonomi.
+          </p>
 
-            <p>
-                KIRAVA BUSINESS membantu pelaku usaha
-                mengelola transaksi, stok dan operasional,
-                sekaligus membuka jalan menuju Business
-                Intelligence berbasis AI.
-            </p>
-
-            <a href="#fitur" class="btn btn-primary">
-                Jelajahi KIRAVA BUSINESS
+          <div class="hero-cta-group">
+            <a href="https://wa.me/628887013150" target="_blank" rel="noopener" class="btn btn-primary" id="btn-biz-demo">
+              <span>Konsultasi Implementasi</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
             </a>
 
-        </div>
-
-
-        <div class="dashboard">
-
-            <div class="dashboard-title">
-                BUSINESS INTELLIGENCE
-            </div>
-
-            <div class="stat-grid">
-
-                <div class="stat">
-                    <strong>1,248</strong>
-                    <span>UMKM Terdata</span>
-                </div>
-
-                <div class="stat">
-                    <strong>86%</strong>
-                    <span>Usaha Aktif</span>
-                </div>
-
-                <div class="stat">
-                    <strong>24</strong>
-                    <span>Sektor Usaha</span>
-                </div>
-
-                <div class="stat">
-                    <strong>+18%</strong>
-                    <span>Pertumbuhan</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<section id="fitur">
-
-    <div class="container">
-
-        <div class="heading">
-
-            <small>UNTUK BISNIS</small>
-
-            <h2>
-                Semua yang dibutuhkan
-                untuk mengelola usaha.
-            </h2>
-
-            <p>
-                Pondasi digital untuk membantu usaha
-                berkembang berdasarkan data.
-            </p>
-
-        </div>
-
-
-        <div class="feature-grid">
-
-            <div class="card">
-                <div class="icon">🧾</div>
-                <h3>POS</h3>
-                <p>
-                    Pencatatan transaksi penjualan
-                    secara digital.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="icon">📦</div>
-                <h3>Stok</h3>
-                <p>
-                    Mengelola persediaan dan
-                    pergerakan barang.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="icon">📊</div>
-                <h3>Laporan</h3>
-                <p>
-                    Melihat performa bisnis
-                    melalui data.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="icon">🤖</div>
-                <h3>AI Insight</h3>
-                <p>
-                    Membantu menemukan pola,
-                    peluang dan masalah bisnis.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="government" id="pemerintah">
-
-    <div class="container gov-grid">
-
-        <div class="gov-text">
-
-            <small>KIRAVA GOVERNMENT INTELLIGENCE</small>
-
-            <h2>
-                Dari data UMKM
-                menuju keputusan pemerintah.
-            </h2>
-
-            <p>
-                Data yang berasal dari aktivitas usaha
-                dapat dikembangkan menjadi dashboard
-                monitoring untuk pemerintah daerah
-                dan dinas terkait.
-            </p>
-
-            <a href="#ai" class="btn btn-primary">
-                Pelajari Konsep
+            <a href="index.html" class="btn btn-secondary" id="btn-biz-back">
+              <span>← Kembali ke Ekosistem KIRAVA</span>
             </a>
-
+          </div>
         </div>
 
+        <!-- Interactive Dashboard Card -->
+        <div class="dashboard-preview" id="biz-preview-card">
+          <div class="dash-header">
+            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-dim);">
+              kirava-bi // intelligence-monitor
+            </span>
+            <span style="font-size: 11px; color: var(--accent-cyan); font-family: var(--font-mono);">
+              ● LIVE SYNC
+            </span>
+          </div>
 
-        <div class="flow">
+          <div class="dash-tabs">
+            <div class="dash-tab active" id="tab-umkm-view" onclick="switchView('umkm')">Dashboard Pelaku Usaha</div>
+            <div class="dash-tab" id="tab-gov-view" onclick="switchView('gov')">Dashboard Instansi / Dinas</div>
+          </div>
 
-            <div class="flow-item">
-                <strong>🏪 UMKM</strong>
-                <span>Aktivitas usaha tercatat secara digital.</span>
+          <div class="dash-body">
+            <div class="stats-2x2">
+              <div class="stat-tile">
+                <div class="stat-tile-label" id="lbl-1">TOTAL OMSET HARI INI</div>
+                <div class="stat-tile-val" id="val-1">Rp 14.850.000</div>
+                <div class="stat-tile-sub" id="sub-1">↑ 18.2% vs kemarin</div>
+              </div>
+
+              <div class="stat-tile">
+                <div class="stat-tile-label" id="lbl-2">TRANSAKSI KASIR AKTIF</div>
+                <div class="stat-tile-val" id="val-2">412 Struk</div>
+                <div class="stat-tile-sub" id="sub-2">Rata-rata Rp 36.000</div>
+              </div>
+
+              <div class="stat-tile">
+                <div class="stat-tile-label" id="lbl-3">AKURASI INVENTARIS</div>
+                <div class="stat-tile-val" id="val-3">99.4%</div>
+                <div class="stat-tile-sub" id="sub-3">4 SKU butuh restock</div>
+              </div>
+
+              <div class="stat-tile">
+                <div class="stat-tile-label" id="lbl-4">MARGIN KONTRIBUSI</div>
+                <div class="stat-tile-val" id="val-4">34.8%</div>
+                <div class="stat-tile-sub" id="sub-4">Status Sehat</div>
+              </div>
             </div>
 
-            <div class="flow-item">
-                <strong>📊 Data</strong>
-                <span>Data dikumpulkan dan diolah.</span>
+            <div class="ai-insight-box">
+              <div class="ai-insight-head">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+                <span id="ai-insight-title">REKOMENDASI AI BUSINESS ADVISOR</span>
+              </div>
+              <p class="ai-insight-text" id="ai-insight-desc">
+                “Penjualan kategori produk pangan beku meningkat 31% menjelang akhir pekan. Disarankan menaikkan stok pengadaan 15% pada Kamis siang untuk mengantisipasi lonjakan permintaan.”
+              </p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <div class="flow-item">
-                <strong>🗺️ Pemetaan</strong>
-                <span>UMKM dapat dipetakan berdasarkan wilayah dan sektor.</span>
-            </div>
-
-            <div class="flow-item">
-                <strong>🏛️ Dinas</strong>
-                <span>Dashboard memberikan gambaran kondisi UMKM.</span>
-            </div>
-
-            <div class="flow-item">
-                <strong>🤖 AI</strong>
-                <span>AI membantu menghasilkan insight dan rekomendasi.</span>
-            </div>
-
+    <!-- CORE MODULES -->
+    <section id="fitur">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-tag">
+            <span class="badge-dot"></span> FITUR UTAMA
+          </div>
+          <h2 class="section-title">Solusi Menyeluruh dari Kasir Hingga Analitik</h2>
+          <p class="section-subtitle">
+            Dirancang praktis untuk kasir di garis depan, namun cukup bertenaga untuk menyajikan wawasan strategis bagi pemilik bisnis dan manajer operasional.
+          </p>
         </div>
 
-    </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feat-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <line x1="2" y1="10" x2="22" y2="10"></line>
+              </svg>
+            </div>
+            <h3 class="feat-title">Smart POS & Kasir</h3>
+            <p class="feat-desc">
+              Pencatatan kasir responsif dengan dukungan cetak thermal struk, QRIS terintegrasi, dan mode offline saat koneksi internet terputus.
+            </p>
+          </div>
 
-</section>
+          <div class="feature-card">
+            <div class="feat-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              </svg>
+            </div>
+            <h3 class="feat-title">Stok & Inventaris</h3>
+            <p class="feat-desc">
+              Pelacakan barang masuk, mutasi antar cabang, peringatan stok menipis otomatis, dan penghitungan HPP rata-rata tanpa selisih.
+            </p>
+          </div>
 
+          <div class="feature-card">
+            <div class="feat-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <h3 class="feat-title">Laporan Keuangan</h3>
+            <p class="feat-desc">
+              Laporan laba rugi instan, arus kas (cashflow), neraca sederhana, serta ekspor format Excel/PDF untuk perpajakan dan pelaporan investor.
+            </p>
+          </div>
 
-<section class="ai" id="ai">
+          <div class="feature-card">
+            <div class="feat-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
+              </svg>
+            </div>
+            <h3 class="feat-title">Prediksi & AI Insight</h3>
+            <p class="feat-desc">
+              Algoritma AI menganalisis tren produk terlaris, pola keranjang belanja pelanggan, dan merekomendasikan harga serta promo optimal.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- GOVERNMENT & REGIONAL INTELLIGENCE -->
+    <section class="gov-section" id="pemerintahan">
+      <div class="container">
+        <div class="gov-grid">
+          <div>
+            <div class="badge-tag">
+              <span class="badge-dot"></span> SEKTOR PUBLIK & DINAS
+            </div>
+            <h2 class="section-title">Dashboard Pemetaan Ekonomi Daerah</h2>
+            <p class="section-subtitle" style="text-align: left; margin-bottom: 24px;">
+              Data agregat dari ekosistem UMKM dapat disinergikan menjadi dashboard monitoring berkala bagi dinas koperasi, perindustrian, dan pemerintah daerah untuk merancang intervensi kebijakan yang tepat sasaran.
+            </p>
+
+            <a href="https://wa.me/628887013150" target="_blank" rel="noopener" class="btn btn-primary">
+              <span>Diskusikan Program Wilayah</span>
+            </a>
+          </div>
+
+          <div class="pipeline-list">
+            <div class="pipeline-card">
+              <div class="pipeline-num">01</div>
+              <div class="pipeline-content">
+                <h4>Pencatatan Terstandar di Lapangan</h4>
+                <p>Pelaku usaha lokal menginput penjualan dan biaya harian melalui aplikasi KIRAVA yang mudah digunakan.</p>
+              </div>
+            </div>
+
+            <div class="pipeline-card">
+              <div class="pipeline-num">02</div>
+              <div class="pipeline-content">
+                <h4>Agregasi & Anonymized Data</h4>
+                <p>Data dikompilasi secara anonim dan aman untuk melindungi privasi tiap pemilik usaha.</p>
+              </div>
+            </div>
+
+            <div class="pipeline-card">
+              <div class="pipeline-num">03</div>
+              <div class="pipeline-content">
+                <h4>Pemetaan Kluster & Wilayah</h4>
+                <p>Instansi dapat memantau produktivitas per kecamatan, sektor komoditas unggulan, serta rantai pasok.</p>
+              </div>
+            </div>
+
+            <div class="pipeline-card">
+              <div class="pipeline-num">04</div>
+              <div class="pipeline-content">
+                <h4>Penyaluran Bantuan & Pelatihan Tepat Sasaran</h4>
+                <p>Program pembinaan pemerintah disalurkan berdasarkan indikator kebutuhan riil berbasis data.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section>
+      <div class="container">
+        <div class="cta-banner">
+          <div>
+            <h2 style="font-size: 32px; margin-bottom: 12px;">Mulai Modernisasi Bisnis Anda Hari Ini</h2>
+            <p style="color: var(--text-muted); max-width: 550px;">
+              KIRAVA membuka kemitraan dengan pemilik toko tunggal, pengelola jaringan waralaba, koperasi, hingga instansi pemerintah.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="https://wa.me/628887013150" target="_blank" rel="noopener" class="btn btn-primary">
+              <span>Hubungi via WhatsApp</span>
+            </a>
+            <a href="mailto:hello@kirava.id" class="btn btn-secondary">
+              <span>Email Tim Konsultan</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
     <div class="container">
-
-        <h2>
-            Intelligence di balik bisnis.
-        </h2>
-
-        <p>
-            KIRAVA BUSINESS dirancang agar data tidak hanya
-            menjadi laporan, tetapi dapat menjadi sumber
-            informasi untuk membantu manusia mengambil
-            keputusan yang lebih baik.
-        </p>
-
+      <p style="margin-bottom: 8px;">© 2026 KIRAVA. AI & IoT Automation for Real-World Infrastructure.</p>
+      <p><a href="index.html" style="color: var(--text-muted);">← Kembali ke Halaman Utama KIRAVA</a></p>
     </div>
+  </footer>
 
-</section>
+  <script>
+    function switchView(view) {
+      const tabUmkm = document.getElementById('tab-umkm-view');
+      const tabGov = document.getElementById('tab-gov-view');
 
+      if (view === 'umkm') {
+        tabUmkm.classList.add('active');
+        tabGov.classList.remove('active');
 
-<section class="cta">
+        document.getElementById('lbl-1').textContent = 'TOTAL OMSET HARI INI';
+        document.getElementById('val-1').textContent = 'Rp 14.850.000';
+        document.getElementById('sub-1').textContent = '↑ 18.2% vs kemarin';
 
-    <div class="container">
+        document.getElementById('lbl-2').textContent = 'TRANSAKSI KASIR AKTIF';
+        document.getElementById('val-2').textContent = '412 Struk';
+        document.getElementById('sub-2').textContent = 'Rata-rata Rp 36.000';
 
-        <h2>
-            Siap membangun bisnis
-            berbasis data?
-        </h2>
+        document.getElementById('lbl-3').textContent = 'AKURASI INVENTARIS';
+        document.getElementById('val-3').textContent = '99.4%';
+        document.getElementById('sub-3').textContent = '4 SKU butuh restock';
 
-        <p>
-            KIRAVA membuka peluang kolaborasi dengan
-            pelaku usaha, koperasi, perusahaan,
-            pemerintah daerah dan lembaga terkait.
-        </p>
+        document.getElementById('lbl-4').textContent = 'MARGIN KONTRIBUSI';
+        document.getElementById('val-4').textContent = '34.8%';
+        document.getElementById('sub-4').textContent = 'Status Sehat';
 
-        <a href="mailto:hello@kirava.id"
-           class="btn btn-primary">
-            Hubungi KIRAVA
-        </a>
+        document.getElementById('ai-insight-title').textContent = 'REKOMENDASI AI BUSINESS ADVISOR';
+        document.getElementById('ai-insight-desc').textContent = '“Penjualan kategori produk pangan beku meningkat 31% menjelang akhir pekan. Disarankan menaikkan stok pengadaan 15% pada Kamis siang untuk mengantisipasi lonjakan permintaan.”';
+      } else {
+        tabGov.classList.add('active');
+        tabUmkm.classList.remove('active');
 
-    </div>
+        document.getElementById('lbl-1').textContent = 'UMKM BINAAN TERDATA';
+        document.getElementById('val-1').textContent = '1.428 Usaha';
+        document.getElementById('sub-1').textContent = 'Tersebar di 8 Kecamatan';
 
-</section>
+        document.getElementById('lbl-2').textContent = 'PERPUTARAN BULAN INI';
+        document.getElementById('val-2').textContent = 'Rp 8.42 Miliar';
+        document.getElementById('sub-2').textContent = '↑ 12.4% MoM Growth';
 
+        document.getElementById('lbl-3').textContent = 'SEKTOR TERBESAR';
+        document.getElementById('val-3').textContent = 'Kuliner (42%)';
+        document.getElementById('sub-3').textContent = 'Disusul Retail & Agrikultur';
 
-<footer>
+        document.getElementById('lbl-4').textContent = 'STATUS KESEHATAN USAHA';
+        document.getElementById('val-4').textContent = '87.6% Aktif';
+        document.getElementById('sub-4').textContent = '176 usaha butuh pendampingan';
 
-    <div class="container">
-
-        © 2026 KIRAVA — AI & IoT untuk Dunia Nyata
-
-    </div>
-
-</footer>
-
+        document.getElementById('ai-insight-title').textContent = 'AI REGIONAL POLICY RECOMMENDATION';
+        document.getElementById('ai-insight-desc').textContent = '“Kluster UMKM makanan olahan di Zona Timur menunjukkan perlambatan margin akibat kenaikan harga bahan pokok. Program subsidi distribusi logistik disarankan untuk menjaga daya saing harga.”';
+      }
+    }
+  </script>
 </body>
 </html>
