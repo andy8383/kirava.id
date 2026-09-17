@@ -3389,3 +3389,157 @@ footer {
             }
           }
 
+          /* =========================================================
+             FINAL RESPONSIVE LAYOUT
+             ========================================================= */
+
+          @media (min-width: 1201px) {
+            .container {
+              width: min(calc(100% - 80px), 1240px);
+            }
+
+            .hero {
+              min-height: 780px;
+            }
+
+            .hero-grid {
+              grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+              gap: 56px;
+              min-height: 780px;
+            }
+
+            .hero-copy {
+              max-width: 680px;
+              padding-top: 24px;
+            }
+
+            .hero-title {
+              font-size: clamp(58px, 5.5vw, 86px);
+            }
+
+            .neural-stage {
+              height: 600px;
+            }
+          }
+
+          @media (min-width: 761px) and (max-width: 1200px) {
+            .container {
+              width: min(calc(100% - 64px), 960px);
+            }
+
+            .hero {
+              min-height: auto;
+            }
+
+            .hero-grid {
+              grid-template-columns: minmax(0, 1fr);
+              gap: 8px;
+              min-height: auto;
+              padding: 132px 0 64px;
+            }
+
+            .hero-copy {
+              max-width: 720px;
+              padding-top: 0;
+            }
+
+            .hero-title {
+              max-width: 760px;
+              font-size: clamp(52px, 7vw, 76px);
+            }
+
+            .hero-description {
+              max-width: 620px;
+            }
+
+            .hero-services {
+              max-width: 100%;
+            }
+
+            .neural-stage {
+              height: 480px;
+              margin-top: -8px;
+            }
+
+            .products {
+              gap: 24px;
+            }
+
+            .product-copy {
+              width: 55%;
+              padding: 48px 30px 48px 46px;
+            }
+
+            .product-photo {
+              width: 53%;
+            }
+          }
+
+          @media (max-width: 760px) {
+            .container {
+              width: calc(100% - 32px);
+            }
+
+            .hero-grid {
+              grid-template-columns: 1fr;
+              gap: 0;
+              padding: 112px 0 30px;
+            }
+
+            .hero-copy {
+              max-width: none;
+              padding-top: 0;
+            }
+
+            .hero-title {
+              max-width: 100%;
+              font-size: clamp(40px, 11.5vw, 58px);
+              line-height: 1.01;
+            }
+
+            .hero-description {
+              max-width: 100%;
+              margin-top: 24px;
+              font-size: 15px;
+              line-height: 1.65;
+            }
+
+            .hero-services {
+              max-width: 100%;
+              margin-top: 22px;
+              font-size: 9px;
+              letter-spacing: .01em;
+            }
+
+            .hero-services li + li {
+              margin-left: 11px;
+            }
+
+            .hero-services li {
+              gap: 5px;
+            }
+
+            .hero-actions {
+              margin-top: 28px;
+              gap: 10px;
+            }
+
+            .neural-stage {
+              height: 360px;
+              margin-top: 12px;
+            }
+
+            .neural-glow {
+              width: 240px;
+              height: 240px;
+            }
+
+            .section {
+              padding: 84px 0;
+            }
+
+            .section-title {
+              font-size: clamp(32px, 9vw, 46px);
+            }
+          }
+
