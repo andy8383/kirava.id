@@ -2,33 +2,68 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>KIRAVA — AI, IoT & Technology Solutions</title>
-
-    <meta name="description"
-          content="KIRAVA menghadirkan solusi AI, IoT, dan aplikasi untuk pertanian, peternakan, smart home, pendidikan, dan bisnis.">
-    <meta name="keywords" content="KIRAVA, IoT Indonesia, Smart Farm, Smart Livestock, Smart Home, Education AI, POS UMKM, kirava.id">
-    <meta name="author" content="KIRAVA">
-
-    <!-- Open Graph & Social Cards -->
-    <meta property="og:title" content="KIRAVA — AI, IoT & Technology Solutions">
-    <meta property="og:description" content="KIRAVA menghadirkan solusi AI, IoT, dan aplikasi untuk pertanian, peternakan, smart home, pendidikan, dan bisnis.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kirava.id">
-    <meta property="og:site_name" content="KIRAVA">
-    <meta property="og:locale" content="id_ID">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <meta name="theme-color" content="#07111f">
 
-    <!-- Favicon -->
+    <meta name="description"
+          content="KIRAVA membantu menghadirkan solusi yang membuat pekerjaan lebih mudah untuk rumah, usaha, sekolah, pertanian, dan peternakan.">
+
+    <meta name="keywords"
+          content="KIRAVA, teknologi, AI, IoT, smart farming, smart livestock, smart home, education technology, business technology">
+
+    <meta name="author" content="KIRAVA">
+
+    <title>KIRAVA — Solusi Teknologi untuk Kebutuhan Nyata</title>
+
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
     <style>
+
+        /* =========================================================
+           KIRAVA
+           MAIN WEBSITE
+           ========================================================= */
+
+        :root {
+            --navy-950: #050b14;
+            --navy-900: #07111f;
+            --navy-850: #0a1727;
+            --navy-800: #0d1d31;
+
+            --blue: #2f8cff;
+            --blue-light: #6db5ff;
+            --cyan: #43e6ff;
+
+            --white: #ffffff;
+            --text: #102033;
+            --muted: #64748b;
+
+            --surface: #f5f8fc;
+            --surface-2: #edf3fa;
+
+            --border: rgba(16, 32, 51, 0.09);
+
+            --shadow:
+                0 25px 70px rgba(8, 26, 49, 0.12);
+
+            --radius-xl: 32px;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+
+            --max-width: 1180px;
+
+            --ease:
+                cubic-bezier(.22, .61, .36, 1);
+        }
+
+
+        /* =========================================================
+           RESET
+           ========================================================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -40,2214 +75,4390 @@
         }
 
         body {
-            font-family: "Inter", sans-serif;
-            background: #f7f9fc;
-            color: #101828;
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: var(--white);
+            color: var(--text);
+
             line-height: 1.6;
+
             overflow-x: hidden;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        img {
+            display: block;
+            max-width: 100%;
         }
+
+        button,
+        a {
+            font: inherit;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            border: 0;
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+           CONTAINER
+           ========================================================= */
 
         .container {
-            width: min(1120px, 92%);
-            margin: auto;
+            width: min(
+                calc(100% - 40px),
+                var(--max-width)
+            );
+
+            margin-inline: auto;
         }
 
-        /* =========================
-           HEADER
-        ========================= */
 
-        header {
-            position: sticky;
+        /* =========================================================
+           HEADER
+           ========================================================= */
+
+        .site-header {
+            position: fixed;
+
             top: 0;
+            left: 0;
+            right: 0;
+
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid #e7ebf0;
-            transition: all 0.2s ease;
+
+            transition:
+                background .35s ease,
+                box-shadow .35s ease,
+                backdrop-filter .35s ease;
+        }
+
+        .site-header.scrolled {
+            background:
+                rgba(255,255,255,.88);
+
+            backdrop-filter:
+                blur(18px);
+
+            box-shadow:
+                0 10px 35px rgba(8,20,35,.08);
         }
 
         .nav {
-            height: 72px;
+            height: 78px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            display: inline-flex;
-            align-items: center;
-            gap: 2px;
-        }
-
-        .logo span {
-            color: #2563eb;
-        }
-
-        .nav-links {
+        .brand {
             display: flex;
-            gap: 30px;
             align-items: center;
+            gap: 11px;
+
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: -.04em;
         }
 
-        .nav-links a {
-            font-size: 14px;
-            font-weight: 500;
-            color: #475467;
-            transition: color 0.15s ease;
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+
+            border-radius: 12px;
+
+            display: grid;
+            place-items: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #43e6ff,
+                    #2f8cff
+                );
+
+            box-shadow:
+                0 8px 25px rgba(47,140,255,.28);
         }
 
-        .nav-links a:hover {
-            color: #2563eb;
-        }
-
-        .nav-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 18px;
-            border-radius: 10px;
-            background: #101828;
-            color: white !important;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-
-        .nav-button:hover {
-            background: #1e293b;
-            transform: translateY(-1px);
-        }
-
-        /* Mobile Menu Toggle Button */
-        .mobile-menu-toggle {
-            display: none;
-            background: transparent;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 8px 10px;
-            cursor: pointer;
-            color: #101828;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .mobile-menu-toggle svg {
+        .brand-mark svg {
             width: 22px;
             height: 22px;
         }
 
-        /* Mobile Navigation Drawer */
-        .mobile-drawer {
-            display: none;
-            flex-direction: column;
-            gap: 16px;
-            padding: 18px 24px 24px;
-            background: #ffffff;
-            border-bottom: 1px solid #e7ebf0;
-            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+        .brand-text {
+            color: var(--navy-900);
         }
 
-        .mobile-drawer.is-open {
+        .nav-menu {
             display: flex;
+            align-items: center;
+            gap: 34px;
         }
 
-        .mobile-drawer a {
-            font-size: 15px;
+        .nav-link {
+            position: relative;
+
+            color: #526276;
+
+            font-size: 14px;
             font-weight: 600;
-            color: #334155;
-            padding: 8px 0;
-            border-bottom: 1px solid #f1f5f9;
+
+            transition:
+                color .25s ease;
         }
 
-        .mobile-drawer a:last-child {
-            border-bottom: none;
+        .nav-link:hover {
+            color: var(--blue);
         }
 
-        .mobile-drawer .nav-button {
-            text-align: center;
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            margin-top: 4px;
-            padding: 12px;
+
+            padding: 11px 18px;
+
+            border-radius: 12px;
+
+            background: var(--navy-900);
+            color: white;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
         }
 
-        /* =========================
+        .nav-cta:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 28px rgba(7,17,31,.18);
+        }
+
+        .mobile-toggle {
+            display: none;
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 12px;
+
+            background: var(--surface-2);
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-toggle span {
+            display: block;
+
+            width: 19px;
+            height: 2px;
+
+            background: var(--navy-900);
+
+            margin: 3px 0;
+
+            transition:
+                transform .3s ease,
+                opacity .3s ease;
+        }
+
+
+        /* =========================================================
            HERO
-        ========================= */
+           ========================================================= */
 
         .hero {
-            padding: 100px 0 80px;
-            background:
-                radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.12), transparent 35%),
-                #ffffff;
             position: relative;
+
+            min-height: 820px;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 75% 35%,
+                    rgba(47,140,255,.16),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 35% 70%,
+                    rgba(67,230,255,.08),
+                    transparent 28%
+                ),
+
+                var(--navy-950);
+
+            color: white;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(5,11,20,.98) 0%,
+                    rgba(5,11,20,.88) 40%,
+                    rgba(5,11,20,.20) 100%
+                );
+
+            pointer-events: none;
         }
 
         .hero-grid {
+            position: relative;
+            z-index: 2;
+
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 60px;
+
+            grid-template-columns:
+                minmax(0, .88fr)
+                minmax(0, 1.12fr);
+
+            gap: 30px;
+
             align-items: center;
+
+            min-height: 820px;
         }
 
-        .badge {
+        .hero-copy {
+            position: relative;
+            z-index: 10;
+
+            padding-top: 50px;
+        }
+
+        .hero-eyebrow {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 7px 13px;
-            border-radius: 30px;
-            background: #eef4ff;
-            color: #2563eb;
-            font-size: 13px;
-            font-weight: 600;
+            gap: 9px;
+
             margin-bottom: 22px;
-            border: 1px solid rgba(37, 99, 235, 0.15);
+
+            color: #8edcff;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: .16em;
+            text-transform: uppercase;
         }
 
-        .badge-dot {
-            width: 6px;
-            height: 6px;
+        .hero-eyebrow-dot {
+            width: 7px;
+            height: 7px;
+
             border-radius: 50%;
-            background: #2563eb;
-            box-shadow: 0 0 8px #2563eb;
+
+            background: var(--cyan);
+
+            box-shadow:
+                0 0 18px var(--cyan);
         }
 
-        .hero h1,
-        .hero-headline {
-            margin-bottom: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
+        .hero-title {
+            max-width: 650px;
 
-        .headline-primary {
-            display: block;
-            font-size: clamp(34px, 4.6vw, 56px);
+            font-size:
+                clamp(46px, 6vw, 78px);
+
+            line-height: .98;
+
+            letter-spacing: -.055em;
+
             font-weight: 800;
-            line-height: 1.14;
-            letter-spacing: -0.035em;
-            color: #0f172a;
         }
 
-        .headline-secondary {
+        .hero-title span {
             display: block;
-            font-size: clamp(34px, 4.6vw, 56px);
-            font-weight: 800;
-            line-height: 1.14;
-            letter-spacing: -0.035em;
-            color: #2563eb;
+
+            color: transparent;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #6db5ff,
+                    #43e6ff
+                );
+
+            background-clip: text;
+            -webkit-background-clip: text;
         }
 
-        .headline-highlight {
-            color: #2563eb;
-            display: inline;
-        }
+        .hero-description {
+            max-width: 570px;
 
-        .hero p {
-            max-width: 620px;
-            color: #667085;
+            margin-top: 28px;
+
+            color: #a9b9cc;
+
             font-size: 18px;
-            margin-bottom: 32px;
-            line-height: 1.65;
+
+            line-height: 1.75;
         }
 
-        .buttons {
+        .hero-actions {
             display: flex;
-            gap: 12px;
             flex-wrap: wrap;
-        }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 14px 22px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: none;
+            gap: 13px;
+
+            margin-top: 34px;
         }
 
         .btn-primary {
-            background: #2563eb;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+
+            min-height: 50px;
+
+            padding:
+                0 21px;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #43e6ff,
+                    #2f8cff
+                );
+
             color: white;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+
+            font-weight: 750;
+
+            box-shadow:
+                0 15px 35px rgba(47,140,255,.24);
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
         }
 
         .btn-primary:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 20px 45px rgba(47,140,255,.35);
         }
 
         .btn-secondary {
-            background: #eef2f7;
-            color: #101828;
-            border: 1px solid #e2e8f0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 50px;
+
+            padding:
+                0 21px;
+
+            border-radius: 14px;
+
+            color: white;
+
+            border:
+                1px solid rgba(255,255,255,.14);
+
+            background:
+                rgba(255,255,255,.05);
+
+            backdrop-filter:
+                blur(10px);
+
+            font-weight: 650;
+
+            transition:
+                background .25s ease,
+                transform .25s ease;
         }
 
         .btn-secondary:hover {
-            background: #e2e8f0;
-            transform: translateY(-1px);
+            background:
+                rgba(255,255,255,.10);
+
+            transform:
+                translateY(-2px);
         }
 
-        /* =========================
-           HERO VISUAL (CYBER-NEURAL ECOSYSTEM - SEAMLESS LIGHT THEME)
-        ========================= */
 
-        .hero-visual {
+        /* =========================================================
+           GENERATIVE NEURAL NETWORK
+           ========================================================= */
+
+        .neural-stage {
             position: relative;
-            min-height: 480px;
+
+            width: 100%;
+            height: 620px;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            user-select: none;
-            width: 100%;
         }
 
-        .neural-net-stage {
-            position: relative;
-            width: 100%;
-            max-width: 480px;
-            aspect-ratio: 1 / 1;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: transparent;
-            border: none;
-            box-shadow: none;
-            overflow: visible;
-        }
-
-        /* SVG Background Neural Layer (Beaded Roots & Constellation) */
-        .neural-svg {
+        #neuralCanvas {
             position: absolute;
+
             inset: 0;
+
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            overflow: visible;
-            z-index: 1;
+
+            opacity: .95;
         }
 
-        /* 1. Underlying Bioluminescent Vapor Aura */
-        .root-aura {
-            fill: none;
-            stroke-width: 9;
-            stroke-linecap: round;
-            opacity: 0.22;
-            filter: url(#neonAuraBlur);
+        .neural-glow {
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(67,230,255,.13),
+                    rgba(47,140,255,.04) 42%,
+                    transparent 72%
+                );
+
+            filter:
+                blur(10px);
+
+            animation:
+                corePulse 5s ease-in-out infinite;
         }
 
-        /* 2. Primary Beaded Root Strand (Vibrant Domain Strand) */
-        .root-beads-shell {
-            fill: none;
-            stroke-width: 4.6;
-            stroke-linecap: round;
-            stroke-dasharray: 0 12;
-            filter: drop-shadow(0 2px 5px rgba(37, 99, 235, 0.2));
-            animation: beads-stream 16s linear infinite;
+        .neural-core {
+            position: absolute;
+
+            width: 106px;
+            height: 106px;
+
+            border-radius: 50%;
+
+            display: grid;
+            place-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 35% 30%,
+                    #15365d,
+                    #081425 68%
+                );
+
+            border:
+                1px solid rgba(91,201,255,.65);
+
+            box-shadow:
+                0 0 0 8px rgba(67,230,255,.025),
+                0 0 45px rgba(67,230,255,.25),
+                inset 0 0 35px rgba(47,140,255,.20);
+
+            animation:
+                coreFloat 6s ease-in-out infinite;
         }
 
-        /* 3. Luminous Photonic Core (White hot center of each bead) */
-        .root-beads-core {
-            fill: none;
-            stroke: #ffffff;
-            stroke-width: 2.2;
-            stroke-linecap: round;
-            stroke-dasharray: 0 12;
-            opacity: 0.95;
-            animation: beads-stream 16s linear infinite;
+        .neural-core::before {
+            content: "";
+
+            position: absolute;
+
+            inset: -12px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(67,230,255,.14);
+
+            animation:
+                coreRing 4s linear infinite;
         }
 
-        /* 4. Outer Ring of Starlight Neon Beads */
-        .root-ring-beads {
-            fill: none;
-            stroke-width: 3.2;
-            stroke-linecap: round;
-            stroke-dasharray: 0 11.5;
-            opacity: 0.55;
-            filter: drop-shadow(0 2px 4px rgba(37, 99, 235, 0.15));
-            animation: beads-stream-reverse 24s linear infinite;
+        .neural-core svg {
+            width: 52px;
+            height: 52px;
+
+            filter:
+                drop-shadow(
+                    0 0 12px rgba(67,230,255,.7)
+                );
         }
 
-        .root-ring-core {
-            fill: none;
-            stroke: #ffffff;
-            stroke-width: 1.5;
-            stroke-linecap: round;
-            stroke-dasharray: 0 11.5;
-            opacity: 0.85;
-            animation: beads-stream-reverse 24s linear infinite;
+        .neural-icon {
+            position: absolute;
+
+            width: 62px;
+            height: 62px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 20px;
+
+            background:
+                rgba(8,20,36,.72);
+
+            border:
+                1px solid rgba(110,181,255,.22);
+
+            backdrop-filter:
+                blur(12px);
+
+            box-shadow:
+                0 15px 45px rgba(0,0,0,.25),
+                inset 0 0 20px rgba(67,230,255,.035);
+
+            animation:
+                iconFloat 6s ease-in-out infinite;
         }
 
-        /* Continuous gentle flow of beads */
-        @keyframes beads-stream {
-            to {
-                stroke-dashoffset: -120;
-            }
+        .neural-icon svg {
+            width: 29px;
+            height: 29px;
+
+            stroke: #82dfff;
+
+            filter:
+                drop-shadow(
+                    0 0 8px rgba(67,230,255,.65)
+                );
         }
 
-        @keyframes beads-stream-reverse {
-            to {
-                stroke-dashoffset: 115;
-            }
+        .icon-farm {
+            top: 14%;
+            left: 19%;
+
+            animation-delay:
+                -.8s;
         }
 
-        /* Macro Node Pearls (Luminous pearls along the root inflection) */
-        .pearl-node {
-            fill: #ffffff;
-            stroke: #2563eb;
-            stroke-width: 2.2;
-            filter: drop-shadow(0 2px 6px rgba(37, 99, 235, 0.35));
-            animation: pearl-glow 3.6s ease-in-out infinite alternate;
+        .icon-livestock {
+            top: 24%;
+            right: 10%;
+
+            animation-delay:
+                -2.1s;
         }
 
-        @keyframes pearl-glow {
-            0% {
-                r: 3.4;
-                opacity: 0.85;
-                filter: drop-shadow(0 2px 4px rgba(37, 99, 235, 0.25));
-            }
+        .icon-home {
+            bottom: 19%;
+            right: 17%;
+
+            animation-delay:
+                -3.5s;
+        }
+
+        .icon-edu {
+            bottom: 12%;
+            left: 22%;
+
+            animation-delay:
+                -4.7s;
+        }
+
+        .icon-business {
+            top: 47%;
+            left: 4%;
+
+            animation-delay:
+                -1.7s;
+        }
+
+        .neural-particle {
+            position: absolute;
+
+            width: 5px;
+            height: 5px;
+
+            border-radius: 50%;
+
+            background: #8feeff;
+
+            box-shadow:
+                0 0 15px #43e6ff;
+
+            opacity: .7;
+
+            animation:
+                particleFloat 7s ease-in-out infinite;
+        }
+
+        .particle-1 {
+            left: 15%;
+            top: 30%;
+        }
+
+        .particle-2 {
+            left: 74%;
+            top: 13%;
+
+            animation-delay:
+                -2s;
+        }
+
+        .particle-3 {
+            left: 82%;
+            top: 67%;
+
+            animation-delay:
+                -4s;
+        }
+
+        .particle-4 {
+            left: 33%;
+            top: 76%;
+
+            animation-delay:
+                -1s;
+        }
+
+        .particle-5 {
+            left: 56%;
+            top: 7%;
+
+            animation-delay:
+                -5s;
+        }
+
+        @keyframes corePulse {
+            0%,
             100% {
-                r: 5;
+                transform: scale(.9);
+                opacity: .6;
+            }
+
+            50% {
+                transform: scale(1.08);
                 opacity: 1;
-                filter: drop-shadow(0 3px 8px rgba(37, 99, 235, 0.45));
             }
         }
 
-        /* Secondary Rootlet Branches (Cabang Akar Berupa Manik Halus) */
-        .rootlet-beads {
-            fill: none;
-            stroke: #0ea5e9;
-            stroke-width: 2.6;
-            stroke-linecap: round;
-            stroke-dasharray: 0 9.5;
-            opacity: 0.45;
-        }
-
-        /* Central Smart Technology Core (High-Tech Clean Glassmorphism Processor) */
-        .core-hub {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 112px;
-            height: 112px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 5;
-            cursor: default;
-        }
-
-        .core-radar-ring {
-            position: absolute;
-            inset: -14px;
-            border-radius: 50%;
-            border: 1.5px dashed rgba(37, 99, 235, 0.35);
-            animation: spin-radar 22s linear infinite;
-        }
-
-        .core-radar-ring-2 {
-            position: absolute;
-            inset: -28px;
-            border-radius: 50%;
-            border: 1px solid rgba(14, 165, 233, 0.22);
-            animation: pulse-aura 4s ease-in-out infinite;
-        }
-
-        @keyframes spin-radar {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes pulse-aura {
-            0%, 100% {
-                transform: scale(0.96);
-                opacity: 0.35;
+        @keyframes coreFloat {
+            0%,
+            100% {
+                transform: translateY(0);
             }
+
             50% {
-                transform: scale(1.05);
-                opacity: 0.85;
+                transform: translateY(-8px);
             }
         }
 
-        .core-body {
+        @keyframes coreRing {
+            from {
+                transform:
+                    rotate(0deg)
+                    scale(.96);
+            }
+
+            to {
+                transform:
+                    rotate(360deg)
+                    scale(1.02);
+            }
+        }
+
+        @keyframes iconFloat {
+            0%,
+            100% {
+                transform:
+                    translate3d(0,0,0);
+            }
+
+            50% {
+                transform:
+                    translate3d(0,-11px,0);
+            }
+        }
+
+        @keyframes particleFloat {
+            0%,
+            100% {
+                transform:
+                    translate(0,0);
+            }
+
+            50% {
+                transform:
+                    translate(18px,-20px);
+            }
+        }
+
+
+        /* =========================================================
+           TRUST STRIP
+           ========================================================= */
+
+        .trust-strip {
             position: relative;
-            width: 92px;
-            height: 92px;
-            border-radius: 28px;
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #eff6ff 100%);
-            border: 2px solid #2563eb;
+
+            margin-top: -1px;
+
+            background:
+                var(--navy-950);
+
+            border-top:
+                1px solid rgba(255,255,255,.05);
+
+            border-bottom:
+                1px solid rgba(255,255,255,.05);
+        }
+
+        .trust-inner {
+            min-height: 105px;
+
             display: flex;
             align-items: center;
-            justify-content: center;
-            box-shadow:
-                0 14px 35px -8px rgba(37, 99, 235, 0.28),
-                0 4px 12px rgba(15, 23, 42, 0.05),
-                inset 0 0 16px rgba(37, 99, 235, 0.08);
-            transition: all 0.3s ease;
+            justify-content: space-between;
+
+            gap: 30px;
         }
 
-        .core-body:hover {
-            transform: scale(1.06);
-            border-color: #1d4ed8;
-            box-shadow:
-                0 18px 45px -6px rgba(37, 99, 235, 0.38),
-                0 6px 16px rgba(15, 23, 42, 0.08),
-                inset 0 0 20px rgba(37, 99, 235, 0.12);
-        }
-
-        .core-tech-icon {
-            width: 48px;
-            height: 48px;
-            display: block;
-            filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.35));
-            animation: core-breath 3.4s ease-in-out infinite;
-        }
-
-        @keyframes core-breath {
-            0%, 100% {
-                transform: scale(0.97);
-            }
-            50% {
-                transform: scale(1.03);
-            }
-        }
-
-        /* Satellite Domain Nodes (Seamless Clean Aesthetic - Anchored Perfectly to Root Tips) */
-        .satellite-node {
-            position: absolute;
-            width: 58px;
-            height: 58px;
-            border-radius: 18px;
-            background: #ffffff;
-            border: 2px solid rgba(226, 232, 240, 0.9);
+        .trust-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            z-index: 4;
-            transform: translate(-50%, -50%);
+            gap: 12px;
+
+            color: #9eb0c5;
+
+            font-size: 13px;
+        }
+
+        .trust-item strong {
+            color: white;
+        }
+
+        .trust-dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background:
+                var(--cyan);
+
             box-shadow:
-                0 10px 24px -4px rgba(15, 23, 42, 0.1),
-                0 3px 8px rgba(15, 23, 42, 0.04);
-            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
-            cursor: pointer;
+                0 0 13px var(--cyan);
         }
 
-        .satellite-node:hover {
-            transform: translate(-50%, -50%) scale(1.16);
-            z-index: 6;
-        }
 
-        .satellite-node svg {
-            width: 28px;
-            height: 28px;
-            display: block;
-            transition: transform 0.25s ease;
-        }
-
-        .satellite-node:hover svg {
-            transform: scale(1.1);
-        }
-
-        /* Positions & Domain Accents (Breathing In-Place without X/Y translation displacement) */
-        /* 1. Smart Farm - Top */
-        .node-farm {
-            left: 50%;
-            top: 15.5%;
-            border-color: #10b981;
-            box-shadow: 0 10px 24px -4px rgba(16, 185, 129, 0.25), 0 3px 8px rgba(15, 23, 42, 0.05);
-            animation: pulse-farm 4.2s ease-in-out infinite;
-        }
-        .node-farm:hover {
-            border-color: #059669;
-            box-shadow: 0 14px 32px -4px rgba(16, 185, 129, 0.38), 0 4px 12px rgba(15, 23, 42, 0.08);
-        }
-
-        /* 2. Smart Livestock - Top Right */
-        .node-livestock {
-            left: 84.5%;
-            top: 37.7%;
-            border-color: #f59e0b;
-            box-shadow: 0 10px 24px -4px rgba(245, 158, 11, 0.25), 0 3px 8px rgba(15, 23, 42, 0.05);
-            animation: pulse-livestock 4.6s ease-in-out infinite;
-        }
-        .node-livestock:hover {
-            border-color: #d97706;
-            box-shadow: 0 14px 32px -4px rgba(245, 158, 11, 0.38), 0 4px 12px rgba(15, 23, 42, 0.08);
-        }
-
-        /* 3. Smart Bisnis - Bottom Right */
-        .node-bisnis {
-            left: 75.5%;
-            top: 77.7%;
-            border-color: #6366f1;
-            box-shadow: 0 10px 24px -4px rgba(99, 102, 241, 0.25), 0 3px 8px rgba(15, 23, 42, 0.05);
-            animation: pulse-bisnis 4.4s ease-in-out infinite;
-        }
-        .node-bisnis:hover {
-            border-color: #4f46e5;
-            box-shadow: 0 14px 32px -4px rgba(99, 102, 241, 0.38), 0 4px 12px rgba(15, 23, 42, 0.08);
-        }
-
-        /* 4. Smart School - Bottom Left */
-        .node-school {
-            left: 24.5%;
-            top: 77.7%;
-            border-color: #0ea5e9;
-            box-shadow: 0 10px 24px -4px rgba(14, 165, 233, 0.25), 0 3px 8px rgba(15, 23, 42, 0.05);
-            animation: pulse-school 4.8s ease-in-out infinite;
-        }
-        .node-school:hover {
-            border-color: #0284c7;
-            box-shadow: 0 14px 32px -4px rgba(14, 165, 233, 0.38), 0 4px 12px rgba(15, 23, 42, 0.08);
-        }
-
-        /* 5. Smart Home - Top Left */
-        .node-home {
-            left: 15.5%;
-            top: 37.7%;
-            border-color: #2563eb;
-            box-shadow: 0 10px 24px -4px rgba(37, 99, 235, 0.25), 0 3px 8px rgba(15, 23, 42, 0.05);
-            animation: pulse-home 4.0s ease-in-out infinite;
-        }
-        .node-home:hover {
-            border-color: #1d4ed8;
-            box-shadow: 0 14px 32px -4px rgba(37, 99, 235, 0.38), 0 4px 12px rgba(15, 23, 42, 0.08);
-        }
-
-        /* Subtle In-Place Breathing Animations (No Translation Offset) */
-        @keyframes pulse-farm {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.04); }
-        }
-        @keyframes pulse-livestock {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.04); }
-        }
-        @keyframes pulse-bisnis {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.04); }
-        }
-        @keyframes pulse-school {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.04); }
-        }
-        @keyframes pulse-home {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.04); }
-        }
-
-        /* =========================
-           PRODUCTS
-        ========================= */
+        /* =========================================================
+           SECTION
+           ========================================================= */
 
         .section {
-            padding: 90px 0;
+            padding:
+                120px 0;
+        }
+
+        .section-soft {
+            background:
+                var(--surface);
         }
 
         .section-heading {
-            max-width: 650px;
-            margin-bottom: 45px;
+            max-width: 700px;
+
+            margin-bottom: 55px;
         }
 
-        .section-heading .label {
-            color: #2563eb;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
+        .section-label {
+            display: inline-block;
 
-        .section-heading h2 {
-            font-size: clamp(30px, 4vw, 44px);
-            letter-spacing: -1.5px;
-            line-height: 1.15;
-            margin-bottom: 12px;
+            margin-bottom: 13px;
+
+            color: var(--blue);
+
+            font-size: 12px;
             font-weight: 800;
+
+            letter-spacing: .15em;
+            text-transform: uppercase;
         }
 
-        .section-heading p {
-            color: #667085;
-            font-size: 16px;
+        .section-title {
+            font-size:
+                clamp(34px, 5vw, 54px);
+
+            line-height: 1.05;
+
+            letter-spacing: -.045em;
+
+            color:
+                var(--navy-900);
         }
+
+        .section-description {
+            margin-top: 17px;
+
+            color: var(--muted);
+
+            font-size: 17px;
+
+            max-width: 650px;
+        }
+
+
+        /* =========================================================
+           PRODUCT BROCHURES
+           ========================================================= */
 
         .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-        }
-
-        .product {
-            background: white;
-            border: 1px solid #e7ebf0;
-            border-radius: 20px;
-            padding: 28px;
-            transition: all 0.25s ease;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+
+            gap: 30px;
         }
 
-        .product:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
-            border-color: #cbd5e1;
+        .product-brochure {
+            position: relative;
+
+            min-height: 470px;
+
+            overflow: hidden;
+
+            border-radius:
+                var(--radius-xl);
+
+            background:
+                white;
+
+            border:
+                1px solid var(--border);
+
+            box-shadow:
+                var(--shadow);
+
+            isolation: isolate;
         }
 
-        .product-top {
-            margin-bottom: 16px;
+        .product-brochure::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 18% 50%,
+                    rgba(47,140,255,.06),
+                    transparent 35%
+                );
+
+            pointer-events: none;
         }
 
-        .product-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            background: #eef4ff;
-            display: flex;
+        .product-copy {
+            position: relative;
+            z-index: 4;
+
+            width: 50%;
+
+            padding:
+                62px 30px 62px 65px;
+        }
+
+        .product-number {
+            display: inline-flex;
+
+            width: 42px;
+            height: 42px;
+
             align-items: center;
             justify-content: center;
-            font-size: 25px;
-            margin-bottom: 22px;
-            border: 1px solid rgba(37, 99, 235, 0.1);
-        }
 
-        .product small {
-            color: #667085;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+            margin-bottom: 25px;
 
-        .product h3 {
-            font-size: 21px;
-            margin: 5px 0 10px;
-            font-weight: 700;
-            color: #0f172a;
-        }
+            border-radius: 12px;
 
-        .product p {
-            color: #667085;
-            font-size: 14.5px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
+            background:
+                #eef6ff;
 
-        .product-link {
-            color: #2563eb;
-            font-size: 14px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            transition: gap 0.2s ease;
-            cursor: pointer;
-            background: transparent;
-            border: none;
-            padding: 0;
-            font-family: inherit;
-        }
+            color:
+                var(--blue);
 
-        .product-link:hover {
-            gap: 8px;
-            color: #1d4ed8;
-        }
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about {
-            background: #07111f;
-            color: white;
-            position: relative;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
-            align-items: center;
-        }
-
-        .about h2 {
-            font-size: clamp(32px, 4vw, 48px);
-            line-height: 1.1;
-            letter-spacing: -1.5px;
-            margin-bottom: 20px;
+            font-size: 13px;
             font-weight: 800;
         }
 
-        .about p {
-            color: #aab6c5;
-            margin-bottom: 25px;
+        .product-category {
+            margin-bottom: 8px;
+
+            color:
+                var(--blue);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: .14em;
+
+            text-transform: uppercase;
+        }
+
+        .product-title {
+            font-size:
+                clamp(35px, 4vw, 52px);
+
+            line-height: 1;
+
+            letter-spacing: -.05em;
+
+            color:
+                var(--navy-900);
+        }
+
+        .product-description {
+            margin-top: 20px;
+
+            max-width: 510px;
+
+            color:
+                var(--muted);
+
             font-size: 16px;
+
+            line-height: 1.7;
+        }
+
+        .product-list {
+            display: grid;
+
+            gap: 10px;
+
+            margin-top: 23px;
+
+            list-style: none;
+        }
+
+        .product-list li {
+            position: relative;
+
+            padding-left: 27px;
+
+            color:
+                #33465b;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+        .product-list li::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 8px;
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--cyan),
+                    var(--blue)
+                );
+
+            box-shadow:
+                0 0 10px rgba(47,140,255,.3);
+        }
+
+        .product-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            margin-top: 28px;
+
+            color:
+                var(--navy-900);
+
+            font-size: 14px;
+            font-weight: 800;
+
+            transition:
+                color .25s ease,
+                gap .25s ease;
+        }
+
+        .product-action:hover {
+            color:
+                var(--blue);
+
+            gap: 13px;
+        }
+
+        .product-photo {
+            position: absolute;
+
+            z-index: 2;
+
+            top: 0;
+            right: -7%;
+
+            width: 57%;
+            height: 100%;
+
+            overflow: hidden;
+
+            clip-path:
+                polygon(
+                    12% 0,
+                    100% 0,
+                    100% 100%,
+                    0 100%
+                );
+        }
+
+        .product-photo::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(5,18,33,.20),
+                    transparent 30%
+                );
+
+            pointer-events: none;
+        }
+
+        .product-photo img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform 1.1s var(--ease);
+        }
+
+        .product-brochure:hover
+        .product-photo img {
+            transform:
+                scale(1.055);
+        }
+
+        .photo-farm img {
+            object-position:
+                center center;
+        }
+
+        .photo-livestock img {
+            object-position:
+                center 40%;
+        }
+
+        .photo-home img {
+            object-position:
+                center center;
+        }
+
+        .photo-edu img {
+            object-position:
+                center 38%;
+        }
+
+        .photo-business img {
+            object-position:
+                center center;
+        }
+
+
+        /* =========================================================
+           SOLUTION PRINCIPLES
+           ========================================================= */
+
+        .principles-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .principle {
+            padding: 28px;
+
+            min-height: 220px;
+
+            border-radius:
+                22px;
+
+            background:
+                white;
+
+            border:
+                1px solid var(--border);
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
+
+        .principle:hover {
+            transform:
+                translateY(-6px);
+
+            box-shadow:
+                0 20px 50px rgba(8,26,49,.09);
+        }
+
+        .principle-icon {
+            width: 48px;
+            height: 48px;
+
+            display: grid;
+            place-items: center;
+
+            margin-bottom: 22px;
+
+            border-radius: 15px;
+
+            background:
+                #edf6ff;
+        }
+
+        .principle-icon svg {
+            width: 25px;
+            height: 25px;
+
+            stroke:
+                var(--blue);
+        }
+
+        .principle-title {
+            color:
+                var(--navy-900);
+
+            font-size: 18px;
+
+            letter-spacing: -.02em;
+        }
+
+        .principle-text {
+            margin-top: 9px;
+
+            color:
+                var(--muted);
+
+            font-size: 14px;
+
             line-height: 1.65;
         }
 
-        .about p:last-of-type {
-            margin-bottom: 0;
-        }
 
-        .features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
+        /* =========================================================
+           ABOUT / CTA
+           ========================================================= */
 
-        .feature {
-            padding: 22px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.04);
-            transition: background 0.2s ease, transform 0.2s ease;
-        }
+        .about-section {
+            position: relative;
 
-        .feature:hover {
-            background: rgba(255, 255, 255, 0.07);
-            transform: translateY(-2px);
-        }
+            overflow: hidden;
 
-        .feature strong {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 17px;
-            color: #ffffff;
-        }
-
-        .feature span {
-            color: #9ca9b8;
-            font-size: 13.5px;
-            line-height: 1.5;
-        }
-
-        /* =========================
-           CTA
-        ========================= */
-
-        .cta {
-            padding: 90px 0;
-        }
-
-        .cta-box {
             background:
-                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.25), transparent 35%),
-                #eef4ff;
-            border-radius: 28px;
-            padding: 65px 40px;
-            text-align: center;
-            border: 1px solid rgba(37, 99, 235, 0.15);
+                var(--navy-950);
+
+            color: white;
         }
 
-        .cta-box h2 {
-            font-size: clamp(30px, 4vw, 46px);
-            letter-spacing: -1.5px;
-            margin-bottom: 14px;
+        .about-section::before {
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            right: -250px;
+            top: -250px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(67,230,255,.12),
+                    transparent 65%
+                );
+
+            pointer-events: none;
+        }
+
+        .about-grid {
+            position: relative;
+            z-index: 2;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr .8fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .about-label {
+            color:
+                #79dfff;
+
+            font-size: 12px;
             font-weight: 800;
-            color: #0f172a;
+
+            letter-spacing: .15em;
+
+            text-transform: uppercase;
         }
 
-        .cta-box p {
-            color: #667085;
-            max-width: 580px;
-            margin: 0 auto 28px;
-            font-size: 16.5px;
-            line-height: 1.6;
+        .about-title {
+            margin-top: 14px;
+
+            max-width: 700px;
+
+            font-size:
+                clamp(38px, 5vw, 62px);
+
+            line-height: 1.02;
+
+            letter-spacing: -.05em;
         }
 
-        /* =========================
+        .about-text {
+            margin-top: 22px;
+
+            max-width: 650px;
+
+            color:
+                #9eafc3;
+
+            font-size: 17px;
+
+            line-height: 1.75;
+        }
+
+        .about-points {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 14px;
+
+            margin-top: 30px;
+        }
+
+        .about-point {
+            display: flex;
+
+            gap: 11px;
+
+            color:
+                #d4deea;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+        .about-check {
+            flex:
+                0 0 auto;
+
+            width: 21px;
+            height: 21px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(67,230,255,.10);
+
+            color:
+                #63dcff;
+        }
+
+        .about-card {
+            min-height: 350px;
+
+            border-radius:
+                30px;
+
+            padding: 30px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.08),
+                    rgba(255,255,255,.025)
+                );
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            box-shadow:
+                inset 0 0 70px rgba(67,230,255,.025);
+        }
+
+        .about-card-logo {
+            width: 68px;
+            height: 68px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 21px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #43e6ff,
+                    #2f8cff
+                );
+
+            box-shadow:
+                0 15px 40px rgba(47,140,255,.28);
+        }
+
+        .about-card-logo svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .about-card-title {
+            margin-top: auto;
+
+            font-size: 26px;
+
+            letter-spacing: -.03em;
+        }
+
+        .about-card-text {
+            margin-top: 8px;
+
+            color:
+                #91a6bd;
+
+            font-size: 14px;
+
+            line-height: 1.65;
+        }
+
+
+        /* =========================================================
+           CONTACT CTA
+           ========================================================= */
+
+        .contact {
+            padding:
+                105px 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff,
+                    #f4f8fd
+                );
+        }
+
+        .contact-box {
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                65px;
+
+            border-radius:
+                32px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0a1727,
+                    #102943
+                );
+
+            color: white;
+
+            box-shadow:
+                0 35px 80px rgba(7,17,31,.15);
+        }
+
+        .contact-box::before {
+            content: "";
+
+            position: absolute;
+
+            width: 430px;
+            height: 430px;
+
+            right: -160px;
+            top: -180px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(67,230,255,.16),
+                    transparent 67%
+                );
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 720px;
+        }
+
+        .contact-label {
+            color:
+                #70ddff;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: .15em;
+
+            text-transform: uppercase;
+        }
+
+        .contact-title {
+            margin-top: 13px;
+
+            font-size:
+                clamp(34px, 5vw, 54px);
+
+            line-height: 1.05;
+
+            letter-spacing: -.045em;
+        }
+
+        .contact-text {
+            margin-top: 17px;
+
+            color:
+                #9fb0c5;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 30px;
+        }
+
+
+        /* =========================================================
            FOOTER
-        ========================= */
+           ========================================================= */
 
         footer {
-            background: #ffffff;
-            border-top: 1px solid #e7ebf0;
-            padding: 42px 0;
-            text-align: center;
+            padding:
+                35px 0;
+
+            background:
+                #050b14;
+
+            color:
+                #8396ab;
         }
 
         .footer-inner {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+
             align-items: center;
-            text-align: center;
-            gap: 12px;
+            justify-content: space-between;
+
+            gap: 25px;
         }
 
-        .footer-brand strong {
-            font-size: 21px;
+        .footer-brand {
+            color: white;
+
             font-weight: 800;
-            letter-spacing: -0.5px;
-            color: #0f172a;
-            display: inline-block;
+
+            letter-spacing: -.03em;
         }
 
-        .footer-brand p {
-            color: #64748b;
+        .footer-copy {
             font-size: 13px;
-            margin-top: 4px;
-            letter-spacing: 0.3px;
         }
 
-        .footer-copyright {
-            color: #94a3b8;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        /* =========================
-           FLOATING WHATSAPP BUTTON
-        ========================= */
-
-        .floating-wa-btn {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 1500;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 20px;
-            border-radius: 999px;
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: #ffffff !important;
-            font-weight: 700;
-            font-size: 14px;
-            box-shadow: 0 8px 26px rgba(16, 185, 129, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            transition: all 0.2s ease;
-        }
-
-        .floating-wa-btn:hover {
-            transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 12px 32px rgba(16, 185, 129, 0.55);
-        }
-
-        .floating-wa-btn svg {
-            flex-shrink: 0;
-            animation: wa-wiggle 3.5s ease-in-out infinite;
-        }
-
-        @keyframes wa-wiggle {
-            0%, 100% { transform: rotate(0deg); }
-            10%, 30% { transform: rotate(-8deg); }
-            20%, 40% { transform: rotate(8deg); }
-            50% { transform: rotate(0deg); }
-        }
-
-        /* =========================
-           MODAL DETAIL PRODUK
-        ========================= */
-
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(7, 17, 31, 0.6);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            z-index: 2000;
+        .footer-links {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+
+            gap: 22px;
+
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+
+        /* =========================================================
+           REVEAL ANIMATION
+           ========================================================= */
+
+        .reveal {
             opacity: 0;
-            visibility: hidden;
-            transition: all 0.25s ease;
+
+            transform:
+                translateY(35px);
+
+            transition:
+                opacity .8s var(--ease),
+                transform .8s var(--ease);
         }
 
-        .modal-overlay.is-open {
+        .reveal.visible {
             opacity: 1;
-            visibility: visible;
+
+            transform:
+                translateY(0);
         }
 
-        .modal-card {
-            background: #ffffff;
-            border-radius: 24px;
-            width: 100%;
-            max-width: 540px;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 32px;
-            position: relative;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
-            transform: translateY(20px) scale(0.96);
-            transition: all 0.25s ease;
+
+        /* =========================================================
+           IMAGE FALLBACK
+           ========================================================= */
+
+        .product-photo.image-missing {
+            background:
+                linear-gradient(
+                    135deg,
+                    #0d243e,
+                    #1c4f79
+                );
         }
 
-        .modal-overlay.is-open .modal-card {
-            transform: translateY(0) scale(1);
-        }
+        .product-photo.image-missing::before {
+            content: "Tambahkan foto produk";
 
-        .modal-close-btn {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: #f1f5f9;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: #64748b;
-            transition: background 0.15s ease, color 0.15s ease;
-        }
 
-        .modal-close-btn:hover {
-            background: #e2e8f0;
-            color: #0f172a;
-        }
+            inset: 0;
 
-        .modal-badge {
-            display: inline-block;
-            font-size: 11.5px;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #2563eb;
-            background: #eef4ff;
-            padding: 4px 10px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-        }
+            display: grid;
+            place-items: center;
 
-        .modal-title {
-            font-size: 26px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 10px;
-            color: #0f172a;
-        }
+            color: rgba(255,255,255,.65);
 
-        .modal-desc {
-            color: #64748b;
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .modal-section-title {
             font-size: 13px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #334155;
-            margin-bottom: 10px;
+
+            letter-spacing: .04em;
         }
 
-        .modal-features {
-            list-style: none;
-            margin-bottom: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
 
-        .modal-features li {
-            font-size: 14px;
-            color: #475467;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
+        /* =========================================================
+           RESPONSIVE TABLET
+           ========================================================= */
 
-        .modal-features li span {
-            color: #10b981;
-            font-weight: 700;
-        }
+        @media (max-width: 1000px) {
 
-        .modal-actions {
-            display: flex;
-            gap: 12px;
-        }
+            .hero-grid {
+                grid-template-columns:
+                    1fr;
 
-        .modal-actions .btn {
-            flex: 1;
-            padding: 12px 18px;
-        }
-
-        /* =========================
-           MOBILE RESPONSIVENESS
-        ========================= */
-
-        @media (max-width: 800px) {
-            .nav {
-                height: 64px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-toggle {
-                display: flex;
+                padding:
+                    110px 0 60px;
             }
 
             .hero {
-                padding: 60px 0 50px;
+                min-height:
+                    auto;
             }
 
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .hero-copy {
+                padding-top: 35px;
             }
 
-            .hero h1,
-            .hero-headline {
-                gap: 6px;
-                margin-bottom: 20px;
+            .neural-stage {
+                height: 500px;
             }
 
-            .headline-primary,
-            .headline-secondary {
-                font-size: clamp(28px, 7.5vw, 42px);
-                line-height: 1.15;
-                letter-spacing: -0.03em;
+            .hero-title {
+                max-width:
+                    760px;
             }
 
-            .hero p {
-                font-size: 16px;
-            }
-
-            .buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .buttons .btn {
-                width: 100%;
-            }
-
-            .hero-visual {
-                min-height: auto;
-                width: 100%;
-                padding: 24px 0 12px;
-                overflow: visible;
-            }
-
-            .neural-net-stage {
-                width: 100%;
-                max-width: 480px;
-                aspect-ratio: 1 / 1;
-            }
-
-            .core-hub {
-                width: 104px;
-                height: 104px;
-            }
-
-            .core-radar-ring {
-                inset: -13px;
-            }
-
-            .core-radar-ring-2 {
-                inset: -26px;
-            }
-
-            .core-body {
-                width: 86px;
-                height: 86px;
-                border-radius: 26px;
-            }
-
-            .core-tech-icon {
-                width: 44px;
-                height: 44px;
-            }
-
-            .satellite-node {
-                width: 56px;
-                height: 56px;
-                border-radius: 18px;
-            }
-
-            .satellite-node svg {
-                width: 26px;
-                height: 26px;
-            }
-
-            @media (max-width: 540px) {
-                .neural-net-stage {
-                    width: 100%;
-                    max-width: min(100%, 420px);
-                }
-
-                .core-hub {
-                    width: clamp(82px, 22vw, 96px);
-                    height: clamp(82px, 22vw, 96px);
-                }
-
-                .core-radar-ring {
-                    inset: -10px;
-                }
-
-                .core-radar-ring-2 {
-                    inset: -20px;
-                }
-
-                .core-body {
-                    width: clamp(68px, 18vw, 78px);
-                    height: clamp(68px, 18vw, 78px);
-                    border-radius: 20px;
-                }
-
-                .core-tech-icon {
-                    width: clamp(34px, 9vw, 40px);
-                    height: clamp(34px, 9vw, 40px);
-                }
-
-                .satellite-node {
-                    width: clamp(48px, 13vw, 54px);
-                    height: clamp(48px, 13vw, 54px);
-                    border-radius: 16px;
-                }
-
-                .satellite-node svg {
-                    width: clamp(23px, 6.2vw, 26px);
-                    height: clamp(23px, 6.2vw, 26px);
-                }
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-
-            .products {
-                grid-template-columns: 1fr;
+            .principles-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
             .about-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
+                grid-template-columns:
+                    1fr;
             }
 
-            .features {
-                grid-template-columns: 1fr;
+            .product-copy {
+                width:
+                    55%;
+
+                padding-left:
+                    45px;
             }
 
-            .cta-box {
-                padding: 45px 20px;
-                border-radius: 20px;
+            .product-photo {
+                width:
+                    54%;
+            }
+        }
+
+
+        /* =========================================================
+           RESPONSIVE MOBILE
+           ========================================================= */
+
+        @media (max-width: 760px) {
+
+            .container {
+                width:
+                    min(
+                        calc(100% - 28px),
+                        var(--max-width)
+                    );
             }
 
-            .cta-box .btn {
-                width: 100%;
+            .nav {
+                height: 70px;
+            }
+
+            .nav-menu {
+                position: absolute;
+
+                left: 14px;
+                right: 14px;
+
+                top: 76px;
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 5px;
+
+                padding: 12px;
+
+                border-radius: 18px;
+
+                background:
+                    rgba(255,255,255,.97);
+
+                box-shadow:
+                    0 20px 50px rgba(8,20,35,.15);
+
+                backdrop-filter:
+                    blur(20px);
+            }
+
+            .nav-menu.open {
+                display: flex;
+            }
+
+            .nav-link {
+                padding:
+                    13px 14px;
+            }
+
+            .nav-cta {
+                margin-top: 5px;
+
+                padding:
+                    13px 16px;
+            }
+
+            .mobile-toggle {
+                display: flex;
+
+                flex-direction: column;
+            }
+
+            .hero-grid {
+                min-height:
+                    auto;
+
+                padding:
+                    115px 0 30px;
+            }
+
+            .hero-copy {
+                padding-top:
+                    15px;
+            }
+
+            .hero-title {
+                font-size:
+                    clamp(42px, 13vw, 60px);
+            }
+
+            .hero-description {
+                font-size:
+                    16px;
+            }
+
+            .hero-actions {
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width:
+                    100%;
+            }
+
+            .neural-stage {
+                height:
+                    390px;
+
+                margin-top:
+                    5px;
+            }
+
+            .neural-core {
+                width:
+                    82px;
+
+                height:
+                    82px;
+            }
+
+            .neural-core svg {
+                width:
+                    42px;
+
+                height:
+                    42px;
+            }
+
+            .neural-icon {
+                width:
+                    51px;
+
+                height:
+                    51px;
+
+                border-radius:
+                    16px;
+            }
+
+            .neural-icon svg {
+                width:
+                    24px;
+
+                height:
+                    24px;
+            }
+
+            .icon-farm {
+                left:
+                    12%;
+            }
+
+            .icon-livestock {
+                right:
+                    7%;
+            }
+
+            .icon-home {
+                right:
+                    10%;
+            }
+
+            .icon-edu {
+                left:
+                    13%;
+            }
+
+            .icon-business {
+                left:
+                    2%;
+            }
+
+            .trust-inner {
+                min-height:
+                    auto;
+
+                padding:
+                    25px 0;
+
+                display:
+                    grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap:
+                    18px;
+            }
+
+            .trust-item {
+                font-size:
+                    11px;
+            }
+
+            .section {
+                padding:
+                    80px 0;
+            }
+
+            .section-heading {
+                margin-bottom:
+                    35px;
+            }
+
+            .product-brochure {
+                min-height:
+                    auto;
+
+                display:
+                    flex;
+
+                flex-direction:
+                    column;
+
+                border-radius:
+                    24px;
+            }
+
+            .product-copy {
+                width:
+                    100%;
+
+                padding:
+                    38px 28px 34px;
+            }
+
+            .product-title {
+                font-size:
+                    42px;
+            }
+
+            .product-description {
+                font-size:
+                    15px;
+            }
+
+            .product-photo {
+                position:
+                    relative;
+
+                top:
+                    auto;
+
+                right:
+                    auto;
+
+                width:
+                    112%;
+
+                height:
+                    280px;
+
+                margin-left:
+                    -6%;
+
+                clip-path:
+                    polygon(
+                        5% 0,
+                        100% 0,
+                        100% 100%,
+                        0 100%
+                    );
+            }
+
+            .principles-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .principle {
+                min-height:
+                    auto;
+            }
+
+            .about-points {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .about-card {
+                min-height:
+                    290px;
+            }
+
+            .contact-box {
+                padding:
+                    38px 28px;
+
+                border-radius:
+                    24px;
+            }
+
+            .contact-actions {
+                flex-direction:
+                    column;
+            }
+
+            .contact-actions .btn-primary,
+            .contact-actions .btn-secondary {
+                width:
+                    100%;
             }
 
             .footer-inner {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 12px;
-            }
+                flex-direction:
+                    column;
 
-            .floating-wa-btn {
-                bottom: 16px;
-                right: 16px;
-                padding: 10px 16px;
-                font-size: 13px;
+                align-items:
+                    flex-start;
             }
         }
 
-        @media (max-width: 420px) {
-            .floating-wa-label {
-                display: none;
+
+        /* =========================================================
+           REDUCED MOTION
+           ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior:
+                    auto;
             }
-            .floating-wa-btn {
-                padding: 12px;
-                border-radius: 50%;
+
+            *,
+            *::before,
+            *::after {
+                animation-duration:
+                    .01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    .01ms !important;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
 
-<header id="mainHeader">
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
 
-    <div class="container nav">
+    <header class="site-header" id="siteHeader">
 
-        <a href="#" class="logo" id="navLogo">
-            KIRA<span>VA</span>
-        </a>
+        <div class="container nav">
 
-        <nav class="nav-links" id="desktopNav">
+            <a href="#home"
+               class="brand"
+               aria-label="KIRAVA">
 
-            <a href="#produk" id="linkNavProduk">Produk</a>
-            <a href="#tentang" id="linkNavTentang">Tentang</a>
-            <a href="#kontak" id="linkNavKontak">Kontak</a>
+                <span class="brand-mark">
 
-            <a
-                href="https://wa.me/6289504008817?text=Halo%20KIRAVA%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20solusi%20KIRAVA."
-                class="nav-button"
-                id="headerWaBtn"
-                target="_blank"
-                rel="noopener noreferrer">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                </svg>
-                WhatsApp
+                    <svg
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+
+                        <path
+                            d="M10 27L18 12L22 20L30 13"
+                            stroke="white"
+                            stroke-width="3.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"/>
+
+                        <circle
+                            cx="10"
+                            cy="27"
+                            r="3"
+                            fill="white"/>
+
+                        <circle
+                            cx="18"
+                            cy="12"
+                            r="3"
+                            fill="white"/>
+
+                        <circle
+                            cx="22"
+                            cy="20"
+                            r="3"
+                            fill="white"/>
+
+                        <circle
+                            cx="30"
+                            cy="13"
+                            r="3"
+                            fill="white"/>
+
+                    </svg>
+
+                </span>
+
+                <span class="brand-text">
+                    KIRAVA
+                </span>
+
             </a>
 
-        </nav>
 
-        <!-- Hamburger button for mobile -->
-        <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Buka Menu Navigasi">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-        </button>
+            <button
+                class="mobile-toggle"
+                id="mobileToggle"
+                aria-label="Buka menu">
 
-    </div>
+                <span></span>
+                <span></span>
+                <span></span>
 
-    <!-- Mobile Drawer -->
-    <div class="mobile-drawer" id="mobileDrawer">
-        <a href="#produk" class="mobile-link">Produk Solusi</a>
-        <a href="#tentang" class="mobile-link">Tentang KIRAVA</a>
-        <a href="#kontak" class="mobile-link">Kontak & Diskusi</a>
-        <a
-            href="https://wa.me/6289504008817?text=Halo%20KIRAVA%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20solusi%20KIRAVA."
-            class="nav-button"
-            id="mobileDrawerWaBtn"
-            target="_blank"
-            rel="noopener noreferrer">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-            </svg>
-            Konsultasi via WhatsApp
-        </a>
-    </div>
-
-</header>
+            </button>
 
 
-<!-- =========================
-     HERO
-========================= -->
+            <nav class="nav-menu" id="navMenu">
 
-<section class="hero" id="beranda">
-
-    <div class="container hero-grid">
-
-        <div>
-
-            <div class="badge" id="heroBadge">
-                <span class="badge-dot"></span>
-                Ai • Internet Of Things • Software
-            </div>
-
-            <h1 id="heroHeadline" class="hero-headline">
-                <span class="headline-primary">Teknologi Cerdas</span>
-                <span class="headline-secondary">kami buat lebih mudah untuk anda</span>
-            </h1>
-
-            <p id="heroDescription">
-               Setiap kebutuhan memiliki cara yang berbeda untuk diselesaikan. 
-               KIRAVA membantu menghadirkan solusi yang dirancang sesuai kebutuhan Anda, 
-               baik untuk rumah, usaha, pendidikan, pertanian, maupun peternakan.
-               Anda cukup menyampaikan apa yang ingin Anda capai, kami membantu mewujudkannya.
-            </p>
-
-            <div class="buttons">
-
-                <a href="#produk" class="btn btn-primary" id="heroBtnProduk">
-                    Lihat Produk
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
+                <a
+                    href="#solusi"
+                    class="nav-link">
+                    Solusi
                 </a>
 
                 <a
-                    href="https://wa.me/6289504008817?text=Halo%20KIRAVA%2C%20saya%20ingin%20berkonsultasi%20tentang%20produk%20KIRAVA."
-                    class="btn btn-secondary"
-                    id="heroBtnWhatsApp"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                    </svg>
-                    Chat WhatsApp
+                    href="#tentang"
+                    class="nav-link">
+                    Tentang
+                </a>
+
+                <a
+                    href="#kontak"
+                    class="nav-link">
+                    Kontak
+                </a>
+
+                <a
+                    href="#kontak"
+                    class="nav-cta"
+                    data-wa="Halo KIRAVA, saya ingin berkonsultasi mengenai solusi yang saya butuhkan.">
+                    Konsultasi
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+
+    <main>
+
+        <section
+            class="hero"
+            id="home">
+
+            <div class="container hero-grid">
+
+
+                <!-- HERO TEXT -->
+
+                <div class="hero-copy reveal">
+
+                    <div class="hero-eyebrow">
+
+                        <span
+                            class="hero-eyebrow-dot">
+                        </span>
+
+                        KIRAVA
+
+                    </div>
+
+
+                    <h1 class="hero-title">
+
+                        Punya Kebutuhan?
+
+                        <span>
+                            Kami Bantu Solusinya.
+                        </span>
+
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        KIRAVA membantu menghadirkan solusi yang
+                        membuat pekerjaan lebih mudah, menghemat
+                        waktu, dan memberikan kendali yang lebih baik
+                        untuk rumah, usaha, sekolah, pertanian,
+                        maupun peternakan.
+
+                    </p>
+
+
+                    <div class="hero-actions">
+
+                        <a
+                            href="#kontak"
+                            class="btn-primary">
+
+                            Konsultasikan Kebutuhan
+
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none">
+
+                                <path
+                                    d="M5 12H19M13 6L19 12L13 18"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+
+                            </svg>
+
+                        </a>
+
+
+                        <a
+                            href="#solusi"
+                            class="btn-secondary">
+
+                            Lihat Solusi
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     GENERATIVE NEURAL NETWORK
+                     HANYA IKON — TANPA TEXT
+                     ================================================= -->
+
+                <div
+                    class="neural-stage"
+                    aria-hidden="true">
+
+                    <canvas
+                        id="neuralCanvas">
+                    </canvas>
+
+
+                    <div
+                        class="neural-glow">
+                    </div>
+
+
+                    <!-- CENTRAL KIRAVA SYMBOL -->
+
+                    <div class="neural-core">
+
+                        <svg
+                            viewBox="0 0 80 80"
+                            fill="none">
+
+                            <path
+                                d="M18 54L32 25L40 40L58 22"
+                                stroke="#6FE8FF"
+                                stroke-width="4"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"/>
+
+                            <circle
+                                cx="18"
+                                cy="54"
+                                r="5"
+                                fill="#43E6FF"/>
+
+                            <circle
+                                cx="32"
+                                cy="25"
+                                r="5"
+                                fill="#43E6FF"/>
+
+                            <circle
+                                cx="40"
+                                cy="40"
+                                r="5"
+                                fill="#43E6FF"/>
+
+                            <circle
+                                cx="58"
+                                cy="22"
+                                r="5"
+                                fill="#43E6FF"/>
+
+                        </svg>
+
+                    </div>
+
+
+
+                    <!-- FARM ICON -->
+
+                    <div
+                        class="neural-icon icon-farm">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none">
+
+                            <path
+                                d="M12 21C12 16 14 11 20 8"
+                                stroke-width="1.7"
+                                stroke-linecap="round"/>
+
+                            <path
+                                d="M12 17C9 14 7 10 8 5"
+                                stroke-width="1.7"
+                                stroke-linecap="round"/>
+
+                            <path
+                                d="M12 15C15 12 17 9 18 5"
+                                stroke-width="1.7"
+                                stroke-linecap="round"/>
+
+                            <path
+                                d="M8 5C11 5 13 7 13 10"
+                                stroke-width="1.7"
+                                stroke-linecap="round"/>
+
+                            <path
+                                d="M18 5C15 5 13 7 13 10"
+                                stroke-width="1.7"
+                                stroke-linecap="round"/>
+
+                        </svg>
+
+                    </div>
+
+
+
+                    <!-- LIVESTOCK ICON -->
+
+                    <div
+                        class="neural-icon icon-livestock">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none">
+
+                            <path
+                                d="M7 9L5 6L9 7"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"/>
+
+                            <path
+                                d="M17 9L19 6L15 7"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"/>
+
+                            <path
+                                d="M6 12C6 8.7 8.7 7 12 7C15.3 7 18 8.7 18 12V15C18 18.3 15.3 20 12 20C8.7 20 6 18.3 6 15V12Z"
+                                stroke-width="1.7"/>
+
+                            <circle
+                                cx="9.5"
+                                cy="13"
+                                r="1"
+                                fill="currentColor"
+                                stroke="none"/>
+
+                            <circle
+                                cx="14.5"
+                                cy="13"
+                                r="1"
+                                fill="currentColor"
+                                stroke="none"/>
+
+                            <path
+                                d="M10 16C11 17 13 17 14 16"
+                                stroke-width="1.5"
+                                stroke-linecap="round"/>
+
+                        </svg>
+
+                    </div>
+
+
+
+                    <!-- HOME ICON -->
+
+                    <div
+                        class="neural-icon icon-home">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none">
+
+                            <path
+                                d="M3 11L12 4L21 11"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"/>
+
+                            <path
+                                d="M5 10V20H19V10"
+                                stroke-width="1.8"
+                                stroke-linejoin="round"/>
+
+                            <path
+                                d="M9 20V14H15V20"
+                                stroke-width="1.8"
+                                stroke-linejoin="round"/>
+
+                        </svg>
+
+                    </div>
+
+
+
+                    <!-- EDUCATION ICON -->
+
+                    <div
+                        class="neural-icon icon-edu">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none">
+
+                            <path
+                                d="M3 9L12 4L21 9L12 14L3 9Z"
+                                stroke-width="1.7"
+                                stroke-linejoin="round"/>
+
+                            <path
+                                d="M7 11V16C9 18 15 18 17 16V11"
+                                stroke-width="1.7"
+                                stroke-linecap="round"/>
+
+                            <path
+                                d="M21 9V15"
+                                stroke-width="1.7"
+                                stroke-linecap="round"/>
+
+                        </svg>
+
+                    </div>
+
+
+
+                    <!-- BUSINESS ICON -->
+
+                    <div
+                        class="neural-icon icon-business">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none">
+
+                            <path
+                                d="M4 19V5"
+                                stroke-width="1.7"
+                                stroke-linecap="round"/>
+
+                            <path
+                                d="M4 19H21"
+                                stroke-width="1.7"
+                                stroke-linecap="round"/>
+
+                            <path
+                                d="M7 15L11 11L14 13L20 7"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"/>
+
+                            <path
+                                d="M17 7H20V10"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"/>
+
+                        </svg>
+
+                    </div>
+
+
+
+                    <span class="neural-particle particle-1"></span>
+                    <span class="neural-particle particle-2"></span>
+                    <span class="neural-particle particle-3"></span>
+                    <span class="neural-particle particle-4"></span>
+                    <span class="neural-particle particle-5"></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             TRUST STRIP
+             ========================================================= -->
+
+        <section class="trust-strip">
+
+            <div class="container trust-inner">
+
+                <div class="trust-item">
+
+                    <span class="trust-dot"></span>
+
+                    <span>
+                        Solusi yang <strong>sesuai kebutuhan</strong>
+                    </span>
+
+                </div>
+
+
+                <div class="trust-item">
+
+                    <span class="trust-dot"></span>
+
+                    <span>
+                        Mudah <strong>digunakan</strong>
+                    </span>
+
+                </div>
+
+
+                <div class="trust-item">
+
+                    <span class="trust-dot"></span>
+
+                    <span>
+                        Bisa <strong>dikembangkan</strong>
+                    </span>
+
+                </div>
+
+
+                <div class="trust-item">
+
+                    <span class="trust-dot"></span>
+
+                    <span>
+                        Ada <strong>pendampingan</strong>
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             PRODUCTS
+             ========================================================= -->
+
+        <section
+            class="section"
+            id="solusi">
+
+            <div class="container">
+
+
+                <div class="section-heading reveal">
+
+                    <span class="section-label">
+                        Solusi KIRAVA
+                    </span>
+
+                    <h2 class="section-title">
+                        Teknologi yang dibuat
+                        untuk kebutuhan nyata.
+                    </h2>
+
+                    <p class="section-description">
+
+                        Setiap kebutuhan memiliki kondisi yang
+                        berbeda. Karena itu, kami tidak sekadar
+                        menawarkan produk, tetapi membantu
+                        menyesuaikan solusi dengan kebutuhan Anda.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="products">
+
+
+                    <!-- =================================================
+                         FARM
+                         ================================================= -->
+
+                    <article
+                        class="product-brochure reveal">
+
+                        <div class="product-copy">
+
+                            <div class="product-number">
+                                01
+                            </div>
+
+                            <div class="product-category">
+                                KIRAVA FARM
+                            </div>
+
+                            <h3 class="product-title">
+                                Pertanian Lebih Terkendali.
+                            </h3>
+
+                            <p class="product-description">
+
+                                Bantu pantau kondisi tanaman dan
+                                lingkungan tanpa harus selalu berada
+                                di lokasi. Solusi dapat disesuaikan
+                                dengan kebutuhan kebun dan lahan Anda.
+
+                            </p>
+
+                            <ul class="product-list">
+
+                                <li>
+                                    Pemantauan kondisi lahan
+                                </li>
+
+                                <li>
+                                    Penyiraman dan pengelolaan otomatis
+                                </li>
+
+                                <li>
+                                    Informasi kondisi kebun lebih mudah
+                                    dipantau
+                                </li>
+
+                            </ul>
+
+                            <a
+                                href="#kontak"
+                                class="product-action"
+                                data-wa="Halo KIRAVA, saya tertarik dengan KIRAVA FARM. Saya ingin mengetahui solusi untuk pertanian saya.">
+
+                                Diskusikan kebutuhan FARM
+
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+
+                        <div
+                            class="product-photo photo-farm">
+
+                            <img
+                                src="assets/farm.jpg"
+                                alt="Solusi teknologi pertanian KIRAVA"
+                                loading="lazy">
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         LIVESTOCK
+                         ================================================= -->
+
+                    <article
+                        class="product-brochure reveal">
+
+                        <div class="product-copy">
+
+                            <div class="product-number">
+                                02
+                            </div>
+
+                            <div class="product-category">
+                                KIRAVA LIVESTOCK
+                            </div>
+
+                            <h3 class="product-title">
+                                Peternakan Lebih Terpantau.
+                            </h3>
+
+                            <p class="product-description">
+
+                                Bantu menjaga kondisi kandang dan
+                                lingkungan ternak agar lebih mudah
+                                dipantau, sehingga pengelolaan dapat
+                                dilakukan dengan lebih cepat.
+
+                            </p>
+
+                            <ul class="product-list">
+
+                                <li>
+                                    Pemantauan kondisi kandang
+                                </li>
+
+                                <li>
+                                    Kendali perangkat sesuai kebutuhan
+                                </li>
+
+                                <li>
+                                    Peringatan ketika kondisi berubah
+                                </li>
+
+                            </ul>
+
+                            <a
+                                href="#kontak"
+                                class="product-action"
+                                data-wa="Halo KIRAVA, saya tertarik dengan KIRAVA LIVESTOCK. Saya ingin mengetahui solusi untuk peternakan saya.">
+
+                                Diskusikan kebutuhan LIVESTOCK
+
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+
+                        <div
+                            class="product-photo photo-livestock">
+
+                            <img
+                                src="assets/livestock.jpg"
+                                alt="Solusi teknologi peternakan KIRAVA"
+                                loading="lazy">
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         HOME
+                         ================================================= -->
+
+                    <article
+                        class="product-brochure reveal">
+
+                        <div class="product-copy">
+
+                            <div class="product-number">
+                                03
+                            </div>
+
+                            <div class="product-category">
+                                KIRAVA HOME
+                            </div>
+
+                            <h3 class="product-title">
+                                Rumah Lebih Nyaman.
+                            </h3>
+
+                            <p class="product-description">
+
+                                Buat rumah menjadi lebih nyaman,
+                                aman, dan mudah dikendalikan dengan
+                                solusi yang disesuaikan dengan
+                                kebutuhan penghuni rumah.
+
+                            </p>
+
+                            <ul class="product-list">
+
+                                <li>
+                                    Kendali perangkat rumah
+                                </li>
+
+                                <li>
+                                    Pemantauan keamanan
+                                </li>
+
+                                <li>
+                                    Otomatisasi aktivitas tertentu
+                                </li>
+
+                            </ul>
+
+                            <a
+                                href="#kontak"
+                                class="product-action"
+                                data-wa="Halo KIRAVA, saya tertarik dengan KIRAVA HOME. Saya ingin mengetahui solusi smart home yang bisa dibuat.">
+
+                                Diskusikan kebutuhan HOME
+
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+
+                        <div
+                            class="product-photo photo-home">
+
+                            <img
+                                src="assets/home.jpg"
+                                alt="Solusi smart home KIRAVA"
+                                loading="lazy">
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         EDU
+                         ================================================= -->
+
+                    <article
+                        class="product-brochure reveal">
+
+                        <div class="product-copy">
+
+                            <div class="product-number">
+                                04
+                            </div>
+
+                            <div class="product-category">
+                                KIRAVA EDU
+                            </div>
+
+                            <h3 class="product-title">
+                                Pendidikan Lebih Sederhana.
+                            </h3>
+
+                            <p class="product-description">
+
+                                Membantu sekolah dan pendidik
+                                mengurangi pekerjaan yang berulang
+                                sehingga lebih banyak waktu dapat
+                                digunakan untuk mendampingi peserta
+                                didik.
+
+                            </p>
+
+                            <ul class="product-list">
+
+                                <li>
+                                    Membantu pekerjaan administrasi
+                                </li>
+
+                                <li>
+                                    Pengolahan data pendidikan
+                                </li>
+
+                                <li>
+                                    Solusi yang menyesuaikan kebutuhan sekolah
+                                </li>
+
+                            </ul>
+
+                            <a
+                                href="#kontak"
+                                class="product-action"
+                                data-wa="Halo KIRAVA, saya tertarik dengan KIRAVA EDU. Saya ingin mengetahui solusi untuk sekolah atau pendidikan.">
+
+                                Diskusikan kebutuhan EDU
+
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+
+                        <div
+                            class="product-photo photo-edu">
+
+                            <img
+                                src="assets/edu.jpg"
+                                alt="Solusi teknologi pendidikan KIRAVA"
+                                loading="lazy">
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =================================================
+                         BUSINESS
+                         ================================================= -->
+
+                    <article
+                        class="product-brochure reveal">
+
+                        <div class="product-copy">
+
+                            <div class="product-number">
+                                05
+                            </div>
+
+                            <div class="product-category">
+                                KIRAVA BUSINESS
+                            </div>
+
+                            <h3 class="product-title">
+                                Usaha Lebih Mudah Dikelola.
+                            </h3>
+
+                            <p class="product-description">
+
+                                Bantu pemilik usaha melihat kondisi
+                                bisnis dengan lebih jelas dan
+                                mengurangi pekerjaan yang masih
+                                dilakukan secara manual.
+
+                            </p>
+
+                            <ul class="product-list">
+
+                                <li>
+                                    Pengelolaan transaksi dan stok
+                                </li>
+
+                                <li>
+                                    Informasi usaha lebih mudah dipantau
+                                </li>
+
+                                <li>
+                                    Solusi dapat dikembangkan sesuai bisnis
+                                </li>
+
+                            </ul>
+
+                            <a
+                                href="#kontak"
+                                class="product-action"
+                                data-wa="Halo KIRAVA, saya tertarik dengan KIRAVA BUSINESS. Saya ingin mengetahui solusi untuk usaha saya.">
+
+                                Diskusikan kebutuhan BUSINESS
+
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+
+                        <div
+                            class="product-photo photo-business">
+
+                            <img
+                                src="assets/business.jpg"
+                                alt="Solusi teknologi bisnis KIRAVA"
+                                loading="lazy">
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             PRINCIPLES
+             ========================================================= -->
+
+        <section
+            class="section section-soft"
+            id="tentang">
+
+            <div class="container">
+
+
+                <div class="section-heading reveal">
+
+                    <span class="section-label">
+                        Cara Kami Bekerja
+                    </span>
+
+                    <h2 class="section-title">
+                        Bukan sekadar teknologi.
+                    </h2>
+
+                    <p class="section-description">
+
+                        Kami mulai dari kebutuhan Anda, kemudian
+                        mencari cara yang paling masuk akal untuk
+                        membuat pekerjaan menjadi lebih mudah.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="principles-grid">
+
+
+                    <div class="principle reveal">
+
+                        <div class="principle-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none">
+
+                                <circle
+                                    cx="11"
+                                    cy="11"
+                                    r="6.5"
+                                    stroke-width="1.7"/>
+
+                                <path
+                                    d="M16 16L21 21"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"/>
+
+                            </svg>
+
+                        </div>
+
+                        <h3 class="principle-title">
+                            Mulai dari Kebutuhan
+                        </h3>
+
+                        <p class="principle-text">
+                            Kami memahami masalah terlebih dahulu,
+                            bukan langsung menawarkan teknologi.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="principle reveal">
+
+                        <div class="principle-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none">
+
+                                <path
+                                    d="M12 3V21"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"/>
+
+                                <path
+                                    d="M4 8L12 3L20 8L12 13L4 8Z"
+                                    stroke-width="1.7"
+                                    stroke-linejoin="round"/>
+
+                                <path
+                                    d="M4 16L12 21L20 16"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+
+                            </svg>
+
+                        </div>
+
+                        <h3 class="principle-title">
+                            Dibuat Sesuai Kondisi
+                        </h3>
+
+                        <p class="principle-text">
+                            Solusi dapat disesuaikan dengan tempat,
+                            proses kerja, dan kebutuhan pengguna.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="principle reveal">
+
+                        <div class="principle-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none">
+
+                                <path
+                                    d="M12 3V21"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"/>
+
+                                <path
+                                    d="M5 8H19"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"/>
+
+                                <path
+                                    d="M7 13H17"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"/>
+
+                                <path
+                                    d="M9 18H15"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"/>
+
+                            </svg>
+
+                        </div>
+
+                        <h3 class="principle-title">
+                            Bisa Berkembang
+                        </h3>
+
+                        <p class="principle-text">
+                            Solusi tidak harus berhenti di versi
+                            pertama dan dapat dikembangkan bertahap.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="principle reveal">
+
+                        <div class="principle-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none">
+
+                                <path
+                                    d="M20 11.5C20 16.2 16.4 20 12 20C7.6 20 4 16.2 4 11.5C4 7.1 7.6 4 12 4C16.4 4 20 7.1 20 11.5Z"
+                                    stroke-width="1.7"/>
+
+                                <path
+                                    d="M8 12C8.8 13 10 13.5 12 13.5C14 13.5 15.2 13 16 12"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"/>
+
+                                <circle
+                                    cx="9"
+                                    cy="10"
+                                    r="1"
+                                    fill="currentColor"
+                                    stroke="none"/>
+
+                                <circle
+                                    cx="15"
+                                    cy="10"
+                                    r="1"
+                                    fill="currentColor"
+                                    stroke="none"/>
+
+                            </svg>
+
+                        </div>
+
+                        <h3 class="principle-title">
+                            Mudah Digunakan
+                        </h3>
+
+                        <p class="principle-text">
+                            Teknologi seharusnya membantu,
+                            bukan membuat pengguna semakin bingung.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             ABOUT
+             ========================================================= -->
+
+        <section
+            class="section about-section">
+
+            <div class="container about-grid">
+
+
+                <div class="reveal">
+
+                    <span class="about-label">
+                        Tentang KIRAVA
+                    </span>
+
+                    <h2 class="about-title">
+                        Kami membuat teknologi
+                        terasa lebih sederhana.
+                    </h2>
+
+                    <p class="about-text">
+
+                        KIRAVA hadir untuk membantu mengubah kebutuhan
+                        nyata menjadi solusi yang bisa digunakan.
+                        Dari pertanian, peternakan, rumah, pendidikan,
+                        hingga usaha.
+
+                    </p>
+
+
+                    <div class="about-points">
+
+                        <div class="about-point">
+
+                            <span class="about-check">
+                                ✓
+                            </span>
+
+                            Sesuai kebutuhan
+
+                        </div>
+
+
+                        <div class="about-point">
+
+                            <span class="about-check">
+                                ✓
+                            </span>
+
+                            Mudah digunakan
+
+                        </div>
+
+
+                        <div class="about-point">
+
+                            <span class="about-check">
+                                ✓
+                            </span>
+
+                            Dapat dikembangkan
+
+                        </div>
+
+
+                        <div class="about-point">
+
+                            <span class="about-check">
+                                ✓
+                            </span>
+
+                            Pendampingan solusi
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="about-card reveal">
+
+                    <div class="about-card-logo">
+
+                        <svg
+                            viewBox="0 0 80 80"
+                            fill="none">
+
+                            <path
+                                d="M18 54L32 25L40 40L58 22"
+                                stroke="white"
+                                stroke-width="4"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"/>
+
+                            <circle
+                                cx="18"
+                                cy="54"
+                                r="5"
+                                fill="white"/>
+
+                            <circle
+                                cx="32"
+                                cy="25"
+                                r="5"
+                                fill="white"/>
+
+                            <circle
+                                cx="40"
+                                cy="40"
+                                r="5"
+                                fill="white"/>
+
+                            <circle
+                                cx="58"
+                                cy="22"
+                                r="5"
+                                fill="white"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3 class="about-card-title">
+                            KIRAVA
+                        </h3>
+
+                        <p class="about-card-text">
+                            Technology solution for real-world needs.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             CONTACT
+             ========================================================= -->
+
+        <section
+            class="contact"
+            id="kontak">
+
+            <div class="container">
+
+                <div class="contact-box reveal">
+
+                    <div class="contact-content">
+
+                        <span class="contact-label">
+                            Mari Mulai
+                        </span>
+
+                        <h2 class="contact-title">
+                            Ceritakan kebutuhan Anda.
+                        </h2>
+
+                        <p class="contact-text">
+
+                            Tidak perlu tahu teknologi apa yang
+                            harus digunakan. Ceritakan saja masalah
+                            atau kebutuhan Anda. Kami bantu mencari
+                            kemungkinan solusinya.
+
+                        </p>
+
+
+                        <div class="contact-actions">
+
+                            <a
+                                href="#"
+                                class="btn-primary"
+                                data-wa="Halo KIRAVA, saya ingin berkonsultasi mengenai kebutuhan saya.">
+
+                                Konsultasi melalui WhatsApp
+
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none">
+
+                                    <path
+                                        d="M5 12H19M13 6L19 12L13 18"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"/>
+
+                                </svg>
+
+                            </a>
+
+
+                            <a
+                                href="#home"
+                                class="btn-secondary">
+
+                                Kembali ke atas
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer>
+
+        <div class="container footer-inner">
+
+            <div>
+
+                <div class="footer-brand">
+                    KIRAVA
+                </div>
+
+                <div class="footer-copy">
+                    Solusi teknologi untuk kebutuhan nyata.
+                </div>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#solusi">
+                    Solusi
+                </a>
+
+                <a href="#tentang">
+                    Tentang
+                </a>
+
+                <a href="#kontak">
+                    Kontak
                 </a>
 
             </div>
 
-        </div>
 
-
-        <div class="hero-visual" id="heroVisual">
-            <div class="neural-net-stage" id="neuralNetStage">
-
-                <!-- Animated AI Synapses SVG Canvas (Cyber-Bioluminescent Neural Constellation) -->
-                <svg class="neural-svg" viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <!-- High-Definition Quantum Glow Filters -->
-                        <filter id="neonGlow" x="-40%" y="-40%" width="180%" height="180%">
-                            <feGaussianBlur stdDeviation="2.8" result="blur1" />
-                            <feGaussianBlur stdDeviation="6.5" result="blur2" />
-                            <feMerge>
-                                <feMergeNode in="blur2" />
-                                <feMergeNode in="blur1" />
-                                <feMergeNode in="SourceGraphic" />
-                            </feMerge>
-                        </filter>
-
-                        <filter id="neonAuraBlur" x="-50%" y="-50%" width="200%" height="200%">
-                            <feGaussianBlur stdDeviation="7.5" />
-                        </filter>
-
-                        <!-- Radial core electric aura (Soft ambient light aura blending seamlessly with hero) -->
-                        <radialGradient id="neonCoreAura" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.22" />
-                            <stop offset="45%" stop-color="#60a5fa" stop-opacity="0.08" />
-                            <stop offset="75%" stop-color="#93c5fd" stop-opacity="0.02" />
-                            <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
-                        </radialGradient>
-
-                        <!-- Domain-Specific Root Gradients (Vibrant High-Contrast Lines on Light Canvas) -->
-                        <!-- 1. Farm (Teal to Fresh Emerald) -->
-                        <linearGradient id="gradFarm" x1="50%" y1="100%" x2="50%" y2="0%">
-                            <stop offset="0%" stop-color="#0284c7" />
-                            <stop offset="55%" stop-color="#10b981" />
-                            <stop offset="100%" stop-color="#059669" />
-                        </linearGradient>
-
-                        <!-- 2. Livestock (Sky to Warm Topaz) -->
-                        <linearGradient id="gradLivestock" x1="0%" y1="100%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#0284c7" />
-                            <stop offset="55%" stop-color="#f59e0b" />
-                            <stop offset="100%" stop-color="#d97706" />
-                        </linearGradient>
-
-                        <!-- 3. Bisnis (Blue to Electric Violet) -->
-                        <linearGradient id="gradBisnis" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#0284c7" />
-                            <stop offset="50%" stop-color="#6366f1" />
-                            <stop offset="100%" stop-color="#4f46e5" />
-                        </linearGradient>
-
-                        <!-- 4. School (Cyan to Azure Sky) -->
-                        <linearGradient id="gradSchool" x1="100%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#0284c7" />
-                            <stop offset="60%" stop-color="#0ea5e9" />
-                            <stop offset="100%" stop-color="#0284c7" />
-                        </linearGradient>
-
-                        <!-- 5. Home (Sky to Royal Blue) -->
-                        <linearGradient id="gradHome" x1="100%" y1="100%" x2="0%" y2="0%">
-                            <stop offset="0%" stop-color="#0ea5e9" />
-                            <stop offset="55%" stop-color="#2563eb" />
-                            <stop offset="100%" stop-color="#1d4ed8" />
-                        </linearGradient>
-
-                        <!-- Outer Constellation Ring Gradient -->
-                        <linearGradient id="gradRing" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#2563eb" />
-                            <stop offset="25%" stop-color="#10b981" />
-                            <stop offset="50%" stop-color="#f59e0b" />
-                            <stop offset="75%" stop-color="#6366f1" />
-                            <stop offset="100%" stop-color="#0ea5e9" />
-                        </linearGradient>
-                    </defs>
-
-                    <!-- Seamless Light Coordinate Mesh (No Box, Blends Natural with White Hero) -->
-                    <circle cx="220" cy="220" r="175" fill="url(#neonCoreAura)" />
-                    <circle cx="220" cy="220" r="145" stroke="rgba(37, 99, 235, 0.12)" stroke-width="1" stroke-dasharray="3 6" fill="none" />
-                    <circle cx="220" cy="220" r="115" stroke="rgba(14, 165, 233, 0.16)" stroke-width="1" fill="none" />
-                    <circle cx="220" cy="220" r="75" stroke="rgba(37, 99, 235, 0.2)" stroke-width="1.2" stroke-dasharray="4 6" fill="none" />
-
-                    <!-- Outer Connecting Constellation of Micro Neon Beads -->
-                    <path class="root-ring-beads" stroke="url(#gradRing)" d="M 220 68 C 285 80, 342 110, 372 166 C 392 225, 370 290, 332 342 C 280 378, 160 378, 108 342 C 70 290, 48 225, 68 166 C 98 110, 155 80, 220 68 Z" />
-                    <path class="root-ring-core" d="M 220 68 C 285 80, 342 110, 372 166 C 392 225, 370 290, 332 342 C 280 378, 160 378, 108 342 C 70 290, 48 225, 68 166 C 98 110, 155 80, 220 68 Z" />
-
-                    <!-- 5 MAIN ROOTS: LAYER 1 - Soft Bioluminescent Vapor Auras -->
-                    <g class="roots-aura-group">
-                        <path class="root-aura" stroke="url(#gradFarm)" d="M 220 220 C 210 170, 230 118, 220 68" />
-                        <path class="root-aura" stroke="url(#gradLivestock)" d="M 220 220 C 265 235, 320 175, 372 166" />
-                        <path class="root-aura" stroke="url(#gradBisnis)" d="M 220 220 C 245 270, 315 275, 332 342" />
-                        <path class="root-aura" stroke="url(#gradSchool)" d="M 220 220 C 195 270, 125 275, 108 342" />
-                        <path class="root-aura" stroke="url(#gradHome)" d="M 220 220 C 175 235, 120 175, 68 166" />
-                    </g>
-
-                    <!-- Delicate Organic Secondary Rootlets (Cabang Akar Berupa Manik Halus) -->
-                    <g class="rootlets-group">
-                        <path class="rootlet-beads" d="M 216 150 C 234 140, 246 128, 255 116" />
-                        <path class="rootlet-beads" d="M 295 190 C 315 178, 328 152, 336 135" />
-                        <path class="rootlet-beads" d="M 285 275 C 308 274, 325 268, 338 258" />
-                        <path class="rootlet-beads" d="M 155 275 C 132 274, 115 268, 102 258" />
-                        <path class="rootlet-beads" d="M 145 190 C 125 178, 112 152, 104 135" />
-                    </g>
-
-                    <!-- 5 MAIN ROOTS: LAYER 2 - Primary Beaded Neon Shell (Rangkaian Lingkaran Kecil Neon) -->
-                    <g class="roots-beads-shell-group">
-                        <path class="root-beads-shell" stroke="url(#gradFarm)" d="M 220 220 C 210 170, 230 118, 220 68" />
-                        <path class="root-beads-shell" stroke="url(#gradLivestock)" d="M 220 220 C 265 235, 320 175, 372 166" />
-                        <path class="root-beads-shell" stroke="url(#gradBisnis)" d="M 220 220 C 245 270, 315 275, 332 342" />
-                        <path class="root-beads-shell" stroke="url(#gradSchool)" d="M 220 220 C 195 270, 125 275, 108 342" />
-                        <path class="root-beads-shell" stroke="url(#gradHome)" d="M 220 220 C 175 235, 120 175, 68 166" />
-                    </g>
-
-                    <!-- 5 MAIN ROOTS: LAYER 3 - High-Luminance Photonic Core (Inti Putih Terang di Tengah Setiap Manik) -->
-                    <g class="roots-beads-core-group">
-                        <path class="root-beads-core" d="M 220 220 C 210 170, 230 118, 220 68" />
-                        <path class="root-beads-core" d="M 220 220 C 265 235, 320 175, 372 166" />
-                        <path class="root-beads-core" d="M 220 220 C 245 270, 315 275, 332 342" />
-                        <path class="root-beads-core" d="M 220 220 C 195 270, 125 275, 108 342" />
-                        <path class="root-beads-core" d="M 220 220 C 175 235, 120 175, 68 166" />
-                    </g>
-
-                    <!-- Macro Pearl Nodes along Root Junctions (Mutiara Cahaya di Titik Sambungan Akar) -->
-                    <circle cx="216" cy="150" class="pearl-node" />
-                    <circle cx="295" cy="190" class="pearl-node" style="animation-delay: -0.8s;" />
-                    <circle cx="285" cy="275" class="pearl-node" style="animation-delay: -1.6s;" />
-                    <circle cx="155" cy="275" class="pearl-node" style="animation-delay: -2.4s;" />
-                    <circle cx="145" cy="190" class="pearl-node" style="animation-delay: -3.2s;" />
-
-                    <!-- Photon Synaptic Pulses (Satu Cahaya Halus Meluncur Tenang & Elegan Menuju Masing-Masing Domain) -->
-                    <!-- Pulse 1: Center -> Farm -->
-                    <circle r="4" fill="#ffffff" stroke="#00f5ff" stroke-width="2.2" filter="url(#neonGlow)">
-                        <animateMotion path="M 220 220 C 210 170, 230 118, 220 68" dur="3.4s" repeatCount="indefinite" />
-                    </circle>
-
-                    <!-- Pulse 2: Center -> Livestock -->
-                    <circle r="4" fill="#ffffff" stroke="#fbbf24" stroke-width="2.2" filter="url(#neonGlow)">
-                        <animateMotion path="M 220 220 C 265 235, 320 175, 372 166" dur="3.4s" begin="0.68s" repeatCount="indefinite" />
-                    </circle>
-
-                    <!-- Pulse 3: Center -> Bisnis -->
-                    <circle r="4" fill="#ffffff" stroke="#818cf8" stroke-width="2.2" filter="url(#neonGlow)">
-                        <animateMotion path="M 220 220 C 245 270, 315 275, 332 342" dur="3.4s" begin="1.36s" repeatCount="indefinite" />
-                    </circle>
-
-                    <!-- Pulse 4: Center -> School -->
-                    <circle r="4" fill="#ffffff" stroke="#38bdf8" stroke-width="2.2" filter="url(#neonGlow)">
-                        <animateMotion path="M 220 220 C 195 270, 125 275, 108 342" dur="3.4s" begin="2.04s" repeatCount="indefinite" />
-                    </circle>
-
-                    <!-- Pulse 5: Center -> Home -->
-                    <circle r="4" fill="#ffffff" stroke="#60a5fa" stroke-width="2.2" filter="url(#neonGlow)">
-                        <animateMotion path="M 220 220 C 175 235, 120 175, 68 166" dur="3.4s" begin="2.72s" repeatCount="indefinite" />
-                    </circle>
-
-                    <!-- Synaptic Receptor Rings at Domain Docking Ports -->
-                    <circle cx="220" cy="68" r="6.5" fill="none" stroke="#10b981" stroke-width="1.8" opacity="0.85" filter="url(#neonGlow)" />
-                    <circle cx="372" cy="166" r="6.5" fill="none" stroke="#fbbf24" stroke-width="1.8" opacity="0.85" filter="url(#neonGlow)" />
-                    <circle cx="332" cy="342" r="6.5" fill="none" stroke="#818cf8" stroke-width="1.8" opacity="0.85" filter="url(#neonGlow)" />
-                    <circle cx="108" cy="342" r="6.5" fill="none" stroke="#38bdf8" stroke-width="1.8" opacity="0.85" filter="url(#neonGlow)" />
-                    <circle cx="68" cy="166" r="6.5" fill="none" stroke="#60a5fa" stroke-width="1.8" opacity="0.85" filter="url(#neonGlow)" />
-                </svg>
-
-                <!-- CENTRAL NODE: TEKNOLOGI CERDAS (AI Neural Processor Core - NO TEXT) -->
-                <div class="core-hub" id="coreHub">
-                    <div class="core-radar-ring"></div>
-                    <div class="core-radar-ring-2"></div>
-                    <div class="core-body">
-                        <!-- AI Smart Technology / Neural Core Vector Graphic -->
-                        <svg class="core-tech-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Circuit Board Microchip Base -->
-                            <rect x="10" y="10" width="28" height="28" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
-                            
-                            <!-- Outer Chip Connection Pins -->
-                            <!-- Top Pins -->
-                            <line x1="16" y1="5" x2="16" y2="10" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" />
-                            <line x1="24" y1="5" x2="24" y2="10" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" />
-                            <line x1="32" y1="5" x2="32" y2="10" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" />
-                            <!-- Bottom Pins -->
-                            <line x1="16" y1="38" x2="16" y2="43" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" />
-                            <line x1="24" y1="38" x2="24" y2="43" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" />
-                            <line x1="32" y1="38" x2="32" y2="43" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" />
-                            <!-- Left Pins -->
-                            <line x1="5" y1="16" x2="10" y2="16" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" />
-                            <line x1="5" y1="24" x2="10" y2="24" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" />
-                            <line x1="5" y1="32" x2="10" y2="32" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" />
-                            <!-- Right Pins -->
-                            <line x1="38" y1="16" x2="43" y2="16" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" />
-                            <line x1="38" y1="24" x2="43" y2="24" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" />
-                            <line x1="38" y1="32" x2="43" y2="32" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" />
-
-                            <!-- Neural Synaptic Constellation inside Chip -->
-                            <!-- Connecting Circuit Tracks -->
-                            <path d="M17 17 L24 24 L31 17" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M17 31 L24 24 L31 31" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M17 24 L31 24" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round" />
-
-                            <!-- Neural Brain / AI Nodes -->
-                            <circle cx="24" cy="24" r="3.4" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
-                            <circle cx="17" cy="17" r="2.2" fill="#2563eb" />
-                            <circle cx="31" cy="17" r="2.2" fill="#2563eb" />
-                            <circle cx="17" cy="31" r="2.2" fill="#2563eb" />
-                            <circle cx="31" cy="31" r="2.2" fill="#2563eb" />
-
-                            <!-- Glowing Central Spark -->
-                            <circle cx="24" cy="24" r="1.4" fill="#2563eb" />
-                        </svg>
-                    </div>
-                </div>
-
-                <!-- 1. SATELLITE: SMART FARM (TOP - NO TEXT) -->
-                <div class="satellite-node node-farm" data-open-modal="farm" id="nodeFarm" title="Smart Farm">
-                    <!-- Sprout / Precision Agriculture SVG Icon -->
-                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Curved Ground Line -->
-                        <path d="M6 26C10 24.5 22 24.5 26 26" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" />
-                        <!-- Plant Stem -->
-                        <path d="M16 25V14" stroke="#34d399" stroke-width="2" stroke-linecap="round" />
-                        <!-- Left Leaf with Vein -->
-                        <path d="M16 18C12.5 17.5 9 14.5 9 10C13 9.5 15.5 13 16 18Z" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="1.8" stroke-linejoin="round" />
-                        <!-- Right Leaf with Vein -->
-                        <path d="M16 14C19.5 13.5 23 10.5 23 6C19 5.5 16.5 9 16 14Z" fill="rgba(52, 211, 153, 0.35)" stroke="#34d399" stroke-width="1.8" stroke-linejoin="round" />
-                        <!-- Smart Sensor Wireless Wave / Moisture Drop -->
-                        <path d="M8 6C8 6 10 4 12 4" stroke="#00f5a0" stroke-width="1.5" stroke-linecap="round" />
-                        <circle cx="6" cy="7" r="1.2" fill="#00f5a0" />
-                    </svg>
-                </div>
-
-                <!-- 2. SATELLITE: SMART LIVESTOCK (TOP-RIGHT - NO TEXT) -->
-                <div class="satellite-node node-livestock" data-open-modal="livestock" id="nodeLivestock" title="Smart Livestock">
-                    <!-- Livestock Silhouette & Smart Sensor Telemetry Icon -->
-                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Modern Livestock Head / Horns Silhouette -->
-                        <path d="M7 9C9 13 11 14 11 18C11 22 13 25 16 25C19 25 21 22 21 18C21 14 23 13 25 9C22 10.5 19 11 16 11C13 11 10 10.5 7 9Z" fill="rgba(245, 158, 11, 0.18)" stroke="#fbbf24" stroke-width="1.8" stroke-linejoin="round" />
-                        <!-- Snout & Nostrils -->
-                        <ellipse cx="16" cy="20" rx="3" ry="2" fill="rgba(251, 191, 36, 0.35)" stroke="#f59e0b" stroke-width="1.2" />
-                        <circle cx="15" cy="20" r="0.6" fill="#fef3c7" />
-                        <circle cx="17" cy="20" r="0.6" fill="#fef3c7" />
-                        <!-- Eyes -->
-                        <circle cx="13" cy="15" r="1" fill="#fde68a" />
-                        <circle cx="19" cy="15" r="1" fill="#fde68a" />
-                        <!-- Smart IoT Broadcast Pulse above Animal -->
-                        <path d="M13 5C14 4.3 15 4 16 4C17 4 18 4.3 19 5" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" />
-                        <circle cx="16" cy="7" r="1" fill="#fbbf24" />
-                    </svg>
-                </div>
-
-                <!-- 3. SATELLITE: SMART BISNIS (BOTTOM-RIGHT - NO TEXT) -->
-                <div class="satellite-node node-bisnis" data-open-modal="business" id="nodeBisnis" title="Smart Business">
-                    <!-- Modern Business Analytics & POS Growth Icon -->
-                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Bar Chart Base Line -->
-                        <line x1="6" y1="25" x2="26" y2="25" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" />
-                        <!-- Bar 1 -->
-                        <rect x="8" y="18" width="4" height="7" rx="1.5" fill="rgba(99, 102, 241, 0.25)" stroke="#818cf8" stroke-width="1.5" />
-                        <!-- Bar 2 -->
-                        <rect x="14" y="13" width="4" height="12" rx="1.5" fill="rgba(129, 140, 248, 0.4)" stroke="#a5b4fc" stroke-width="1.5" />
-                        <!-- Bar 3 -->
-                        <rect x="20" y="8" width="4" height="17" rx="1.5" fill="rgba(165, 180, 252, 0.7)" stroke="#c7d2fe" stroke-width="1.5" />
-                        <!-- Trend Arrow Upward -->
-                        <path d="M9 13L15 8L20 11L25 5" stroke="#c7d2fe" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                        <polyline points="21 5 25 5 25 9" stroke="#c7d2fe" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </div>
-
-                <!-- 4. SATELLITE: SMART SCHOOL / EDU (BOTTOM-LEFT - NO TEXT) -->
-                <div class="satellite-node node-school" data-open-modal="edu" id="nodeSchool" title="Smart School">
-                    <!-- Academic Graduation Mortarboard & Digital Knowledge Icon -->
-                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Mortarboard Cap Diamond Top -->
-                        <polygon points="16,6 27,11.5 16,17 5,11.5" fill="rgba(14, 165, 233, 0.25)" stroke="#38bdf8" stroke-width="1.8" stroke-linejoin="round" />
-                        <!-- Skull Cap Underneath -->
-                        <path d="M10 14.5V19C10 21 12.5 23 16 23C19.5 23 22 21 22 19V14.5" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" />
-                        <!-- Tassel Hanging Down Right -->
-                        <path d="M24 13V21" stroke="#7dd3fc" stroke-width="1.5" stroke-linecap="round" />
-                        <circle cx="24" cy="22" r="1.2" fill="#bae6fd" />
-                        <!-- Digital Learning Sparkle / AI Node Below -->
-                        <path d="M13 26C14.5 25.5 17.5 25.5 19 26" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
-                        <circle cx="16" cy="27" r="1" fill="#00f5ff" />
-                    </svg>
-                </div>
-
-                <!-- 5. SATELLITE: SMART HOME (TOP-LEFT - NO TEXT) -->
-                <div class="satellite-node node-home" data-open-modal="home" id="nodeHome" title="Smart Home">
-                    <!-- Connected House & IoT Signal Radiations Icon -->
-                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- House Roof -->
-                        <path d="M6 14L16 6L26 14" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <!-- House Walls -->
-                        <path d="M9 13V24C9 24.8 9.7 25.5 10.5 25.5H21.5C22.3 25.5 23 24.8 23 24V13" fill="rgba(37, 99, 235, 0.25)" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                        <!-- Smart Circuit Door -->
-                        <path d="M14 25.5V19C14 18.5 14.5 18 15 18H17C17.5 18 18 18.5 18 19V25.5" stroke="#93c5fd" stroke-width="1.6" />
-                        <circle cx="17" cy="21" r="0.8" fill="#bfdbfe" />
-                        <!-- Smart Wireless Radiation Wave above Chimney/Apex -->
-                        <path d="M13 4C14 3.3 15 3 16 3C17 3 18 3.3 19 4" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
-                    </svg>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     PRODUCTS
-========================= -->
-
-<section class="section" id="produk">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="label">
-                Produk KIRAVA
-            </div>
-
-            <h2>
-                Satu teknologi,
-                berbagai kebutuhan.
-            </h2>
-
-            <p>
-                Solusi teknologi yang dikembangkan untuk
-                kebutuhan nyata di lapangan.
-            </p>
-
-        </div>
-
-
-        <div class="products">
-
-
-            <!-- 1. FARM -->
-
-            <div class="product" id="cardProductFarm">
-
-                <div class="product-top">
-                    <div class="product-icon">
-                        🌱
-                    </div>
-
-                    <small>IoT Pertanian & Perkebunan</small>
-
-                    <h3>KIRAVA FARM</h3>
-
-                    <p>
-                        Monitoring kondisi lahan dan otomatisasi
-                        untuk membantu mengelola pertanian dan perkebunan.
-                    </p>
-                </div>
-
-                <button class="product-link" data-open-modal="farm" id="btnPelajariFarm">
-                    Pelajari →
-                </button>
-
-            </div>
-
-
-            <!-- 2. LIVESTOCK -->
-
-            <div class="product" id="cardProductLivestock">
-
-                <div class="product-top">
-                    <div class="product-icon">
-                        🐔
-                    </div>
-
-                    <small>IoT Peternakan</small>
-
-                    <h3>KIRAVA LIVESTOCK</h3>
-
-                    <p>
-                        Monitoring suhu, kelembapan, dan kondisi
-                        kandang dengan teknologi IoT.
-                    </p>
-                </div>
-
-                <button class="product-link" data-open-modal="livestock" id="btnPelajariLivestock">
-                    Pelajari →
-                </button>
-
-            </div>
-
-
-            <!-- 3. HOME -->
-
-            <div class="product" id="cardProductHome">
-
-                <div class="product-top">
-                    <div class="product-icon">
-                        🏠
-                    </div>
-
-                    <small>Smart Home</small>
-
-                    <h3>KIRAVA HOME</h3>
-
-                    <p>
-                        Monitoring dan kontrol perangkat rumah
-                        dalam satu sistem yang mudah digunakan.
-                    </p>
-                </div>
-
-                <button class="product-link" data-open-modal="home" id="btnPelajariHome">
-                    Pelajari →
-                </button>
-
-            </div>
-
-
-            <!-- 4. EDU -->
-
-            <div class="product" id="cardProductEdu">
-
-                <div class="product-top">
-                    <div class="product-icon">
-                        🎓
-                    </div>
-
-                    <small>Education Technology</small>
-
-                    <h3>KIRAVA EDU</h3>
-
-                    <p>
-                        Aplikasi dan AI untuk membantu guru,
-                        sekolah, dan proses pembelajaran.
-                    </p>
-                </div>
-
-                <button class="product-link" data-open-modal="edu" id="btnPelajariEdu">
-                    Pelajari →
-                </button>
-
-            </div>
-
-
-            <!-- 5. BUSINESS -->
-
-            <div class="product" id="cardProductBusiness">
-
-                <div class="product-top">
-                    <div class="product-icon">
-                        📊
-                    </div>
-
-                    <small>Business & UMKM</small>
-
-                    <h3>KIRAVA BUSINESS</h3>
-
-                    <p>
-                        Aplikasi untuk membantu bisnis mengelola
-                        produk, stok, transaksi, dan laporan.
-                    </p>
-                </div>
-
-                <button class="product-link" data-open-modal="business" id="btnPelajariBusiness">
-                    Pelajari →
-                </button>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section class="section about" id="tentang">
-
-    <div class="container about-grid">
-
-        <div>
-
-            <div class="section-heading">
-
-                <div class="label" style="color: #60a5fa;">
-                    Tentang KIRAVA
-                </div>
-
-                <h2>
-                    Teknologi yang
-                    sederhana dan berguna.
-                </h2>
-
-            </div>
-
-            <p>
-                KIRAVA adalah brand teknologi yang mengembangkan
-                aplikasi, AI, dan Internet of Things untuk
-                kebutuhan dunia nyata.
-            </p>
-
-            <p>
-                Kami percaya teknologi tidak harus rumit.
-                Teknologi harus membantu manusia bekerja
-                lebih mudah, cepat, dan efisien.
-            </p>
-
-        </div>
-
-
-        <div class="features">
-
-            <div class="feature" id="featPraktis">
-
-                <strong>Praktis</strong>
-
-                <span>
-                    Fokus pada kebutuhan pengguna.
-                </span>
-
-            </div>
-
-            <div class="feature" id="featTerintegrasi">
-
-                <strong>Terintegrasi</strong>
-
-                <span>
-                    AI, IoT, aplikasi dan data.
-                </span>
-
-            </div>
-
-            <div class="feature" id="featFleksibel">
-
-                <strong>Fleksibel</strong>
-
-                <span>
-                    Dapat dikembangkan sesuai kebutuhan.
-                </span>
-
-            </div>
-
-            <div class="feature" id="featIndonesia">
-
-                <strong>Indonesia</strong>
-
-                <span>
-                    Dibangun untuk kebutuhan nyata di Indonesia.
-                </span>
-
+            <div class="footer-copy">
+                © <span id="year"></span> KIRAVA
             </div>
 
         </div>
 
-    </div>
-
-</section>
+    </footer>
 
 
-<!-- =========================
-     CTA
-========================= -->
 
-<section class="cta" id="kontak">
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
 
-    <div class="container">
+    <script>
 
-        <div class="cta-box" id="ctaBox">
+        /* =========================================================
+           KIRAVA CONFIGURATION
+           ========================================================= */
 
-            <h2>
-                Punya kebutuhan teknologi?
-            </h2>
+        /*
+         * GANTI NOMOR WHATSAPP DI SINI JIKA DIPERLUKAN.
+         *
+         * Format:
+         * 628xxxxxxxxxx
+         *
+         * Jangan gunakan:
+         * 08xxxxxxxxxx
+         */
 
-            <p>
-                Diskusikan kebutuhan aplikasi, AI,
-                atau IoT untuk bisnis dan organisasi Anda.
-            </p>
-
-            <a
-                href="https://wa.me/6289504008817?text=Halo%20KIRAVA%2C%20saya%20ingin%20berdiskusi%20tentang%20kebutuhan%20teknologi."
-                class="btn btn-primary"
-                id="ctaBtnWhatsApp"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                </svg>
-
-                Konsultasi via WhatsApp
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
+        const WHATSAPP_NUMBER =
+            "6289504008817";
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+        /* =========================================================
+           WHATSAPP LINKS
+           ========================================================= */
 
-<footer>
+        document
+            .querySelectorAll("[data-wa]")
+            .forEach(function(element) {
 
-    <div class="container footer-inner">
+                const message =
+                    element.getAttribute("data-wa") ||
+                    "Halo KIRAVA, saya ingin berkonsultasi.";
 
-        <div class="footer-brand">
+                const url =
+                    "https://wa.me/" +
+                    WHATSAPP_NUMBER +
+                    "?text=" +
+                    encodeURIComponent(message);
 
-            <strong>KIRAVA</strong>
+                element.setAttribute(
+                    "href",
+                    url
+                );
 
-            <p>
-                Ai • Internet Of Things • Education • Business • Software
-            </p>
+                element.setAttribute(
+                    "target",
+                    "_blank"
+                );
 
-        </div>
+                element.setAttribute(
+                    "rel",
+                    "noopener noreferrer"
+                );
 
-        <div class="footer-copyright">
-            © 2026 kirava.id • inootech
-        </div>
-
-    </div>
-
-</footer>
-
-
-<!-- =========================
-     FLOATING WHATSAPP BUTTON
-========================= -->
-
-<a
-    href="https://wa.me/6289504008817?text=Halo%20KIRAVA%2C%20saya%20ingin%20berkonsultasi%20tentang%20solusi%20KIRAVA."
-    class="floating-wa-btn"
-    id="floatingWaBtn"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Konsultasi WhatsApp">
-
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-    </svg>
-
-    <span class="floating-wa-label">Chat WhatsApp</span>
-</a>
-
-
-<!-- =========================
-     MODAL DETAIL PRODUK
-========================= -->
-
-<div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-card">
-        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Tutup Detail">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
-
-        <span class="modal-badge" id="modalCategory">Kategori Solusi</span>
-        <h3 class="modal-title" id="modalTitle">Nama Solusi</h3>
-        <p class="modal-desc" id="modalDesc">Deskripsi ringkas solusi.</p>
-
-        <div class="modal-section-title">Fitur & Kemampuan Utama</div>
-        <ul class="modal-features" id="modalFeaturesList">
-            <!-- Disuntikkan via JS -->
-        </ul>
-
-        <div class="modal-actions">
-            <a href="#" class="btn btn-primary" id="modalWaBtn" target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                </svg>
-                Konsultasi Solusi Ini
-            </a>
-            <button class="btn btn-secondary" id="modalCancelBtn">
-                Tutup
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- SCRIPT PENDUKUNG -->
-<script src="config.js"></script>
-<script>
-    // Data Detail Solusi untuk Modal Interaktif
-    const SOLUTIONS_DATA = {
-        farm: {
-            title: "KIRAVA FARM",
-            category: "IoT Pertanian & Perkebunan",
-            desc: "Monitoring kondisi lahan presisi dan otomatisasi penyiraman cerdas untuk membantu mengelola pertanian dan perkebunan lebih efisien serta hemat sumber daya.",
-            features: [
-                "Sensor kelembapan tanah kapasitif anti-korosi",
-                "Katup solenoid penyiraman otomatis (berbasis ambang batas/jadwal)",
-                "Monitoring suhu, kelembapan udara & cuaca lahan",
-                "Peringatan dini lahan kekeringan langsung ke WhatsApp",
-                "Dashboard grafik telemetri riwayat kondisi tanaman"
-            ],
-            waMessage: "Halo KIRAVA, saya ingin berkonsultasi mengenai solusi KIRAVA FARM (IoT Pertanian & Perkebunan)."
-        },
-        livestock: {
-            title: "KIRAVA LIVESTOCK",
-            category: "IoT Peternakan Modern",
-            desc: "Monitoring stabilitas suhu, kelembapan, dan kualitas udara kandang ternak secara real-time untuk mencegah stres hewan serta menekan angka kematian.",
-            features: [
-                "Pemantauan suhu & kelembapan kandang 24 jam nonstop",
-                "Deteksi akumulasi gas amonia (NH3) & sirkulasi udara",
-                "Kontrol otomatis blower exhaust, kipas pendingin & cooling pad",
-                "Notifikasi darurat WhatsApp saat suhu melonjak melebihi batas aman",
-                "Grafik histori iklim untuk evaluasi efisiensi pakan ternak"
-            ],
-            waMessage: "Halo KIRAVA, saya ingin berkonsultasi mengenai solusi KIRAVA LIVESTOCK (IoT Peternakan)."
-        },
-        home: {
-            title: "KIRAVA HOME",
-            category: "Smart Home & Otomasi",
-            desc: "Monitoring dan kendali perangkat hunian dalam satu sistem terpusat yang aman, nyaman, dan hemat penggunaan energi listrik harian.",
-            features: [
-                "Kendali sakelar lampu pintar dari smartphone dari mana saja",
-                "Sensor kontak pintu/jendela & detektor gerak inframerah (PIR)",
-                "Deteksi dini kebocoran gas LPG dan asap kebakaran",
-                "Pemantauan daya watt listrik real-time",
-                "Jadwal otomatisasi skenario hemat daya saat rumah ditinggalkan"
-            ],
-            waMessage: "Halo KIRAVA, saya ingin berkonsultasi mengenai solusi KIRAVA HOME (Smart Home)."
-        },
-        edu: {
-            title: "KIRAVA EDU",
-            category: "Education Technology & AI",
-            desc: "Aplikasi dan asisten AI terintegrasi untuk membantu pihak sekolah, guru, dan pengajar merancang bahan ajar serta menyelesaikan administrasi dalam hitungan menit.",
-            features: [
-                "AI Asisten Guru untuk merancang modul ajar & bank soal ujian",
-                "Sistem absensi digital guru & siswa (RFID / QR Code / Mobile)",
-                "Pengolahan nilai otomatis & cetak e-Rapor kurikulum nasional",
-                "Portal komunikasi pengumuman sekolah langsung ke wali murid",
-                "Dashboard analitik pemetaan perkembangan belajar peserta didik"
-            ],
-            waMessage: "Halo KIRAVA, saya ingin berkonsultasi mengenai solusi KIRAVA EDU (Education Technology)."
-        },
-        business: {
-            title: "KIRAVA BUSINESS",
-            category: "Aplikasi Kasir & UMKM",
-            desc: "Aplikasi Point of Sale (POS) cepat, manajemen stok otomatis, dan pencatatan omzet terpadu untuk mempermudah pengelolaan toko dan usaha UMKM.",
-            features: [
-                "Aplikasi kasir (POS) kilat dengan dukungan printer struk Bluetooth",
-                "Katalog produk terstruktur & peringatan stok menipis otomatis",
-                "Pencatatan pembayaran tunai, transfer, dan integrasi QRIS",
-                "Laporan laba-rugi & rekapitulasi omzet harian otomatis",
-                "Pantau performa penjualan multi-cabang langsung dari HP pemilik"
-            ],
-            waMessage: "Halo KIRAVA, saya ingin berkonsultasi mengenai solusi KIRAVA BUSINESS (Bisnis & UMKM)."
-        }
-    };
-
-    document.addEventListener("DOMContentLoaded", () => {
-        // 1. Sinkronisasi nomor WhatsApp dari config.js jika tersedia
-        const waNumber = (window.KIRAVA_CONFIG && window.KIRAVA_CONFIG.whatsappNumber) 
-            ? window.KIRAVA_CONFIG.whatsappNumber.replace(/[^0-9]/g, "").replace(/^0/, "62") 
-            : "6289504008817";
-
-        // Helper untuk URL WhatsApp
-        function buildWaUrl(message) {
-            return `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
-        }
-
-        // 2. Mobile Menu Toggle
-        const menuBtn = document.getElementById("mobileMenuBtn");
-        const drawer = document.getElementById("mobileDrawer");
-
-        if (menuBtn && drawer) {
-            menuBtn.addEventListener("click", () => {
-                drawer.classList.toggle("is-open");
-                const isOpen = drawer.classList.contains("is-open");
-                menuBtn.setAttribute("aria-expanded", isOpen);
             });
 
-            // Tutup drawer saat link diklik
-            drawer.querySelectorAll(".mobile-link, .nav-button").forEach(link => {
-                link.addEventListener("click", () => {
-                    drawer.classList.remove("is-open");
-                });
-            });
-        }
 
-        // 3. Modal Detail Solusi
-        const modal = document.getElementById("productModal");
-        const modalCloseBtn = document.getElementById("modalCloseBtn");
-        const modalCancelBtn = document.getElementById("modalCancelBtn");
-        const modalCategory = document.getElementById("modalCategory");
-        const modalTitle = document.getElementById("modalTitle");
-        const modalDesc = document.getElementById("modalDesc");
-        const modalFeaturesList = document.getElementById("modalFeaturesList");
-        const modalWaBtn = document.getElementById("modalWaBtn");
 
-        function openModal(key) {
-            const data = SOLUTIONS_DATA[key];
-            if (!data) return;
+        /* =========================================================
+           HEADER SCROLL
+           ========================================================= */
 
-            modalCategory.textContent = data.category;
-            modalTitle.textContent = data.title;
-            modalDesc.textContent = data.desc;
+        const siteHeader =
+            document.getElementById(
+                "siteHeader"
+            );
 
-            // Render features list
-            modalFeaturesList.innerHTML = data.features
-                .map(feat => `<li><span>✓</span> <div>${feat}</div></li>`)
-                .join("");
+        function updateHeader() {
 
-            // Setup WhatsApp button in modal
-            modalWaBtn.href = buildWaUrl(data.waMessage);
+            if (window.scrollY > 30) {
 
-            modal.classList.add("is-open");
-            modal.setAttribute("aria-hidden", "false");
-            document.body.style.overflow = "hidden";
-        }
+                siteHeader.classList.add(
+                    "scrolled"
+                );
 
-        function closeModal() {
-            modal.classList.remove("is-open");
-            modal.setAttribute("aria-hidden", "true");
-            document.body.style.overflow = "";
-        }
+            } else {
 
-        document.querySelectorAll("[data-open-modal]").forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                e.preventDefault();
-                const key = btn.getAttribute("data-open-modal");
-                openModal(key);
-            });
-        });
+                siteHeader.classList.remove(
+                    "scrolled"
+                );
 
-        if (modalCloseBtn) modalCloseBtn.addEventListener("click", closeModal);
-        if (modalCancelBtn) modalCancelBtn.addEventListener("click", closeModal);
-
-        if (modal) {
-            modal.addEventListener("click", (e) => {
-                if (e.target === modal) {
-                    closeModal();
-                }
-            });
-        }
-
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && modal && modal.classList.contains("is-open")) {
-                closeModal();
             }
-        });
-    });
-</script>
+
+        }
+
+        window.addEventListener(
+            "scroll",
+            updateHeader,
+            {
+                passive: true
+            }
+        );
+
+        updateHeader();
+
+
+
+        /* =========================================================
+           MOBILE MENU
+           ========================================================= */
+
+        const mobileToggle =
+            document.getElementById(
+                "mobileToggle"
+            );
+
+        const navMenu =
+            document.getElementById(
+                "navMenu"
+            );
+
+
+        mobileToggle.addEventListener(
+            "click",
+            function() {
+
+                navMenu.classList.toggle(
+                    "open"
+                );
+
+            }
+        );
+
+
+        document
+            .querySelectorAll(".nav-link, .nav-cta")
+            .forEach(function(link) {
+
+                link.addEventListener(
+                    "click",
+                    function() {
+
+                        navMenu.classList.remove(
+                            "open"
+                        );
+
+                    }
+                );
+
+            });
+
+
+
+        /* =========================================================
+           SCROLL REVEAL
+           ========================================================= */
+
+        const revealElements =
+            document.querySelectorAll(
+                ".reveal"
+            );
+
+
+        if (
+            "IntersectionObserver"
+            in window
+        ) {
+
+            const revealObserver =
+                new IntersectionObserver(
+                    function(entries) {
+
+                        entries.forEach(
+                            function(entry) {
+
+                                if (
+                                    entry.isIntersecting
+                                ) {
+
+                                    entry.target.classList.add(
+                                        "visible"
+                                    );
+
+                                    revealObserver.unobserve(
+                                        entry.target
+                                    );
+
+                                }
+
+                            }
+                        );
+
+                    },
+                    {
+                        threshold: .12
+                    }
+                );
+
+
+            revealElements.forEach(
+                function(element) {
+
+                    revealObserver.observe(
+                        element
+                    );
+
+                }
+            );
+
+        } else {
+
+            revealElements.forEach(
+                function(element) {
+
+                    element.classList.add(
+                        "visible"
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /* =========================================================
+           IMAGE FALLBACK
+           ========================================================= */
+
+        document
+            .querySelectorAll(
+                ".product-photo img"
+            )
+            .forEach(function(image) {
+
+                image.addEventListener(
+                    "error",
+                    function() {
+
+                        const parent =
+                            image.parentElement;
+
+                        parent.classList.add(
+                            "image-missing"
+                        );
+
+                        image.style.display =
+                            "none";
+
+                    }
+                );
+
+            });
+
+
+
+        /* =========================================================
+           YEAR
+           ========================================================= */
+
+        document
+            .getElementById("year")
+            .textContent =
+            new Date().getFullYear();
+
+
+
+        /* =========================================================
+           GENERATIVE NEURAL NETWORK
+           ========================================================= */
+
+        const canvas =
+            document.getElementById(
+                "neuralCanvas"
+            );
+
+        const ctx =
+            canvas.getContext(
+                "2d"
+            );
+
+
+        let width = 0;
+        let height = 0;
+
+        let animationFrame = null;
+
+        let nodes = [];
+
+        let pulses = [];
+
+
+        const reduceMotion =
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches;
+
+
+
+        function resizeCanvas() {
+
+            const rect =
+                canvas.getBoundingClientRect();
+
+            const dpr =
+                Math.min(
+                    window.devicePixelRatio || 1,
+                    2
+                );
+
+            width =
+                rect.width;
+
+            height =
+                rect.height;
+
+            canvas.width =
+                width * dpr;
+
+            canvas.height =
+                height * dpr;
+
+            ctx.setTransform(
+                dpr,
+                0,
+                0,
+                dpr,
+                0,
+                0
+            );
+
+            createNetwork();
+
+        }
+
+
+
+        function random(min, max) {
+
+            return (
+                Math.random() *
+                (max - min)
+            ) + min;
+
+        }
+
+
+
+        function createNetwork() {
+
+            nodes = [];
+            pulses = [];
+
+            const mobile =
+                window.innerWidth < 760;
+
+            const count =
+                mobile ? 38 : 65;
+
+
+            for (
+                let i = 0;
+                i < count;
+                i++
+            ) {
+
+                nodes.push({
+
+                    x:
+                        random(
+                            width * .03,
+                            width * .97
+                        ),
+
+                    y:
+                        random(
+                            height * .05,
+                            height * .95
+                        ),
+
+                    vx:
+                        random(
+                            -.16,
+                            .16
+                        ),
+
+                    vy:
+                        random(
+                            -.16,
+                            .16
+                        ),
+
+                    r:
+                        random(
+                            1.1,
+                            2.7
+                        ),
+
+                    phase:
+                        random(
+                            0,
+                            Math.PI * 2
+                        )
+
+                });
+
+            }
+
+
+            const pulseCount =
+                mobile ? 4 : 8;
+
+
+            for (
+                let i = 0;
+                i < pulseCount;
+                i++
+            ) {
+
+                pulses.push({
+
+                    node:
+                        Math.floor(
+                            Math.random() *
+                            nodes.length
+                        ),
+
+                    progress:
+                        Math.random(),
+
+                    speed:
+                        random(
+                            .0015,
+                            .003
+                        )
+
+                });
+
+            }
+
+        }
+
+
+
+        function distance(
+            a,
+            b
+        ) {
+
+            const dx =
+                a.x - b.x;
+
+            const dy =
+                a.y - b.y;
+
+            return Math.sqrt(
+                dx * dx +
+                dy * dy
+            );
+
+        }
+
+
+
+        function drawNetwork(
+            time
+        ) {
+
+            ctx.clearRect(
+                0,
+                0,
+                width,
+                height
+            );
+
+
+            const mobile =
+                window.innerWidth < 760;
+
+            const maxDistance =
+                mobile
+                    ? 112
+                    : 155;
+
+
+            /*
+             * UPDATE NODES
+             */
+
+            nodes.forEach(
+                function(node) {
+
+                    if (!reduceMotion) {
+
+                        node.x += node.vx;
+                        node.y += node.vy;
+
+                    }
+
+
+                    if (
+                        node.x < -20 ||
+                        node.x > width + 20
+                    ) {
+
+                        node.vx *= -1;
+
+                    }
+
+
+                    if (
+                        node.y < -20 ||
+                        node.y > height + 20
+                    ) {
+
+                        node.vy *= -1;
+
+                    }
+
+                }
+            );
+
+
+
+            /*
+             * CONNECTIONS
+             */
+
+            for (
+                let i = 0;
+                i < nodes.length;
+                i++
+            ) {
+
+                for (
+                    let j = i + 1;
+                    j < nodes.length;
+                    j++
+                ) {
+
+                    const a =
+                        nodes[i];
+
+                    const b =
+                        nodes[j];
+
+                    const dist =
+                        distance(
+                            a,
+                            b
+                        );
+
+
+                    if (
+                        dist <
+                        maxDistance
+                    ) {
+
+                        const alpha =
+                            (
+                                1 -
+                                dist /
+                                maxDistance
+                            ) * .24;
+
+
+                        ctx.beginPath();
+
+                        ctx.moveTo(
+                            a.x,
+                            a.y
+                        );
+
+                        ctx.lineTo(
+                            b.x,
+                            b.y
+                        );
+
+
+                        ctx.strokeStyle =
+                            "rgba(80,190,255," +
+                            alpha +
+                            ")";
+
+
+                        ctx.lineWidth =
+                            .7;
+
+
+                        ctx.stroke();
+
+                    }
+
+                }
+
+            }
+
+
+
+            /*
+             * NODES
+             */
+
+            nodes.forEach(
+                function(node) {
+
+                    const pulse =
+                        (
+                            Math.sin(
+                                time * .001 +
+                                node.phase
+                            ) + 1
+                        ) / 2;
+
+
+                    const radius =
+                        node.r +
+                        pulse * .7;
+
+
+                    ctx.beginPath();
+
+                    ctx.arc(
+                        node.x,
+                        node.y,
+                        radius,
+                        0,
+                        Math.PI * 2
+                    );
+
+
+                    ctx.fillStyle =
+                        "rgba(110,220,255,.75)";
+
+
+                    ctx.shadowBlur =
+                        12;
+
+
+                    ctx.shadowColor =
+                        "rgba(67,230,255,.55)";
+
+
+                    ctx.fill();
+
+                    ctx.shadowBlur = 0;
+
+                }
+            );
+
+
+
+            /*
+             * MOVING PULSES
+             */
+
+            if (!reduceMotion) {
+
+                pulses.forEach(
+                    function(pulse) {
+
+                        const start =
+                            nodes[
+                                pulse.node
+                            ];
+
+                        if (!start) {
+                            return;
+                        }
+
+
+                        let target =
+                            null;
+
+                        let shortest =
+                            Infinity;
+
+
+                        nodes.forEach(
+                            function(candidate) {
+
+                                if (
+                                    candidate ===
+                                    start
+                                ) {
+
+                                    return;
+
+                                }
+
+
+                                const d =
+                                    distance(
+                                        start,
+                                        candidate
+                                    );
+
+
+                                if (
+                                    d <
+                                    maxDistance &&
+                                    d <
+                                    shortest
+                                ) {
+
+                                    shortest =
+                                        d;
+
+                                    target =
+                                        candidate;
+
+                                }
+
+                            }
+                        );
+
+
+                        if (!target) {
+                            return;
+                        }
+
+
+                        pulse.progress +=
+                            pulse.speed;
+
+
+                        if (
+                            pulse.progress >= 1
+                        ) {
+
+                            pulse.progress = 0;
+
+                            pulse.node =
+                                Math.floor(
+                                    Math.random() *
+                                    nodes.length
+                                );
+
+                            return;
+
+                        }
+
+
+                        const x =
+                            start.x +
+                            (
+                                target.x -
+                                start.x
+                            ) *
+                            pulse.progress;
+
+
+                        const y =
+                            start.y +
+                            (
+                                target.y -
+                                start.y
+                            ) *
+                            pulse.progress;
+
+
+                        ctx.beginPath();
+
+                        ctx.arc(
+                            x,
+                            y,
+                            2.1,
+                            0,
+                            Math.PI * 2
+                        );
+
+
+                        ctx.fillStyle =
+                            "rgba(145,242,255,.95)";
+
+
+                        ctx.shadowBlur =
+                            15;
+
+                        ctx.shadowColor =
+                            "#43e6ff";
+
+
+                        ctx.fill();
+
+                        ctx.shadowBlur =
+                            0;
+
+                    }
+                );
+
+            }
+
+        }
+
+
+
+        function animate(
+            time
+        ) {
+
+            drawNetwork(
+                time
+            );
+
+            if (!reduceMotion) {
+
+                animationFrame =
+                    requestAnimationFrame(
+                        animate
+                    );
+
+            }
+
+        }
+
+
+
+        window.addEventListener(
+            "resize",
+            resizeCanvas
+        );
+
+
+        resizeCanvas();
+
+
+        if (reduceMotion) {
+
+            drawNetwork(
+                0
+            );
+
+        } else {
+
+            animationFrame =
+                requestAnimationFrame(
+                    animate
+                );
+
+        }
+
+
+
+        /* =========================================================
+           GENTLE PARALLAX FOR NEURAL STAGE
+           ========================================================= */
+
+        const neuralStage =
+            document.querySelector(
+                ".neural-stage"
+            );
+
+
+        if (
+            neuralStage &&
+            !reduceMotion &&
+            window.innerWidth > 760
+        ) {
+
+            window.addEventListener(
+                "mousemove",
+                function(event) {
+
+                    const rect =
+                        neuralStage.getBoundingClientRect();
+
+
+                    const x =
+                        (
+                            event.clientX -
+                            rect.left
+                        ) /
+                        rect.width -
+                        .5;
+
+
+                    const y =
+                        (
+                            event.clientY -
+                            rect.top
+                        ) /
+                        rect.height -
+                        .5;
+
+
+                    const icons =
+                        neuralStage.querySelectorAll(
+                            ".neural-icon"
+                        );
+
+
+                    icons.forEach(
+                        function(icon, index) {
+
+                            const amount =
+                                5 +
+                                index * 1.2;
+
+
+                            icon.style.transform =
+                                "translate(" +
+                                (
+                                    x * amount
+                                ) +
+                                "px," +
+                                (
+                                    y * amount
+                                ) +
+                                "px)";
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+
+
+    </script>
 
 </body>
 </html>
