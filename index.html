@@ -859,60 +859,6 @@
             letter-spacing: .04em;
         }
 
-        /* =========================================================
-           SOLUTION PRINCIPLES
-           ========================================================= */
-
-        .principles-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-        }
-
-        .principle {
-            padding: 30px 28px;
-            min-height: 220px;
-            border-radius: 22px;
-            background: white;
-            border: 1px solid var(--border);
-            transition: transform .3s ease, box-shadow .3s ease;
-        }
-
-        .principle:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 50px rgba(8, 26, 49, .09);
-        }
-
-        .principle-icon {
-            width: 48px;
-            height: 48px;
-            display: grid;
-            place-items: center;
-            margin-bottom: 22px;
-            border-radius: 15px;
-            background: #edf6ff;
-        }
-
-        .principle-icon svg {
-            width: 25px;
-            height: 25px;
-            stroke: var(--blue);
-        }
-
-        .principle-title {
-            color: var(--navy-900);
-            font-size: 18px;
-            letter-spacing: -.02em;
-            font-weight: 750;
-        }
-
-        .principle-text {
-            margin-top: 9px;
-            color: var(--muted);
-            font-size: 14px;
-            line-height: 1.65;
-        }
-
         .footer-brand .brand-accent {
             color: var(--cyan);
         }
@@ -1108,10 +1054,6 @@
                 max-width: 760px;
             }
 
-            .principles-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .product-copy {
                 width: 55%;
                 padding-left: 45px;
@@ -1266,14 +1208,6 @@
                 clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
             }
 
-            .principles-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .principle {
-                min-height: auto;
-            }
-
             .contact-box {
                 padding: 38px 26px;
                 border-radius: 24px;
@@ -1354,7 +1288,6 @@
 
             <nav class="nav-menu" id="navMenu">
                 <a href="#solusi" class="nav-link">Solusi</a>
-                <a href="#tentang" class="nav-link">Tentang</a>
                 <a href="#kontak" class="nav-link">Kontak</a>
                 <a href="#kontak" class="nav-cta" data-wa="Halo KIRAVA, saya ingin berkonsultasi mengenai solusi yang saya butuhkan.">
                     Konsultasi
@@ -1633,84 +1566,6 @@
                                  referrerpolicy="no-referrer">
                         </div>
                     </article>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- =========================================================
-             PRINCIPLES (CARA KAMI BEKERJA)
-             ========================================================= -->
-        <section class="section section-soft" id="tentang">
-            <div class="container">
-
-                <div class="section-heading reveal">
-                    <span class="section-label">Cara Kami Bekerja</span>
-                    <h2 class="section-title">Bukan sekadar teknologi.</h2>
-                    <p class="section-description">
-                        Kami mulai dari kebutuhan Anda, kemudian mencari cara yang paling masuk akal untuk membuat pekerjaan menjadi lebih mudah.
-                    </p>
-                </div>
-
-                <div class="principles-grid">
-
-                    <div class="principle reveal">
-                        <div class="principle-icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <circle cx="11" cy="11" r="6.5" stroke-width="1.7"/>
-                                <path d="M16 16L21 21" stroke-width="1.7" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <h3 class="principle-title">Mulai dari Kebutuhan</h3>
-                        <p class="principle-text">
-                            Kami memahami masalah terlebih dahulu, bukan langsung menawarkan teknologi.
-                        </p>
-                    </div>
-
-                    <div class="principle reveal">
-                        <div class="principle-icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M12 3V21" stroke-width="1.7" stroke-linecap="round"/>
-                                <path d="M4 8L12 3L20 8L12 13L4 8Z" stroke-width="1.7" stroke-linejoin="round"/>
-                                <path d="M4 16L12 21L20 16" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <h3 class="principle-title">Dibuat Sesuai Kondisi</h3>
-                        <p class="principle-text">
-                            Solusi dapat disesuaikan dengan tempat, proses kerja, dan kebutuhan pengguna.
-                        </p>
-                    </div>
-
-                    <div class="principle reveal">
-                        <div class="principle-icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M12 3V21" stroke-width="1.7" stroke-linecap="round"/>
-                                <path d="M5 8H19" stroke-width="1.7" stroke-linecap="round"/>
-                                <path d="M7 13H17" stroke-width="1.7" stroke-linecap="round"/>
-                                <path d="M9 18H15" stroke-width="1.7" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <h3 class="principle-title">Bisa Berkembang</h3>
-                        <p class="principle-text">
-                            Solusi tidak harus berhenti di versi pertama dan dapat dikembangkan bertahap.
-                        </p>
-                    </div>
-
-                    <div class="principle reveal">
-                        <div class="principle-icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M20 11.5C20 16.2 16.4 20 12 20C7.6 20 4 16.2 4 11.5C4 7.1 7.6 4 12 4C16.4 4 20 7.1 20 11.5Z" stroke-width="1.7"/>
-                                <path d="M8 12C8.8 13 10 13.5 12 13.5C14 13.5 15.2 13 16 12" stroke-width="1.7" stroke-linecap="round"/>
-                                <circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/>
-                                <circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/>
-                            </svg>
-                        </div>
-                        <h3 class="principle-title">Mudah Digunakan</h3>
-                        <p class="principle-text">
-                            Teknologi seharusnya membantu, bukan membuat pengguna semakin bingung.
-                        </p>
-                    </div>
 
                 </div>
 
