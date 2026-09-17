@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" width="240" height="64" fill="none">
+  <defs>
+    <!-- Emblem Background Gradient -->
+    <linearGradient id="kl_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070e22"/>
+      <stop offset="50%" stop-color="#030714"/>
+      <stop offset="100%" stop-color="#02040a"/>
+    </linearGradient>
+
+    <!-- Outer Rim Accent Gradient -->
+    <linearGradient id="kl_rim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.85"/>
+      <stop offset="35%" stop-color="#818cf8" stop-opacity="0.35"/>
+      <stop offset="70%" stop-color="#10b981" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <!-- Stem / Core Data Pillar -->
+    <linearGradient id="kl_stem" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="40%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+
+    <!-- Upper Wing / AI & Ascent -->
+    <linearGradient id="kl_up" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="45%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+
+    <!-- Lower Wing / Edge Robotics -->
+    <linearGradient id="kl_down" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="50%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+
+    <!-- Ambient Glow -->
+    <radialGradient id="kl_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.3"/>
+      <stop offset="60%" stop-color="#10b981" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Wordmark Shimmer -->
+    <linearGradient id="kl_text_grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#f0f9ff"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Group: Emblem Mark -->
+  <g transform="translate(0, 0)">
+    <!-- Squircle Frame -->
+    <rect x="2.5" y="2.5" width="59" height="59" rx="16" fill="url(#kl_bg)" stroke="url(#kl_rim)" stroke-width="1.5"/>
+    <circle cx="33" cy="32" r="22" fill="url(#kl_glow)"/>
+
+    <!-- Stem -->
+    <line x1="18.5" y1="17.5" x2="18.5" y2="46.5" stroke="url(#kl_stem)" stroke-width="8" stroke-linecap="round"/>
+    <line x1="18" y1="18" x2="18" y2="30" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity="0.45"/>
+
+    <!-- Upper Arm -->
+    <line x1="26.5" y1="29.5" x2="43.5" y2="16.5" stroke="url(#kl_up)" stroke-width="8" stroke-linecap="round"/>
+    <line x1="28.5" y1="27.5" x2="41" y2="18" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" opacity="0.35"/>
+
+    <!-- Lower Arm -->
+    <line x1="26.5" y1="34.5" x2="43.5" y2="47.5" stroke="url(#kl_down)" stroke-width="8" stroke-linecap="round"/>
+    <line x1="28.5" y1="36.5" x2="41" y2="46" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" opacity="0.25"/>
+
+    <!-- Singularity Core -->
+    <circle cx="27" cy="32" r="2.4" fill="#38bdf8"/>
+    <circle cx="27" cy="32" r="1.1" fill="#ffffff"/>
+
+    <!-- Satellite IoT Beacon Node -->
+    <circle cx="48.5" cy="13.5" r="5" fill="#10b981" opacity="0.35"/>
+    <circle cx="48.5" cy="13.5" r="3.2" fill="#34d399"/>
+    <circle cx="48.5" cy="13.5" r="1.2" fill="#ffffff"/>
+  </g>
+
+  <!-- Group: Wordmark Typography -->
+  <g transform="translate(80, 0)">
+    <!-- Main Brand Name -->
+    <text x="0" y="38" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="28" fill="url(#kl_text_grad)" letter-spacing="3">KIRAVA</text>
+    <!-- Subtitle / Tagline -->
+    <text x="1" y="52" font-family="'JetBrains Mono', monospace" font-weight="500" font-size="9.5" fill="#38bdf8" letter-spacing="2" opacity="0.9">INTELLIGENT AUTOMATION</text>
+  </g>
+</svg>
