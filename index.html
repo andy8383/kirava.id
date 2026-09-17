@@ -639,47 +639,6 @@
         }
 
         /* =========================================================
-           TRUST STRIP
-           ========================================================= */
-
-        .trust-strip {
-            position: relative;
-            margin-top: -1px;
-            background: var(--navy-950);
-            border-top: 1px solid rgba(255, 255, 255, .05);
-            border-bottom: 1px solid rgba(255, 255, 255, .05);
-        }
-
-        .trust-inner {
-            min-height: 105px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: #9eb0c5;
-            font-size: 13px;
-        }
-
-        .trust-item strong {
-            color: white;
-            font-weight: 700;
-        }
-
-        .trust-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--cyan);
-            box-shadow: 0 0 13px var(--cyan);
-        }
-
-        /* =========================================================
            SECTION
            ========================================================= */
 
@@ -954,139 +913,8 @@
             line-height: 1.65;
         }
 
-        /* =========================================================
-           ABOUT / CTA
-           ========================================================= */
-
-        .about-section {
-            position: relative;
-            overflow: hidden;
-            background: var(--navy-950);
-            color: white;
-        }
-
-        .about-section::before {
-            content: "";
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            right: -250px;
-            top: -250px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(67, 230, 255, .12), transparent 65%);
-            pointer-events: none;
-        }
-
-        .about-grid {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: 1fr .8fr;
-            gap: 70px;
-            align-items: center;
-        }
-
-        .about-label {
-            color: #79dfff;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: .15em;
-            text-transform: uppercase;
-        }
-
-        .about-title {
-            margin-top: 14px;
-            max-width: 700px;
-            font-size: clamp(38px, 5vw, 62px);
-            line-height: 1.02;
-            letter-spacing: -.05em;
-            font-weight: 800;
-        }
-
-        .about-text {
-            margin-top: 22px;
-            max-width: 650px;
-            color: #9eafc3;
-            font-size: 17px;
-            line-height: 1.75;
-        }
-
-        .about-points {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin-top: 30px;
-        }
-
-        .about-point {
-            display: flex;
-            align-items: center;
-            gap: 11px;
-            color: #d4deea;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .about-check {
-            flex: 0 0 auto;
-            width: 22px;
-            height: 22px;
-            display: grid;
-            place-items: center;
-            border-radius: 50%;
-            background: rgba(67, 230, 255, .12);
-            color: #63dcff;
-            font-weight: 700;
-            font-size: 12px;
-        }
-
-        .about-card {
-            min-height: 350px;
-            border-radius: 30px;
-            padding: 34px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background: linear-gradient(145deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .025));
-            border: 1px solid rgba(255, 255, 255, .09);
-            box-shadow: inset 0 0 70px rgba(67, 230, 255, .025);
-        }
-
-        .about-card-logo {
-            width: 68px;
-            height: 68px;
-            display: grid;
-            place-items: center;
-            border-radius: 21px;
-            background: linear-gradient(135deg, #43e6ff, #2f8cff);
-            box-shadow: 0 15px 40px rgba(47, 140, 255, .28);
-        }
-
-        .about-card-logo svg {
-            width: 40px;
-            height: 40px;
-        }
-
-        .about-card-title {
-            display: inline-flex;
-            align-items: baseline;
-            gap: .08em;
-            margin-top: auto;
-            font-size: 26px;
-            letter-spacing: -.03em;
-            font-weight: 800;
-        }
-
-        .about-card-title .brand-accent,
         .footer-brand .brand-accent {
             color: var(--cyan);
-        }
-
-        .about-card-text {
-            margin-top: 8px;
-            color: #91a6bd;
-            font-size: 14px;
-            line-height: 1.65;
         }
 
         /* =========================================================
@@ -1284,11 +1112,6 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
             .product-copy {
                 width: 55%;
                 padding-left: 45px;
@@ -1405,18 +1228,6 @@
             .icon-edu { left: 13%; }
             .icon-business { left: 2%; }
 
-            .trust-inner {
-                min-height: auto;
-                padding: 25px 0;
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 18px;
-            }
-
-            .trust-item {
-                font-size: 11px;
-            }
-
             .section {
                 padding: 80px 0;
             }
@@ -1461,14 +1272,6 @@
 
             .principle {
                 min-height: auto;
-            }
-
-            .about-points {
-                grid-template-columns: 1fr;
-            }
-
-            .about-card {
-                min-height: 290px;
             }
 
             .contact-box {
@@ -1672,33 +1475,6 @@
                     <span class="neural-particle particle-5"></span>
                 </div>
 
-            </div>
-        </section>
-
-        <!-- =========================================================
-             TRUST STRIP
-             ========================================================= -->
-        <section class="trust-strip">
-            <div class="container trust-inner">
-                <div class="trust-item">
-                    <span class="trust-dot"></span>
-                    <span>Solusi yang <strong>sesuai kebutuhan</strong></span>
-                </div>
-
-                <div class="trust-item">
-                    <span class="trust-dot"></span>
-                    <span>Mudah <strong>digunakan</strong></span>
-                </div>
-
-                <div class="trust-item">
-                    <span class="trust-dot"></span>
-                    <span>Bisa <strong>dikembangkan</strong></span>
-                </div>
-
-                <div class="trust-item">
-                    <span class="trust-dot"></span>
-                    <span>Ada <strong>pendampingan</strong></span>
-                </div>
             </div>
         </section>
 
@@ -1936,64 +1712,6 @@
                         </p>
                     </div>
 
-                </div>
-
-            </div>
-        </section>
-
-        <!-- =========================================================
-             ABOUT SECTION
-             ========================================================= -->
-        <section class="section about-section">
-            <div class="container about-grid">
-
-                <div class="reveal">
-                    <span class="about-label">Tentang KIRAVA</span>
-                    <h2 class="about-title">Kami membuat teknologi terasa lebih sederhana.</h2>
-                    <p class="about-text">
-                        KIRAVA hadir untuk membantu mengubah kebutuhan nyata menjadi solusi yang bisa digunakan. Dari pertanian, peternakan, rumah, pendidikan, hingga usaha.
-                    </p>
-
-                    <div class="about-points">
-                        <div class="about-point">
-                            <span class="about-check">✓</span>
-                            Sesuai kebutuhan
-                        </div>
-
-                        <div class="about-point">
-                            <span class="about-check">✓</span>
-                            Mudah digunakan
-                        </div>
-
-                        <div class="about-point">
-                            <span class="about-check">✓</span>
-                            Dapat dikembangkan
-                        </div>
-
-                        <div class="about-point">
-                            <span class="about-check">✓</span>
-                            Pendampingan solusi
-                        </div>
-                    </div>
-                </div>
-
-                <div class="about-card reveal">
-                    <div class="about-card-logo">
-                        <svg viewBox="0 0 80 80" fill="none">
-                            <path d="M18 54L32 25L40 40L58 22" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="18" cy="54" r="5" fill="white"/>
-                            <circle cx="32" cy="25" r="5" fill="white"/>
-                            <circle cx="40" cy="40" r="5" fill="white"/>
-                            <circle cx="58" cy="22" r="5" fill="white"/>
-                        </svg>
-                    </div>
-
-                    <div>
-                        <h3 class="about-card-title"><span>KIRA</span><span class="brand-accent">VA</span></h3>
-                        <p class="about-card-text">
-                            Technology solution for real-world needs.
-                        </p>
-                    </div>
                 </div>
 
             </div>
