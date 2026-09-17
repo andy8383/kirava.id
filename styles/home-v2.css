@@ -9,7 +9,7 @@ a { color:inherit; text-decoration:none; } button { border:0; font:inherit; curs
 .site-header { position:fixed; inset:0 0 auto; z-index:20; border-bottom:1px solid transparent; transition:background .3s ease,box-shadow .3s ease,border-color .3s ease; }
 .site-header.scrolled { background:rgba(244,249,255,.86); border-color:rgba(219,232,246,.9); box-shadow:0 8px 28px rgba(52,94,139,.08); backdrop-filter:blur(18px); }
 .nav { min-height:82px; display:flex; align-items:center; justify-content:space-between; }
-.brand { color:var(--blue-950); font:800 25px/1 'Manrope',sans-serif; letter-spacing:-.09em; } .brand span { color:var(--blue-600); }
+.brand { position:relative; color:var(--blue-950); font:800 28px/1 'Manrope',sans-serif; letter-spacing:-.075em; } .brand span { color:var(--blue-600); } .brand::after { content:''; display:inline-block; width:22px; height:3px; margin:0 0 2px 5px; border-radius:999px; background:linear-gradient(90deg,var(--blue-600),var(--blue-400)); vertical-align:middle; }
 .nav-menu { display:flex; align-items:center; gap:31px; color:#71849b; font-size:13px; font-weight:700; } .nav-menu a { transition:color .2s ease; } .nav-menu a:hover { color:var(--blue-600); }
 .nav-cta { padding:10px 17px; border:1px solid var(--blue-400); border-radius:999px; color:var(--blue-800)!important; }
 .mobile-toggle { display:none; width:42px; height:42px; background:transparent; } .mobile-toggle span { display:block; width:22px; height:2px; margin:5px auto; background:var(--blue-800); }
@@ -105,7 +105,7 @@ footer { padding:27px 0; background:var(--blue-950); color:#9ab0ca; font-size:12
 footer { padding:22px 0; background:var(--blue-950); }
 .footer-inner { justify-content:center; }
 .footer-inner { flex-direction:column; align-items:center; gap:9px; }
-.footer-brand { color:var(--white); font:800 24px/1 'Manrope',sans-serif; letter-spacing:-.09em; }
+.footer-brand { color:var(--white); font:800 24px/1 'Manrope',sans-serif; letter-spacing:-.075em; }
 .footer-brand span { color:var(--blue-400); }
 .footer-copy { margin:0; color:#b8c9dc; font-size:11px; letter-spacing:.02em; text-align:center; }
 .contact-button { min-height:56px; padding:0 24px; gap:9px; }
