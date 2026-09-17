@@ -13,76 +13,76 @@
     farm: {
       name: "KIRAVA FARM",
       category: "IoT Pertanian & Perkebunan",
-      desc: "Monitoring dan otomatisasi untuk membantu mengelola lahan, tanaman, penyiraman, kelembapan, dan kondisi lingkungan secara presisi tanpa perlu inspeksi manual setiap saat.",
+      desc: "Solusi pemantauan tanah presisi dan otomasi penyiraman berbasis sensor. Membantu petani dan pengelola perkebunan menghemat air, mengoptimalkan penyerapan pupuk, dan mencegah gagal panen tanpa perlu inspeksi manual setiap saat.",
       features: [
-        "Monitoring kelembapan tanah real-time",
-        "Monitoring suhu & kelembapan udara",
-        "Monitoring kondisi lingkungan & intensitas cahaya",
-        "Otomatisasi penyiraman (smart irrigation valve)",
-        "Dashboard monitoring web & mobile",
-        "Notifikasi anomali via WhatsApp / Telegram"
+        "Sensor kelembapan tanah kapasitif anti-karat",
+        "Katup penyiraman otomatis terjadwal & berbasis ambang batas",
+        "Monitoring suhu, kelembapan udara & intensitas cahaya",
+        "Early warning peringatan tanah kering via WhatsApp",
+        "Dashboard grafik histori kelembapan lahan di smartphone",
+        "Dukungan panel surya untuk lahan tanpa jaringan listrik PLN"
       ],
-      hardware: ["Sensor Kelembapan Kapasitif", "Sensor Suhu & Kelembapan SHT30/DHT22", "Modul ESP32 Low Power", "Solenoid Valve 12V/220V", "Panel Surya + Baterai (Opsional)"],
+      hardware: ["Probe Kelembapan Kapasitif", "Sensor SHT30 Suhu/Kelembapan", "Modul ESP32 Low-Power", "Solenoid Valve 12V/220V", "Solar Panel & Baterai Kit (Opsional)"],
       waTopic: "farm"
     },
     livestock: {
       name: "KIRAVA LIVESTOCK",
-      category: "IoT Peternakan",
-      desc: "Teknologi monitoring untuk membantu peternak memantau kondisi kandang dan lingkungan ayam/ternak secara lebih mudah untuk mencegah stres hewan dan menekan angka kematian.",
+      category: "IoT Peternakan Modern",
+      desc: "Menjaga kestabilan iklim kandang ayam broiler, layer, dan ternak 24 jam nonstop. Mengurangi risiko kematian akibat stres panas, menekan akumulasi gas amonia berbahaya, dan mendongkrak efisiensi pakan ternak Anda.",
       features: [
-        "Monitoring suhu kandang 24/7",
-        "Monitoring kelembapan udara kandang",
-        "Monitoring kadar gas amonia (NH3)",
-        "Kontrol otomatis kipas, blower & cooling pad",
-        "Dashboard IoT terpadu dengan grafik riwayat",
-        "Early warning system untuk lonjakan suhu ekstrem"
+        "Monitoring suhu & kelembapan udara kandang 24/7",
+        "Deteksi dini konsentrasi gas amonia (NH3) & sirkulasi udara",
+        "Otomatisasi kendali blower exhaust, kipas angin, & cooling pad",
+        "Alarm peringatan darurat instan via WhatsApp saat suhu melonjak",
+        "Dashboard grafik rekap iklim harian untuk evaluasi pertumbuhan",
+        "Sistem cadangan proteksi otomatis saat koneksi internet terputus"
       ],
-      hardware: ["Multi-Point Temperature Probe", "Sensor Amonia MQ-137", "Kontroler Otomasi Relai Industri", "ESP32 Industrial Gateway", "Alarm Sirene & Notifikasi HP"],
+      hardware: ["Industrial Temperature Probe", "Sensor Amonia MQ-137 Kalibrasi", "Relai Otomasi Blower Industri", "ESP32 Industrial Gateway", "Sirene Alarm & Peringatan Ponsel"],
       waTopic: "livestock"
     },
     home: {
       name: "KIRAVA HOME",
-      category: "Smart Home",
-      desc: "Solusi rumah pintar untuk monitoring dan kontrol perangkat rumah dari satu sistem terpusat, aman, hemat energi, dan nyaman bagi seluruh keluarga.",
+      category: "Smart Home & Keamanan",
+      desc: "Kendali pencahayaan, keamanan pintu hunian, dan pemantauan konsumsi listrik dari satu aplikasi smartphone. Ciptakan rumah yang lebih aman, nyaman, dan hemat pengeluaran tagihan listrik bulanan.",
       features: [
-        "Kontrol lampu & sakelar pintar",
-        "Monitoring sensor gerak, pintu & jendela",
-        "Keamanan rumah & deteksi kebocoran gas/asap",
-        "Monitoring konsumsi daya listrik perangkat",
-        "Otomatisasi jadwal hidup/mati peralatan",
-        "Kontrol lokal & jarak jauh via smartphone"
+        "Kontrol sakelar lampu pintar dari dalam & luar rumah",
+        "Sensor kontak pintu & jendela serta sensor gerak (PIR)",
+        "Deteksi dini kebocoran tabung gas LPG & asap kebakaran",
+        "Monitoring konsumsi watt listrik peralatan elektronik",
+        "Penjadwalan otomatisasi mode hemat listrik saat rumah kosong",
+        "Notifikasi instan ke HP jika terdeteksi akses pintu tak dikenal"
       ],
-      hardware: ["Smart Switch WiFi/Zigbee", "Sensor Kontak Pintu & Gerak PIR", "Power Metering Clamp", "Gateway Hub Pintar", "Aplikasi Mobile Terpadu"],
+      hardware: ["Smart Wall Switch", "Sensor Kontak Pintu & Gerak PIR", "Power Metering Clamp", "Smart Gateway Hub Terpusat", "Aplikasi Mobile Terintegrasi"],
       waTopic: "home"
     },
     edu: {
       name: "KIRAVA EDU",
-      category: "Education Technology",
-      desc: "Solusi teknologi untuk membantu sekolah, guru, dan lembaga pendidikan menggunakan aplikasi dan AI dalam proses pembelajaran, evaluasi, dan administrasi sekolah yang efisien.",
+      category: "Teknologi & AI Pendidikan",
+      desc: "Membantu para guru dan manajemen sekolah memangkas jam kerja administrasi. Hadirkan asisten AI cerdas untuk mempermudah perancangan modul ajar, bank soal ujian, pencatatan absensi, dan penerbitan rapor otomatis.",
       features: [
-        "Aplikasi pendidikan & sistem informasi sekolah",
-        "AI pendamping guru (pembuat bank soal & modul)",
-        "Pengolahan data absensi & nilai siswa",
-        "Rapor digital otomatis sesuai kurikulum",
-        "Dashboard analitik performa kelas & sekolah",
-        "Portal komunikasi sekolah dengan wali murid"
+        "AI Generator pembuatan modul ajar & bank soal untuk guru",
+        "Mesin absensi digital siswa & guru (RFID / QR / Mobile)",
+        "Rekapitulasi nilai otomatis & cetak e-Rapor kurikulum nasional",
+        "Portal pengumuman dan komunikasi sekolah dengan wali murid",
+        "Dashboard analitik pemetaan kemajuan dan evaluasi belajar siswa",
+        "Penyimpanan berkas dan nilai sekolah aman berbasis cloud"
       ],
-      hardware: ["Cloud LMS & Portal Web", "Mesin Absensi RFID/Biometrik (Opsional)", "AI Engine Analisis Pembelajaran", "Mobile App Siswa & Orang Tua"],
+      hardware: ["Cloud LMS & Portal Web Interaktif", "Terminal Mesin Absensi RFID (Opsional)", "AI Engine Pemrosesan Soal & Rapor", "Aplikasi Ponsel Orang Tua & Guru"],
       waTopic: "edu"
     },
     business: {
       name: "KIRAVA BUSINESS",
-      category: "Business & UMKM",
-      desc: "Solusi aplikasi untuk membantu bisnis dan UMKM mengelola operasional, produk, transaksi, kasir, dan data bisnis agar rapi, efisien, dan siap bertumbuh.",
+      category: "Kasir & Manajemen UMKM",
+      desc: "Aplikasi kasir (POS) kilat, pelacakan stok produk secara real-time, dan pembukuan omzet toko otomatis. Kelola transaksi pelanggan dan pantau performa cabang usaha dari genggaman pemilik bisnis tanpa repot pembukuan manual.",
       features: [
-        "Point of Sale (Kasir Digital) cepat & intuitif",
-        "Manajemen katalog produk & kategori",
-        "Manajemen stok real-time & peringatan stok menipis",
-        "Pencatatan transaksi & integrasi pembayaran QRIS",
-        "Laporan keuangan, omzet, & laba rugi otomatis",
-        "Akses multi-cabang & multi-kasir"
+        "Point of Sale (POS) cepat dengan dukungan struk Bluetooth",
+        "Manajemen katalog produk & peringatan otomatis stok menipis",
+        "Pencatatan pembayaran tunai, transfer, dan integrasi QRIS",
+        "Laporan keuangan, omzet harian, dan laba-rugi otomatis",
+        "Pantau penjualan banyak cabang toko langsung dari HP pemilik",
+        "Pengaturan hak akses kasir dan riwayat transaksi transparan"
       ],
-      hardware: ["Aplikasi Kasir Tablet/HP/Web", "Printer Thermal Bluetooth/USB", "Dashboard Manajemen Cloud", "Integrasi Barcode Scanner"],
+      hardware: ["Aplikasi Kasir Tablet/HP/Web", "Printer Kasir Thermal Bluetooth", "Cloud Management Dashboard", "Dukungan Barcode Scanner"],
       waTopic: "business"
     }
   };

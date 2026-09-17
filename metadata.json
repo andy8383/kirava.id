@@ -1,6 +1,6 @@
 {
   "name": "KIRAVA — AI, IoT & Technology Solutions",
-  "description": "KIRAVA menyediakan solusi AI, aplikasi, dan IoT untuk pertanian, peternakan, smart home, pendidikan, dan bisnis.",
+  "description": "KIRAVA menghadirkan solusi AI, IoT, dan aplikasi untuk pertanian, peternakan, smart home, pendidikan, dan bisnis.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

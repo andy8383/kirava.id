@@ -1,886 +1,1690 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KIRAVA — AI, IoT & Technology Solutions</title>
-  
-  <meta name="description" content="KIRAVA menyediakan solusi AI, aplikasi, dan IoT untuk pertanian, peternakan, smart home, pendidikan, dan bisnis.">
-  <meta name="keywords" content="KIRAVA, kirava.id, IoT Indonesia, AI Indonesia, Smart Agriculture, IoT Peternakan, Smart Home, EduTech, POS UMKM">
-  <meta name="author" content="KIRAVA">
-  <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph / Social Media Meta Tags -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kirava.id">
-  <meta property="og:title" content="KIRAVA — AI, IoT & Technology Solutions">
-  <meta property="og:description" content="KIRAVA menyediakan solusi AI, aplikasi, dan IoT untuk pertanian, peternakan, smart home, pendidikan, dan bisnis.">
-  <meta property="og:image" content="https://kirava.id/favicon.svg">
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="KIRAVA — AI, IoT & Technology Solutions">
-  <meta name="twitter:description" content="KIRAVA menyediakan solusi AI, aplikasi, dan IoT untuk pertanian, peternakan, smart home, pendidikan, dan bisnis.">
-  <meta name="twitter:image" content="https://kirava.id/favicon.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="canonical" href="https://kirava.id">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="favicon.svg">
+    <title>KIRAVA — AI, IoT & Technology Solutions</title>
 
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description"
+          content="KIRAVA menghadirkan solusi AI, IoT, dan aplikasi untuk pertanian, peternakan, smart home, pendidikan, dan bisnis.">
+    <meta name="keywords" content="KIRAVA, IoT Indonesia, Smart Farm, Smart Livestock, Smart Home, Education AI, POS UMKM, kirava.id">
+    <meta name="author" content="KIRAVA">
 
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="styles/main.css">
+    <!-- Open Graph & Social Cards -->
+    <meta property="og:title" content="KIRAVA — AI, IoT & Technology Solutions">
+    <meta property="og:description" content="KIRAVA menghadirkan solusi AI, IoT, dan aplikasi untuk pertanian, peternakan, smart home, pendidikan, dan bisnis.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kirava.id">
+    <meta property="og:site_name" content="KIRAVA">
+    <meta property="og:locale" content="id_ID">
 
-  <!-- Central Configuration (WhatsApp number, brand contacts) -->
-  <script src="config.js"></script>
+    <meta name="theme-color" content="#07111f">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f7f9fc;
+            color: #101828;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e7ebf0;
+            transition: all 0.2s ease;
+        }
+
+        .nav {
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .logo span {
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #475467;
+            transition: color 0.15s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 10px;
+            background: #101828;
+            color: white !important;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .nav-button:hover {
+            background: #1e293b;
+            transform: translateY(-1px);
+        }
+
+        /* Mobile Menu Toggle Button */
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 8px 10px;
+            cursor: pointer;
+            color: #101828;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu-toggle svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* Mobile Navigation Drawer */
+        .mobile-drawer {
+            display: none;
+            flex-direction: column;
+            gap: 16px;
+            padding: 18px 24px 24px;
+            background: #ffffff;
+            border-bottom: 1px solid #e7ebf0;
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+        }
+
+        .mobile-drawer.is-open {
+            display: flex;
+        }
+
+        .mobile-drawer a {
+            font-size: 15px;
+            font-weight: 600;
+            color: #334155;
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .mobile-drawer a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-drawer .nav-button {
+            text-align: center;
+            justify-content: center;
+            margin-top: 4px;
+            padding: 12px;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            padding: 100px 0 80px;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.12), transparent 35%),
+                #ffffff;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 13px;
+            border-radius: 30px;
+            background: #eef4ff;
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 22px;
+            border: 1px solid rgba(37, 99, 235, 0.15);
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #2563eb;
+            box-shadow: 0 0 8px #2563eb;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5.5vw, 68px);
+            line-height: 1.08;
+            letter-spacing: -2.5px;
+            margin-bottom: 24px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            max-width: 620px;
+            color: #667085;
+            font-size: 18px;
+            margin-bottom: 32px;
+            line-height: 1.65;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 22px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-secondary {
+            background: #eef2f7;
+            color: #101828;
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+            transform: translateY(-1px);
+        }
+
+        /* =========================
+           HERO VISUAL
+        ========================= */
+
+        .hero-visual {
+            position: relative;
+            min-height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .visual-main {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle,
+                #ffffff 20%,
+                #dbeafe 21%,
+                #dbeafe 22%,
+                transparent 23%),
+                #eff6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 30px 80px rgba(37, 99, 235, 0.16);
+            border: 1px solid rgba(191, 219, 254, 0.6);
+            position: relative;
+        }
+
+        .visual-pulse-ring {
+            position: absolute;
+            inset: -12px;
+            border-radius: 50%;
+            border: 1px dashed rgba(37, 99, 235, 0.25);
+            animation: spin-slow 35s linear infinite;
+        }
+
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .visual-core {
+            width: 150px;
+            height: 150px;
+            border-radius: 32px;
+            background: #07111f;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .visual-core strong {
+            font-size: 34px;
+            letter-spacing: -2px;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .visual-core small {
+            color: #94a3b8;
+            margin-top: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .floating {
+            position: absolute;
+            padding: 13px 17px;
+            background: white;
+            border: 1px solid #e7ebf0;
+            border-radius: 14px;
+            box-shadow: 0 15px 40px rgba(15, 23, 42, 0.09);
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 3;
+            transition: transform 0.2s ease;
+        }
+
+        .floating:hover {
+            transform: scale(1.05);
+        }
+
+        .floating.one {
+            top: 35px;
+            right: 10px;
+            animation: float-one 4.5s ease-in-out infinite;
+        }
+
+        .floating.two {
+            bottom: 50px;
+            left: 5px;
+            animation: float-two 5s ease-in-out infinite;
+        }
+
+        .floating.three {
+            bottom: 10px;
+            right: 35px;
+            animation: float-three 4.2s ease-in-out infinite;
+        }
+
+        @keyframes float-one {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-7px); }
+        }
+
+        @keyframes float-two {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(6px); }
+        }
+
+        @keyframes float-three {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            max-width: 650px;
+            margin-bottom: 45px;
+        }
+
+        .section-heading .label {
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(30px, 4vw, 44px);
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .section-heading p {
+            color: #667085;
+            font-size: 16px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+            border: 1px solid #e7ebf0;
+            border-radius: 20px;
+            padding: 28px;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .product-top {
+            margin-bottom: 16px;
+        }
+
+        .product-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: #eef4ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            margin-bottom: 22px;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .product small {
+            color: #667085;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product h3 {
+            font-size: 21px;
+            margin: 5px 0 10px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .product p {
+            color: #667085;
+            font-size: 14.5px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .product-link {
+            color: #2563eb;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.2s ease;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            padding: 0;
+            font-family: inherit;
+        }
+
+        .product-link:hover {
+            gap: 8px;
+            color: #1d4ed8;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: #07111f;
+            color: white;
+            position: relative;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .about p {
+            color: #aab6c5;
+            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        .about p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .feature {
+            padding: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.04);
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .feature:hover {
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-2px);
+        }
+
+        .feature strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 17px;
+            color: #ffffff;
+        }
+
+        .feature span {
+            color: #9ca9b8;
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding: 90px 0;
+        }
+
+        .cta-box {
+            background:
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.25), transparent 35%),
+                #eef4ff;
+            border-radius: 28px;
+            padding: 65px 40px;
+            text-align: center;
+            border: 1px solid rgba(37, 99, 235, 0.15);
+        }
+
+        .cta-box h2 {
+            font-size: clamp(30px, 4vw, 46px);
+            letter-spacing: -1.5px;
+            margin-bottom: 14px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .cta-box p {
+            color: #667085;
+            max-width: 580px;
+            margin: 0 auto 28px;
+            font-size: 16.5px;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #ffffff;
+            border-top: 1px solid #e7ebf0;
+            padding: 40px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-brand strong {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-brand p {
+            color: #98a2b3;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .footer-right {
+            color: #64748b;
+            font-size: 13px;
+            text-align: right;
+            line-height: 1.7;
+        }
+
+        .footer-right a {
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        .footer-right a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           FLOATING WHATSAPP BUTTON
+        ========================= */
+
+        .floating-wa-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff !important;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 8px 26px rgba(16, 185, 129, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .floating-wa-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 32px rgba(16, 185, 129, 0.55);
+        }
+
+        .floating-wa-btn svg {
+            flex-shrink: 0;
+            animation: wa-wiggle 3.5s ease-in-out infinite;
+        }
+
+        @keyframes wa-wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            10%, 30% { transform: rotate(-8deg); }
+            20%, 40% { transform: rotate(8deg); }
+            50% { transform: rotate(0deg); }
+        }
+
+        /* =========================
+           MODAL DETAIL PRODUK
+        ========================= */
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(7, 17, 31, 0.6);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .modal-overlay.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 540px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 32px;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+            transform: translateY(20px) scale(0.96);
+            transition: all 0.25s ease;
+        }
+
+        .modal-overlay.is-open .modal-card {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #64748b;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+
+        .modal-close-btn:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        .modal-badge {
+            display: inline-block;
+            font-size: 11.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #2563eb;
+            background: #eef4ff;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .modal-title {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+
+        .modal-desc {
+            color: #64748b;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .modal-section-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+
+        .modal-features {
+            list-style: none;
+            margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .modal-features li {
+            font-size: 14px;
+            color: #475467;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .modal-features li span {
+            color: #10b981;
+            font-weight: 700;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .modal-actions .btn {
+            flex: 1;
+            padding: 12px 18px;
+        }
+
+        /* =========================
+           MOBILE RESPONSIVENESS
+        ========================= */
+
+        @media (max-width: 800px) {
+            .nav {
+                height: 64px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding: 60px 0 50px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero h1 {
+                font-size: clamp(32px, 8vw, 44px);
+                letter-spacing: -1.5px;
+                line-height: 1.15;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .buttons .btn {
+                width: 100%;
+            }
+
+            .hero-visual {
+                min-height: 320px;
+            }
+
+            .visual-main {
+                width: 250px;
+                height: 250px;
+            }
+
+            .visual-core {
+                width: 125px;
+                height: 125px;
+            }
+
+            .visual-core strong {
+                font-size: 28px;
+            }
+
+            .floating {
+                font-size: 12px;
+                padding: 10px 14px;
+            }
+
+            .floating.one {
+                top: 20px;
+                right: -5px;
+            }
+
+            .floating.two {
+                bottom: 35px;
+                left: -5px;
+            }
+
+            .floating.three {
+                bottom: 5px;
+                right: 15px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-box {
+                padding: 45px 20px;
+                border-radius: 20px;
+            }
+
+            .cta-box .btn {
+                width: 100%;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .footer-right {
+                text-align: left;
+            }
+
+            .floating-wa-btn {
+                bottom: 16px;
+                right: 16px;
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .floating-wa-label {
+                display: none;
+            }
+            .floating-wa-btn {
+                padding: 12px;
+                border-radius: 50%;
+            }
+        }
+    </style>
 </head>
-<body id="top">
-  <!-- AI NEURON BACKGROUND CANVAS -->
-  <canvas id="neuronCanvas"></canvas>
 
-  <!-- NAVBAR -->
-  <header class="navbar" id="mainNavbar">
-    <div class="container navbar-inner">
-      <a href="#top" class="brand-logo" id="navBrandLogo">
-        <span class="brand-mark">
-          <img src="favicon.svg" alt="KIRAVA Emblem" width="38" height="38">
-        </span>
-        <span class="brand-name">KIRAVA</span>
-      </a>
+<body>
 
-      <!-- Desktop Navigation Menu -->
-      <nav class="nav-links" id="desktopNavLinks">
-        <a href="#beranda" class="nav-link active" id="navLinkBeranda">Beranda</a>
-        <a href="#produk" class="nav-link" id="navLinkProduk">Produk</a>
-        <a href="#solusi" class="nav-link" id="navLinkSolusi">Solusi</a>
-        <a href="#tentang" class="nav-link" id="navLinkTentang">Tentang</a>
-        <a href="#kontak" class="nav-link" id="navLinkKontak">Kontak</a>
-      </nav>
+<!-- =========================
+     HEADER
+========================= -->
 
-      <!-- Action Button & Mobile Toggle -->
-      <div class="nav-actions">
-        <a href="#" class="btn btn-whatsapp btn-sm btn-navbar" data-wa-action="contact" data-wa-topic="general" id="navWaBtn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-          </svg>
-          Hubungi Kami
+<header id="mainHeader">
+
+    <div class="container nav">
+
+        <a href="#" class="logo" id="navLogo">
+            KIRA<span>VA</span>
         </a>
 
-        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
+        <nav class="nav-links" id="desktopNav">
 
-  <!-- Mobile Navigation Drawer -->
-  <div class="mobile-nav" id="mobileNavDrawer">
-    <a href="#beranda" class="nav-link" id="mNavBeranda">Beranda</a>
-    <a href="#produk" class="nav-link" id="mNavProduk">Produk</a>
-    <a href="#solusi" class="nav-link" id="mNavSolusi">Solusi</a>
-    <a href="#tentang" class="nav-link" id="mNavTentang">Tentang</a>
-    <a href="#kontak" class="nav-link" id="mNavKontak">Kontak</a>
-    <div style="margin-top: 16px;">
-      <a href="#" class="btn btn-whatsapp" style="width: 100%;" data-wa-action="contact" data-wa-topic="general" id="mNavWaBtn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-        </svg>
-        Hubungi Kami via WhatsApp
-      </a>
-    </div>
-  </div>
+            <a href="#produk" id="linkNavProduk">Produk</a>
+            <a href="#tentang" id="linkNavTentang">Tentang</a>
+            <a href="#kontak" id="linkNavKontak">Kontak</a>
 
-  <main>
-    <!-- HERO SECTION -->
-    <section class="hero-section" id="beranda">
-      <div class="container">
-        <div class="hero-grid">
-          
-          <!-- Sisi Kiri: Teks & Call To Action -->
-          <div>
-            <div class="hero-badge-wrap">
-              <span class="hero-badge" id="heroBadge">
-                <span class="hero-badge-dot"></span>
-                AI • IoT • Education • Business
-              </span>
-              <span class="hero-ai-indicator" id="heroAiIndicator">
-                <svg class="neuron-pulse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="3"></circle>
-                  <path d="M12 3v3m0 12v3M3 12h3m12 0h3m-3.5-6.5l-2.1 2.1m-6.8 6.8l-2.1 2.1m0-11l2.1 2.1m6.8 6.8l2.1 2.1"></path>
+            <a
+                href="https://wa.me/6289504008817?text=Halo%20KIRAVA%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20solusi%20KIRAVA."
+                class="nav-button"
+                id="headerWaBtn"
+                target="_blank"
+                rel="noopener noreferrer">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
                 </svg>
-                AI Synapse Engine
-              </span>
+                WhatsApp
+            </a>
+
+        </nav>
+
+        <!-- Hamburger button for mobile -->
+        <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Buka Menu Navigasi">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <a href="#produk" class="mobile-link">Produk Solusi</a>
+        <a href="#tentang" class="mobile-link">Tentang KIRAVA</a>
+        <a href="#kontak" class="mobile-link">Kontak & Diskusi</a>
+        <a
+            href="https://wa.me/6289504008817?text=Halo%20KIRAVA%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20solusi%20KIRAVA."
+            class="nav-button"
+            id="mobileDrawerWaBtn"
+            target="_blank"
+            rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+            Konsultasi via WhatsApp
+        </a>
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="beranda">
+
+    <div class="container hero-grid">
+
+        <div>
+
+            <div class="badge" id="heroBadge">
+                <span class="badge-dot"></span>
+                AI • IoT • SOFTWARE
             </div>
 
-            <h1 class="hero-title" id="heroTitle">
-              Teknologi Cerdas untuk <span>Dunia Nyata</span>
+            <h1 id="heroHeadline">
+                Teknologi Cerdas
+                <span>untuk Dunia Nyata.</span>
             </h1>
 
-            <p class="hero-subtitle" id="heroSubtitle">
-              KIRAVA menghadirkan solusi AI, aplikasi, dan IoT untuk membantu pertanian, peternakan, rumah, sekolah, dan bisnis menjadi lebih cerdas dan efisien.
+            <p id="heroDescription">
+                KIRAVA mengembangkan solusi AI, IoT, dan aplikasi
+                untuk membantu pertanian, peternakan, rumah,
+                sekolah, dan bisnis menjadi lebih cerdas.
             </p>
 
-            <div class="hero-cta-group">
-              <a href="#produk" class="btn btn-primary" id="heroBtnProducts">
-                Jelajahi Produk
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </a>
+            <div class="buttons">
 
-              <a href="#" class="btn btn-whatsapp" data-wa-action="contact" data-wa-topic="general" id="heroBtnWhatsApp">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                </svg>
-                Chat WhatsApp
-              </a>
-            </div>
+                <a href="#produk" class="btn btn-primary" id="heroBtnProduk">
+                    Lihat Produk
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
 
-            <div class="hero-meta-strip">
-              <span>Platform Terintegrasi:</span>
-              <span class="hero-meta-pill">Sensor IoT</span>
-              <span>•</span>
-              <span class="hero-meta-pill">Cloud Engine</span>
-              <span>•</span>
-              <span class="hero-meta-pill">Mobile & Web Apps</span>
-            </div>
-          </div>
-
-          <!-- Sisi Kanan: Visual Teknologi Modern (Dashboard, IoT, Sensor, AI) -->
-          <div>
-            <div class="hero-visual-card" id="heroVisualCard">
-              <div class="telemetry-header">
-                <div class="telemetry-title">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                  </svg>
-                  <span>KIRAVA TELEMETRY ENGINE</span>
-                </div>
-                <div class="status-live">
-                  <span class="status-live-dot"></span>
-                  SISTEM AKTIF
-                </div>
-              </div>
-
-              <!-- 4 Node Telemetri Sensor -->
-              <div class="telemetry-grid">
-                <div class="telemetry-node">
-                  <div class="node-label">
-                    <span>Lahan Pertanian</span>
-                    <span style="color: var(--accent-emerald);">●</span>
-                  </div>
-                  <div class="node-val">72.4%</div>
-                  <div class="node-meta">Kelembapan Tanah Optimal</div>
-                </div>
-
-                <div class="telemetry-node">
-                  <div class="node-label">
-                    <span>Kandang Ternak</span>
-                    <span style="color: var(--accent-amber);">●</span>
-                  </div>
-                  <div class="node-val">28.2°C</div>
-                  <div class="node-meta">Suhu & Blower Otomatis</div>
-                </div>
-
-                <div class="telemetry-node">
-                  <div class="node-label">
-                    <span>Smart Home</span>
-                    <span style="color: var(--primary-light);">●</span>
-                  </div>
-                  <div class="node-val">4 Perangkat</div>
-                  <div class="node-meta">Keamanan & Daya Aktif</div>
-                </div>
-
-                <div class="telemetry-node">
-                  <div class="node-label">
-                    <span>AI & Bisnis POS</span>
-                    <span style="color: var(--accent-indigo);">●</span>
-                  </div>
-                  <div class="node-val">100% Sync</div>
-                  <div class="node-meta">Transaksi Terintegrasi</div>
-                </div>
-              </div>
-
-              <!-- Flow Arsitektur Mini -->
-              <div class="hero-flow-preview">
-                <div class="flow-title-row">
-                  <span>EKOSISTEM KONEKSI REAL-TIME</span>
-                  <span>ESP32 ⇄ CLOUD ⇄ APP</span>
-                </div>
-                <div class="flow-node-chips">
-                  <div class="flow-chip">SENSOR</div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-chip active">IoT GATEWAY</div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-chip">AI ENGINE</div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-chip">DASHBOARD</div>
-                </div>
-              </div>
+                <a
+                    href="https://wa.me/6289504008817?text=Halo%20KIRAVA%2C%20saya%20ingin%20berkonsultasi%20tentang%20produk%20KIRAVA."
+                    class="btn btn-secondary"
+                    id="heroBtnWhatsApp"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                    </svg>
+                    Chat WhatsApp
+                </a>
 
             </div>
-          </div>
 
         </div>
-      </div>
-    </section>
 
-    <!-- SECTION PRODUK ("Solusi KIRAVA") -->
-    <section class="section-products" id="produk">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag">Solusi Terpadu</div>
-          <h2 class="section-title">Solusi KIRAVA</h2>
-          <p class="section-subtitle">Satu teknologi, berbagai kebutuhan.</p>
+
+        <div class="hero-visual" id="heroVisual">
+
+            <div class="visual-main">
+                <div class="visual-pulse-ring"></div>
+                <div class="visual-core">
+                    <strong>AI</strong>
+                    <small>+ IoT</small>
+                </div>
+            </div>
+
+            <div class="floating one" id="floatingFarm">
+                🌱 Smart Farm
+            </div>
+
+            <div class="floating two" id="floatingLivestock">
+                🐔 Smart Livestock
+            </div>
+
+            <div class="floating three" id="floatingBusiness">
+                📊 Smart Business
+            </div>
+
         </div>
 
-        <div class="products-grid">
-          
-          <!-- 1. KIRAVA FARM -->
-          <article class="product-card" data-cat="farm" id="cardFarm">
-            <div>
-              <div class="product-header">
-                <div class="product-icon-wrap">
-                  <!-- Icon Tanaman / Sensor -->
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 10a6 6 0 0 0-6-6H3v2a6 6 0 0 0 6 6h3"/>
-                    <path d="M12 14a6 6 0 0 1 6-6h3v2a6 6 0 0 1-6 6h-3"/>
-                    <line x1="12" y1="22" x2="12" y2="10"/>
-                  </svg>
-                </div>
-                <span class="product-cat-badge">IoT Pertanian & Perkebunan</span>
-                <h3 class="product-name">KIRAVA FARM</h3>
-              </div>
+    </div>
 
-              <p class="product-desc">
-                Monitoring dan otomatisasi untuk membantu mengelola lahan, tanaman, penyiraman, kelembapan, dan kondisi lingkungan.
-              </p>
+</section>
 
-              <ul class="product-features-list">
-                <li><span class="feature-bullet">✓</span> Monitoring kelembapan tanah</li>
-                <li><span class="feature-bullet">✓</span> Monitoring suhu</li>
-                <li><span class="feature-bullet">✓</span> Monitoring kondisi lingkungan</li>
-                <li><span class="feature-bullet">✓</span> Otomatisasi penyiraman</li>
-                <li><span class="feature-bullet">✓</span> Dashboard monitoring</li>
-              </ul>
-            </div>
 
-            <div>
-              <button class="product-cta-btn" data-open-solution="farm" id="btnLihatSolusiFarm">
-                Lihat Solusi
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-            </div>
-          </article>
+<!-- =========================
+     PRODUCTS
+========================= -->
 
-          <!-- 2. KIRAVA LIVESTOCK -->
-          <article class="product-card" data-cat="livestock" id="cardLivestock">
-            <div>
-              <div class="product-header">
-                <div class="product-icon-wrap">
-                  <!-- Icon Peternakan / Kandang & Sensor -->
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                  </svg>
-                </div>
-                <span class="product-cat-badge">IoT Peternakan</span>
-                <h3 class="product-name">KIRAVA LIVESTOCK</h3>
-              </div>
+<section class="section" id="produk">
 
-              <p class="product-desc">
-                Teknologi monitoring untuk membantu peternak memantau kondisi kandang dan lingkungan secara lebih mudah.
-              </p>
-
-              <ul class="product-features-list">
-                <li><span class="feature-bullet">✓</span> Monitoring suhu</li>
-                <li><span class="feature-bullet">✓</span> Monitoring kelembapan</li>
-                <li><span class="feature-bullet">✓</span> Monitoring kondisi kandang</li>
-                <li><span class="feature-bullet">✓</span> Kontrol kipas / blower</li>
-                <li><span class="feature-bullet">✓</span> Dashboard IoT</li>
-              </ul>
-            </div>
-
-            <div>
-              <button class="product-cta-btn" data-open-solution="livestock" id="btnLihatSolusiLivestock">
-                Lihat Solusi
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- 3. KIRAVA HOME -->
-          <article class="product-card" data-cat="home" id="cardHome">
-            <div>
-              <div class="product-header">
-                <div class="product-icon-wrap">
-                  <!-- Icon Smart Home -->
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                  </svg>
-                </div>
-                <span class="product-cat-badge">Smart Home</span>
-                <h3 class="product-name">KIRAVA HOME</h3>
-              </div>
-
-              <p class="product-desc">
-                Solusi rumah pintar untuk monitoring dan kontrol perangkat rumah dari satu sistem.
-              </p>
-
-              <ul class="product-features-list">
-                <li><span class="feature-bullet">✓</span> Kontrol lampu</li>
-                <li><span class="feature-bullet">✓</span> Monitoring sensor</li>
-                <li><span class="feature-bullet">✓</span> Keamanan rumah</li>
-                <li><span class="feature-bullet">✓</span> Monitoring perangkat</li>
-                <li><span class="feature-bullet">✓</span> Otomatisasi</li>
-              </ul>
-            </div>
-
-            <div>
-              <button class="product-cta-btn" data-open-solution="home" id="btnLihatSolusiHome">
-                Lihat Solusi
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- 4. KIRAVA EDU -->
-          <article class="product-card" data-cat="edu" id="cardEdu">
-            <div>
-              <div class="product-header">
-                <div class="product-icon-wrap">
-                  <!-- Icon Edukasi / Tablet AI -->
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                  </svg>
-                </div>
-                <span class="product-cat-badge">Education Technology</span>
-                <h3 class="product-name">KIRAVA EDU</h3>
-              </div>
-
-              <p class="product-desc">
-                Solusi teknologi untuk membantu sekolah, guru, dan lembaga pendidikan menggunakan aplikasi dan AI dalam proses pembelajaran dan administrasi.
-              </p>
-
-              <ul class="product-features-list">
-                <li><span class="feature-bullet">✓</span> Aplikasi pendidikan</li>
-                <li><span class="feature-bullet">✓</span> AI untuk guru</li>
-                <li><span class="feature-bullet">✓</span> Pengolahan data</li>
-                <li><span class="feature-bullet">✓</span> Rapor</li>
-                <li><span class="feature-bullet">✓</span> Dashboard sekolah</li>
-              </ul>
-            </div>
-
-            <div>
-              <button class="product-cta-btn" data-open-solution="edu" id="btnLihatSolusiEdu">
-                Lihat Solusi
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- 5. KIRAVA BUSINESS -->
-          <article class="product-card" data-cat="business" id="cardBusiness">
-            <div>
-              <div class="product-header">
-                <div class="product-icon-wrap">
-                  <!-- Icon Bisnis / Kasir POS -->
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                    <line x1="8" y1="21" x2="16" y2="21"/>
-                    <line x1="12" y1="17" x2="12" y2="21"/>
-                  </svg>
-                </div>
-                <span class="product-cat-badge">Business & UMKM</span>
-                <h3 class="product-name">KIRAVA BUSINESS</h3>
-              </div>
-
-              <p class="product-desc">
-                Solusi aplikasi untuk membantu bisnis dan UMKM mengelola operasional, produk, transaksi, dan data bisnis.
-              </p>
-
-              <ul class="product-features-list">
-                <li><span class="feature-bullet">✓</span> Point of Sale</li>
-                <li><span class="feature-bullet">✓</span> Manajemen produk</li>
-                <li><span class="feature-bullet">✓</span> Stok</li>
-                <li><span class="feature-bullet">✓</span> Transaksi</li>
-                <li><span class="feature-bullet">✓</span> Laporan</li>
-              </ul>
-            </div>
-
-            <div>
-              <button class="product-cta-btn" data-open-solution="business" id="btnLihatSolusiBusiness">
-                Lihat Solusi
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION "KENAPA KIRAVA?" -->
-    <section class="section-why" id="kenapa-kirava">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag">Keunggulan Utama</div>
-          <h2 class="section-title">Teknologi yang Dibuat untuk Kebutuhan Nyata</h2>
-          <p class="section-subtitle">Didesain fokus pada manfaat praktis, kemudahan implementasi, dan efisiensi biaya.</p>
-        </div>
-
-        <div class="why-grid">
-          <!-- 01 Praktis -->
-          <div class="why-card" id="whyPraktis">
-            <span class="why-num">01</span>
-            <h3 class="why-title">Praktis</h3>
-            <p class="why-desc">Solusi dirancang agar mudah digunakan.</p>
-          </div>
-
-          <!-- 02 Terintegrasi -->
-          <div class="why-card" id="whyTerintegrasi">
-            <span class="why-num">02</span>
-            <h3 class="why-title">Terintegrasi</h3>
-            <p class="why-desc">Aplikasi, AI, dan IoT dapat bekerja dalam satu ekosistem.</p>
-          </div>
-
-          <!-- 03 Terukur -->
-          <div class="why-card" id="whyTerukur">
-            <span class="why-num">03</span>
-            <h3 class="why-title">Terukur</h3>
-            <p class="why-desc">Data dapat digunakan untuk membantu pengambilan keputusan.</p>
-          </div>
-
-          <!-- 04 Dapat Dikembangkan -->
-          <div class="why-card" id="whyDapatDikembangkan">
-            <span class="why-num">04</span>
-            <h3 class="why-title">Dapat Dikembangkan</h3>
-            <p class="why-desc">Sistem dapat disesuaikan dengan kebutuhan pengguna.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION CARA KERJA -->
-    <section class="section-workflow" id="solusi">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag">Alur Sistem</div>
-          <h2 class="section-title">Bagaimana KIRAVA Bekerja?</h2>
-          <p class="section-subtitle">Tiga langkah sederhana dari sensor lapangan hingga aksi nyata pengguna.</p>
-        </div>
-
-        <div class="workflow-grid">
-          <!-- Langkah 01 -->
-          <div class="workflow-card" id="workflowStep1">
-            <span class="workflow-step-badge">LANGKAH 01</span>
-            <h3 class="workflow-title">Sensor & Data</h3>
-            <p class="workflow-desc">Perangkat dan aplikasi mengumpulkan data.</p>
-          </div>
-
-          <!-- Langkah 02 -->
-          <div class="workflow-card" id="workflowStep2">
-            <span class="workflow-step-badge">LANGKAH 02</span>
-            <h3 class="workflow-title">AI & Sistem</h3>
-            <p class="workflow-desc">Data diproses oleh sistem dan teknologi AI.</p>
-          </div>
-
-          <!-- Langkah 03 -->
-          <div class="workflow-card" id="workflowStep3">
-            <span class="workflow-step-badge">LANGKAH 03</span>
-            <h3 class="workflow-title">Informasi & Kontrol</h3>
-            <p class="workflow-desc">Pengguna mendapatkan informasi dan dapat melakukan tindakan.</p>
-          </div>
-        </div>
-
-        <!-- Ilustrasi Pipeline Sederhana: Sensor → Cloud/API → AI → Dashboard → User -->
-        <div class="workflow-pipeline-bar" id="pipelineBar">
-          <div class="pipeline-node">
-            <div class="pipeline-node-icon">📡</div>
-            <span>Sensor</span>
-          </div>
-
-          <div class="pipeline-arrow">→</div>
-
-          <div class="pipeline-node">
-            <div class="pipeline-node-icon">☁️</div>
-            <span>Cloud / API</span>
-          </div>
-
-          <div class="pipeline-arrow">→</div>
-
-          <div class="pipeline-node">
-            <div class="pipeline-node-icon">🧠</div>
-            <span>AI Engine</span>
-          </div>
-
-          <div class="pipeline-arrow">→</div>
-
-          <div class="pipeline-node">
-            <div class="pipeline-node-icon">📊</div>
-            <span>Dashboard</span>
-          </div>
-
-          <div class="pipeline-arrow">→</div>
-
-          <div class="pipeline-node">
-            <div class="pipeline-node-icon">👤</div>
-            <span>User</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECTION VISUAL IOT -->
-    <section class="section-iot-visual" id="ekosistem-iot">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag">Arsitektur Hardware & Software</div>
-          <h2 class="section-title">Ekosistem IoT Terpadu KIRAVA</h2>
-          <p class="section-subtitle">
-            Integrasi menyeluruh dari node perangkat fisik di lapangan hingga dashboard kontrol di genggaman Anda.
-          </p>
-        </div>
-
-        <div class="iot-architecture-box" id="iotArchitectureBox">
-          <div class="iot-flow-levels">
-
-            <!-- Level 1: DEVICE -->
-            <div class="iot-level-row" id="iotLevelDevice">
-              <div class="level-badge">
-                <span class="level-badge-indicator"></span>
-                <span>DEVICE</span>
-              </div>
-              <div class="level-items">
-                <div class="iot-hardware-tag">
-                  <span>🌡️</span>
-                  <span>Sensor Suhu</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>💧</span>
-                  <span>Sensor Kelembapan</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>🌱</span>
-                  <span>Soil Moisture Probe</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>⚡</span>
-                  <span>Power Clamp Meter</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>💨</span>
-                  <span>Sensor Gas NH3 / Udara</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="iot-connector-arrow">↓</div>
-
-            <!-- Level 2: IoT -->
-            <div class="iot-level-row" id="iotLevelIot">
-              <div class="level-badge">
-                <span class="level-badge-indicator" style="background: var(--accent-cyan);"></span>
-                <span>IoT HARDWARE</span>
-              </div>
-              <div class="level-items">
-                <div class="iot-hardware-tag">
-                  <span>⚡</span>
-                  <span>ESP32 Microcontroller</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>📟</span>
-                  <span>Industrial Gateway Node</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>📶</span>
-                  <span>WiFi / LoRa / 4G Module</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>🔌</span>
-                  <span>Relay Switch Controller</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="iot-connector-arrow">↓</div>
-
-            <!-- Level 3: API -->
-            <div class="iot-level-row" id="iotLevelApi">
-              <div class="level-badge">
-                <span class="level-badge-indicator" style="background: var(--primary);"></span>
-                <span>API & SERVER</span>
-              </div>
-              <div class="level-items">
-                <div class="iot-hardware-tag">
-                  <span>🖥️</span>
-                  <span>Cloud Server High Availability</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>⚡</span>
-                  <span>REST API & MQTT Broker</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>🔒</span>
-                  <span>Secure Telemetry Gateway</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>🗄️</span>
-                  <span>Time-Series Database</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="iot-connector-arrow">↓</div>
-
-            <!-- Level 4: AI -->
-            <div class="iot-level-row" id="iotLevelAi">
-              <div class="level-badge">
-                <span class="level-badge-indicator" style="background: var(--accent-indigo);"></span>
-                <span>AI PROCESSING</span>
-              </div>
-              <div class="level-items">
-                <div class="iot-hardware-tag">
-                  <span>🧠</span>
-                  <span>Analisis Anomali & Prediksi Cuaca</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>🤖</span>
-                  <span>AI Rekomendasi Takaran & Jadwal</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>📚</span>
-                  <span>AI Modul Pembelajaran Guru</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>📈</span>
-                  <span>Forecast Stok & Penjualan Bisnis</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="iot-connector-arrow">↓</div>
-
-            <!-- Level 5: DASHBOARD -->
-            <div class="iot-level-row" id="iotLevelDashboard">
-              <div class="level-badge">
-                <span class="level-badge-indicator" style="background: var(--accent-emerald);"></span>
-                <span>DASHBOARD</span>
-              </div>
-              <div class="level-items">
-                <div class="iot-hardware-tag">
-                  <span>📱</span>
-                  <span>Smartphone App (Android & iOS)</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>💻</span>
-                  <span>Web Dashboard Real-Time</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>💬</span>
-                  <span>Notifikasi WhatsApp Cepat</span>
-                </div>
-                <div class="iot-hardware-tag">
-                  <span>🧾</span>
-                  <span>Tablet POS Kasir Toko</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECTION TENTANG KIRAVA -->
-    <section class="section-about" id="tentang">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag">Profil Perusahaan</div>
-          <h2 class="section-title">Tentang KIRAVA</h2>
-        </div>
-
-        <div class="about-card" id="aboutCard">
-          <p class="about-text">
-            KIRAVA adalah brand teknologi yang mengembangkan solusi aplikasi, AI, dan Internet of Things untuk kebutuhan dunia nyata.
-          </p>
-          <p class="about-text">
-            Kami mengembangkan teknologi yang dapat diterapkan pada pendidikan, pertanian, peternakan, rumah pintar, dan bisnis.
-          </p>
-
-          <div class="about-pillars-grid">
-            <div class="about-pillar">
-              <div class="about-pillar-icon">🎯</div>
-              <div>
-                <div class="about-pillar-title">Fokus Kebutuhan Lapangan</div>
-                <div class="about-pillar-desc">Dirancang sesuai kondisi riil para pelaku usaha dan pengajar di Indonesia.</div>
-              </div>
-            </div>
-
-            <div class="about-pillar">
-              <div class="about-pillar-icon">⚙️</div>
-              <div>
-                <div class="about-pillar-title">Keandalan Hardware & Software</div>
-                <div class="about-pillar-desc">Kombinasi sensor tangguh berdaya rendah dengan antarmuka yang bersih dan cepat.</div>
-              </div>
-            </div>
-
-            <div class="about-pillar">
-              <div class="about-pillar-icon">🤝</div>
-              <div>
-                <div class="about-pillar-title">Pendampingan Berkelanjutan</div>
-                <div class="about-pillar-desc">Dukungan setup, kalibrasi sensor, hingga pemeliharaan sistem secara berkelanjutan.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECTION CTA (Sebelum Footer) -->
-    <section class="section-cta" id="kontak">
-      <div class="container">
-        <div class="cta-box" id="ctaBox">
-          <h2 class="cta-title">Jadikan Teknologi Bekerja untuk Anda</h2>
-          <p class="cta-subtitle">
-            Diskusikan kebutuhan aplikasi, AI, atau IoT untuk bisnis dan organisasi Anda.
-          </p>
-          <div class="cta-btn-wrap">
-            <a href="#" class="btn btn-whatsapp" data-wa-action="contact" data-wa-topic="general" id="ctaBtnWhatsApp">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-              </svg>
-              Diskusi melalui WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
     <div class="container">
-      <div class="footer-top">
-        
-        <!-- Brand & Tagline -->
-        <div>
-          <a href="#top" class="brand-logo" id="footerBrandLogo">
-            <span class="brand-mark" style="width: 32px; height: 32px;">
-              <img src="favicon.svg" alt="KIRAVA Emblem" width="32" height="32">
-            </span>
-            <span class="brand-name" style="font-size: 19px;">KIRAVA</span>
-          </a>
-          <p class="footer-brand-desc">
-            Teknologi cerdas untuk dunia nyata. Solusi AI, IoT, dan aplikasi terintegrasi untuk pertanian, peternakan, hunian, sekolah, dan bisnis modern.
-          </p>
-          <span class="footer-tagline-pill">AI • IoT • Education • Business</span>
+
+        <div class="section-heading">
+
+            <div class="label">
+                Produk KIRAVA
+            </div>
+
+            <h2>
+                Satu teknologi,
+                berbagai kebutuhan.
+            </h2>
+
+            <p>
+                Solusi teknologi yang dikembangkan untuk
+                kebutuhan nyata di lapangan.
+            </p>
+
         </div>
 
-        <!-- Menu Navigasi -->
-        <div>
-          <h4 class="footer-col-title">Navigasi</h4>
-          <ul class="footer-links">
-            <li><a href="#beranda" class="footer-link">Beranda</a></li>
-            <li><a href="#produk" class="footer-link">Produk</a></li>
-            <li><a href="#solusi" class="footer-link">Solusi</a></li>
-            <li><a href="#tentang" class="footer-link">Tentang</a></li>
-            <li><a href="#kontak" class="footer-link">Kontak</a></li>
-          </ul>
+
+        <div class="products">
+
+
+            <!-- 1. FARM -->
+
+            <div class="product" id="cardProductFarm">
+
+                <div class="product-top">
+                    <div class="product-icon">
+                        🌱
+                    </div>
+
+                    <small>IoT Pertanian & Perkebunan</small>
+
+                    <h3>KIRAVA FARM</h3>
+
+                    <p>
+                        Monitoring kondisi lahan dan otomatisasi
+                        untuk membantu mengelola pertanian dan perkebunan.
+                    </p>
+                </div>
+
+                <button class="product-link" data-open-modal="farm" id="btnPelajariFarm">
+                    Pelajari →
+                </button>
+
+            </div>
+
+
+            <!-- 2. LIVESTOCK -->
+
+            <div class="product" id="cardProductLivestock">
+
+                <div class="product-top">
+                    <div class="product-icon">
+                        🐔
+                    </div>
+
+                    <small>IoT Peternakan</small>
+
+                    <h3>KIRAVA LIVESTOCK</h3>
+
+                    <p>
+                        Monitoring suhu, kelembapan, dan kondisi
+                        kandang dengan teknologi IoT.
+                    </p>
+                </div>
+
+                <button class="product-link" data-open-modal="livestock" id="btnPelajariLivestock">
+                    Pelajari →
+                </button>
+
+            </div>
+
+
+            <!-- 3. HOME -->
+
+            <div class="product" id="cardProductHome">
+
+                <div class="product-top">
+                    <div class="product-icon">
+                        🏠
+                    </div>
+
+                    <small>Smart Home</small>
+
+                    <h3>KIRAVA HOME</h3>
+
+                    <p>
+                        Monitoring dan kontrol perangkat rumah
+                        dalam satu sistem yang mudah digunakan.
+                    </p>
+                </div>
+
+                <button class="product-link" data-open-modal="home" id="btnPelajariHome">
+                    Pelajari →
+                </button>
+
+            </div>
+
+
+            <!-- 4. EDU -->
+
+            <div class="product" id="cardProductEdu">
+
+                <div class="product-top">
+                    <div class="product-icon">
+                        🎓
+                    </div>
+
+                    <small>Education Technology</small>
+
+                    <h3>KIRAVA EDU</h3>
+
+                    <p>
+                        Aplikasi dan AI untuk membantu guru,
+                        sekolah, dan proses pembelajaran.
+                    </p>
+                </div>
+
+                <button class="product-link" data-open-modal="edu" id="btnPelajariEdu">
+                    Pelajari →
+                </button>
+
+            </div>
+
+
+            <!-- 5. BUSINESS -->
+
+            <div class="product" id="cardProductBusiness">
+
+                <div class="product-top">
+                    <div class="product-icon">
+                        📊
+                    </div>
+
+                    <small>Business & UMKM</small>
+
+                    <h3>KIRAVA BUSINESS</h3>
+
+                    <p>
+                        Aplikasi untuk membantu bisnis mengelola
+                        produk, stok, transaksi, dan laporan.
+                    </p>
+                </div>
+
+                <button class="product-link" data-open-modal="business" id="btnPelajariBusiness">
+                    Pelajari →
+                </button>
+
+            </div>
+
+
         </div>
 
-        <!-- Kontak Resmi -->
-        <div>
-          <h4 class="footer-col-title">Kontak Resmi</h4>
-          <div class="footer-contact-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-            </svg>
-            <a href="#" class="footer-link" data-wa-action="contact" data-wa-topic="general" id="footerWaLink">
-              WhatsApp: <span data-wa-phone>089504008817</span>
-            </a>
-          </div>
-
-          <div class="footer-contact-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-            <a href="mailto:hello@kirava.id" class="footer-link" data-config-email id="footerEmailLink">
-              hello@kirava.id
-            </a>
-          </div>
-
-          <div class="footer-contact-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="2" y1="12" x2="22" y2="12"/>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-            </svg>
-            <span class="footer-link">Website: kirava.id</span>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="footer-bottom">
-        <div>© 2026 KIRAVA. All rights reserved.</div>
-        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--primary-light);">
-          kirava.id
-        </div>
-      </div>
     </div>
-  </footer>
 
-  <!-- MODAL DETAIL SOLUSI -->
-  <div class="modal-overlay" id="solutionModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="section about" id="tentang">
+
+    <div class="container about-grid">
+
+        <div>
+
+            <div class="section-heading">
+
+                <div class="label" style="color: #60a5fa;">
+                    Tentang KIRAVA
+                </div>
+
+                <h2>
+                    Teknologi yang
+                    sederhana dan berguna.
+                </h2>
+
+            </div>
+
+            <p>
+                KIRAVA adalah brand teknologi yang mengembangkan
+                aplikasi, AI, dan Internet of Things untuk
+                kebutuhan dunia nyata.
+            </p>
+
+            <p>
+                Kami percaya teknologi tidak harus rumit.
+                Teknologi harus membantu manusia bekerja
+                lebih mudah, cepat, dan efisien.
+            </p>
+
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature" id="featPraktis">
+
+                <strong>Praktis</strong>
+
+                <span>
+                    Fokus pada kebutuhan pengguna.
+                </span>
+
+            </div>
+
+            <div class="feature" id="featTerintegrasi">
+
+                <strong>Terintegrasi</strong>
+
+                <span>
+                    AI, IoT, aplikasi dan data.
+                </span>
+
+            </div>
+
+            <div class="feature" id="featFleksibel">
+
+                <strong>Fleksibel</strong>
+
+                <span>
+                    Dapat dikembangkan sesuai kebutuhan.
+                </span>
+
+            </div>
+
+            <div class="feature" id="featIndonesia">
+
+                <strong>Indonesia</strong>
+
+                <span>
+                    Dibangun untuk kebutuhan nyata di Indonesia.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta" id="kontak">
+
+    <div class="container">
+
+        <div class="cta-box" id="ctaBox">
+
+            <h2>
+                Punya kebutuhan teknologi?
+            </h2>
+
+            <p>
+                Diskusikan kebutuhan aplikasi, AI,
+                atau IoT untuk bisnis dan organisasi Anda.
+            </p>
+
+            <a
+                href="https://wa.me/6289504008817?text=Halo%20KIRAVA%2C%20saya%20ingin%20berdiskusi%20tentang%20kebutuhan%20teknologi."
+                class="btn btn-primary"
+                id="ctaBtnWhatsApp"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                </svg>
+
+                Konsultasi via WhatsApp
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container footer-inner">
+
+        <div class="footer-brand">
+
+            <strong>KIRAVA</strong>
+
+            <p>
+                AI • IoT • Education • Business
+            </p>
+
+        </div>
+
+        <div class="footer-right">
+
+            WhatsApp: <a href="https://wa.me/6289504008817" target="_blank" rel="noopener noreferrer">0895 0400 8817</a><br>
+
+            <a href="mailto:hello@kirava.id">hello@kirava.id</a><br>
+
+            © 2026 KIRAVA • kirava.id
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     FLOATING WHATSAPP BUTTON
+========================= -->
+
+<a
+    href="https://wa.me/6289504008817?text=Halo%20KIRAVA%2C%20saya%20ingin%20berkonsultasi%20tentang%20solusi%20KIRAVA."
+    class="floating-wa-btn"
+    id="floatingWaBtn"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Konsultasi WhatsApp">
+
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+    </svg>
+
+    <span class="floating-wa-label">Chat WhatsApp</span>
+</a>
+
+
+<!-- =========================
+     MODAL DETAIL PRODUK
+========================= -->
+
+<div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-card">
-      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Tutup Dialog">✕</button>
-      
-      <div class="modal-badge" id="modalCategory">Kategori Solusi</div>
-      <h3 class="modal-title" id="modalTitle">Nama Solusi</h3>
-      <p class="modal-desc" id="modalDesc">Deskripsi solusi...</p>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Tutup Detail">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
 
-      <div class="modal-features-title">Fitur & Kemampuan Sistem</div>
-      <div class="modal-features-grid" id="modalFeaturesList"></div>
+        <span class="modal-badge" id="modalCategory">Kategori Solusi</span>
+        <h3 class="modal-title" id="modalTitle">Nama Solusi</h3>
+        <p class="modal-desc" id="modalDesc">Deskripsi ringkas solusi.</p>
 
-      <div class="modal-features-title" style="margin-top: 14px;">Komponen Hardware & Node</div>
-      <div class="modal-features-grid" id="modalHardwareList"></div>
+        <div class="modal-section-title">Fitur & Kemampuan Utama</div>
+        <ul class="modal-features" id="modalFeaturesList">
+            <!-- Disuntikkan via JS -->
+        </ul>
 
-      <div style="margin-top: 24px; pt-2;">
-        <a href="#" class="btn btn-whatsapp" style="width: 100%;" id="modalWaBtn" target="_blank" rel="noopener noreferrer">
-          Konsultasikan Solusi Ini via WhatsApp
-        </a>
-      </div>
+        <div class="modal-actions">
+            <a href="#" class="btn btn-primary" id="modalWaBtn" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                </svg>
+                Konsultasi Solusi Ini
+            </a>
+            <button class="btn btn-secondary" id="modalCancelBtn">
+                Tutup
+            </button>
+        </div>
     </div>
-  </div>
+</div>
 
-  <!-- Main JavaScript -->
-  <script src="js/main.js"></script>
+<!-- SCRIPT PENDUKUNG -->
+<script src="config.js"></script>
+<script>
+    // Data Detail Solusi untuk Modal Interaktif
+    const SOLUTIONS_DATA = {
+        farm: {
+            title: "KIRAVA FARM",
+            category: "IoT Pertanian & Perkebunan",
+            desc: "Monitoring kondisi lahan presisi dan otomatisasi penyiraman cerdas untuk membantu mengelola pertanian dan perkebunan lebih efisien serta hemat sumber daya.",
+            features: [
+                "Sensor kelembapan tanah kapasitif anti-korosi",
+                "Katup solenoid penyiraman otomatis (berbasis ambang batas/jadwal)",
+                "Monitoring suhu, kelembapan udara & cuaca lahan",
+                "Peringatan dini lahan kekeringan langsung ke WhatsApp",
+                "Dashboard grafik telemetri riwayat kondisi tanaman"
+            ],
+            waMessage: "Halo KIRAVA, saya ingin berkonsultasi mengenai solusi KIRAVA FARM (IoT Pertanian & Perkebunan)."
+        },
+        livestock: {
+            title: "KIRAVA LIVESTOCK",
+            category: "IoT Peternakan Modern",
+            desc: "Monitoring stabilitas suhu, kelembapan, dan kualitas udara kandang ternak secara real-time untuk mencegah stres hewan serta menekan angka kematian.",
+            features: [
+                "Pemantauan suhu & kelembapan kandang 24 jam nonstop",
+                "Deteksi akumulasi gas amonia (NH3) & sirkulasi udara",
+                "Kontrol otomatis blower exhaust, kipas pendingin & cooling pad",
+                "Notifikasi darurat WhatsApp saat suhu melonjak melebihi batas aman",
+                "Grafik histori iklim untuk evaluasi efisiensi pakan ternak"
+            ],
+            waMessage: "Halo KIRAVA, saya ingin berkonsultasi mengenai solusi KIRAVA LIVESTOCK (IoT Peternakan)."
+        },
+        home: {
+            title: "KIRAVA HOME",
+            category: "Smart Home & Otomasi",
+            desc: "Monitoring dan kendali perangkat hunian dalam satu sistem terpusat yang aman, nyaman, dan hemat penggunaan energi listrik harian.",
+            features: [
+                "Kendali sakelar lampu pintar dari smartphone dari mana saja",
+                "Sensor kontak pintu/jendela & detektor gerak inframerah (PIR)",
+                "Deteksi dini kebocoran gas LPG dan asap kebakaran",
+                "Pemantauan daya watt listrik real-time",
+                "Jadwal otomatisasi skenario hemat daya saat rumah ditinggalkan"
+            ],
+            waMessage: "Halo KIRAVA, saya ingin berkonsultasi mengenai solusi KIRAVA HOME (Smart Home)."
+        },
+        edu: {
+            title: "KIRAVA EDU",
+            category: "Education Technology & AI",
+            desc: "Aplikasi dan asisten AI terintegrasi untuk membantu pihak sekolah, guru, dan pengajar merancang bahan ajar serta menyelesaikan administrasi dalam hitungan menit.",
+            features: [
+                "AI Asisten Guru untuk merancang modul ajar & bank soal ujian",
+                "Sistem absensi digital guru & siswa (RFID / QR Code / Mobile)",
+                "Pengolahan nilai otomatis & cetak e-Rapor kurikulum nasional",
+                "Portal komunikasi pengumuman sekolah langsung ke wali murid",
+                "Dashboard analitik pemetaan perkembangan belajar peserta didik"
+            ],
+            waMessage: "Halo KIRAVA, saya ingin berkonsultasi mengenai solusi KIRAVA EDU (Education Technology)."
+        },
+        business: {
+            title: "KIRAVA BUSINESS",
+            category: "Aplikasi Kasir & UMKM",
+            desc: "Aplikasi Point of Sale (POS) cepat, manajemen stok otomatis, dan pencatatan omzet terpadu untuk mempermudah pengelolaan toko dan usaha UMKM.",
+            features: [
+                "Aplikasi kasir (POS) kilat dengan dukungan printer struk Bluetooth",
+                "Katalog produk terstruktur & peringatan stok menipis otomatis",
+                "Pencatatan pembayaran tunai, transfer, dan integrasi QRIS",
+                "Laporan laba-rugi & rekapitulasi omzet harian otomatis",
+                "Pantau performa penjualan multi-cabang langsung dari HP pemilik"
+            ],
+            waMessage: "Halo KIRAVA, saya ingin berkonsultasi mengenai solusi KIRAVA BUSINESS (Bisnis & UMKM)."
+        }
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+        // 1. Sinkronisasi nomor WhatsApp dari config.js jika tersedia
+        const waNumber = (window.KIRAVA_CONFIG && window.KIRAVA_CONFIG.whatsappNumber) 
+            ? window.KIRAVA_CONFIG.whatsappNumber.replace(/[^0-9]/g, "").replace(/^0/, "62") 
+            : "6289504008817";
+
+        // Helper untuk URL WhatsApp
+        function buildWaUrl(message) {
+            return `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+        }
+
+        // 2. Mobile Menu Toggle
+        const menuBtn = document.getElementById("mobileMenuBtn");
+        const drawer = document.getElementById("mobileDrawer");
+
+        if (menuBtn && drawer) {
+            menuBtn.addEventListener("click", () => {
+                drawer.classList.toggle("is-open");
+                const isOpen = drawer.classList.contains("is-open");
+                menuBtn.setAttribute("aria-expanded", isOpen);
+            });
+
+            // Tutup drawer saat link diklik
+            drawer.querySelectorAll(".mobile-link, .nav-button").forEach(link => {
+                link.addEventListener("click", () => {
+                    drawer.classList.remove("is-open");
+                });
+            });
+        }
+
+        // 3. Modal Detail Solusi
+        const modal = document.getElementById("productModal");
+        const modalCloseBtn = document.getElementById("modalCloseBtn");
+        const modalCancelBtn = document.getElementById("modalCancelBtn");
+        const modalCategory = document.getElementById("modalCategory");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDesc = document.getElementById("modalDesc");
+        const modalFeaturesList = document.getElementById("modalFeaturesList");
+        const modalWaBtn = document.getElementById("modalWaBtn");
+
+        function openModal(key) {
+            const data = SOLUTIONS_DATA[key];
+            if (!data) return;
+
+            modalCategory.textContent = data.category;
+            modalTitle.textContent = data.title;
+            modalDesc.textContent = data.desc;
+
+            // Render features list
+            modalFeaturesList.innerHTML = data.features
+                .map(feat => `<li><span>✓</span> <div>${feat}</div></li>`)
+                .join("");
+
+            // Setup WhatsApp button in modal
+            modalWaBtn.href = buildWaUrl(data.waMessage);
+
+            modal.classList.add("is-open");
+            modal.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeModal() {
+            modal.classList.remove("is-open");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "";
+        }
+
+        document.querySelectorAll("[data-open-modal]").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                const key = btn.getAttribute("data-open-modal");
+                openModal(key);
+            });
+        });
+
+        if (modalCloseBtn) modalCloseBtn.addEventListener("click", closeModal);
+        if (modalCancelBtn) modalCancelBtn.addEventListener("click", closeModal);
+
+        if (modal) {
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        }
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && modal && modal.classList.contains("is-open")) {
+                closeModal();
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
