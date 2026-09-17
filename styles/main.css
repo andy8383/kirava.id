@@ -3223,7 +3223,26 @@ footer {
           .hero-title {
             max-width: 720px;
             font-size: clamp(48px, 7.2vw, 92px);
-            line-height: .94;
+            line-height: 1.02;
+          }
+
+          .hero-title span {
+            margin-top: .18em;
+          }
+
+          .hero-services {
+            flex-wrap: nowrap;
+            gap: 0;
+            width: max-content;
+            max-width: 100%;
+          }
+
+          .hero-services li {
+            white-space: nowrap;
+          }
+
+          .hero-services li + li {
+            margin-left: 26px;
           }
 
           .hero-description {
@@ -3259,11 +3278,13 @@ footer {
 
           .hero-services {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px 22px;
+            flex-wrap: nowrap;
+            gap: 0;
             margin-top: 25px;
             padding: 0;
             list-style: none;
+            width: max-content;
+            max-width: 100%;
             color: #d8e7f5;
             font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
             font-size: 12px;
@@ -3276,6 +3297,11 @@ footer {
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            white-space: nowrap;
+          }
+
+          .hero-services li + li {
+            margin-left: 26px;
           }
 
           .hero-service-dot {
@@ -3349,8 +3375,10 @@ footer {
             }
 
             .hero-services {
-              gap: 10px 16px;
-              font-size: 11px;
+              font-size: 10px;
+              max-width: calc(100vw - 36px);
+              overflow-x: auto;
+              padding-bottom: 4px;
             }
 
             .product-brochure::after {
