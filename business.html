@@ -11,21 +11,22 @@
   <link rel="apple-touch-icon" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <script src="config.js"></script>
 
   <style>
     :root {
-      --bg: #060b16;
-      --bg-card: #0b1326;
-      --bg-card-hover: #0f1b36;
-      --bg-surface: #101c38;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-focus: rgba(59, 130, 246, 0.4);
-      --primary: #3b82f6;
-      --accent-cyan: #06b6d4;
-      --accent-green: #10b981;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
+      --bg: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8fafc;
+      --bg-surface: #ffffff;
+      --border: rgba(203, 213, 225, 0.7);
+      --border-focus: rgba(2, 132, 199, 0.4);
+      --primary: #0284c7;
+      --accent-cyan: #0891b2;
+      --accent-green: #059669;
+      --text-main: #0f172a;
+      --text-muted: #475569;
       --text-dim: #64748b;
       --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
@@ -85,7 +86,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(6, 11, 22, 0.85);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
@@ -105,7 +106,7 @@
       font-size: 21px;
       font-weight: 800;
       letter-spacing: 0.08em;
-      color: #fff;
+      color: var(--text-main);
       text-decoration: none;
       transition: transform 0.25s ease, opacity 0.25s ease;
     }
@@ -590,7 +591,7 @@
         <a href="index.html#solusi" id="biz-nav-solusi">Solusi Industri</a>
         <a href="#fitur" id="biz-nav-fitur">Fitur POS & AI</a>
         <a href="#pemerintahan" id="biz-nav-gov">Pemerintahan</a>
-        <a href="https://wa.me/628887013150" target="_blank" rel="noopener" class="nav-cta" id="biz-nav-cta">
+        <a href="#" target="_blank" rel="noopener" class="nav-cta" id="biz-nav-cta" data-wa-action="contact" data-wa-topic="business">
           <span>Konsultasi Demo</span>
         </a>
       </nav>
@@ -615,7 +616,7 @@
           </p>
 
           <div class="hero-cta-group">
-            <a href="https://wa.me/628887013150" target="_blank" rel="noopener" class="btn btn-primary" id="btn-biz-demo">
+            <a href="#" target="_blank" rel="noopener" class="btn btn-primary" id="btn-biz-demo" data-wa-action="contact" data-wa-topic="business">
               <span>Konsultasi Implementasi</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="9 18 15 12 9 6"></polyline>
@@ -768,7 +769,7 @@
               Data agregat dari ekosistem UMKM dapat disinergikan menjadi dashboard monitoring berkala bagi dinas koperasi, perindustrian, dan pemerintah daerah untuk merancang intervensi kebijakan yang tepat sasaran.
             </p>
 
-            <a href="https://wa.me/628887013150" target="_blank" rel="noopener" class="btn btn-primary">
+            <a href="#" target="_blank" rel="noopener" class="btn btn-primary" data-wa-action="contact" data-wa-topic="business">
               <span>Diskusikan Program Wilayah</span>
             </a>
           </div>
@@ -822,7 +823,7 @@
           </div>
 
           <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-            <a href="https://wa.me/628887013150" target="_blank" rel="noopener" class="btn btn-primary">
+            <a href="#" target="_blank" rel="noopener" class="btn btn-primary" data-wa-action="contact" data-wa-topic="business">
               <span>Hubungi via WhatsApp</span>
             </a>
             <a href="mailto:hello@kirava.id" class="btn btn-secondary">
@@ -902,6 +903,15 @@
         document.getElementById('ai-insight-desc').textContent = '“Kluster UMKM makanan olahan di Zona Timur menunjukkan perlambatan margin akibat kenaikan harga bahan pokok. Program subsidi distribusi logistik disarankan untuk menjaga daya saing harga.”';
       }
     }
+
+    // Hubungkan tombol WhatsApp dengan central config
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.KIRAVA_CONFIG) {
+        document.querySelectorAll('[data-wa-action="contact"]').forEach(el => {
+          el.href = window.KIRAVA_CONFIG.getWhatsAppUrl(el.getAttribute('data-wa-topic') || 'business');
+        });
+      }
+    });
   </script>
 </body>
 </html>

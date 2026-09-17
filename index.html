@@ -1,1805 +1,886 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#060b14">
-  <meta name="description" content="KIRAVA — AI, IoT & Industrial Automation Platform for Agriculture, Livestock, Aquaculture, Education, and Business.">
-  <title>KIRAVA — AI, Automation & Digital Solutions</title>
+  <title>KIRAVA — AI, IoT & Technology Solutions</title>
+  
+  <meta name="description" content="KIRAVA menyediakan solusi AI, aplikasi, dan IoT untuk pertanian, peternakan, smart home, pendidikan, dan bisnis.">
+  <meta name="keywords" content="KIRAVA, kirava.id, IoT Indonesia, AI Indonesia, Smart Agriculture, IoT Peternakan, Smart Home, EduTech, POS UMKM">
+  <meta name="author" content="KIRAVA">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kirava.id">
+  <meta property="og:title" content="KIRAVA — AI, IoT & Technology Solutions">
+  <meta property="og:description" content="KIRAVA menyediakan solusi AI, aplikasi, dan IoT untuk pertanian, peternakan, smart home, pendidikan, dan bisnis.">
+  <meta property="og:image" content="https://kirava.id/favicon.svg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KIRAVA — AI, IoT & Technology Solutions">
+  <meta name="twitter:description" content="KIRAVA menyediakan solusi AI, aplikasi, dan IoT untuk pertanian, peternakan, smart home, pendidikan, dan bisnis.">
+  <meta name="twitter:image" content="https://kirava.id/favicon.svg">
 
+  <link rel="canonical" href="https://kirava.id">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="favicon.svg">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #060b16;
-      --bg-card: #0b1326;
-      --bg-card-hover: #0f1b36;
-      --bg-surface: #101c38;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-focus: rgba(59, 130, 246, 0.4);
-      --primary: #3b82f6;
-      --primary-hover: #2563eb;
-      --accent-green: #10b981;
-      --accent-cyan: #06b6d4;
-      --accent-amber: #f59e0b;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
-      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-    }
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles/main.css">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text-main);
-      font-family: var(--font-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .container {
-      width: min(1200px, calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    /* Ambient background grid */
-    .bg-grid {
-      position: fixed;
-      inset: 0;
-      background-image: 
-        linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 48px 48px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .bg-glow-top {
-      position: fixed;
-      top: -200px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(6, 11, 22, 0) 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Navigation */
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(6, 11, 22, 0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .navbar-inner {
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 21px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      color: #fff;
-      text-decoration: none;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-    }
-
-    .brand-logo:hover {
-      transform: translateY(-1px);
-    }
-
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      position: relative;
-    }
-
-    .brand-mark img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      border-radius: 11px;
-      filter: drop-shadow(0 4px 14px rgba(14, 165, 233, 0.45));
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
-    }
-
-    .brand-logo:hover .brand-mark img {
-      transform: scale(1.08) rotate(-1deg);
-      filter: drop-shadow(0 6px 20px rgba(14, 165, 233, 0.65)) drop-shadow(0 2px 10px rgba(16, 185, 129, 0.5));
-    }
-
-    .brand-name {
-      background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      transition: filter 0.25s ease;
-    }
-
-    .brand-logo:hover .brand-name {
-      filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.4));
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-
-    .nav-links a:hover {
-      color: #fff;
-    }
-
-    .nav-cta {
-      padding: 9px 18px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: #fff !important;
-      font-weight: 600;
-      font-size: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s;
-    }
-
-    .nav-cta:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      background: transparent;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-      padding: 8px;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: 1px solid transparent;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: #2563eb;
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
-    }
-
-    .btn-primary:hover {
-      background: #1d4ed8;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 24px rgba(37, 99, 235, 0.45);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      color: #fff;
-      border: 1px solid var(--border);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-1px);
-    }
-
-    /* Section Styles */
-    section {
-      position: relative;
-      z-index: 1;
-      padding: 96px 0;
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto 56px;
-    }
-
-    .badge-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: 9999px;
-      background: rgba(59, 130, 246, 0.1);
-      border: 1px solid rgba(59, 130, 246, 0.25);
-      color: #60a5fa;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent-green);
-      box-shadow: 0 0 6px var(--accent-green);
-    }
-
-    h1, h2, h3, h4 {
-      color: #fff;
-      letter-spacing: -0.025em;
-      font-weight: 700;
-      line-height: 1.15;
-    }
-
-    .section-title {
-      font-size: clamp(28px, 4vw, 42px);
-      margin-bottom: 16px;
-    }
-
-    .section-subtitle {
-      font-size: 16px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* HERO */
-    .hero {
-      padding: 80px 0 100px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.05fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .hero-title {
-      font-size: clamp(38px, 5vw, 60px);
-      line-height: 1.08;
-      margin-bottom: 22px;
-      letter-spacing: -0.035em;
-    }
-
-    .hero-title .highlight {
-      background: linear-gradient(135deg, #60a5fa, #38bdf8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-desc {
-      font-size: 17px;
-      color: var(--text-muted);
-      margin-bottom: 32px;
-      line-height: 1.65;
-    }
-
-    .hero-cta-group {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-    }
-
-    .hero-stats-row {
-      display: flex;
-      gap: 32px;
-      padding-top: 28px;
-      border-top: 1px solid var(--border);
-    }
-
-    .stat-number {
-      font-size: 24px;
-      font-weight: 800;
-      color: #fff;
-      font-family: var(--font-mono);
-    }
-
-    .stat-label {
-      font-size: 13px;
-      color: var(--text-dim);
-    }
-
-    /* Interactive Live Console in Hero */
-    .console-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 30px rgba(37, 99, 235, 0.1);
-    }
-
-    .console-header {
-      padding: 12px 18px;
-      background: #091020;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .console-dots {
-      display: flex;
-      gap: 6px;
-    }
-
-    .console-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-
-    .dot-red { background: #ef4444; }
-    .dot-yellow { background: #f59e0b; }
-    .dot-green { background: #10b981; }
-
-    .console-title {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--text-dim);
-    }
-
-    .console-status {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      color: var(--accent-green);
-      font-family: var(--font-mono);
-    }
-
-    .console-nav-tabs {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-bottom: 1px solid var(--border);
-      background: rgba(0, 0, 0, 0.2);
-    }
-
-    .console-tab {
-      padding: 10px 12px;
-      font-size: 12px;
-      font-weight: 600;
-      text-align: center;
-      color: var(--text-muted);
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      transition: all 0.2s;
-    }
-
-    .console-tab:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .console-tab.active {
-      color: #60a5fa;
-      border-bottom-color: #3b82f6;
-      background: rgba(59, 130, 246, 0.08);
-    }
-
-    .console-body {
-      padding: 20px;
-    }
-
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .metric-box {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px 14px;
-    }
-
-    .metric-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      color: var(--text-dim);
-      margin-bottom: 4px;
-    }
-
-    .metric-val {
-      font-family: var(--font-mono);
-      font-size: 20px;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .metric-status {
-      font-size: 11px;
-      color: var(--accent-green);
-      margin-top: 4px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .console-log {
-      background: #070c18;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px 14px;
-      font-family: var(--font-mono);
-      font-size: 12px;
-    }
-
-    .log-head {
-      color: #60a5fa;
-      font-size: 11px;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .log-item {
-      color: #cbd5e1;
-      line-height: 1.5;
-      display: flex;
-      gap: 8px;
-    }
-
-    .log-time {
-      color: var(--text-dim);
-    }
-
-    .log-action {
-      color: var(--accent-green);
-    }
-
-    /* SOLUTIONS BENTO GRID */
-    .solutions-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .solution-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-      transition: all 0.25s ease;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    .solution-card:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--border-focus);
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-    }
-
-    .solution-card.featured {
-      grid-column: span 2;
-    }
-
-    .card-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-
-    .icon-box {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: rgba(59, 130, 246, 0.1);
-      border: 1px solid rgba(59, 130, 246, 0.2);
-      display: grid;
-      place-items: center;
-      color: #60a5fa;
-    }
-
-    .icon-box.green {
-      background: rgba(16, 185, 129, 0.1);
-      border-color: rgba(16, 185, 129, 0.2);
-      color: #34d399;
-    }
-
-    .icon-box.amber {
-      background: rgba(245, 158, 11, 0.1);
-      border-color: rgba(245, 158, 11, 0.2);
-      color: #fbbf24;
-    }
-
-    .icon-box.cyan {
-      background: rgba(6, 182, 212, 0.1);
-      border-color: rgba(6, 182, 212, 0.2);
-      color: #22d3ee;
-    }
-
-    .icon-box.purple {
-      background: rgba(168, 85, 247, 0.1);
-      border-color: rgba(168, 85, 247, 0.2);
-      color: #c084fc;
-    }
-
-    .card-badge {
-      font-size: 11px;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-    }
-
-    .card-title {
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .card-desc {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    .feature-list {
-      list-style: none;
-      margin-bottom: 24px;
-      margin-top: auto;
-    }
-
-    .feature-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      color: #cbd5e1;
-      margin-bottom: 8px;
-    }
-
-    .feature-check {
-      color: var(--accent-green);
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-
-    .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      font-size: 13px;
-      font-weight: 600;
-      color: #60a5fa;
-    }
-
-    .card-footer svg {
-      transition: transform 0.2s;
-    }
-
-    .solution-card:hover .card-footer svg {
-      transform: translateX(4px);
-    }
-
-    /* ARCHITECTURE PIPELINE */
-    .arch-container {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-    }
-
-    .arch-grid {
-      display: grid;
-      grid-template-columns: 1fr auto 1.2fr auto 1fr;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .arch-box {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 24px;
-    }
-
-    .arch-box.highlight {
-      background: rgba(59, 130, 246, 0.06);
-      border-color: rgba(59, 130, 246, 0.3);
-    }
-
-    .arch-title {
-      font-size: 16px;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .arch-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
-
-    .arch-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .arch-tag {
-      font-size: 11px;
-      font-family: var(--font-mono);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      padding: 3px 8px;
-      border-radius: 6px;
-      color: #cbd5e1;
-    }
-
-    .arch-arrow {
-      color: #3b82f6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* INTERACTIVE SIMULATOR */
-    .sim-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 36px;
-      margin-top: 40px;
-    }
-
-    .sim-controls {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
-
-    .sim-btn {
-      padding: 10px 18px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 600;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .sim-btn:hover {
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .sim-btn.active {
-      background: rgba(59, 130, 246, 0.15);
-      border-color: #3b82f6;
-      color: #93c5fd;
-    }
-
-    .sim-display {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 16px;
-      background: #070c18;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-    }
-
-    .sim-step-label {
-      font-size: 11px;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 6px;
-      font-family: var(--font-mono);
-    }
-
-    .sim-step-val {
-      font-size: 15px;
-      font-weight: 600;
-      color: #fff;
-      line-height: 1.4;
-    }
-
-    /* METRICS / STATS */
-    .stats-section {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: rgba(11, 19, 38, 0.4);
-      padding: 60px 0;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-    }
-
-    .stat-card {
-      text-align: left;
-    }
-
-    .stat-card h3 {
-      font-size: 40px;
-      font-family: var(--font-mono);
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-
-    .stat-card h3 span {
-      color: #3b82f6;
-    }
-
-    .stat-card p {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    /* INDUSTRY ADOPTION */
-    .industry-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 14px;
-    }
-
-    .industry-pill {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px 12px;
-      text-align: center;
-      transition: all 0.2s;
-    }
-
-    .industry-pill:hover {
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-    }
-
-    .industry-icon {
-      margin-bottom: 8px;
-      display: flex;
-      justify-content: center;
-      color: #60a5fa;
-    }
-
-    .industry-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: #cbd5e1;
-    }
-
-    /* CTA BANNER */
-    .cta-banner {
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(6, 182, 212, 0.08));
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      border-radius: 24px;
-      padding: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-banner::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .cta-title {
-      font-size: clamp(26px, 3.5vw, 36px);
-      margin-bottom: 12px;
-    }
-
-    .cta-desc {
-      font-size: 16px;
-      color: var(--text-muted);
-      max-width: 580px;
-    }
-
-    .cta-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 72px 0 36px;
-      background: #040810;
-      color: var(--text-dim);
-      font-size: 14px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
-      gap: 48px;
-      margin-bottom: 48px;
-    }
-
-    .footer-desc {
-      color: var(--text-muted);
-      font-size: 14px;
-      margin-top: 12px;
-      max-width: 320px;
-      line-height: 1.6;
-    }
-
-    .footer-col-title {
-      color: #fff;
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 18px;
-      letter-spacing: 0.02em;
-    }
-
-    .footer-links {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 10px;
-    }
-
-    .footer-links a {
-      color: var(--text-muted);
-    }
-
-    .footer-links a:hover {
-      color: #fff;
-    }
-
-    .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 32px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      font-size: 13px;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .solutions-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .solution-card.featured {
-        grid-column: span 1;
-      }
-      .arch-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-      .arch-arrow {
-        transform: rotate(90deg);
-        padding: 8px 0;
-      }
-      .industry-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 36px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .mobile-menu-btn {
-        display: block;
-      }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 72px;
-        left: 0;
-        right: 0;
-        background: #060b16;
-        border-bottom: 1px solid var(--border);
-        flex-direction: column;
-        padding: 24px;
-        align-items: flex-start;
-        gap: 18px;
-      }
-      .nav-links.open {
-        display: flex;
-      }
-      .solutions-grid {
-        grid-template-columns: 1fr;
-      }
-      .stats-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-      }
-      .sim-display {
-        grid-template-columns: 1fr;
-      }
-      .cta-banner {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 36px 24px;
-      }
-      .industry-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-      .footer-bottom {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-      }
-    }
-  </style>
+  <!-- Central Configuration (WhatsApp number, brand contacts) -->
+  <script src="config.js"></script>
 </head>
-
-<body>
-
-  <!-- Ambient Grid & Glow -->
-  <div class="bg-grid"></div>
-  <div class="bg-glow-top"></div>
+<body id="top">
+  <!-- AI NEURON BACKGROUND CANVAS -->
+  <canvas id="neuronCanvas"></canvas>
 
   <!-- NAVBAR -->
-  <header class="navbar">
+  <header class="navbar" id="mainNavbar">
     <div class="container navbar-inner">
-      <a href="#top" class="brand-logo" id="nav-brand">
+      <a href="#top" class="brand-logo" id="navBrandLogo">
         <span class="brand-mark">
           <img src="favicon.svg" alt="KIRAVA Emblem" width="38" height="38">
         </span>
         <span class="brand-name">KIRAVA</span>
       </a>
 
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
-
-      <nav class="nav-links" id="navLinks">
-        <a href="#solusi" id="nav-solusi">Solusi</a>
-        <a href="#arsitektur" id="nav-arsitektur">Arsitektur</a>
-        <a href="#simulasi" id="nav-simulasi">Simulasi AI</a>
-        <a href="business.html" id="nav-business">Business Intelligence</a>
-        <a href="#kontak" class="nav-cta" id="nav-konsultasi">
-          <span>Konsultasi Teknis</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="7" y1="17" x2="17" y2="7"></line>
-            <polyline points="7 7 17 7 17 17"></polyline>
-          </svg>
-        </a>
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-links" id="desktopNavLinks">
+        <a href="#beranda" class="nav-link active" id="navLinkBeranda">Beranda</a>
+        <a href="#produk" class="nav-link" id="navLinkProduk">Produk</a>
+        <a href="#solusi" class="nav-link" id="navLinkSolusi">Solusi</a>
+        <a href="#tentang" class="nav-link" id="navLinkTentang">Tentang</a>
+        <a href="#kontak" class="nav-link" id="navLinkKontak">Kontak</a>
       </nav>
+
+      <!-- Action Button & Mobile Toggle -->
+      <div class="nav-actions">
+        <a href="#" class="btn btn-whatsapp btn-sm btn-navbar" data-wa-action="contact" data-wa-topic="general" id="navWaBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+          Hubungi Kami
+        </a>
+
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main id="top">
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="badge-tag">
-            <span class="badge-dot"></span>
-            KIRAVA INTELLIGENCE PLATFORM v2.4
-          </div>
-
-          <h1 class="hero-title">
-            Teknologi Cerdas untuk <span class="highlight">Industri Nyata.</span>
-          </h1>
-
-          <p class="hero-desc">
-            KIRAVA menggabungkan <strong>AI prediktif, sensor IoT real-time, dan otomasi industri</strong> dalam satu arsitektur terintegrasi untuk meningkatkan produktivitas sektor pertanian, peternakan, perikanan, pendidikan, dan bisnis.
-          </p>
-
-          <div class="hero-cta-group">
-            <a href="#solusi" class="btn btn-primary" id="btn-hero-solusi">
-              <span>Eksplorasi Solusi</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-
-            <a href="#simulasi" class="btn btn-secondary" id="btn-hero-simulasi">
-              <span>Uji Simulasi AI</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polygon points="10 8 16 12 10 16 10 8"></polygon>
-              </svg>
-            </a>
-          </div>
-
-          <div class="hero-stats-row">
-            <div>
-              <div class="stat-number">99.8%</div>
-              <div class="stat-label">Uptime Telemetri</div>
-            </div>
-            <div>
-              <div class="stat-number">&lt;200ms</div>
-              <div class="stat-label">Latensi Otomasi</div>
-            </div>
-            <div>
-              <div class="stat-number">38%+</div>
-              <div class="stat-label">Efisiensi Biaya Operasional</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Interactive Telemetry Console Widget -->
-        <div class="console-card" id="hero-console">
-          <div class="console-header">
-            <div class="console-dots">
-              <span class="console-dot dot-red"></span>
-              <span class="console-dot dot-yellow"></span>
-              <span class="console-dot dot-green"></span>
-            </div>
-            <div class="console-title">kirava-node // telemetry.live</div>
-            <div class="console-status">
-              <span class="badge-dot"></span> LIVE 18ms
-            </div>
-          </div>
-
-          <!-- Sector Tabs -->
-          <div class="console-nav-tabs">
-            <div class="console-tab active" data-sector="farm" id="tab-farm">Agrikultur</div>
-            <div class="console-tab" data-sector="livestock" id="tab-livestock">Peternakan</div>
-            <div class="console-tab" data-sector="aqua" id="tab-aqua">Akuakultur</div>
-            <div class="console-tab" data-sector="business" id="tab-biz">Bisnis</div>
-          </div>
-
-          <div class="console-body">
-            <div class="metrics-grid" id="consoleMetrics">
-              <div class="metric-box">
-                <div class="metric-meta">
-                  <span>KELEMBAPAN TANAH</span>
-                  <span>ZONA A-2</span>
-                </div>
-                <div class="metric-val" id="metricVal1">64.2%</div>
-                <div class="metric-status" id="metricStatus1">✓ Status Optimal</div>
-              </div>
-
-              <div class="metric-box">
-                <div class="metric-meta">
-                  <span>SUHU LINGKUNGAN</span>
-                  <span>SENSOR B-04</span>
-                </div>
-                <div class="metric-val" id="metricVal2">27.4°C</div>
-                <div class="metric-status" id="metricStatus2">✓ Normal Baseline</div>
-              </div>
-
-              <div class="metric-box">
-                <div class="metric-meta">
-                  <span>DEBIT IRIGASI</span>
-                  <span>POMPA 1</span>
-                </div>
-                <div class="metric-val" id="metricVal3">12.5 L/m</div>
-                <div class="metric-status" id="metricStatus3">✓ Valve Siaga</div>
-              </div>
-
-              <div class="metric-box">
-                <div class="metric-meta">
-                  <span>AI PREDIKSI PANEN</span>
-                  <span>MODEL V3</span>
-                </div>
-                <div class="metric-val" id="metricVal4">+18.4%</div>
-                <div class="metric-status" id="metricStatus4">✓ Confidence 96%</div>
-              </div>
-            </div>
-
-            <!-- Terminal log -->
-            <div class="console-log">
-              <div class="log-head">
-                <span>AI TRIGGER FEED</span>
-                <span id="logCounter">4 EVENTS LOGGED</span>
-              </div>
-              <div class="log-item">
-                <span class="log-time">[10:42:01]</span>
-                <span class="log-action">AUTO_ACTUATOR:</span>
-                <span id="logDesc">Irigasi presisi aktif di Zona A-2 selama 120 detik berdasarkan kelembapan tanah.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STATS STRIP -->
-    <div class="stats-section">
-      <div class="container stats-grid">
-        <div class="stat-card">
-          <h3>35%<span>+</span></h3>
-          <p>Penghematan air & energi melalui penjadwalan presisi bertenaga AI.</p>
-        </div>
-        <div class="stat-card">
-          <h3>24<span>/7</span></h3>
-          <p>Monitoring telemetri continuous tanpa jeda dengan alert WhatsApp instan.</p>
-        </div>
-        <div class="stat-card">
-          <h3>4.2<span>x</span></h3>
-          <p>Kecepatan analisis data operasional dibandingkan audit manual tradisional.</p>
-        </div>
-        <div class="stat-card">
-          <h3>100<span>%</span></h3>
-          <p>Dukungan perangkat lokal Indonesia dengan arsitektur cloud scalable.</p>
-        </div>
-      </div>
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav" id="mobileNavDrawer">
+    <a href="#beranda" class="nav-link" id="mNavBeranda">Beranda</a>
+    <a href="#produk" class="nav-link" id="mNavProduk">Produk</a>
+    <a href="#solusi" class="nav-link" id="mNavSolusi">Solusi</a>
+    <a href="#tentang" class="nav-link" id="mNavTentang">Tentang</a>
+    <a href="#kontak" class="nav-link" id="mNavKontak">Kontak</a>
+    <div style="margin-top: 16px;">
+      <a href="#" class="btn btn-whatsapp" style="width: 100%;" data-wa-action="contact" data-wa-topic="general" id="mNavWaBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+        Hubungi Kami via WhatsApp
+      </a>
     </div>
+  </div>
 
-    <!-- SOLUTIONS SECTION (BENTO GRID) -->
-    <section id="solusi">
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="beranda">
       <div class="container">
-        <div class="section-header">
-          <div class="badge-tag">
-            <span class="badge-dot"></span> EKOSISTEM KIRAVA
-          </div>
-          <h2 class="section-title">Solusi Terpadu untuk Berbagai Sektor</h2>
-          <p class="section-subtitle">
-            Satu fondasi perangkat keras, kecerdasan buatan, dan software terpusat yang dirancang khusus untuk tantangan nyata di lapangan.
-          </p>
-        </div>
-
-        <div class="solutions-grid">
+        <div class="hero-grid">
           
-          <!-- Farm -->
-          <div class="solution-card" id="card-farm">
-            <div class="card-top">
-              <div class="icon-box green">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2v20"></path>
-                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                </svg>
-              </div>
-              <span class="card-badge">Agrikultur & Greenhouse</span>
-            </div>
-            <h3 class="card-title">KIRAVA Farm</h3>
-            <p class="card-desc">
-              Sistem irigasi pintar, sensor kelembapan tanah, cuaca mikroklimat, dan kontrol otomatis greenhouse bertenaga AI.
-            </p>
-            <ul class="feature-list">
-              <li class="feature-item">
-                <span class="feature-check">✓</span> Smart Precision Irrigation
-              </li>
-              <li class="feature-item">
-                <span class="feature-check">✓</span> Monitoring NPK, pH & Kelembapan Tanah
-              </li>
-              <li class="feature-item">
-                <span class="feature-check">✓</span> Pemupukan Otomatis Terjadwal
-              </li>
-            </ul>
-            <a href="#kontak" class="card-footer">
-              <span>Konsultasi Penerapan Farm</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </a>
-          </div>
-
-          <!-- Livestock -->
-          <div class="solution-card" id="card-livestock">
-            <div class="card-top">
-              <div class="icon-box amber">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                  <line x1="6" y1="1" x2="6" y2="4"></line>
-                  <line x1="10" y1="1" x2="10" y2="4"></line>
-                  <line x1="14" y1="1" x2="14" y2="4"></line>
-                </svg>
-              </div>
-              <span class="card-badge">Peternakan Modern</span>
-            </div>
-            <h3 class="card-title">KIRAVA Livestock</h3>
-            <p class="card-desc">
-              Kandang tertutup cerdas dengan pengatur ventilasi, suhu, kelembapan, serta feeder otomatis untuk meminimalkan mortalitas ternak.
-            </p>
-            <ul class="feature-list">
-              <li class="feature-item">
-                <span class="feature-check">✓</span> Kontrol Otomatis Kipas & Cooling Pad
-              </li>
-              <li class="feature-item">
-                <span class="feature-check">✓</span> Dispenser Pakan & Minum Otomatis
-              </li>
-              <li class="feature-item">
-                <span class="feature-check">✓</span> Peringatan Dini Lonjakan Amonia / Gas
-              </li>
-            </ul>
-            <a href="#kontak" class="card-footer">
-              <span>Konsultasi Penerapan Livestock</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </a>
-          </div>
-
-          <!-- Aqua -->
-          <div class="solution-card" id="card-aqua">
-            <div class="card-top">
-              <div class="icon-box cyan">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
-                </svg>
-              </div>
-              <span class="card-badge">Perikanan & Tambak</span>
-            </div>
-            <h3 class="card-title">KIRAVA Aqua</h3>
-            <p class="card-desc">
-              Monitoring parameter kualitas air kolam (pH, DO, suhu) secara real-time dipadukan dengan autofeeder presisi dan aerator otomatis.
-            </p>
-            <ul class="feature-list">
-              <li class="feature-item">
-                <span class="feature-check">✓</span> Otomasi Aerator Berbasis Kadar Oksigen
-              </li>
-              <li class="feature-item">
-                <span class="feature-check">✓</span> Smart Feeder Berjadwal & Terukur
-              </li>
-              <li class="feature-item">
-                <span class="feature-check">✓</span> Analisis FCR (Feed Conversion Ratio)
-              </li>
-            </ul>
-            <a href="#kontak" class="card-footer">
-              <span>Konsultasi Penerapan Aqua</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </a>
-          </div>
-
-          <!-- Business - Featured -->
-          <div class="solution-card featured" id="card-business">
-            <div class="card-top">
-              <div class="icon-box">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="20" x2="18" y2="10"></line>
-                  <line x1="12" y1="20" x2="12" y2="4"></line>
-                  <line x1="6" y1="20" x2="6" y2="14"></line>
-                </svg>
-              </div>
-              <span class="card-badge">Komersial, UMKM & Pemerintahan</span>
-            </div>
-            <h3 class="card-title">KIRAVA Business Intelligence</h3>
-            <p class="card-desc">
-              Transformasi data transaksi kasir (POS), stok inventaris, dan keuangan menjadi analisis prediktif berbasis AI. Mendukung dashboard terpusat untuk monitoring multi-cabang serta dashboard pemetaan ekonomi untuk dinas dan instansi pemerintah.
-            </p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; margin-top: auto;">
-              <ul class="feature-list" style="margin-bottom: 0;">
-                <li class="feature-item"><span class="feature-check">✓</span> Point of Sale (POS) & Inventaris Real-time</li>
-                <li class="feature-item"><span class="feature-check">✓</span> AI Asisten Pengambilan Keputusan Bisnis</li>
-              </ul>
-              <ul class="feature-list" style="margin-bottom: 0;">
-                <li class="feature-item"><span class="feature-check">✓</span> Pemetaan Kinerja Wilayah untuk Instansi</li>
-                <li class="feature-item"><span class="feature-check">✓</span> Integrasi API & Export Data Lengkap</li>
-              </ul>
-            </div>
-            <a href="business.html" class="card-footer" style="color: #60a5fa;">
-              <span>Buka Halaman Khusus KIRAVA Business →</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </a>
-          </div>
-
-          <!-- Edu -->
-          <div class="solution-card" id="card-edu">
-            <div class="card-top">
-              <div class="icon-box purple">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                </svg>
-              </div>
-              <span class="card-badge">Pendidikan & Sekolah</span>
-            </div>
-            <h3 class="card-title">KIRAVA Edu</h3>
-            <p class="card-desc">
-              Sistem manajemen sekolah terintegrasi dengan asisten AI evaluasi materi, penilaian siswa, dan administrasi sekolah paperless.
-            </p>
-            <ul class="feature-list">
-              <li class="feature-item">
-                <span class="feature-check">✓</span> Dashboard Sekolah & Portal Orang Tua
-              </li>
-              <li class="feature-item">
-                <span class="feature-check">✓</span> AI Evaluasi Belajar Personal
-              </li>
-              <li class="feature-item">
-                <span class="feature-check">✓</span> Presensi & Administrasi Digital
-              </li>
-            </ul>
-            <a href="#kontak" class="card-footer">
-              <span>Konsultasi Penerapan Edu</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ARCHITECTURE PIPELINE -->
-    <section id="arsitektur" style="background: rgba(11, 19, 38, 0.25);">
-      <div class="container">
-        <div class="section-header">
-          <div class="badge-tag">
-            <span class="badge-dot"></span> TEKNOLOGI
-          </div>
-          <h2 class="section-title">Arsitektur Terpadu Edge-to-Cloud</h2>
-          <p class="section-subtitle">
-            Aliran data kontinu berkecepatan tinggi dari sensor fisik di lapangan langsung menuju mesin analitik dan aktuator otomatis.
-          </p>
-        </div>
-
-        <div class="arch-container">
-          <div class="arch-grid">
-            
-            <!-- Layer 1: Edge & IoT -->
-            <div class="arch-box" id="arch-edge">
-              <div class="arch-title">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2">
-                  <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
-                  <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
-                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
-                  <line x1="12" y1="20" x2="12.01" y2="20"></line>
-                </svg>
-                <span>01. Edge & Sensors</span>
-              </div>
-              <p class="arch-desc">
-                Perangkat sensor fisik mengukur temperatur, kelembapan, kadar pH, aliran fluida, dan status listrik secara presisi.
-              </p>
-              <div class="arch-tags">
-                <span class="arch-tag">MQTT Protocol</span>
-                <span class="arch-tag">LoRaWAN</span>
-                <span class="arch-tag">Microcontroller</span>
-              </div>
-            </div>
-
-            <!-- Arrow -->
-            <div class="arch-arrow">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-
-            <!-- Layer 2: Cloud Core -->
-            <div class="arch-box highlight" id="arch-cloud">
-              <div class="arch-title" style="color: #60a5fa;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
-                  <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-                </svg>
-                <span>02. KIRAVA Cloud & AI Core</span>
-              </div>
-              <p class="arch-desc">
-                Platform cloud terenkripsi yang memproses telemetri secara real-time, mendeteksi anomali, dan mengeksekusi aturan otomasi secara otonom.
-              </p>
-              <div class="arch-tags">
-                <span class="arch-tag">Neural Rules Engine</span>
-                <span class="arch-tag">Anomaly Detection</span>
-                <span class="arch-tag">Sub-second Sync</span>
-              </div>
-            </div>
-
-            <!-- Arrow -->
-            <div class="arch-arrow">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-
-            <!-- Layer 3: Action & Dashboard -->
-            <div class="arch-box" id="arch-action">
-              <div class="arch-title">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2">
-                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                  <line x1="8" y1="21" x2="16" y2="21"></line>
-                  <line x1="12" y1="17" x2="12" y2="21"></line>
-                </svg>
-                <span>03. Aksi Otomatis & UI</span>
-              </div>
-              <p class="arch-desc">
-                Relay memicu pompa dan aktuator fisik secara seketika, sementara notifikasi instan terkirim ke dashboard dan WhatsApp operator.
-              </p>
-              <div class="arch-tags">
-                <span class="arch-tag">Smart Relay</span>
-                <span class="arch-tag">Web Dashboard</span>
-                <span class="arch-tag">WhatsApp Alert</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- INTERACTIVE SIMULATOR SECTION -->
-    <section id="simulasi">
-      <div class="container">
-        <div class="section-header">
-          <div class="badge-tag">
-            <span class="badge-dot"></span> LIVE SIMULATOR
-          </div>
-          <h2 class="section-title">Uji Respon Otomasi AI</h2>
-          <p class="section-subtitle">
-            Pilih skenario operasional di bawah ini untuk melihat bagaimana KIRAVA mendeteksi parameter lingkungan dan mengeksekusi tindakan secara instan.
-          </p>
-        </div>
-
-        <div class="sim-card">
-          <div class="sim-controls">
-            <button class="sim-btn active" data-sim="soil" id="sim-btn-soil">
-              🌱 Kelembapan Tanah Kering (&lt;30%)
-            </button>
-            <button class="sim-btn" data-sim="temp" id="sim-btn-temp">
-              🐔 Suhu Kandang Meningkat (&gt;33°C)
-            </button>
-            <button class="sim-btn" data-sim="oxygen" id="sim-btn-oxygen">
-              🐟 Kadar Oksigen Kolam Menurun (&lt;4.5 ppm)
-            </button>
-            <button class="sim-btn" data-sim="stock" id="sim-btn-stock">
-              🏪 Stok Barang Kritis (&lt;10 pcs)
-            </button>
-          </div>
-
-          <div class="sim-display">
-            <div>
-              <div class="sim-step-label">1. Deteksi Telemetri</div>
-              <div class="sim-step-val" id="sim-step-1">
-                Sensor membaca kelembapan tanah berada di 24.5% (Ambang batas minimum: 45%).
-              </div>
-            </div>
-
-            <div>
-              <div class="sim-step-label">2. Rekomendasi Mesin AI</div>
-              <div class="sim-step-val" id="sim-step-2" style="color: #93c5fd;">
-                Pemberian irigasi presisi micro-drip direkomendasikan selama 8 menit untuk mencegah dehidrasi akar.
-              </div>
-            </div>
-
-            <div>
-              <div class="sim-step-label">3. Aksi Otomatis Lapangan</div>
-              <div class="sim-step-val" id="sim-step-3" style="color: #34d399;">
-                Relay Pompa 01 aktif seketika; notifikasi dikirimkan ke grup WhatsApp operasional.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- INDUSTRY AUDIENCE -->
-    <section style="padding: 60px 0;">
-      <div class="container">
-        <div class="section-header" style="margin-bottom: 36px;">
-          <h3 style="font-size: 20px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">
-            Dipercaya & Dirancang untuk Berbagai Skala
-          </h3>
-        </div>
-
-        <div class="industry-grid">
-          <div class="industry-pill">
-            <div class="industry-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-            </div>
-            <div class="industry-name">Pertanian & Perkebunan</div>
-          </div>
-
-          <div class="industry-pill">
-            <div class="industry-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7 15h10M7 9h10"></path></svg>
-            </div>
-            <div class="industry-name">Peternakan Modern</div>
-          </div>
-
-          <div class="industry-pill">
-            <div class="industry-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
-            </div>
-            <div class="industry-name">Budidaya Perikanan</div>
-          </div>
-
-          <div class="industry-pill">
-            <div class="industry-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path></svg>
-            </div>
-            <div class="industry-name">Institusi Pendidikan</div>
-          </div>
-
-          <div class="industry-pill">
-            <div class="industry-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-            </div>
-            <div class="industry-name">Pengusaha & UMKM</div>
-          </div>
-
-          <div class="industry-pill">
-            <div class="industry-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 6 4v14"></path></svg>
-            </div>
-            <div class="industry-name">Dinas & Pemerintahan</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CALL TO ACTION -->
-    <section id="kontak">
-      <div class="container">
-        <div class="cta-banner">
+          <!-- Sisi Kiri: Teks & Call To Action -->
           <div>
-            <h2 class="cta-title">Siap Mengimplementasikan Otomasi Cerdas?</h2>
-            <p class="cta-desc">
-              Diskusikan kebutuhan spesifik fasilitas, lahan, atau bisnis Anda bersama tim teknis KIRAVA. Kami menyediakan konsultasi arsitektur, pemilihan sensor, hingga software terintegrasi.
+            <div class="hero-badge-wrap">
+              <span class="hero-badge" id="heroBadge">
+                <span class="hero-badge-dot"></span>
+                AI • IoT • Education • Business
+              </span>
+              <span class="hero-ai-indicator" id="heroAiIndicator">
+                <svg class="neuron-pulse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M12 3v3m0 12v3M3 12h3m12 0h3m-3.5-6.5l-2.1 2.1m-6.8 6.8l-2.1 2.1m0-11l2.1 2.1m6.8 6.8l2.1 2.1"></path>
+                </svg>
+                AI Synapse Engine
+              </span>
+            </div>
+
+            <h1 class="hero-title" id="heroTitle">
+              Teknologi Cerdas untuk <span>Dunia Nyata</span>
+            </h1>
+
+            <p class="hero-subtitle" id="heroSubtitle">
+              KIRAVA menghadirkan solusi AI, aplikasi, dan IoT untuk membantu pertanian, peternakan, rumah, sekolah, dan bisnis menjadi lebih cerdas dan efisien.
             </p>
+
+            <div class="hero-cta-group">
+              <a href="#produk" class="btn btn-primary" id="heroBtnProducts">
+                Jelajahi Produk
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+
+              <a href="#" class="btn btn-whatsapp" data-wa-action="contact" data-wa-topic="general" id="heroBtnWhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                </svg>
+                Chat WhatsApp
+              </a>
+            </div>
+
+            <div class="hero-meta-strip">
+              <span>Platform Terintegrasi:</span>
+              <span class="hero-meta-pill">Sensor IoT</span>
+              <span>•</span>
+              <span class="hero-meta-pill">Cloud Engine</span>
+              <span>•</span>
+              <span class="hero-meta-pill">Mobile & Web Apps</span>
+            </div>
           </div>
 
-          <div class="cta-actions">
-            <a href="https://wa.me/628887013150" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btn-cta-wa">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.23-1.63a11.94 11.94 0 0 0 5.83 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-1.25-6.21-3.52-8.43zM12.07 21.88a9.9 9.9 0 0 1-5.05-1.39l-.36-.21-3.75.98 1-3.66-.23-.37a9.88 9.88 0 0 1-1.52-5.26c0-5.46 4.45-9.91 9.92-9.91 2.65 0 5.13 1.03 7 2.91a9.85 9.85 0 0 1 2.9 7c0 5.46-4.45 9.91-9.91 9.91zm5.43-7.41c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.95 1.17-.18.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.68-1.63-.93-2.23-.24-.59-.49-.51-.68-.52h-.58c-.2 0-.53.07-.8.38-.28.3-1.05 1.03-1.05 2.52s1.08 2.92 1.23 3.12c.15.2 2.12 3.23 5.13 4.53.72.31 1.28.5 1.71.64.72.23 1.37.2 1.89.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.07-.13-.27-.2-.57-.35z"/>
-              </svg>
-              <span>Konsultasi via WhatsApp</span>
-            </a>
+          <!-- Sisi Kanan: Visual Teknologi Modern (Dashboard, IoT, Sensor, AI) -->
+          <div>
+            <div class="hero-visual-card" id="heroVisualCard">
+              <div class="telemetry-header">
+                <div class="telemetry-title">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                  <span>KIRAVA TELEMETRY ENGINE</span>
+                </div>
+                <div class="status-live">
+                  <span class="status-live-dot"></span>
+                  SISTEM AKTIF
+                </div>
+              </div>
 
-            <a href="mailto:hello@kirava.id" class="btn btn-secondary" id="btn-cta-email">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-              </svg>
-              <span>Email Tim Teknis</span>
-            </a>
+              <!-- 4 Node Telemetri Sensor -->
+              <div class="telemetry-grid">
+                <div class="telemetry-node">
+                  <div class="node-label">
+                    <span>Lahan Pertanian</span>
+                    <span style="color: var(--accent-emerald);">●</span>
+                  </div>
+                  <div class="node-val">72.4%</div>
+                  <div class="node-meta">Kelembapan Tanah Optimal</div>
+                </div>
+
+                <div class="telemetry-node">
+                  <div class="node-label">
+                    <span>Kandang Ternak</span>
+                    <span style="color: var(--accent-amber);">●</span>
+                  </div>
+                  <div class="node-val">28.2°C</div>
+                  <div class="node-meta">Suhu & Blower Otomatis</div>
+                </div>
+
+                <div class="telemetry-node">
+                  <div class="node-label">
+                    <span>Smart Home</span>
+                    <span style="color: var(--primary-light);">●</span>
+                  </div>
+                  <div class="node-val">4 Perangkat</div>
+                  <div class="node-meta">Keamanan & Daya Aktif</div>
+                </div>
+
+                <div class="telemetry-node">
+                  <div class="node-label">
+                    <span>AI & Bisnis POS</span>
+                    <span style="color: var(--accent-indigo);">●</span>
+                  </div>
+                  <div class="node-val">100% Sync</div>
+                  <div class="node-meta">Transaksi Terintegrasi</div>
+                </div>
+              </div>
+
+              <!-- Flow Arsitektur Mini -->
+              <div class="hero-flow-preview">
+                <div class="flow-title-row">
+                  <span>EKOSISTEM KONEKSI REAL-TIME</span>
+                  <span>ESP32 ⇄ CLOUD ⇄ APP</span>
+                </div>
+                <div class="flow-node-chips">
+                  <div class="flow-chip">SENSOR</div>
+                  <div class="flow-arrow">→</div>
+                  <div class="flow-chip active">IoT GATEWAY</div>
+                  <div class="flow-arrow">→</div>
+                  <div class="flow-chip">AI ENGINE</div>
+                  <div class="flow-arrow">→</div>
+                  <div class="flow-chip">DASHBOARD</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION PRODUK ("Solusi KIRAVA") -->
+    <section class="section-products" id="produk">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Solusi Terpadu</div>
+          <h2 class="section-title">Solusi KIRAVA</h2>
+          <p class="section-subtitle">Satu teknologi, berbagai kebutuhan.</p>
+        </div>
+
+        <div class="products-grid">
+          
+          <!-- 1. KIRAVA FARM -->
+          <article class="product-card" data-cat="farm" id="cardFarm">
+            <div>
+              <div class="product-header">
+                <div class="product-icon-wrap">
+                  <!-- Icon Tanaman / Sensor -->
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 10a6 6 0 0 0-6-6H3v2a6 6 0 0 0 6 6h3"/>
+                    <path d="M12 14a6 6 0 0 1 6-6h3v2a6 6 0 0 1-6 6h-3"/>
+                    <line x1="12" y1="22" x2="12" y2="10"/>
+                  </svg>
+                </div>
+                <span class="product-cat-badge">IoT Pertanian & Perkebunan</span>
+                <h3 class="product-name">KIRAVA FARM</h3>
+              </div>
+
+              <p class="product-desc">
+                Monitoring dan otomatisasi untuk membantu mengelola lahan, tanaman, penyiraman, kelembapan, dan kondisi lingkungan.
+              </p>
+
+              <ul class="product-features-list">
+                <li><span class="feature-bullet">✓</span> Monitoring kelembapan tanah</li>
+                <li><span class="feature-bullet">✓</span> Monitoring suhu</li>
+                <li><span class="feature-bullet">✓</span> Monitoring kondisi lingkungan</li>
+                <li><span class="feature-bullet">✓</span> Otomatisasi penyiraman</li>
+                <li><span class="feature-bullet">✓</span> Dashboard monitoring</li>
+              </ul>
+            </div>
+
+            <div>
+              <button class="product-cta-btn" data-open-solution="farm" id="btnLihatSolusiFarm">
+                Lihat Solusi
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- 2. KIRAVA LIVESTOCK -->
+          <article class="product-card" data-cat="livestock" id="cardLivestock">
+            <div>
+              <div class="product-header">
+                <div class="product-icon-wrap">
+                  <!-- Icon Peternakan / Kandang & Sensor -->
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </div>
+                <span class="product-cat-badge">IoT Peternakan</span>
+                <h3 class="product-name">KIRAVA LIVESTOCK</h3>
+              </div>
+
+              <p class="product-desc">
+                Teknologi monitoring untuk membantu peternak memantau kondisi kandang dan lingkungan secara lebih mudah.
+              </p>
+
+              <ul class="product-features-list">
+                <li><span class="feature-bullet">✓</span> Monitoring suhu</li>
+                <li><span class="feature-bullet">✓</span> Monitoring kelembapan</li>
+                <li><span class="feature-bullet">✓</span> Monitoring kondisi kandang</li>
+                <li><span class="feature-bullet">✓</span> Kontrol kipas / blower</li>
+                <li><span class="feature-bullet">✓</span> Dashboard IoT</li>
+              </ul>
+            </div>
+
+            <div>
+              <button class="product-cta-btn" data-open-solution="livestock" id="btnLihatSolusiLivestock">
+                Lihat Solusi
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- 3. KIRAVA HOME -->
+          <article class="product-card" data-cat="home" id="cardHome">
+            <div>
+              <div class="product-header">
+                <div class="product-icon-wrap">
+                  <!-- Icon Smart Home -->
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                  </svg>
+                </div>
+                <span class="product-cat-badge">Smart Home</span>
+                <h3 class="product-name">KIRAVA HOME</h3>
+              </div>
+
+              <p class="product-desc">
+                Solusi rumah pintar untuk monitoring dan kontrol perangkat rumah dari satu sistem.
+              </p>
+
+              <ul class="product-features-list">
+                <li><span class="feature-bullet">✓</span> Kontrol lampu</li>
+                <li><span class="feature-bullet">✓</span> Monitoring sensor</li>
+                <li><span class="feature-bullet">✓</span> Keamanan rumah</li>
+                <li><span class="feature-bullet">✓</span> Monitoring perangkat</li>
+                <li><span class="feature-bullet">✓</span> Otomatisasi</li>
+              </ul>
+            </div>
+
+            <div>
+              <button class="product-cta-btn" data-open-solution="home" id="btnLihatSolusiHome">
+                Lihat Solusi
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- 4. KIRAVA EDU -->
+          <article class="product-card" data-cat="edu" id="cardEdu">
+            <div>
+              <div class="product-header">
+                <div class="product-icon-wrap">
+                  <!-- Icon Edukasi / Tablet AI -->
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                  </svg>
+                </div>
+                <span class="product-cat-badge">Education Technology</span>
+                <h3 class="product-name">KIRAVA EDU</h3>
+              </div>
+
+              <p class="product-desc">
+                Solusi teknologi untuk membantu sekolah, guru, dan lembaga pendidikan menggunakan aplikasi dan AI dalam proses pembelajaran dan administrasi.
+              </p>
+
+              <ul class="product-features-list">
+                <li><span class="feature-bullet">✓</span> Aplikasi pendidikan</li>
+                <li><span class="feature-bullet">✓</span> AI untuk guru</li>
+                <li><span class="feature-bullet">✓</span> Pengolahan data</li>
+                <li><span class="feature-bullet">✓</span> Rapor</li>
+                <li><span class="feature-bullet">✓</span> Dashboard sekolah</li>
+              </ul>
+            </div>
+
+            <div>
+              <button class="product-cta-btn" data-open-solution="edu" id="btnLihatSolusiEdu">
+                Lihat Solusi
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- 5. KIRAVA BUSINESS -->
+          <article class="product-card" data-cat="business" id="cardBusiness">
+            <div>
+              <div class="product-header">
+                <div class="product-icon-wrap">
+                  <!-- Icon Bisnis / Kasir POS -->
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                    <line x1="8" y1="21" x2="16" y2="21"/>
+                    <line x1="12" y1="17" x2="12" y2="21"/>
+                  </svg>
+                </div>
+                <span class="product-cat-badge">Business & UMKM</span>
+                <h3 class="product-name">KIRAVA BUSINESS</h3>
+              </div>
+
+              <p class="product-desc">
+                Solusi aplikasi untuk membantu bisnis dan UMKM mengelola operasional, produk, transaksi, dan data bisnis.
+              </p>
+
+              <ul class="product-features-list">
+                <li><span class="feature-bullet">✓</span> Point of Sale</li>
+                <li><span class="feature-bullet">✓</span> Manajemen produk</li>
+                <li><span class="feature-bullet">✓</span> Stok</li>
+                <li><span class="feature-bullet">✓</span> Transaksi</li>
+                <li><span class="feature-bullet">✓</span> Laporan</li>
+              </ul>
+            </div>
+
+            <div>
+              <button class="product-cta-btn" data-open-solution="business" id="btnLihatSolusiBusiness">
+                Lihat Solusi
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION "KENAPA KIRAVA?" -->
+    <section class="section-why" id="kenapa-kirava">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Keunggulan Utama</div>
+          <h2 class="section-title">Teknologi yang Dibuat untuk Kebutuhan Nyata</h2>
+          <p class="section-subtitle">Didesain fokus pada manfaat praktis, kemudahan implementasi, dan efisiensi biaya.</p>
+        </div>
+
+        <div class="why-grid">
+          <!-- 01 Praktis -->
+          <div class="why-card" id="whyPraktis">
+            <span class="why-num">01</span>
+            <h3 class="why-title">Praktis</h3>
+            <p class="why-desc">Solusi dirancang agar mudah digunakan.</p>
+          </div>
+
+          <!-- 02 Terintegrasi -->
+          <div class="why-card" id="whyTerintegrasi">
+            <span class="why-num">02</span>
+            <h3 class="why-title">Terintegrasi</h3>
+            <p class="why-desc">Aplikasi, AI, dan IoT dapat bekerja dalam satu ekosistem.</p>
+          </div>
+
+          <!-- 03 Terukur -->
+          <div class="why-card" id="whyTerukur">
+            <span class="why-num">03</span>
+            <h3 class="why-title">Terukur</h3>
+            <p class="why-desc">Data dapat digunakan untuk membantu pengambilan keputusan.</p>
+          </div>
+
+          <!-- 04 Dapat Dikembangkan -->
+          <div class="why-card" id="whyDapatDikembangkan">
+            <span class="why-num">04</span>
+            <h3 class="why-title">Dapat Dikembangkan</h3>
+            <p class="why-desc">Sistem dapat disesuaikan dengan kebutuhan pengguna.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- SECTION CARA KERJA -->
+    <section class="section-workflow" id="solusi">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Alur Sistem</div>
+          <h2 class="section-title">Bagaimana KIRAVA Bekerja?</h2>
+          <p class="section-subtitle">Tiga langkah sederhana dari sensor lapangan hingga aksi nyata pengguna.</p>
+        </div>
+
+        <div class="workflow-grid">
+          <!-- Langkah 01 -->
+          <div class="workflow-card" id="workflowStep1">
+            <span class="workflow-step-badge">LANGKAH 01</span>
+            <h3 class="workflow-title">Sensor & Data</h3>
+            <p class="workflow-desc">Perangkat dan aplikasi mengumpulkan data.</p>
+          </div>
+
+          <!-- Langkah 02 -->
+          <div class="workflow-card" id="workflowStep2">
+            <span class="workflow-step-badge">LANGKAH 02</span>
+            <h3 class="workflow-title">AI & Sistem</h3>
+            <p class="workflow-desc">Data diproses oleh sistem dan teknologi AI.</p>
+          </div>
+
+          <!-- Langkah 03 -->
+          <div class="workflow-card" id="workflowStep3">
+            <span class="workflow-step-badge">LANGKAH 03</span>
+            <h3 class="workflow-title">Informasi & Kontrol</h3>
+            <p class="workflow-desc">Pengguna mendapatkan informasi dan dapat melakukan tindakan.</p>
+          </div>
+        </div>
+
+        <!-- Ilustrasi Pipeline Sederhana: Sensor → Cloud/API → AI → Dashboard → User -->
+        <div class="workflow-pipeline-bar" id="pipelineBar">
+          <div class="pipeline-node">
+            <div class="pipeline-node-icon">📡</div>
+            <span>Sensor</span>
+          </div>
+
+          <div class="pipeline-arrow">→</div>
+
+          <div class="pipeline-node">
+            <div class="pipeline-node-icon">☁️</div>
+            <span>Cloud / API</span>
+          </div>
+
+          <div class="pipeline-arrow">→</div>
+
+          <div class="pipeline-node">
+            <div class="pipeline-node-icon">🧠</div>
+            <span>AI Engine</span>
+          </div>
+
+          <div class="pipeline-arrow">→</div>
+
+          <div class="pipeline-node">
+            <div class="pipeline-node-icon">📊</div>
+            <span>Dashboard</span>
+          </div>
+
+          <div class="pipeline-arrow">→</div>
+
+          <div class="pipeline-node">
+            <div class="pipeline-node-icon">👤</div>
+            <span>User</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION VISUAL IOT -->
+    <section class="section-iot-visual" id="ekosistem-iot">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Arsitektur Hardware & Software</div>
+          <h2 class="section-title">Ekosistem IoT Terpadu KIRAVA</h2>
+          <p class="section-subtitle">
+            Integrasi menyeluruh dari node perangkat fisik di lapangan hingga dashboard kontrol di genggaman Anda.
+          </p>
+        </div>
+
+        <div class="iot-architecture-box" id="iotArchitectureBox">
+          <div class="iot-flow-levels">
+
+            <!-- Level 1: DEVICE -->
+            <div class="iot-level-row" id="iotLevelDevice">
+              <div class="level-badge">
+                <span class="level-badge-indicator"></span>
+                <span>DEVICE</span>
+              </div>
+              <div class="level-items">
+                <div class="iot-hardware-tag">
+                  <span>🌡️</span>
+                  <span>Sensor Suhu</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>💧</span>
+                  <span>Sensor Kelembapan</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>🌱</span>
+                  <span>Soil Moisture Probe</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>⚡</span>
+                  <span>Power Clamp Meter</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>💨</span>
+                  <span>Sensor Gas NH3 / Udara</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="iot-connector-arrow">↓</div>
+
+            <!-- Level 2: IoT -->
+            <div class="iot-level-row" id="iotLevelIot">
+              <div class="level-badge">
+                <span class="level-badge-indicator" style="background: var(--accent-cyan);"></span>
+                <span>IoT HARDWARE</span>
+              </div>
+              <div class="level-items">
+                <div class="iot-hardware-tag">
+                  <span>⚡</span>
+                  <span>ESP32 Microcontroller</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>📟</span>
+                  <span>Industrial Gateway Node</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>📶</span>
+                  <span>WiFi / LoRa / 4G Module</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>🔌</span>
+                  <span>Relay Switch Controller</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="iot-connector-arrow">↓</div>
+
+            <!-- Level 3: API -->
+            <div class="iot-level-row" id="iotLevelApi">
+              <div class="level-badge">
+                <span class="level-badge-indicator" style="background: var(--primary);"></span>
+                <span>API & SERVER</span>
+              </div>
+              <div class="level-items">
+                <div class="iot-hardware-tag">
+                  <span>🖥️</span>
+                  <span>Cloud Server High Availability</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>⚡</span>
+                  <span>REST API & MQTT Broker</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>🔒</span>
+                  <span>Secure Telemetry Gateway</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>🗄️</span>
+                  <span>Time-Series Database</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="iot-connector-arrow">↓</div>
+
+            <!-- Level 4: AI -->
+            <div class="iot-level-row" id="iotLevelAi">
+              <div class="level-badge">
+                <span class="level-badge-indicator" style="background: var(--accent-indigo);"></span>
+                <span>AI PROCESSING</span>
+              </div>
+              <div class="level-items">
+                <div class="iot-hardware-tag">
+                  <span>🧠</span>
+                  <span>Analisis Anomali & Prediksi Cuaca</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>🤖</span>
+                  <span>AI Rekomendasi Takaran & Jadwal</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>📚</span>
+                  <span>AI Modul Pembelajaran Guru</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>📈</span>
+                  <span>Forecast Stok & Penjualan Bisnis</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="iot-connector-arrow">↓</div>
+
+            <!-- Level 5: DASHBOARD -->
+            <div class="iot-level-row" id="iotLevelDashboard">
+              <div class="level-badge">
+                <span class="level-badge-indicator" style="background: var(--accent-emerald);"></span>
+                <span>DASHBOARD</span>
+              </div>
+              <div class="level-items">
+                <div class="iot-hardware-tag">
+                  <span>📱</span>
+                  <span>Smartphone App (Android & iOS)</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>💻</span>
+                  <span>Web Dashboard Real-Time</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>💬</span>
+                  <span>Notifikasi WhatsApp Cepat</span>
+                </div>
+                <div class="iot-hardware-tag">
+                  <span>🧾</span>
+                  <span>Tablet POS Kasir Toko</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION TENTANG KIRAVA -->
+    <section class="section-about" id="tentang">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Profil Perusahaan</div>
+          <h2 class="section-title">Tentang KIRAVA</h2>
+        </div>
+
+        <div class="about-card" id="aboutCard">
+          <p class="about-text">
+            KIRAVA adalah brand teknologi yang mengembangkan solusi aplikasi, AI, dan Internet of Things untuk kebutuhan dunia nyata.
+          </p>
+          <p class="about-text">
+            Kami mengembangkan teknologi yang dapat diterapkan pada pendidikan, pertanian, peternakan, rumah pintar, dan bisnis.
+          </p>
+
+          <div class="about-pillars-grid">
+            <div class="about-pillar">
+              <div class="about-pillar-icon">🎯</div>
+              <div>
+                <div class="about-pillar-title">Fokus Kebutuhan Lapangan</div>
+                <div class="about-pillar-desc">Dirancang sesuai kondisi riil para pelaku usaha dan pengajar di Indonesia.</div>
+              </div>
+            </div>
+
+            <div class="about-pillar">
+              <div class="about-pillar-icon">⚙️</div>
+              <div>
+                <div class="about-pillar-title">Keandalan Hardware & Software</div>
+                <div class="about-pillar-desc">Kombinasi sensor tangguh berdaya rendah dengan antarmuka yang bersih dan cepat.</div>
+              </div>
+            </div>
+
+            <div class="about-pillar">
+              <div class="about-pillar-icon">🤝</div>
+              <div>
+                <div class="about-pillar-title">Pendampingan Berkelanjutan</div>
+                <div class="about-pillar-desc">Dukungan setup, kalibrasi sensor, hingga pemeliharaan sistem secara berkelanjutan.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION CTA (Sebelum Footer) -->
+    <section class="section-cta" id="kontak">
+      <div class="container">
+        <div class="cta-box" id="ctaBox">
+          <h2 class="cta-title">Jadikan Teknologi Bekerja untuk Anda</h2>
+          <p class="cta-subtitle">
+            Diskusikan kebutuhan aplikasi, AI, atau IoT untuk bisnis dan organisasi Anda.
+          </p>
+          <div class="cta-btn-wrap">
+            <a href="#" class="btn btn-whatsapp" data-wa-action="contact" data-wa-topic="general" id="ctaBtnWhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+              Diskusi melalui WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-top">
+        
+        <!-- Brand & Tagline -->
         <div>
-          <div class="brand-logo" style="margin-bottom: 8px;">
-            <span class="brand-mark" style="width: 30px; height: 30px;">
-              <img src="favicon.svg" alt="KIRAVA Emblem" width="30" height="30">
+          <a href="#top" class="brand-logo" id="footerBrandLogo">
+            <span class="brand-mark" style="width: 32px; height: 32px;">
+              <img src="favicon.svg" alt="KIRAVA Emblem" width="32" height="32">
             </span>
-            <span class="brand-name">KIRAVA</span>
-          </div>
-          <p class="footer-desc">
-            Platform AI, IoT, dan otomasi industri untuk modernisasi agrikultur, peternakan, perikanan, pendidikan, dan bisnis komersial.
+            <span class="brand-name" style="font-size: 19px;">KIRAVA</span>
+          </a>
+          <p class="footer-brand-desc">
+            Teknologi cerdas untuk dunia nyata. Solusi AI, IoT, dan aplikasi terintegrasi untuk pertanian, peternakan, hunian, sekolah, dan bisnis modern.
           </p>
+          <span class="footer-tagline-pill">AI • IoT • Education • Business</span>
         </div>
 
+        <!-- Menu Navigasi -->
         <div>
-          <div class="footer-col-title">Solusi Sektor</div>
+          <h4 class="footer-col-title">Navigasi</h4>
           <ul class="footer-links">
-            <li><a href="#solusi">KIRAVA Farm</a></li>
-            <li><a href="#solusi">KIRAVA Livestock</a></li>
-            <li><a href="#solusi">KIRAVA Aqua</a></li>
-            <li><a href="#solusi">KIRAVA Edu</a></li>
-            <li><a href="business.html">KIRAVA Business</a></li>
+            <li><a href="#beranda" class="footer-link">Beranda</a></li>
+            <li><a href="#produk" class="footer-link">Produk</a></li>
+            <li><a href="#solusi" class="footer-link">Solusi</a></li>
+            <li><a href="#tentang" class="footer-link">Tentang</a></li>
+            <li><a href="#kontak" class="footer-link">Kontak</a></li>
           </ul>
         </div>
 
+        <!-- Kontak Resmi -->
         <div>
-          <div class="footer-col-title">Teknologi</div>
-          <ul class="footer-links">
-            <li><a href="#arsitektur">Arsitektur Edge-to-Cloud</a></li>
-            <li><a href="#simulasi">Simulasi Otomasi AI</a></li>
-            <li><a href="business.html">Business Intelligence</a></li>
-            <li><a href="#kontak">Konsultasi Perangkat</a></li>
-          </ul>
+          <h4 class="footer-col-title">Kontak Resmi</h4>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+            <a href="#" class="footer-link" data-wa-action="contact" data-wa-topic="general" id="footerWaLink">
+              WhatsApp: <span data-wa-phone>089504008817</span>
+            </a>
+          </div>
+
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <a href="mailto:hello@kirava.id" class="footer-link" data-config-email id="footerEmailLink">
+              hello@kirava.id
+            </a>
+          </div>
+
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            <span class="footer-link">Website: kirava.id</span>
+          </div>
         </div>
 
-        <div>
-          <div class="footer-col-title">Hubungi Kami</div>
-          <ul class="footer-links">
-            <li><a href="https://wa.me/628887013150" target="_blank" rel="noopener">WhatsApp: +62 888-7013-150</a></li>
-            <li><a href="mailto:hello@kirava.id">Email: hello@kirava.id</a></li>
-            <li><a href="https://kirava.id">Website: kirava.id</a></li>
-          </ul>
-        </div>
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 KIRAVA. Intelligent Automation for Real-World Infrastructure.</div>
-        <div style="color: var(--text-dim);">Jakarta • Indonesia</div>
+        <div>© 2026 KIRAVA. All rights reserved.</div>
+        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--primary-light);">
+          kirava.id
+        </div>
       </div>
     </div>
   </footer>
 
-  <script>
-    // Mobile navigation toggle
-    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-    const navLinks = document.getElementById("navLinks");
+  <!-- MODAL DETAIL SOLUSI -->
+  <div class="modal-overlay" id="solutionModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Tutup Dialog">✕</button>
+      
+      <div class="modal-badge" id="modalCategory">Kategori Solusi</div>
+      <h3 class="modal-title" id="modalTitle">Nama Solusi</h3>
+      <p class="modal-desc" id="modalDesc">Deskripsi solusi...</p>
 
-    if (mobileMenuBtn && navLinks) {
-      mobileMenuBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-      });
+      <div class="modal-features-title">Fitur & Kemampuan Sistem</div>
+      <div class="modal-features-grid" id="modalFeaturesList"></div>
 
-      navLinks.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => navLinks.classList.remove("open"));
-      });
-    }
+      <div class="modal-features-title" style="margin-top: 14px;">Komponen Hardware & Node</div>
+      <div class="modal-features-grid" id="modalHardwareList"></div>
 
-    // Hero Interactive Console sector switching
-    const consoleData = {
-      farm: {
-        val1: "64.2%", stat1: "✓ Status Optimal",
-        val2: "27.4°C", stat2: "✓ Normal Baseline",
-        val3: "12.5 L/m", stat3: "✓ Valve Siaga",
-        val4: "+18.4%", stat4: "✓ Confidence 96%",
-        label1: "KELEMBAPAN TANAH", label2: "SUHU LINGKUNGAN", label3: "DEBIT IRIGASI", label4: "AI PREDIKSI PANEN",
-        action: "Irigasi presisi aktif di Zona A-2 selama 120 detik berdasarkan kelembapan tanah."
-      },
-      livestock: {
-        val1: "28.1°C", stat1: "✓ Suhu Nyaman",
-        val2: "62.0%", stat2: "✓ Kelembapan Stabil",
-        val3: "14 ppm", stat3: "✓ Gas Amonia Aman",
-        val4: "1.42 FCR", stat4: "✓ Efisiensi Maksimal",
-        label1: "SUHU KANDANG", label2: "KELEMBAPAN KANDANG", label3: "AMONIA LEVEL", label4: "TARGET FEED CONVERSION",
-        action: "Kipas ventilasi zona utara berjalan pada daya 60% untuk menjaga sirkulasi udara optimal."
-      },
-      aqua: {
-        val1: "7.4 pH", stat1: "✓ pH Ideal",
-        val2: "6.8 ppm", stat2: "✓ Oksigen Terlarut Baik",
-        val3: "29.2°C", stat3: "✓ Suhu Tambak Normal",
-        val4: "350 gr", stat4: "✓ Batch Pakan Siap",
-        label1: "KADAR PH AIR", label2: "DISSOLVED OXYGEN (DO)", label3: "SUHU AIR TAMBAK", label4: "AUTOFEEDER BATCH",
-        action: "Autofeeder terjadwal aktif; menyebarkan pakan pelet terapung secara merata."
-      },
-      business: {
-        val1: "Rp 18.4M", stat1: "✓ Omset Bulan Ini",
-        val2: "1,420 trx", stat2: "✓ Transaksi Aktif",
-        val3: "98.6%", stat3: "✓ Ketersediaan Stok",
-        val4: "+22.8%", stat4: "✓ Prediksi Pertumbuhan",
-        label1: "GROSS REVENUE", label2: "TOTAL TRANSAKSI", label3: "INVENTORY HEALTH", label4: "AI GROWTH PROJECTION",
-        action: "AI menyarankan restock 4 item komoditas utama dalam 48 jam ke depan."
-      }
-    };
+      <div style="margin-top: 24px; pt-2;">
+        <a href="#" class="btn btn-whatsapp" style="width: 100%;" id="modalWaBtn" target="_blank" rel="noopener noreferrer">
+          Konsultasikan Solusi Ini via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
 
-    const tabs = document.querySelectorAll(".console-tab");
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        tabs.forEach(t => t.classList.remove("active"));
-        tab.classList.add("active");
-        const sector = tab.getAttribute("data-sector");
-        const data = consoleData[sector];
-        if (!data) return;
-
-        document.getElementById("metricVal1").textContent = data.val1;
-        document.getElementById("metricStatus1").textContent = data.stat1;
-        document.getElementById("metricVal2").textContent = data.val2;
-        document.getElementById("metricStatus2").textContent = data.stat2;
-        document.getElementById("metricVal3").textContent = data.val3;
-        document.getElementById("metricStatus3").textContent = data.stat3;
-        document.getElementById("metricVal4").textContent = data.val4;
-        document.getElementById("metricStatus4").textContent = data.stat4;
-        document.getElementById("logDesc").textContent = data.action;
-      });
-    });
-
-    // Interactive Automation Simulator
-    const simScenarios = {
-      soil: {
-        step1: "Sensor membaca kelembapan tanah berada di 24.5% (Ambang batas minimum: 45%).",
-        step2: "Pemberian irigasi presisi micro-drip direkomendasikan selama 8 menit untuk mencegah dehidrasi akar.",
-        step3: "Relay Pompa 01 aktif seketika; notifikasi dikirimkan ke grup WhatsApp operasional."
-      },
-      temp: {
-        step1: "Sensor suhu kandang mendeteksi kenaikan tajam hingga 34.2°C akibat terik siang hari.",
-        step2: "AI mendeteksi risiko stres panas (heat stress) pada populasi ternak unggas.",
-        step3: "Aktuator otomatis menyalakan cooling pad dan meningkatkan putaran kipas blower ke 100%."
-      },
-      oxygen: {
-        step1: "Sensor DO mendeteksi kadar oksigen kolam turun hingga 3.8 ppm pada pukul 03:00 pagi.",
-        step2: "AI mengidentifikasi kondisi kritis anoksia yang dapat memicu kematian bibit ikan/udang.",
-        step3: "Aerator darurat aktif dalam waktu < 200 milidetik; sirene peringatan visual berkedip."
-      },
-      stock: {
-        step1: "Data kasir POS mendeteksi stok bahan baku utama tersisa 6 unit di gudang utama.",
-        step2: "Model prediktif menghitung konsumsi rata-rata dan memperkirakan stok habis dalam 14 jam.",
-        step3: "Sistem otomatis membuat Purchase Order (PO) draft dan mengirim reminder ke pemilik toko."
-      }
-    };
-
-    const simButtons = document.querySelectorAll(".sim-btn");
-    simButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        simButtons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        const simKey = btn.getAttribute("data-sim");
-        const scenario = simScenarios[simKey];
-        if (!scenario) return;
-
-        document.getElementById("sim-step-1").textContent = scenario.step1;
-        document.getElementById("sim-step-2").textContent = scenario.step2;
-        document.getElementById("sim-step-3").textContent = scenario.step3;
-      });
-    });
-  </script>
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
 </body>
 </html>
