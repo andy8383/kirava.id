@@ -58,6 +58,29 @@ footer { padding:27px 0; background:var(--blue-950); color:#9ab0ca; font-size:12
 @media (max-width:900px) { .neural-visual { min-height:400px; } }
 @media (max-width:680px) { .neural-visual { min-height:335px; transform:scale(.82); margin:-18px 0; } .neural-icon { width:57px; height:57px; border-radius:17px; } .neural-icon svg { width:27px; height:27px; } .neural-core { width:92px; height:92px; font-size:30px; } }
 
+/* Solution gallery layout */
+.solution-grid { grid-template-columns:repeat(3,minmax(0,1fr)); align-items:stretch; }
+.solution-card, .solution-card:nth-child(4), .solution-card:nth-child(5) { grid-column:auto; }
+.solution-photo { height:210px; aspect-ratio:16 / 10; }
+.solution-content { min-height:235px; display:flex; flex-direction:column; }
+.solution-content p { flex:1; }
+.solution-card:nth-child(1) .solution-photo img { object-position:center; }
+.solution-card:nth-child(2) .solution-photo img { object-position:center 42%; }
+.solution-card:nth-child(3) .solution-photo img { object-position:center; }
+.solution-card:nth-child(4) .solution-photo img { object-position:center 38%; }
+.solution-card:nth-child(5) .solution-photo img { object-position:center; }
+
+@media (min-width:681px) and (max-width:1000px) {
+	.solution-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+	.solution-photo { height:190px; }
+}
+
+@media (max-width:680px) {
+	.solution-grid { grid-template-columns:1fr; gap:18px; }
+	.solution-photo { height:200px; }
+	.solution-content { min-height:0; }
+}
+
 /* Detailed solution cards */
 .solution-card { display:flex; flex-direction:column; padding:0; min-height:0; }
 .solution-photo { height:190px; overflow:hidden; background:var(--ice); }
