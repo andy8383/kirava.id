@@ -78,13 +78,13 @@
 
     <section class="contact" id="kontak">
       <div class="container contact-inner reveal">
-        <div><h2>Mulai dari satu masalah kecil.</h2><p>Ceritakan kebutuhan Anda. Kami bantu menemukan bentuk teknologi yang paling masuk akal.</p></div>
-        <a class="button" href="#" data-wa="Halo KIRA VA, saya ingin berkonsultasi mengenai kebutuhan teknologi saya.">Bicara dengan kami ↗</a>
+        <div class="contact-copy"><div class="section-kicker">Kontak KIRA VA</div><h2>Mari buat solusi yang tepat.</h2><p>Ceritakan kebutuhan Anda. Kami bantu menemukan langkah teknologi yang paling masuk akal.</p></div>
+        <a class="button" href="#" data-wa="Halo KIRA VA, saya ingin berkonsultasi mengenai kebutuhan teknologi saya.">Hubungi kami <span>↗</span></a>
       </div>
     </section>
   </main>
 
-  <footer><div class="container footer-inner"><div class="footer-brand">KIRA<span>VA</span></div><div class="footer-copy">© <span id="year"></span> KIRA VA. Dibuat untuk dunia nyata.</div></div></footer>
+  <footer><div class="container footer-inner"><div class="footer-copy">Copyright 2026 Kirava.id - Inootech</div></div></footer>
 
   <script>
     const header = document.getElementById('siteHeader');
@@ -96,7 +96,8 @@
     toggle.addEventListener('click', () => { const open = menu.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
     menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { menu.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }));
     document.querySelectorAll('[data-wa]').forEach(link => { const message = link.dataset.wa; const url = config?.getWhatsAppUrl ? config.getWhatsAppUrl(message) : `https://wa.me/6289504008817?text=${encodeURIComponent(message)}`; link.href = url; link.target = '_blank'; link.rel = 'noopener noreferrer'; });
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
     const canvas = document.getElementById('neuralCanvas');
     if (canvas) {
       const ctx = canvas.getContext('2d');
