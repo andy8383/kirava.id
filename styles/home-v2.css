@@ -104,5 +104,11 @@ footer { padding:27px 0; background:var(--blue-950); color:#9ab0ca; font-size:12
 .contact .button:hover { background:#377de7; }
 footer { padding:22px 0; background:var(--blue-950); }
 .footer-inner { justify-content:center; }
-.footer-copy { margin:0; color:#b8c9dc; font-size:12px; letter-spacing:.02em; text-align:center; }
+.footer-inner { flex-direction:column; align-items:center; gap:9px; }
+.footer-brand { color:var(--white); font:800 24px/1 'Manrope',sans-serif; letter-spacing:-.09em; }
+.footer-brand span { color:var(--blue-400); }
+.footer-copy { margin:0; color:#b8c9dc; font-size:11px; letter-spacing:.02em; text-align:center; }
+.contact-button { min-height:56px; padding:0 24px; gap:9px; }
+.contact-button-dot { width:8px; height:8px; border-radius:50%; background:#bfe0ff; box-shadow:0 0 0 5px rgba(255,255,255,.16); }
+.contact-button:hover .contact-button-dot { background:var(--white); }
 @media (max-width:680px) { .contact { padding:70px 0; } .contact-inner { display:block; padding:32px 24px; border-radius:22px; } .contact .button { width:100%; margin-top:25px; } }
