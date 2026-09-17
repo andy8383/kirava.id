@@ -3220,18 +3220,6 @@ footer {
             pointer-events: none;
           }
 
-          .hero-eyebrow-divider {
-            color: rgba(255, 255, 255, .3);
-            font-weight: 400;
-          }
-
-          .hero-eyebrow-meta {
-            color: rgba(169, 185, 204, .72);
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            font-size: 10px;
-            letter-spacing: .12em;
-          }
-
           .hero-title {
             max-width: 720px;
             font-size: clamp(48px, 7.2vw, 92px);
@@ -3241,6 +3229,65 @@ footer {
           .hero-description {
             font-size: 17px;
             line-height: 1.7;
+          }
+
+          .brand {
+            gap: 0;
+            font-size: 25px;
+            letter-spacing: -.06em;
+          }
+
+          .brand-text {
+            color: #ffffff;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, .28);
+          }
+
+          .brand-text .brand-accent {
+            color: #43e6ff;
+            text-shadow: 0 0 20px rgba(67, 230, 255, .42);
+          }
+
+          .site-header.scrolled .brand-text {
+            color: var(--navy-900);
+            text-shadow: none;
+          }
+
+          .site-header.scrolled .brand-text .brand-accent {
+            color: var(--blue);
+            text-shadow: none;
+          }
+
+          .hero-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 22px;
+            margin-top: 25px;
+            padding: 0;
+            list-style: none;
+            color: #d8e7f5;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+          }
+
+          .hero-services li {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+          }
+
+          .hero-service-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 12px rgba(67, 230, 255, .8);
+          }
+
+          .hero-copy {
+            max-width: 620px;
           }
 
           .section-heading {
@@ -3297,12 +3344,13 @@ footer {
               mask-image: radial-gradient(circle at 50% 52%, #000 0%, transparent 70%);
             }
 
-            .hero-eyebrow-meta {
-              display: none;
-            }
-
             .hero-title {
               font-size: clamp(42px, 12vw, 62px);
+            }
+
+            .hero-services {
+              gap: 10px 16px;
+              font-size: 11px;
             }
 
             .product-brochure::after {
