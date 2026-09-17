@@ -40,13 +40,26 @@
             <a class="button button-ghost" href="#solusi">Lihat solusi</a>
           </div>
         </div>
-        <div class="system-visual reveal" aria-label="Ekosistem teknologi KIRA VA">
-          <div class="system-ring">
-            <div class="system-core">KIRA<span>VA</span></div>
-            <div class="system-node node-ai">AI</div>
-            <div class="system-node node-iot">IoT</div>
-            <div class="system-node node-software">Software</div>
-          </div>
+        <div class="neural-visual reveal" aria-label="Lima solusi KIRA VA">
+          <canvas id="neuralCanvas"></canvas>
+          <div class="neural-glow"></div>
+          <div class="neural-core" aria-hidden="true"><span>K</span></div>
+          <a class="neural-icon icon-farm" href="#solusi" title="KIRA VA Farm" aria-label="KIRA VA Farm">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21C12 16 14 11 20 8M12 17C9 14 7 10 8 5M12 15C15 12 17 9 18 5M8 5C11 5 13 7 13 10M18 5C15 5 13 7 13 10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="neural-icon icon-livestock" href="#solusi" title="KIRA VA Livestock" aria-label="KIRA VA Livestock">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 9 5 6l4 1M17 9l2-3-4 1M6 12c0-3.3 2.7-5 6-5s6 1.7 6 5v3c0 3.3-2.7 5-6 5s-6-1.7-6-5v-3Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="13" r="1" fill="currentColor"/><circle cx="14.5" cy="13" r="1" fill="currentColor"/></svg>
+          </a>
+          <a class="neural-icon icon-home" href="#solusi" title="KIRA VA Home" aria-label="KIRA VA Home">
+            <svg viewBox="0 0 24 24" fill="none"><path d="m3 11 9-7 9 7M5 10v10h14V10M9 20v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="neural-icon icon-edu" href="#solusi" title="KIRA VA Edu" aria-label="KIRA VA Edu">
+            <svg viewBox="0 0 24 24" fill="none"><path d="m3 9 9-5 9 5-9 5-9-5ZM7 11v5c2 2 8 2 10 0v-5M21 9v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="neural-icon icon-business" href="#solusi" title="KIRA VA Business" aria-label="KIRA VA Business">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5M4 19h17M7 15l4-4 3 2 6-6M17 7h3v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <span class="neural-particle particle-1"></span><span class="neural-particle particle-2"></span><span class="neural-particle particle-3"></span>
         </div>
       </div>
     </section>
@@ -99,6 +112,26 @@
     menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { menu.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }));
     document.querySelectorAll('[data-wa]').forEach(link => { const message = link.dataset.wa; const url = config?.getWhatsAppUrl ? config.getWhatsAppUrl(message) : `https://wa.me/6289504008817?text=${encodeURIComponent(message)}`; link.href = url; link.target = '_blank'; link.rel = 'noopener noreferrer'; });
     document.getElementById('year').textContent = new Date().getFullYear();
+    const canvas = document.getElementById('neuralCanvas');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let width = 0; let height = 0; let nodes = []; let frame;
+      const random = (min, max) => Math.random() * (max - min) + min;
+      function resizeNetwork() {
+        const rect = canvas.getBoundingClientRect(); const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = rect.width; height = rect.height; canvas.width = width * dpr; canvas.height = height * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        nodes = Array.from({ length: window.innerWidth < 680 ? 34 : 58 }, () => ({ x: random(0, width), y: random(0, height), vx: random(-.14, .14), vy: random(-.14, .14), phase: random(0, Math.PI * 2) }));
+      }
+      function drawNetwork(time) {
+        ctx.clearRect(0, 0, width, height); const maxDistance = window.innerWidth < 680 ? 105 : 140;
+        nodes.forEach(node => { if (!reduceMotion) { node.x += node.vx; node.y += node.vy; } if (node.x < -10 || node.x > width + 10) node.vx *= -1; if (node.y < -10 || node.y > height + 10) node.vy *= -1; });
+        nodes.forEach((a, i) => nodes.slice(i + 1).forEach(b => { const dx = a.x - b.x; const dy = a.y - b.y; const distance = Math.hypot(dx, dy); if (distance < maxDistance) { ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.strokeStyle = `rgba(75, 141, 248, ${(1 - distance / maxDistance) * .2})`; ctx.lineWidth = .7; ctx.stroke(); } }));
+        nodes.forEach(node => { ctx.beginPath(); ctx.arc(node.x, node.y, 1.4 + (Math.sin(time * .001 + node.phase) + 1) * .45, 0, Math.PI * 2); ctx.fillStyle = 'rgba(75,141,248,.6)'; ctx.shadowBlur = 10; ctx.shadowColor = '#85b9ff'; ctx.fill(); ctx.shadowBlur = 0; });
+        if (!reduceMotion) frame = requestAnimationFrame(drawNetwork);
+      }
+      resizeNetwork(); window.addEventListener('resize', resizeNetwork); if (reduceMotion) drawNetwork(0); else frame = requestAnimationFrame(drawNetwork);
+    }
     const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }), { threshold: .12 });
     document.querySelectorAll('.reveal').forEach(item => observer.observe(item));
   </script>
