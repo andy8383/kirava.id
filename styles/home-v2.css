@@ -93,6 +93,14 @@ footer { padding:27px 0; background:var(--blue-950); color:#9ab0ca; font-size:12
 .solution-card li { padding:5px 9px; border-radius:999px; background:var(--ice); color:var(--blue-800); font:700 10px 'Manrope',sans-serif; }
 @media (max-width:680px) { .solution-photo { height:180px; } .solution-content { padding:20px; } }
 
+/* Desktop header clearance and calmer headline scale */
+@media (min-width:901px) {
+	.hero { padding-top:82px; }
+	.hero-layout { min-height:738px; }
+	.hero-copy { padding-top:0; }
+	h1 { font-size:clamp(48px,6.2vw,82px); line-height:.98; }
+}
+
 /* Simple contact panel and compact footer */
 .contact { padding:92px 0; background:var(--ice); }
 .contact-inner { max-width:980px; padding:48px 54px; align-items:center; border:1px solid rgba(133,185,255,.42); border-radius:28px; background:linear-gradient(135deg,#fff,rgba(255,255,255,.72)); box-shadow:var(--shadow); }
