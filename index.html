@@ -2,29 +2,37 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#07111f">
-
-    <meta name="description"
-          content="KIRAVA membantu menghadirkan solusi yang membuat pekerjaan lebih mudah untuk rumah, usaha, sekolah, pertanian, dan peternakan.">
-
-    <meta name="keywords"
-          content="KIRAVA, teknologi, AI, IoT, smart farming, smart livestock, smart home, education technology, business technology">
-
-    <meta name="author" content="KIRAVA">
 
     <title>KIRAVA — Solusi Teknologi untuk Kebutuhan Nyata</title>
 
+    <meta name="description"
+          content="KIRAVA membantu menghadirkan solusi yang membuat pekerjaan lebih mudah untuk rumah, usaha, sekolah, pertanian, dan peternakan.">
+    <meta name="keywords"
+          content="KIRAVA, teknologi, AI, IoT, smart farming, smart livestock, smart home, education technology, business technology, kirava.id">
+    <meta name="author" content="KIRAVA">
+
+    <!-- Open Graph & Social Cards -->
+    <meta property="og:title" content="KIRAVA — Solusi Teknologi untuk Kebutuhan Nyata">
+    <meta property="og:description" content="KIRAVA membantu menghadirkan solusi yang membuat pekerjaan lebih mudah untuk rumah, usaha, sekolah, pertanian, dan peternakan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kirava.id">
+    <meta property="og:site_name" content="KIRAVA">
+    <meta property="og:locale" content="id_ID">
+
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-    <style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Global KIRAVA Configuration -->
+    <script src="config.js"></script>
+
+    <style>
         /* =========================================================
-           KIRAVA
-           MAIN WEBSITE
+           KIRAVA MAIN WEBSITE — CONCEPT DESIGN
            ========================================================= */
 
         :root {
@@ -46,8 +54,7 @@
 
             --border: rgba(16, 32, 51, 0.09);
 
-            --shadow:
-                0 25px 70px rgba(8, 26, 49, 0.12);
+            --shadow: 0 25px 70px rgba(8, 26, 49, 0.12);
 
             --radius-xl: 32px;
             --radius-lg: 24px;
@@ -55,13 +62,11 @@
 
             --max-width: 1180px;
 
-            --ease:
-                cubic-bezier(.22, .61, .36, 1);
+            --ease: cubic-bezier(.22, .61, .36, 1);
         }
 
-
         /* =========================================================
-           RESET
+           RESET & GLOBAL
            ========================================================= */
 
         * {
@@ -76,20 +81,18 @@
 
         body {
             font-family:
-                Inter,
+                "Inter",
                 ui-sans-serif,
                 system-ui,
                 -apple-system,
                 BlinkMacSystemFont,
                 "Segoe UI",
                 sans-serif;
-
             background: var(--white);
             color: var(--text);
-
             line-height: 1.6;
-
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         img {
@@ -112,20 +115,14 @@
             cursor: pointer;
         }
 
-
         /* =========================================================
            CONTAINER
            ========================================================= */
 
         .container {
-            width: min(
-                calc(100% - 40px),
-                var(--max-width)
-            );
-
+            width: min(calc(100% - 40px), var(--max-width));
             margin-inline: auto;
         }
-
 
         /* =========================================================
            HEADER
@@ -133,13 +130,10 @@
 
         .site-header {
             position: fixed;
-
             top: 0;
             left: 0;
             right: 0;
-
             z-index: 1000;
-
             transition:
                 background .35s ease,
                 box-shadow .35s ease,
@@ -147,19 +141,15 @@
         }
 
         .site-header.scrolled {
-            background:
-                rgba(255,255,255,.88);
-
-            backdrop-filter:
-                blur(18px);
-
-            box-shadow:
-                0 10px 35px rgba(8,20,35,.08);
+            background: rgba(255, 255, 255, .90);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: 0 10px 35px rgba(8, 20, 35, .08);
+            border-bottom: 1px solid rgba(16, 32, 51, 0.06);
         }
 
         .nav {
             height: 78px;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -169,7 +159,6 @@
             display: flex;
             align-items: center;
             gap: 11px;
-
             font-weight: 800;
             font-size: 22px;
             letter-spacing: -.04em;
@@ -178,21 +167,11 @@
         .brand-mark {
             width: 38px;
             height: 38px;
-
             border-radius: 12px;
-
             display: grid;
             place-items: center;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #43e6ff,
-                    #2f8cff
-                );
-
-            box-shadow:
-                0 8px 25px rgba(47,140,255,.28);
+            background: linear-gradient(135deg, #43e6ff, #2f8cff);
+            box-shadow: 0 8px 25px rgba(47, 140, 255, .28);
         }
 
         .brand-mark svg {
@@ -202,6 +181,34 @@
 
         .brand-text {
             color: var(--navy-900);
+            transition: color .3s ease;
+        }
+
+        /* When on dark hero at very top, adapt brand text contrast */
+        .site-header:not(.scrolled) .brand-text {
+            color: #ffffff;
+        }
+
+        .site-header:not(.scrolled) .nav-link {
+            color: #c0d1e5;
+        }
+
+        .site-header:not(.scrolled) .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .site-header:not(.scrolled) .nav-cta {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .site-header:not(.scrolled) .nav-cta:hover {
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        .site-header:not(.scrolled) .mobile-toggle span {
+            background: #ffffff;
         }
 
         .nav-menu {
@@ -212,14 +219,10 @@
 
         .nav-link {
             position: relative;
-
             color: #526276;
-
             font-size: 14px;
             font-weight: 600;
-
-            transition:
-                color .25s ease;
+            transition: color .25s ease;
         }
 
         .nav-link:hover {
@@ -230,58 +233,47 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-
             padding: 11px 18px;
-
             border-radius: 12px;
-
             background: var(--navy-900);
             color: white;
-
             font-size: 14px;
             font-weight: 700;
-
-            transition:
-                transform .25s ease,
-                box-shadow .25s ease;
+            transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
         }
 
         .nav-cta:hover {
             transform: translateY(-2px);
-
-            box-shadow:
-                0 12px 28px rgba(7,17,31,.18);
+            box-shadow: 0 12px 28px rgba(7, 17, 31, .18);
         }
 
         .mobile-toggle {
             display: none;
-
             width: 42px;
             height: 42px;
-
             border-radius: 12px;
-
-            background: var(--surface-2);
-
+            background: rgba(255, 255, 255, 0.1);
             align-items: center;
             justify-content: center;
+            flex-direction: column;
+        }
+
+        .site-header.scrolled .mobile-toggle {
+            background: var(--surface-2);
+        }
+
+        .site-header.scrolled .mobile-toggle span {
+            background: var(--navy-900);
         }
 
         .mobile-toggle span {
             display: block;
-
             width: 19px;
             height: 2px;
-
-            background: var(--navy-900);
-
+            background: #ffffff;
             margin: 3px 0;
-
-            transition:
-                transform .3s ease,
-                opacity .3s ease;
+            transition: transform .3s ease, opacity .3s ease;
         }
-
 
         /* =========================================================
            HERO
@@ -289,71 +281,43 @@
 
         .hero {
             position: relative;
-
             min-height: 820px;
-
             display: flex;
             align-items: center;
-
             overflow: hidden;
-
             background:
-                radial-gradient(
-                    circle at 75% 35%,
-                    rgba(47,140,255,.16),
-                    transparent 30%
-                ),
-
-                radial-gradient(
-                    circle at 35% 70%,
-                    rgba(67,230,255,.08),
-                    transparent 28%
-                ),
-
+                radial-gradient(circle at 75% 35%, rgba(47, 140, 255, .16), transparent 30%),
+                radial-gradient(circle at 35% 70%, rgba(67, 230, 255, .08), transparent 28%),
                 var(--navy-950);
-
             color: white;
         }
 
         .hero::before {
             content: "";
-
             position: absolute;
-
             inset: 0;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(5,11,20,.98) 0%,
-                    rgba(5,11,20,.88) 40%,
-                    rgba(5,11,20,.20) 100%
-                );
-
+            background: linear-gradient(
+                90deg,
+                rgba(5, 11, 20, .98) 0%,
+                rgba(5, 11, 20, .88) 40%,
+                rgba(5, 11, 20, .20) 100%
+            );
             pointer-events: none;
         }
 
         .hero-grid {
             position: relative;
             z-index: 2;
-
             display: grid;
-
-            grid-template-columns:
-                minmax(0, .88fr)
-                minmax(0, 1.12fr);
-
+            grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
             gap: 30px;
-
             align-items: center;
-
             min-height: 820px;
         }
 
         .hero-copy {
             position: relative;
             z-index: 10;
-
             padding-top: 50px;
         }
 
@@ -361,14 +325,10 @@
             display: inline-flex;
             align-items: center;
             gap: 9px;
-
             margin-bottom: 22px;
-
             color: #8edcff;
-
             font-size: 12px;
             font-weight: 800;
-
             letter-spacing: .16em;
             text-transform: uppercase;
         }
@@ -376,63 +336,39 @@
         .hero-eyebrow-dot {
             width: 7px;
             height: 7px;
-
             border-radius: 50%;
-
             background: var(--cyan);
-
-            box-shadow:
-                0 0 18px var(--cyan);
+            box-shadow: 0 0 18px var(--cyan);
         }
 
         .hero-title {
             max-width: 650px;
-
-            font-size:
-                clamp(46px, 6vw, 78px);
-
+            font-size: clamp(46px, 6vw, 78px);
             line-height: .98;
-
             letter-spacing: -.055em;
-
             font-weight: 800;
         }
 
         .hero-title span {
             display: block;
-
             color: transparent;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #ffffff,
-                    #6db5ff,
-                    #43e6ff
-                );
-
+            background: linear-gradient(90deg, #ffffff, #6db5ff, #43e6ff);
             background-clip: text;
             -webkit-background-clip: text;
         }
 
         .hero-description {
             max-width: 570px;
-
             margin-top: 28px;
-
             color: #a9b9cc;
-
             font-size: 18px;
-
             line-height: 1.75;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-
             gap: 13px;
-
             margin-top: 34px;
         }
 
@@ -441,89 +377,50 @@
             align-items: center;
             justify-content: center;
             gap: 9px;
-
             min-height: 50px;
-
-            padding:
-                0 21px;
-
+            padding: 0 21px;
             border-radius: 14px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #43e6ff,
-                    #2f8cff
-                );
-
+            background: linear-gradient(135deg, #43e6ff, #2f8cff);
             color: white;
-
             font-weight: 750;
-
-            box-shadow:
-                0 15px 35px rgba(47,140,255,.24);
-
-            transition:
-                transform .25s ease,
-                box-shadow .25s ease;
+            box-shadow: 0 15px 35px rgba(47, 140, 255, .24);
+            transition: transform .25s ease, box-shadow .25s ease;
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-
-            box-shadow:
-                0 20px 45px rgba(47,140,255,.35);
+            box-shadow: 0 20px 45px rgba(47, 140, 255, .35);
         }
 
         .btn-secondary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-
             min-height: 50px;
-
-            padding:
-                0 21px;
-
+            padding: 0 21px;
             border-radius: 14px;
-
             color: white;
-
-            border:
-                1px solid rgba(255,255,255,.14);
-
-            background:
-                rgba(255,255,255,.05);
-
-            backdrop-filter:
-                blur(10px);
-
+            border: 1px solid rgba(255, 255, 255, .14);
+            background: rgba(255, 255, 255, .05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             font-weight: 650;
-
-            transition:
-                background .25s ease,
-                transform .25s ease;
+            transition: background .25s ease, transform .25s ease;
         }
 
         .btn-secondary:hover {
-            background:
-                rgba(255,255,255,.10);
-
-            transform:
-                translateY(-2px);
+            background: rgba(255, 255, 255, .10);
+            transform: translateY(-2px);
         }
 
-
         /* =========================================================
-           GENERATIVE NEURAL NETWORK
+           GENERATIVE NEURAL NETWORK (HERO VISUAL)
            ========================================================= */
 
         .neural-stage {
             position: relative;
-
             width: 100%;
             height: 620px;
-
             display: flex;
             align-items: center;
             justify-content: center;
@@ -531,237 +428,145 @@
 
         #neuralCanvas {
             position: absolute;
-
             inset: 0;
-
             width: 100%;
             height: 100%;
-
             opacity: .95;
+            display: block;
         }
 
         .neural-glow {
             position: absolute;
-
             width: 300px;
             height: 300px;
-
             border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(67,230,255,.13),
-                    rgba(47,140,255,.04) 42%,
-                    transparent 72%
-                );
-
-            filter:
-                blur(10px);
-
-            animation:
-                corePulse 5s ease-in-out infinite;
+            background: radial-gradient(
+                circle,
+                rgba(67, 230, 255, .13),
+                rgba(47, 140, 255, .04) 42%,
+                transparent 72%
+            );
+            filter: blur(10px);
+            animation: corePulse 5s ease-in-out infinite;
         }
 
         .neural-core {
             position: absolute;
-
             width: 106px;
             height: 106px;
-
             border-radius: 50%;
-
             display: grid;
             place-items: center;
-
-            background:
-                radial-gradient(
-                    circle at 35% 30%,
-                    #15365d,
-                    #081425 68%
-                );
-
-            border:
-                1px solid rgba(91,201,255,.65);
-
+            background: radial-gradient(circle at 35% 30%, #15365d, #081425 68%);
+            border: 1px solid rgba(91, 201, 255, .65);
             box-shadow:
-                0 0 0 8px rgba(67,230,255,.025),
-                0 0 45px rgba(67,230,255,.25),
-                inset 0 0 35px rgba(47,140,255,.20);
-
-            animation:
-                coreFloat 6s ease-in-out infinite;
+                0 0 0 8px rgba(67, 230, 255, .025),
+                0 0 45px rgba(67, 230, 255, .25),
+                inset 0 0 35px rgba(47, 140, 255, .20);
+            animation: coreFloat 6s ease-in-out infinite;
+            z-index: 3;
         }
 
         .neural-core::before {
             content: "";
-
             position: absolute;
-
             inset: -12px;
-
             border-radius: 50%;
-
-            border:
-                1px solid rgba(67,230,255,.14);
-
-            animation:
-                coreRing 4s linear infinite;
+            border: 1px solid rgba(67, 230, 255, .14);
+            animation: coreRing 4s linear infinite;
         }
 
         .neural-core svg {
             width: 52px;
             height: 52px;
-
-            filter:
-                drop-shadow(
-                    0 0 12px rgba(67,230,255,.7)
-                );
+            filter: drop-shadow(0 0 12px rgba(67, 230, 255, .7));
         }
 
         .neural-icon {
             position: absolute;
-
             width: 62px;
             height: 62px;
-
             display: grid;
             place-items: center;
-
             border-radius: 20px;
-
-            background:
-                rgba(8,20,36,.72);
-
-            border:
-                1px solid rgba(110,181,255,.22);
-
-            backdrop-filter:
-                blur(12px);
-
+            background: rgba(8, 20, 36, .72);
+            border: 1px solid rgba(110, 181, 255, .22);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             box-shadow:
-                0 15px 45px rgba(0,0,0,.25),
-                inset 0 0 20px rgba(67,230,255,.035);
+                0 15px 45px rgba(0, 0, 0, .25),
+                inset 0 0 20px rgba(67, 230, 255, .035);
+            animation: iconFloat 6s ease-in-out infinite;
+            z-index: 4;
+            transition: border-color .3s ease, transform .25s ease;
+            cursor: pointer;
+        }
 
-            animation:
-                iconFloat 6s ease-in-out infinite;
+        .neural-icon:hover {
+            border-color: rgba(67, 230, 255, .6);
+            transform: scale(1.08);
         }
 
         .neural-icon svg {
             width: 29px;
             height: 29px;
-
             stroke: #82dfff;
-
-            filter:
-                drop-shadow(
-                    0 0 8px rgba(67,230,255,.65)
-                );
+            filter: drop-shadow(0 0 8px rgba(67, 230, 255, .65));
         }
 
         .icon-farm {
             top: 14%;
             left: 19%;
-
-            animation-delay:
-                -.8s;
+            animation-delay: -.8s;
         }
 
         .icon-livestock {
             top: 24%;
             right: 10%;
-
-            animation-delay:
-                -2.1s;
+            animation-delay: -2.1s;
         }
 
         .icon-home {
             bottom: 19%;
             right: 17%;
-
-            animation-delay:
-                -3.5s;
+            animation-delay: -3.5s;
         }
 
         .icon-edu {
             bottom: 12%;
             left: 22%;
-
-            animation-delay:
-                -4.7s;
+            animation-delay: -4.7s;
         }
 
         .icon-business {
             top: 47%;
             left: 4%;
-
-            animation-delay:
-                -1.7s;
+            animation-delay: -1.7s;
         }
 
         .neural-particle {
             position: absolute;
-
             width: 5px;
             height: 5px;
-
             border-radius: 50%;
-
             background: #8feeff;
-
-            box-shadow:
-                0 0 15px #43e6ff;
-
+            box-shadow: 0 0 15px #43e6ff;
             opacity: .7;
-
-            animation:
-                particleFloat 7s ease-in-out infinite;
+            animation: particleFloat 7s ease-in-out infinite;
+            pointer-events: none;
         }
 
-        .particle-1 {
-            left: 15%;
-            top: 30%;
-        }
-
-        .particle-2 {
-            left: 74%;
-            top: 13%;
-
-            animation-delay:
-                -2s;
-        }
-
-        .particle-3 {
-            left: 82%;
-            top: 67%;
-
-            animation-delay:
-                -4s;
-        }
-
-        .particle-4 {
-            left: 33%;
-            top: 76%;
-
-            animation-delay:
-                -1s;
-        }
-
-        .particle-5 {
-            left: 56%;
-            top: 7%;
-
-            animation-delay:
-                -5s;
-        }
+        .particle-1 { left: 15%; top: 30%; }
+        .particle-2 { left: 74%; top: 13%; animation-delay: -2s; }
+        .particle-3 { left: 82%; top: 67%; animation-delay: -4s; }
+        .particle-4 { left: 33%; top: 76%; animation-delay: -1s; }
+        .particle-5 { left: 56%; top: 7%; animation-delay: -5s; }
 
         @keyframes corePulse {
-            0%,
-            100% {
+            0%, 100% {
                 transform: scale(.9);
                 opacity: .6;
             }
-
             50% {
                 transform: scale(1.08);
                 opacity: 1;
@@ -769,11 +574,9 @@
         }
 
         @keyframes coreFloat {
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0);
             }
-
             50% {
                 transform: translateY(-8px);
             }
@@ -781,44 +584,30 @@
 
         @keyframes coreRing {
             from {
-                transform:
-                    rotate(0deg)
-                    scale(.96);
+                transform: rotate(0deg) scale(.96);
             }
-
             to {
-                transform:
-                    rotate(360deg)
-                    scale(1.02);
+                transform: rotate(360deg) scale(1.02);
             }
         }
 
         @keyframes iconFloat {
-            0%,
-            100% {
-                transform:
-                    translate3d(0,0,0);
+            0%, 100% {
+                transform: translate3d(0, 0, 0);
             }
-
             50% {
-                transform:
-                    translate3d(0,-11px,0);
+                transform: translate3d(0, -11px, 0);
             }
         }
 
         @keyframes particleFloat {
-            0%,
-            100% {
-                transform:
-                    translate(0,0);
+            0%, 100% {
+                transform: translate(0, 0);
             }
-
             50% {
-                transform:
-                    translate(18px,-20px);
+                transform: translate(18px, -20px);
             }
         }
-
 
         /* =========================================================
            TRUST STRIP
@@ -826,26 +615,17 @@
 
         .trust-strip {
             position: relative;
-
             margin-top: -1px;
-
-            background:
-                var(--navy-950);
-
-            border-top:
-                1px solid rgba(255,255,255,.05);
-
-            border-bottom:
-                1px solid rgba(255,255,255,.05);
+            background: var(--navy-950);
+            border-top: 1px solid rgba(255, 255, 255, .05);
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
         }
 
         .trust-inner {
             min-height: 105px;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             gap: 30px;
         }
 
@@ -853,86 +633,65 @@
             display: flex;
             align-items: center;
             gap: 12px;
-
             color: #9eb0c5;
-
             font-size: 13px;
         }
 
         .trust-item strong {
             color: white;
+            font-weight: 700;
         }
 
         .trust-dot {
             width: 8px;
             height: 8px;
-
             border-radius: 50%;
-
-            background:
-                var(--cyan);
-
-            box-shadow:
-                0 0 13px var(--cyan);
+            background: var(--cyan);
+            box-shadow: 0 0 13px var(--cyan);
         }
-
 
         /* =========================================================
            SECTION
            ========================================================= */
 
         .section {
-            padding:
-                120px 0;
+            padding: 120px 0;
         }
 
         .section-soft {
-            background:
-                var(--surface);
+            background: var(--surface);
         }
 
         .section-heading {
             max-width: 700px;
-
             margin-bottom: 55px;
         }
 
         .section-label {
             display: inline-block;
-
             margin-bottom: 13px;
-
             color: var(--blue);
-
             font-size: 12px;
             font-weight: 800;
-
             letter-spacing: .15em;
             text-transform: uppercase;
         }
 
         .section-title {
-            font-size:
-                clamp(34px, 5vw, 54px);
-
+            font-size: clamp(34px, 5vw, 54px);
             line-height: 1.05;
-
             letter-spacing: -.045em;
-
-            color:
-                var(--navy-900);
+            color: var(--navy-900);
+            font-weight: 800;
         }
 
         .section-description {
             margin-top: 17px;
-
             color: var(--muted);
-
             font-size: 17px;
-
             max-width: 650px;
+            line-height: 1.7;
         }
-
 
         /* =========================================================
            PRODUCT BROCHURES
@@ -941,273 +700,176 @@
         .products {
             display: flex;
             flex-direction: column;
-
-            gap: 30px;
+            gap: 32px;
         }
 
         .product-brochure {
             position: relative;
-
-            min-height: 470px;
-
+            min-height: 480px;
             overflow: hidden;
-
-            border-radius:
-                var(--radius-xl);
-
-            background:
-                white;
-
-            border:
-                1px solid var(--border);
-
-            box-shadow:
-                var(--shadow);
-
+            border-radius: var(--radius-xl);
+            background: white;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
             isolation: isolate;
+            transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+        }
+
+        .product-brochure:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 32px 85px rgba(8, 26, 49, 0.16);
         }
 
         .product-brochure::before {
             content: "";
-
             position: absolute;
-
             inset: 0;
-
-            background:
-                radial-gradient(
-                    circle at 18% 50%,
-                    rgba(47,140,255,.06),
-                    transparent 35%
-                );
-
+            background: radial-gradient(circle at 18% 50%, rgba(47, 140, 255, .06), transparent 35%);
             pointer-events: none;
         }
 
         .product-copy {
             position: relative;
             z-index: 4;
-
-            width: 50%;
-
-            padding:
-                62px 30px 62px 65px;
+            width: 52%;
+            padding: 62px 36px 62px 65px;
         }
 
         .product-number {
             display: inline-flex;
-
             width: 42px;
             height: 42px;
-
             align-items: center;
             justify-content: center;
-
             margin-bottom: 25px;
-
             border-radius: 12px;
-
-            background:
-                #eef6ff;
-
-            color:
-                var(--blue);
-
+            background: #eef6ff;
+            color: var(--blue);
             font-size: 13px;
             font-weight: 800;
         }
 
         .product-category {
             margin-bottom: 8px;
-
-            color:
-                var(--blue);
-
+            color: var(--blue);
             font-size: 12px;
             font-weight: 800;
-
             letter-spacing: .14em;
-
             text-transform: uppercase;
         }
 
         .product-title {
-            font-size:
-                clamp(35px, 4vw, 52px);
-
-            line-height: 1;
-
+            font-size: clamp(34px, 4vw, 50px);
+            line-height: 1.05;
             letter-spacing: -.05em;
-
-            color:
-                var(--navy-900);
+            color: var(--navy-900);
+            font-weight: 800;
         }
 
         .product-description {
-            margin-top: 20px;
-
+            margin-top: 18px;
             max-width: 510px;
-
-            color:
-                var(--muted);
-
+            color: var(--muted);
             font-size: 16px;
-
             line-height: 1.7;
         }
 
         .product-list {
             display: grid;
-
-            gap: 10px;
-
-            margin-top: 23px;
-
+            gap: 11px;
+            margin-top: 24px;
             list-style: none;
         }
 
         .product-list li {
             position: relative;
-
             padding-left: 27px;
-
-            color:
-                #33465b;
-
+            color: #33465b;
             font-size: 14px;
-
             font-weight: 600;
         }
 
         .product-list li::before {
             content: "";
-
             position: absolute;
-
             left: 0;
             top: 8px;
-
             width: 8px;
             height: 8px;
-
             border-radius: 50%;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--cyan),
-                    var(--blue)
-                );
-
-            box-shadow:
-                0 0 10px rgba(47,140,255,.3);
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            box-shadow: 0 0 10px rgba(47, 140, 255, .3);
         }
 
         .product-action {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-
-            margin-top: 28px;
-
-            color:
-                var(--navy-900);
-
+            margin-top: 30px;
+            color: var(--navy-900);
             font-size: 14px;
             font-weight: 800;
-
-            transition:
-                color .25s ease,
-                gap .25s ease;
+            transition: color .25s ease, gap .25s ease;
         }
 
         .product-action:hover {
-            color:
-                var(--blue);
-
+            color: var(--blue);
             gap: 13px;
         }
 
         .product-photo {
             position: absolute;
-
             z-index: 2;
-
             top: 0;
             right: -7%;
-
             width: 57%;
             height: 100%;
-
             overflow: hidden;
-
-            clip-path:
-                polygon(
-                    12% 0,
-                    100% 0,
-                    100% 100%,
-                    0 100%
-                );
+            clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+            background: #0d243e;
         }
 
         .product-photo::after {
             content: "";
-
             position: absolute;
-
             inset: 0;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(5,18,33,.20),
-                    transparent 30%
-                );
-
+            background: linear-gradient(90deg, rgba(5, 18, 33, .22), transparent 30%);
             pointer-events: none;
         }
 
         .product-photo img {
             width: 100%;
             height: 100%;
-
             object-fit: cover;
-
-            transition:
-                transform 1.1s var(--ease);
+            transition: transform 1.1s var(--ease);
         }
 
-        .product-brochure:hover
-        .product-photo img {
-            transform:
-                scale(1.055);
+        .product-brochure:hover .product-photo img {
+            transform: scale(1.055);
         }
 
-        .photo-farm img {
-            object-position:
-                center center;
+        .photo-farm img { object-position: center center; }
+        .photo-livestock img { object-position: center 40%; }
+        .photo-home img { object-position: center center; }
+        .photo-edu img { object-position: center 38%; }
+        .photo-business img { object-position: center center; }
+
+        /* Fallback placeholder if photo fails to load */
+        .product-photo.image-missing {
+            background: linear-gradient(135deg, #0d243e, #1c4f79);
         }
 
-        .photo-livestock img {
-            object-position:
-                center 40%;
+        .product-photo.image-missing::before {
+            content: "KIRAVA Solution Visual";
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            color: rgba(255, 255, 255, .65);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .04em;
         }
-
-        .photo-home img {
-            object-position:
-                center center;
-        }
-
-        .photo-edu img {
-            object-position:
-                center 38%;
-        }
-
-        .photo-business img {
-            object-position:
-                center center;
-        }
-
 
         /* =========================================================
            SOLUTION PRINCIPLES
@@ -1215,83 +877,53 @@
 
         .principles-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
+            grid-template-columns: repeat(4, 1fr);
             gap: 18px;
         }
 
         .principle {
-            padding: 28px;
-
+            padding: 30px 28px;
             min-height: 220px;
-
-            border-radius:
-                22px;
-
-            background:
-                white;
-
-            border:
-                1px solid var(--border);
-
-            transition:
-                transform .3s ease,
-                box-shadow .3s ease;
+            border-radius: 22px;
+            background: white;
+            border: 1px solid var(--border);
+            transition: transform .3s ease, box-shadow .3s ease;
         }
 
         .principle:hover {
-            transform:
-                translateY(-6px);
-
-            box-shadow:
-                0 20px 50px rgba(8,26,49,.09);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(8, 26, 49, .09);
         }
 
         .principle-icon {
             width: 48px;
             height: 48px;
-
             display: grid;
             place-items: center;
-
             margin-bottom: 22px;
-
             border-radius: 15px;
-
-            background:
-                #edf6ff;
+            background: #edf6ff;
         }
 
         .principle-icon svg {
             width: 25px;
             height: 25px;
-
-            stroke:
-                var(--blue);
+            stroke: var(--blue);
         }
 
         .principle-title {
-            color:
-                var(--navy-900);
-
+            color: var(--navy-900);
             font-size: 18px;
-
             letter-spacing: -.02em;
+            font-weight: 750;
         }
 
         .principle-text {
             margin-top: 9px;
-
-            color:
-                var(--muted);
-
+            color: var(--muted);
             font-size: 14px;
-
             line-height: 1.65;
         }
-
 
         /* =========================================================
            ABOUT / CTA
@@ -1299,177 +931,106 @@
 
         .about-section {
             position: relative;
-
             overflow: hidden;
-
-            background:
-                var(--navy-950);
-
+            background: var(--navy-950);
             color: white;
         }
 
         .about-section::before {
             content: "";
-
             position: absolute;
-
             width: 600px;
             height: 600px;
-
             right: -250px;
             top: -250px;
-
             border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(67,230,255,.12),
-                    transparent 65%
-                );
-
+            background: radial-gradient(circle, rgba(67, 230, 255, .12), transparent 65%);
             pointer-events: none;
         }
 
         .about-grid {
             position: relative;
             z-index: 2;
-
             display: grid;
-
-            grid-template-columns:
-                1fr .8fr;
-
+            grid-template-columns: 1fr .8fr;
             gap: 70px;
-
             align-items: center;
         }
 
         .about-label {
-            color:
-                #79dfff;
-
+            color: #79dfff;
             font-size: 12px;
             font-weight: 800;
-
             letter-spacing: .15em;
-
             text-transform: uppercase;
         }
 
         .about-title {
             margin-top: 14px;
-
             max-width: 700px;
-
-            font-size:
-                clamp(38px, 5vw, 62px);
-
+            font-size: clamp(38px, 5vw, 62px);
             line-height: 1.02;
-
             letter-spacing: -.05em;
+            font-weight: 800;
         }
 
         .about-text {
             margin-top: 22px;
-
             max-width: 650px;
-
-            color:
-                #9eafc3;
-
+            color: #9eafc3;
             font-size: 17px;
-
             line-height: 1.75;
         }
 
         .about-points {
             display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
+            grid-template-columns: repeat(2, 1fr);
             gap: 14px;
-
             margin-top: 30px;
         }
 
         .about-point {
             display: flex;
-
+            align-items: center;
             gap: 11px;
-
-            color:
-                #d4deea;
-
+            color: #d4deea;
             font-size: 14px;
-
             font-weight: 600;
         }
 
         .about-check {
-            flex:
-                0 0 auto;
-
-            width: 21px;
-            height: 21px;
-
+            flex: 0 0 auto;
+            width: 22px;
+            height: 22px;
             display: grid;
             place-items: center;
-
             border-radius: 50%;
-
-            background:
-                rgba(67,230,255,.10);
-
-            color:
-                #63dcff;
+            background: rgba(67, 230, 255, .12);
+            color: #63dcff;
+            font-weight: 700;
+            font-size: 12px;
         }
 
         .about-card {
             min-height: 350px;
-
-            border-radius:
-                30px;
-
-            padding: 30px;
-
+            border-radius: 30px;
+            padding: 34px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.08),
-                    rgba(255,255,255,.025)
-                );
-
-            border:
-                1px solid rgba(255,255,255,.09);
-
-            box-shadow:
-                inset 0 0 70px rgba(67,230,255,.025);
+            background: linear-gradient(145deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .025));
+            border: 1px solid rgba(255, 255, 255, .09);
+            box-shadow: inset 0 0 70px rgba(67, 230, 255, .025);
         }
 
         .about-card-logo {
             width: 68px;
             height: 68px;
-
             display: grid;
             place-items: center;
-
             border-radius: 21px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #43e6ff,
-                    #2f8cff
-                );
-
-            box-shadow:
-                0 15px 40px rgba(47,140,255,.28);
+            background: linear-gradient(135deg, #43e6ff, #2f8cff);
+            box-shadow: 0 15px 40px rgba(47, 140, 255, .28);
         }
 
         .about-card-logo svg {
@@ -1479,184 +1040,164 @@
 
         .about-card-title {
             margin-top: auto;
-
             font-size: 26px;
-
             letter-spacing: -.03em;
+            font-weight: 800;
         }
 
         .about-card-text {
             margin-top: 8px;
-
-            color:
-                #91a6bd;
-
+            color: #91a6bd;
             font-size: 14px;
-
             line-height: 1.65;
         }
-
 
         /* =========================================================
            CONTACT CTA
            ========================================================= */
 
         .contact {
-            padding:
-                105px 0;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #ffffff,
-                    #f4f8fd
-                );
+            padding: 105px 0;
+            background: linear-gradient(180deg, #ffffff, #f4f8fd);
         }
 
         .contact-box {
             position: relative;
-
             overflow: hidden;
-
-            padding:
-                65px;
-
-            border-radius:
-                32px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #0a1727,
-                    #102943
-                );
-
+            padding: 65px;
+            border-radius: 32px;
+            background: linear-gradient(135deg, #0a1727, #102943);
             color: white;
-
-            box-shadow:
-                0 35px 80px rgba(7,17,31,.15);
+            box-shadow: 0 35px 80px rgba(7, 17, 31, .15);
         }
 
         .contact-box::before {
             content: "";
-
             position: absolute;
-
             width: 430px;
             height: 430px;
-
             right: -160px;
             top: -180px;
-
             border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(67,230,255,.16),
-                    transparent 67%
-                );
+            background: radial-gradient(circle, rgba(67, 230, 255, .16), transparent 67%);
+            pointer-events: none;
         }
 
         .contact-content {
             position: relative;
             z-index: 2;
-
             max-width: 720px;
         }
 
         .contact-label {
-            color:
-                #70ddff;
-
+            color: #70ddff;
             font-size: 12px;
             font-weight: 800;
-
             letter-spacing: .15em;
-
             text-transform: uppercase;
         }
 
         .contact-title {
             margin-top: 13px;
-
-            font-size:
-                clamp(34px, 5vw, 54px);
-
+            font-size: clamp(34px, 5vw, 54px);
             line-height: 1.05;
-
             letter-spacing: -.045em;
+            font-weight: 800;
         }
 
         .contact-text {
             margin-top: 17px;
-
-            color:
-                #9fb0c5;
-
+            color: #9fb0c5;
             font-size: 16px;
-
             line-height: 1.7;
         }
 
         .contact-actions {
             display: flex;
             flex-wrap: wrap;
-
-            gap: 12px;
-
-            margin-top: 30px;
+            gap: 14px;
+            margin-top: 32px;
         }
 
+        /* =========================================================
+           FLOATING WHATSAPP BUTTON
+           ========================================================= */
+
+        .floating-wa-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px 12px 14px;
+            border-radius: 50px;
+            background: #25d366;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.38);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .floating-wa-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 14px 36px rgba(37, 211, 102, 0.5);
+            color: #ffffff;
+        }
+
+        .floating-wa-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
 
         /* =========================================================
            FOOTER
            ========================================================= */
 
         footer {
-            padding:
-                35px 0;
-
-            background:
-                #050b14;
-
-            color:
-                #8396ab;
+            padding: 40px 0;
+            background: #050b14;
+            color: #8396ab;
+            border-top: 1px solid rgba(255, 255, 255, .05);
         }
 
         .footer-inner {
             display: flex;
-
             align-items: center;
             justify-content: space-between;
-
             gap: 25px;
         }
 
         .footer-brand {
             color: white;
-
             font-weight: 800;
-
+            font-size: 18px;
             letter-spacing: -.03em;
         }
 
         .footer-copy {
             font-size: 13px;
+            margin-top: 4px;
         }
 
         .footer-links {
             display: flex;
-
-            gap: 22px;
-
+            gap: 24px;
             font-size: 13px;
+            font-weight: 600;
+        }
+
+        .footer-links a {
+            transition: color .2s ease;
         }
 
         .footer-links a:hover {
             color: white;
         }
-
 
         /* =========================================================
            REVEAL ANIMATION
@@ -1664,72 +1205,27 @@
 
         .reveal {
             opacity: 0;
-
-            transform:
-                translateY(35px);
-
-            transition:
-                opacity .8s var(--ease),
-                transform .8s var(--ease);
+            transform: translateY(35px);
+            transition: opacity .8s var(--ease), transform .8s var(--ease);
         }
 
         .reveal.visible {
             opacity: 1;
-
-            transform:
-                translateY(0);
+            transform: translateY(0);
         }
-
 
         /* =========================================================
-           IMAGE FALLBACK
-           ========================================================= */
-
-        .product-photo.image-missing {
-            background:
-                linear-gradient(
-                    135deg,
-                    #0d243e,
-                    #1c4f79
-                );
-        }
-
-        .product-photo.image-missing::before {
-            content: "Tambahkan foto produk";
-
-            position: absolute;
-
-            inset: 0;
-
-            display: grid;
-            place-items: center;
-
-            color: rgba(255,255,255,.65);
-
-            font-size: 13px;
-            font-weight: 700;
-
-            letter-spacing: .04em;
-        }
-
-
-        /* =========================================================
-           RESPONSIVE TABLET
+           RESPONSIVE TABLET & MOBILE
            ========================================================= */
 
         @media (max-width: 1000px) {
-
             .hero-grid {
-                grid-template-columns:
-                    1fr;
-
-                padding:
-                    110px 0 60px;
+                grid-template-columns: 1fr;
+                padding: 110px 0 60px;
             }
 
             .hero {
-                min-height:
-                    auto;
+                min-height: auto;
             }
 
             .hero-copy {
@@ -1741,47 +1237,31 @@
             }
 
             .hero-title {
-                max-width:
-                    760px;
+                max-width: 760px;
             }
 
             .principles-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .about-grid {
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .product-copy {
-                width:
-                    55%;
-
-                padding-left:
-                    45px;
+                width: 55%;
+                padding-left: 45px;
             }
 
             .product-photo {
-                width:
-                    54%;
+                width: 54%;
             }
         }
 
-
-        /* =========================================================
-           RESPONSIVE MOBILE
-           ========================================================= */
-
         @media (max-width: 760px) {
-
             .container {
-                width:
-                    min(
-                        calc(100% - 28px),
-                        var(--max-width)
-                    );
+                width: min(calc(100% - 28px), var(--max-width));
             }
 
             .nav {
@@ -1790,32 +1270,20 @@
 
             .nav-menu {
                 position: absolute;
-
                 left: 14px;
                 right: 14px;
-
                 top: 76px;
-
                 display: none;
-
                 flex-direction: column;
-
                 align-items: stretch;
-
                 gap: 5px;
-
-                padding: 12px;
-
+                padding: 14px;
                 border-radius: 18px;
-
-                background:
-                    rgba(255,255,255,.97);
-
-                box-shadow:
-                    0 20px 50px rgba(8,20,35,.15);
-
-                backdrop-filter:
-                    blur(20px);
+                background: rgba(255, 255, 255, .98);
+                box-shadow: 0 20px 50px rgba(8, 20, 35, .15);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(16, 32, 51, 0.08);
             }
 
             .nav-menu.open {
@@ -1823,2642 +1291,1062 @@
             }
 
             .nav-link {
-                padding:
-                    13px 14px;
+                padding: 13px 14px;
+                color: #102033 !important;
             }
 
             .nav-cta {
-                margin-top: 5px;
-
-                padding:
-                    13px 16px;
+                margin-top: 6px;
+                padding: 13px 16px;
+                background: var(--navy-900) !important;
+                color: #ffffff !important;
             }
 
             .mobile-toggle {
                 display: flex;
-
-                flex-direction: column;
             }
 
             .hero-grid {
-                min-height:
-                    auto;
-
-                padding:
-                    115px 0 30px;
+                min-height: auto;
+                padding: 115px 0 30px;
             }
 
             .hero-copy {
-                padding-top:
-                    15px;
+                padding-top: 15px;
             }
 
             .hero-title {
-                font-size:
-                    clamp(42px, 13vw, 60px);
+                font-size: clamp(40px, 12vw, 56px);
             }
 
             .hero-description {
-                font-size:
-                    16px;
+                font-size: 16px;
             }
 
             .hero-actions {
-                flex-direction:
-                    column;
-
-                align-items:
-                    stretch;
+                flex-direction: column;
+                align-items: stretch;
             }
 
             .btn-primary,
             .btn-secondary {
-                width:
-                    100%;
+                width: 100%;
             }
 
             .neural-stage {
-                height:
-                    390px;
-
-                margin-top:
-                    5px;
+                height: 390px;
+                margin-top: 5px;
             }
 
             .neural-core {
-                width:
-                    82px;
-
-                height:
-                    82px;
+                width: 82px;
+                height: 82px;
             }
 
             .neural-core svg {
-                width:
-                    42px;
-
-                height:
-                    42px;
+                width: 42px;
+                height: 42px;
             }
 
             .neural-icon {
-                width:
-                    51px;
-
-                height:
-                    51px;
-
-                border-radius:
-                    16px;
+                width: 51px;
+                height: 51px;
+                border-radius: 16px;
             }
 
             .neural-icon svg {
-                width:
-                    24px;
-
-                height:
-                    24px;
+                width: 24px;
+                height: 24px;
             }
 
-            .icon-farm {
-                left:
-                    12%;
-            }
-
-            .icon-livestock {
-                right:
-                    7%;
-            }
-
-            .icon-home {
-                right:
-                    10%;
-            }
-
-            .icon-edu {
-                left:
-                    13%;
-            }
-
-            .icon-business {
-                left:
-                    2%;
-            }
+            .icon-farm { left: 12%; }
+            .icon-livestock { right: 7%; }
+            .icon-home { right: 10%; }
+            .icon-edu { left: 13%; }
+            .icon-business { left: 2%; }
 
             .trust-inner {
-                min-height:
-                    auto;
-
-                padding:
-                    25px 0;
-
-                display:
-                    grid;
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-                gap:
-                    18px;
+                min-height: auto;
+                padding: 25px 0;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 18px;
             }
 
             .trust-item {
-                font-size:
-                    11px;
+                font-size: 11px;
             }
 
             .section {
-                padding:
-                    80px 0;
+                padding: 80px 0;
             }
 
             .section-heading {
-                margin-bottom:
-                    35px;
+                margin-bottom: 35px;
             }
 
             .product-brochure {
-                min-height:
-                    auto;
-
-                display:
-                    flex;
-
-                flex-direction:
-                    column;
-
-                border-radius:
-                    24px;
+                min-height: auto;
+                display: flex;
+                flex-direction: column;
+                border-radius: 24px;
             }
 
             .product-copy {
-                width:
-                    100%;
-
-                padding:
-                    38px 28px 34px;
+                width: 100%;
+                padding: 38px 28px 34px;
             }
 
             .product-title {
-                font-size:
-                    42px;
+                font-size: 36px;
             }
 
             .product-description {
-                font-size:
-                    15px;
+                font-size: 15px;
             }
 
             .product-photo {
-                position:
-                    relative;
-
-                top:
-                    auto;
-
-                right:
-                    auto;
-
-                width:
-                    112%;
-
-                height:
-                    280px;
-
-                margin-left:
-                    -6%;
-
-                clip-path:
-                    polygon(
-                        5% 0,
-                        100% 0,
-                        100% 100%,
-                        0 100%
-                    );
+                position: relative;
+                top: auto;
+                right: auto;
+                width: 112%;
+                height: 260px;
+                margin-left: -6%;
+                clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
             }
 
             .principles-grid {
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
 
             .principle {
-                min-height:
-                    auto;
+                min-height: auto;
             }
 
             .about-points {
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
 
             .about-card {
-                min-height:
-                    290px;
+                min-height: 290px;
             }
 
             .contact-box {
-                padding:
-                    38px 28px;
-
-                border-radius:
-                    24px;
+                padding: 38px 26px;
+                border-radius: 24px;
             }
 
             .contact-actions {
-                flex-direction:
-                    column;
+                flex-direction: column;
             }
 
             .contact-actions .btn-primary,
             .contact-actions .btn-secondary {
-                width:
-                    100%;
+                width: 100%;
             }
 
             .footer-inner {
-                flex-direction:
-                    column;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+            }
 
-                align-items:
-                    flex-start;
+            .floating-wa-btn span {
+                display: none;
+            }
+
+            .floating-wa-btn {
+                padding: 14px;
+                border-radius: 50%;
+                bottom: 20px;
+                right: 20px;
             }
         }
-
 
         /* =========================================================
            REDUCED MOTION
            ========================================================= */
 
         @media (prefers-reduced-motion: reduce) {
-
             html {
-                scroll-behavior:
-                    auto;
+                scroll-behavior: auto;
             }
 
             *,
             *::before,
             *::after {
-                animation-duration:
-                    .01ms !important;
-
-                animation-iteration-count:
-                    1 !important;
-
-                transition-duration:
-                    .01ms !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
             }
         }
-
     </style>
 </head>
 
-
 <body>
-
 
     <!-- =========================================================
          HEADER
          ========================================================= -->
-
     <header class="site-header" id="siteHeader">
-
         <div class="container nav">
-
-            <a href="#home"
-               class="brand"
-               aria-label="KIRAVA">
-
+            <a href="#home" class="brand" aria-label="KIRAVA">
                 <span class="brand-mark">
-
-                    <svg
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-
-                        <path
-                            d="M10 27L18 12L22 20L30 13"
-                            stroke="white"
-                            stroke-width="3.2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"/>
-
-                        <circle
-                            cx="10"
-                            cy="27"
-                            r="3"
-                            fill="white"/>
-
-                        <circle
-                            cx="18"
-                            cy="12"
-                            r="3"
-                            fill="white"/>
-
-                        <circle
-                            cx="22"
-                            cy="20"
-                            r="3"
-                            fill="white"/>
-
-                        <circle
-                            cx="30"
-                            cy="13"
-                            r="3"
-                            fill="white"/>
-
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 27L18 12L22 20L30 13" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="10" cy="27" r="3" fill="white"/>
+                        <circle cx="18" cy="12" r="3" fill="white"/>
+                        <circle cx="22" cy="20" r="3" fill="white"/>
+                        <circle cx="30" cy="13" r="3" fill="white"/>
                     </svg>
-
                 </span>
-
-                <span class="brand-text">
-                    KIRAVA
-                </span>
-
+                <span class="brand-text">KIRAVA</span>
             </a>
 
-
-            <button
-                class="mobile-toggle"
-                id="mobileToggle"
-                aria-label="Buka menu">
-
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Buka menu navigasi" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-
             </button>
 
-
             <nav class="nav-menu" id="navMenu">
-
-                <a
-                    href="#solusi"
-                    class="nav-link">
-                    Solusi
-                </a>
-
-                <a
-                    href="#tentang"
-                    class="nav-link">
-                    Tentang
-                </a>
-
-                <a
-                    href="#kontak"
-                    class="nav-link">
-                    Kontak
-                </a>
-
-                <a
-                    href="#kontak"
-                    class="nav-cta"
-                    data-wa="Halo KIRAVA, saya ingin berkonsultasi mengenai solusi yang saya butuhkan.">
+                <a href="#solusi" class="nav-link">Solusi</a>
+                <a href="#tentang" class="nav-link">Tentang</a>
+                <a href="#kontak" class="nav-link">Kontak</a>
+                <a href="#kontak" class="nav-cta" data-wa="Halo KIRAVA, saya ingin berkonsultasi mengenai solusi yang saya butuhkan.">
                     Konsultasi
                 </a>
-
             </nav>
-
         </div>
-
     </header>
 
-
-
     <!-- =========================================================
-         HERO
+         HERO SECTION
          ========================================================= -->
-
     <main>
-
-        <section
-            class="hero"
-            id="home">
-
+        <section class="hero" id="home">
             <div class="container hero-grid">
 
-
                 <!-- HERO TEXT -->
-
                 <div class="hero-copy reveal">
-
                     <div class="hero-eyebrow">
-
-                        <span
-                            class="hero-eyebrow-dot">
-                        </span>
-
+                        <span class="hero-eyebrow-dot"></span>
                         KIRAVA
-
                     </div>
-
 
                     <h1 class="hero-title">
-
                         Punya Kebutuhan?
-
-                        <span>
-                            Kami Bantu Solusinya.
-                        </span>
-
+                        <span>Kami Bantu Solusinya.</span>
                     </h1>
 
-
                     <p class="hero-description">
-
-                        KIRAVA membantu menghadirkan solusi yang
-                        membuat pekerjaan lebih mudah, menghemat
-                        waktu, dan memberikan kendali yang lebih baik
-                        untuk rumah, usaha, sekolah, pertanian,
-                        maupun peternakan.
-
+                        KIRAVA membantu menghadirkan solusi yang membuat pekerjaan lebih mudah, menghemat waktu, dan memberikan kendali yang lebih baik untuk rumah, usaha, sekolah, pertanian, maupun peternakan.
                     </p>
 
-
                     <div class="hero-actions">
-
-                        <a
-                            href="#kontak"
-                            class="btn-primary">
-
+                        <a href="#kontak" class="btn-primary" data-wa="Halo KIRAVA, saya ingin berkonsultasi mengenai kebutuhan teknologi saya.">
                             Konsultasikan Kebutuhan
-
-                            <svg
-                                width="18"
-                                height="18"
-                                viewBox="0 0 24 24"
-                                fill="none">
-
-                                <path
-                                    d="M5 12H19M13 6L19 12L13 18"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"/>
-
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-
                         </a>
 
-
-                        <a
-                            href="#solusi"
-                            class="btn-secondary">
-
+                        <a href="#solusi" class="btn-secondary">
                             Lihat Solusi
-
                         </a>
-
                     </div>
-
                 </div>
 
+                <!-- GENERATIVE NEURAL NETWORK (HANYA IKON — TANPA TEXT) -->
+                <div class="neural-stage" aria-hidden="true">
+                    <canvas id="neuralCanvas"></canvas>
 
-
-                <!-- =================================================
-                     GENERATIVE NEURAL NETWORK
-                     HANYA IKON — TANPA TEXT
-                     ================================================= -->
-
-                <div
-                    class="neural-stage"
-                    aria-hidden="true">
-
-                    <canvas
-                        id="neuralCanvas">
-                    </canvas>
-
-
-                    <div
-                        class="neural-glow">
-                    </div>
-
+                    <div class="neural-glow"></div>
 
                     <!-- CENTRAL KIRAVA SYMBOL -->
-
-                    <div class="neural-core">
-
-                        <svg
-                            viewBox="0 0 80 80"
-                            fill="none">
-
-                            <path
-                                d="M18 54L32 25L40 40L58 22"
-                                stroke="#6FE8FF"
-                                stroke-width="4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"/>
-
-                            <circle
-                                cx="18"
-                                cy="54"
-                                r="5"
-                                fill="#43E6FF"/>
-
-                            <circle
-                                cx="32"
-                                cy="25"
-                                r="5"
-                                fill="#43E6FF"/>
-
-                            <circle
-                                cx="40"
-                                cy="40"
-                                r="5"
-                                fill="#43E6FF"/>
-
-                            <circle
-                                cx="58"
-                                cy="22"
-                                r="5"
-                                fill="#43E6FF"/>
-
+                    <div class="neural-core" title="KIRAVA Intelligent Core">
+                        <svg viewBox="0 0 80 80" fill="none">
+                            <path d="M18 54L32 25L40 40L58 22" stroke="#6FE8FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="18" cy="54" r="5" fill="#43E6FF"/>
+                            <circle cx="32" cy="25" r="5" fill="#43E6FF"/>
+                            <circle cx="40" cy="40" r="5" fill="#43E6FF"/>
+                            <circle cx="58" cy="22" r="5" fill="#43E6FF"/>
                         </svg>
-
                     </div>
-
-
 
                     <!-- FARM ICON -->
-
-                    <div
-                        class="neural-icon icon-farm">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none">
-
-                            <path
-                                d="M12 21C12 16 14 11 20 8"
-                                stroke-width="1.7"
-                                stroke-linecap="round"/>
-
-                            <path
-                                d="M12 17C9 14 7 10 8 5"
-                                stroke-width="1.7"
-                                stroke-linecap="round"/>
-
-                            <path
-                                d="M12 15C15 12 17 9 18 5"
-                                stroke-width="1.7"
-                                stroke-linecap="round"/>
-
-                            <path
-                                d="M8 5C11 5 13 7 13 10"
-                                stroke-width="1.7"
-                                stroke-linecap="round"/>
-
-                            <path
-                                d="M18 5C15 5 13 7 13 10"
-                                stroke-width="1.7"
-                                stroke-linecap="round"/>
-
+                    <a href="#solusi" class="neural-icon icon-farm" title="KIRAVA Farm">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21C12 16 14 11 20 8" stroke-width="1.7" stroke-linecap="round"/>
+                            <path d="M12 17C9 14 7 10 8 5" stroke-width="1.7" stroke-linecap="round"/>
+                            <path d="M12 15C15 12 17 9 18 5" stroke-width="1.7" stroke-linecap="round"/>
+                            <path d="M8 5C11 5 13 7 13 10" stroke-width="1.7" stroke-linecap="round"/>
+                            <path d="M18 5C15 5 13 7 13 10" stroke-width="1.7" stroke-linecap="round"/>
                         </svg>
-
-                    </div>
-
-
+                    </a>
 
                     <!-- LIVESTOCK ICON -->
-
-                    <div
-                        class="neural-icon icon-livestock">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none">
-
-                            <path
-                                d="M7 9L5 6L9 7"
-                                stroke-width="1.7"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"/>
-
-                            <path
-                                d="M17 9L19 6L15 7"
-                                stroke-width="1.7"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"/>
-
-                            <path
-                                d="M6 12C6 8.7 8.7 7 12 7C15.3 7 18 8.7 18 12V15C18 18.3 15.3 20 12 20C8.7 20 6 18.3 6 15V12Z"
-                                stroke-width="1.7"/>
-
-                            <circle
-                                cx="9.5"
-                                cy="13"
-                                r="1"
-                                fill="currentColor"
-                                stroke="none"/>
-
-                            <circle
-                                cx="14.5"
-                                cy="13"
-                                r="1"
-                                fill="currentColor"
-                                stroke="none"/>
-
-                            <path
-                                d="M10 16C11 17 13 17 14 16"
-                                stroke-width="1.5"
-                                stroke-linecap="round"/>
-
+                    <a href="#solusi" class="neural-icon icon-livestock" title="KIRAVA Livestock">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M7 9L5 6L9 7" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17 9L19 6L15 7" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 12C6 8.7 8.7 7 12 7C15.3 7 18 8.7 18 12V15C18 18.3 15.3 20 12 20C8.7 20 6 18.3 6 15V12Z" stroke-width="1.7"/>
+                            <circle cx="9.5" cy="13" r="1" fill="currentColor" stroke="none"/>
+                            <circle cx="14.5" cy="13" r="1" fill="currentColor" stroke="none"/>
+                            <path d="M10 16C11 17 13 17 14 16" stroke-width="1.5" stroke-linecap="round"/>
                         </svg>
-
-                    </div>
-
-
+                    </a>
 
                     <!-- HOME ICON -->
-
-                    <div
-                        class="neural-icon icon-home">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none">
-
-                            <path
-                                d="M3 11L12 4L21 11"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"/>
-
-                            <path
-                                d="M5 10V20H19V10"
-                                stroke-width="1.8"
-                                stroke-linejoin="round"/>
-
-                            <path
-                                d="M9 20V14H15V20"
-                                stroke-width="1.8"
-                                stroke-linejoin="round"/>
-
+                    <a href="#solusi" class="neural-icon icon-home" title="KIRAVA Home">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M3 11L12 4L21 11" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M5 10V20H19V10" stroke-width="1.8" stroke-linejoin="round"/>
+                            <path d="M9 20V14H15V20" stroke-width="1.8" stroke-linejoin="round"/>
                         </svg>
-
-                    </div>
-
-
+                    </a>
 
                     <!-- EDUCATION ICON -->
-
-                    <div
-                        class="neural-icon icon-edu">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none">
-
-                            <path
-                                d="M3 9L12 4L21 9L12 14L3 9Z"
-                                stroke-width="1.7"
-                                stroke-linejoin="round"/>
-
-                            <path
-                                d="M7 11V16C9 18 15 18 17 16V11"
-                                stroke-width="1.7"
-                                stroke-linecap="round"/>
-
-                            <path
-                                d="M21 9V15"
-                                stroke-width="1.7"
-                                stroke-linecap="round"/>
-
+                    <a href="#solusi" class="neural-icon icon-edu" title="KIRAVA Edu">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M3 9L12 4L21 9L12 14L3 9Z" stroke-width="1.7" stroke-linejoin="round"/>
+                            <path d="M7 11V16C9 18 15 18 17 16V11" stroke-width="1.7" stroke-linecap="round"/>
+                            <path d="M21 9V15" stroke-width="1.7" stroke-linecap="round"/>
                         </svg>
-
-                    </div>
-
-
+                    </a>
 
                     <!-- BUSINESS ICON -->
-
-                    <div
-                        class="neural-icon icon-business">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none">
-
-                            <path
-                                d="M4 19V5"
-                                stroke-width="1.7"
-                                stroke-linecap="round"/>
-
-                            <path
-                                d="M4 19H21"
-                                stroke-width="1.7"
-                                stroke-linecap="round"/>
-
-                            <path
-                                d="M7 15L11 11L14 13L20 7"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"/>
-
-                            <path
-                                d="M17 7H20V10"
-                                stroke-width="1.7"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"/>
-
+                    <a href="#solusi" class="neural-icon icon-business" title="KIRAVA Business">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M4 19V5" stroke-width="1.7" stroke-linecap="round"/>
+                            <path d="M4 19H21" stroke-width="1.7" stroke-linecap="round"/>
+                            <path d="M7 15L11 11L14 13L20 7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17 7H20V10" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-
-                    </div>
-
-
+                    </a>
 
                     <span class="neural-particle particle-1"></span>
                     <span class="neural-particle particle-2"></span>
                     <span class="neural-particle particle-3"></span>
                     <span class="neural-particle particle-4"></span>
                     <span class="neural-particle particle-5"></span>
-
                 </div>
 
             </div>
-
         </section>
-
-
 
         <!-- =========================================================
              TRUST STRIP
              ========================================================= -->
-
         <section class="trust-strip">
-
             <div class="container trust-inner">
-
                 <div class="trust-item">
-
                     <span class="trust-dot"></span>
-
-                    <span>
-                        Solusi yang <strong>sesuai kebutuhan</strong>
-                    </span>
-
+                    <span>Solusi yang <strong>sesuai kebutuhan</strong></span>
                 </div>
 
-
                 <div class="trust-item">
-
                     <span class="trust-dot"></span>
-
-                    <span>
-                        Mudah <strong>digunakan</strong>
-                    </span>
-
+                    <span>Mudah <strong>digunakan</strong></span>
                 </div>
 
-
                 <div class="trust-item">
-
                     <span class="trust-dot"></span>
-
-                    <span>
-                        Bisa <strong>dikembangkan</strong>
-                    </span>
-
+                    <span>Bisa <strong>dikembangkan</strong></span>
                 </div>
 
-
                 <div class="trust-item">
-
                     <span class="trust-dot"></span>
-
-                    <span>
-                        Ada <strong>pendampingan</strong>
-                    </span>
-
+                    <span>Ada <strong>pendampingan</strong></span>
                 </div>
-
             </div>
-
         </section>
 
-
-
         <!-- =========================================================
-             PRODUCTS
+             PRODUCTS / SOLUSI
              ========================================================= -->
-
-        <section
-            class="section"
-            id="solusi">
-
+        <section class="section" id="solusi">
             <div class="container">
 
-
                 <div class="section-heading reveal">
-
-                    <span class="section-label">
-                        Solusi KIRAVA
-                    </span>
-
-                    <h2 class="section-title">
-                        Teknologi yang dibuat
-                        untuk kebutuhan nyata.
-                    </h2>
-
+                    <span class="section-label">Solusi KIRAVA</span>
+                    <h2 class="section-title">Teknologi yang dibuat untuk kebutuhan nyata.</h2>
                     <p class="section-description">
-
-                        Setiap kebutuhan memiliki kondisi yang
-                        berbeda. Karena itu, kami tidak sekadar
-                        menawarkan produk, tetapi membantu
-                        menyesuaikan solusi dengan kebutuhan Anda.
-
+                        Setiap kebutuhan memiliki kondisi yang berbeda. Karena itu, kami tidak sekadar menawarkan produk, tetapi membantu menyesuaikan solusi dengan kebutuhan Anda.
                     </p>
-
                 </div>
-
-
 
                 <div class="products">
 
-
-                    <!-- =================================================
-                         FARM
-                         ================================================= -->
-
-                    <article
-                        class="product-brochure reveal">
-
+                    <!-- 01. FARM -->
+                    <article class="product-brochure reveal">
                         <div class="product-copy">
-
-                            <div class="product-number">
-                                01
-                            </div>
-
-                            <div class="product-category">
-                                KIRAVA FARM
-                            </div>
-
-                            <h3 class="product-title">
-                                Pertanian Lebih Terkendali.
-                            </h3>
-
+                            <div class="product-number">01</div>
+                            <div class="product-category">KIRAVA FARM</div>
+                            <h3 class="product-title">Pertanian Lebih Terkendali.</h3>
                             <p class="product-description">
-
-                                Bantu pantau kondisi tanaman dan
-                                lingkungan tanpa harus selalu berada
-                                di lokasi. Solusi dapat disesuaikan
-                                dengan kebutuhan kebun dan lahan Anda.
-
+                                Bantu pantau kondisi tanaman dan lingkungan tanpa harus selalu berada di lokasi. Solusi dapat disesuaikan dengan kebutuhan kebun dan lahan Anda.
                             </p>
-
                             <ul class="product-list">
-
-                                <li>
-                                    Pemantauan kondisi lahan
-                                </li>
-
-                                <li>
-                                    Penyiraman dan pengelolaan otomatis
-                                </li>
-
-                                <li>
-                                    Informasi kondisi kebun lebih mudah
-                                    dipantau
-                                </li>
-
+                                <li>Pemantauan kondisi lahan & kelembapan tanah</li>
+                                <li>Penyiraman dan pengelolaan otomatis</li>
+                                <li>Informasi kondisi kebun lebih mudah dipantau</li>
                             </ul>
-
-                            <a
-                                href="#kontak"
-                                class="product-action"
-                                data-wa="Halo KIRAVA, saya tertarik dengan KIRAVA FARM. Saya ingin mengetahui solusi untuk pertanian saya.">
-
+                            <a href="#kontak" class="product-action" data-wa="Halo KIRAVA, saya tertarik dengan KIRAVA FARM. Saya ingin mengetahui solusi untuk pertanian saya.">
                                 Diskusikan kebutuhan FARM
-
                                 <span>→</span>
-
                             </a>
-
                         </div>
 
-
-                        <div
-                            class="product-photo photo-farm">
-
-                            <img
-                                src="assets/farm.jpg"
-                                alt="Solusi teknologi pertanian KIRAVA"
-                                loading="lazy">
-
+                        <div class="product-photo photo-farm">
+                            <img src="assets/farm.jpg"
+                                 alt="Solusi teknologi pertanian dan greenhouse modern KIRAVA"
+                                 loading="lazy"
+                                 referrerpolicy="no-referrer">
                         </div>
-
                     </article>
 
-
-
-                    <!-- =================================================
-                         LIVESTOCK
-                         ================================================= -->
-
-                    <article
-                        class="product-brochure reveal">
-
+                    <!-- 02. LIVESTOCK -->
+                    <article class="product-brochure reveal">
                         <div class="product-copy">
-
-                            <div class="product-number">
-                                02
-                            </div>
-
-                            <div class="product-category">
-                                KIRAVA LIVESTOCK
-                            </div>
-
-                            <h3 class="product-title">
-                                Peternakan Lebih Terpantau.
-                            </h3>
-
+                            <div class="product-number">02</div>
+                            <div class="product-category">KIRAVA LIVESTOCK</div>
+                            <h3 class="product-title">Peternakan Lebih Terpantau.</h3>
                             <p class="product-description">
-
-                                Bantu menjaga kondisi kandang dan
-                                lingkungan ternak agar lebih mudah
-                                dipantau, sehingga pengelolaan dapat
-                                dilakukan dengan lebih cepat.
-
+                                Bantu menjaga kondisi kandang dan lingkungan ternak agar lebih mudah dipantau, sehingga pengelolaan dapat dilakukan dengan lebih cepat.
                             </p>
-
                             <ul class="product-list">
-
-                                <li>
-                                    Pemantauan kondisi kandang
-                                </li>
-
-                                <li>
-                                    Kendali perangkat sesuai kebutuhan
-                                </li>
-
-                                <li>
-                                    Peringatan ketika kondisi berubah
-                                </li>
-
+                                <li>Pemantauan kondisi kandang & iklim mikro</li>
+                                <li>Kendali perangkat sesuai kebutuhan</li>
+                                <li>Peringatan ketika kondisi berubah</li>
                             </ul>
-
-                            <a
-                                href="#kontak"
-                                class="product-action"
-                                data-wa="Halo KIRAVA, saya tertarik dengan KIRAVA LIVESTOCK. Saya ingin mengetahui solusi untuk peternakan saya.">
-
+                            <a href="#kontak" class="product-action" data-wa="Halo KIRAVA, saya tertarik dengan KIRAVA LIVESTOCK. Saya ingin mengetahui solusi untuk peternakan saya.">
                                 Diskusikan kebutuhan LIVESTOCK
-
                                 <span>→</span>
-
                             </a>
-
                         </div>
 
-
-                        <div
-                            class="product-photo photo-livestock">
-
-                            <img
-                                src="assets/livestock.jpg"
-                                alt="Solusi teknologi peternakan KIRAVA"
-                                loading="lazy">
-
+                        <div class="product-photo photo-livestock">
+                            <img src="assets/livestock.jpg"
+                                 alt="Solusi teknologi peternakan modern KIRAVA"
+                                 loading="lazy"
+                                 referrerpolicy="no-referrer">
                         </div>
-
                     </article>
 
-
-
-                    <!-- =================================================
-                         HOME
-                         ================================================= -->
-
-                    <article
-                        class="product-brochure reveal">
-
+                    <!-- 03. HOME -->
+                    <article class="product-brochure reveal">
                         <div class="product-copy">
-
-                            <div class="product-number">
-                                03
-                            </div>
-
-                            <div class="product-category">
-                                KIRAVA HOME
-                            </div>
-
-                            <h3 class="product-title">
-                                Rumah Lebih Nyaman.
-                            </h3>
-
+                            <div class="product-number">03</div>
+                            <div class="product-category">KIRAVA HOME</div>
+                            <h3 class="product-title">Rumah Lebih Nyaman.</h3>
                             <p class="product-description">
-
-                                Buat rumah menjadi lebih nyaman,
-                                aman, dan mudah dikendalikan dengan
-                                solusi yang disesuaikan dengan
-                                kebutuhan penghuni rumah.
-
+                                Buat rumah menjadi lebih nyaman, aman, dan mudah dikendalikan dengan solusi yang disesuaikan dengan kebutuhan penghuni rumah.
                             </p>
-
                             <ul class="product-list">
-
-                                <li>
-                                    Kendali perangkat rumah
-                                </li>
-
-                                <li>
-                                    Pemantauan keamanan
-                                </li>
-
-                                <li>
-                                    Otomatisasi aktivitas tertentu
-                                </li>
-
+                                <li>Kendali perangkat rumah & pencahayaan</li>
+                                <li>Pemantauan keamanan & sensor</li>
+                                <li>Otomatisasi aktivitas tertentu</li>
                             </ul>
-
-                            <a
-                                href="#kontak"
-                                class="product-action"
-                                data-wa="Halo KIRAVA, saya tertarik dengan KIRAVA HOME. Saya ingin mengetahui solusi smart home yang bisa dibuat.">
-
+                            <a href="#kontak" class="product-action" data-wa="Halo KIRAVA, saya tertarik dengan KIRAVA HOME. Saya ingin mengetahui solusi smart home yang bisa dibuat.">
                                 Diskusikan kebutuhan HOME
-
                                 <span>→</span>
-
                             </a>
-
                         </div>
 
-
-                        <div
-                            class="product-photo photo-home">
-
-                            <img
-                                src="assets/home.jpg"
-                                alt="Solusi smart home KIRAVA"
-                                loading="lazy">
-
+                        <div class="product-photo photo-home">
+                            <img src="assets/home.jpg"
+                                 alt="Solusi smart home automation KIRAVA"
+                                 loading="lazy"
+                                 referrerpolicy="no-referrer">
                         </div>
-
                     </article>
 
-
-
-                    <!-- =================================================
-                         EDU
-                         ================================================= -->
-
-                    <article
-                        class="product-brochure reveal">
-
+                    <!-- 04. EDU -->
+                    <article class="product-brochure reveal">
                         <div class="product-copy">
-
-                            <div class="product-number">
-                                04
-                            </div>
-
-                            <div class="product-category">
-                                KIRAVA EDU
-                            </div>
-
-                            <h3 class="product-title">
-                                Pendidikan Lebih Sederhana.
-                            </h3>
-
+                            <div class="product-number">04</div>
+                            <div class="product-category">KIRAVA EDU</div>
+                            <h3 class="product-title">Pendidikan Lebih Sederhana.</h3>
                             <p class="product-description">
-
-                                Membantu sekolah dan pendidik
-                                mengurangi pekerjaan yang berulang
-                                sehingga lebih banyak waktu dapat
-                                digunakan untuk mendampingi peserta
-                                didik.
-
+                                Membantu sekolah dan pendidik mengurangi pekerjaan yang berulang sehingga lebih banyak waktu dapat digunakan untuk mendampingi peserta didik.
                             </p>
-
                             <ul class="product-list">
-
-                                <li>
-                                    Membantu pekerjaan administrasi
-                                </li>
-
-                                <li>
-                                    Pengolahan data pendidikan
-                                </li>
-
-                                <li>
-                                    Solusi yang menyesuaikan kebutuhan sekolah
-                                </li>
-
+                                <li>Membantu pekerjaan administrasi & presensi</li>
+                                <li>Pengolahan data pendidikan & evaluasi</li>
+                                <li>Solusi yang menyesuaikan kebutuhan sekolah</li>
                             </ul>
-
-                            <a
-                                href="#kontak"
-                                class="product-action"
-                                data-wa="Halo KIRAVA, saya tertarik dengan KIRAVA EDU. Saya ingin mengetahui solusi untuk sekolah atau pendidikan.">
-
+                            <a href="#kontak" class="product-action" data-wa="Halo KIRAVA, saya tertarik dengan KIRAVA EDU. Saya ingin mengetahui solusi untuk sekolah atau pendidikan.">
                                 Diskusikan kebutuhan EDU
-
                                 <span>→</span>
-
                             </a>
-
                         </div>
 
-
-                        <div
-                            class="product-photo photo-edu">
-
-                            <img
-                                src="assets/edu.jpg"
-                                alt="Solusi teknologi pendidikan KIRAVA"
-                                loading="lazy">
-
+                        <div class="product-photo photo-edu">
+                            <img src="assets/edu.jpg"
+                                 alt="Solusi teknologi pendidikan dan smart school KIRAVA"
+                                 loading="lazy"
+                                 referrerpolicy="no-referrer">
                         </div>
-
                     </article>
 
-
-
-                    <!-- =================================================
-                         BUSINESS
-                         ================================================= -->
-
-                    <article
-                        class="product-brochure reveal">
-
+                    <!-- 05. BUSINESS -->
+                    <article class="product-brochure reveal">
                         <div class="product-copy">
-
-                            <div class="product-number">
-                                05
-                            </div>
-
-                            <div class="product-category">
-                                KIRAVA BUSINESS
-                            </div>
-
-                            <h3 class="product-title">
-                                Usaha Lebih Mudah Dikelola.
-                            </h3>
-
+                            <div class="product-number">05</div>
+                            <div class="product-category">KIRAVA BUSINESS</div>
+                            <h3 class="product-title">Usaha Lebih Mudah Dikelola.</h3>
                             <p class="product-description">
-
-                                Bantu pemilik usaha melihat kondisi
-                                bisnis dengan lebih jelas dan
-                                mengurangi pekerjaan yang masih
-                                dilakukan secara manual.
-
+                                Bantu pemilik usaha melihat kondisi bisnis dengan lebih jelas dan mengurangi pekerjaan yang masih dilakukan secara manual.
                             </p>
-
                             <ul class="product-list">
-
-                                <li>
-                                    Pengelolaan transaksi dan stok
-                                </li>
-
-                                <li>
-                                    Informasi usaha lebih mudah dipantau
-                                </li>
-
-                                <li>
-                                    Solusi dapat dikembangkan sesuai bisnis
-                                </li>
-
+                                <li>Pengelolaan transaksi kasir & stok barang</li>
+                                <li>Informasi usaha & analitik lebih mudah dipantau</li>
+                                <li>Solusi dapat dikembangkan sesuai skala bisnis</li>
                             </ul>
-
-                            <a
-                                href="#kontak"
-                                class="product-action"
-                                data-wa="Halo KIRAVA, saya tertarik dengan KIRAVA BUSINESS. Saya ingin mengetahui solusi untuk usaha saya.">
-
+                            <a href="#kontak" class="product-action" data-wa="Halo KIRAVA, saya tertarik dengan KIRAVA BUSINESS. Saya ingin mengetahui solusi untuk usaha saya.">
                                 Diskusikan kebutuhan BUSINESS
-
                                 <span>→</span>
-
                             </a>
-
                         </div>
 
-
-                        <div
-                            class="product-photo photo-business">
-
-                            <img
-                                src="assets/business.jpg"
-                                alt="Solusi teknologi bisnis KIRAVA"
-                                loading="lazy">
-
+                        <div class="product-photo photo-business">
+                            <img src="assets/business.jpg"
+                                 alt="Solusi aplikasi bisnis dan POS digital KIRAVA"
+                                 loading="lazy"
+                                 referrerpolicy="no-referrer">
                         </div>
-
                     </article>
-
 
                 </div>
 
             </div>
-
         </section>
 
-
-
         <!-- =========================================================
-             PRINCIPLES
+             PRINCIPLES (CARA KAMI BEKERJA)
              ========================================================= -->
-
-        <section
-            class="section section-soft"
-            id="tentang">
-
+        <section class="section section-soft" id="tentang">
             <div class="container">
 
-
                 <div class="section-heading reveal">
-
-                    <span class="section-label">
-                        Cara Kami Bekerja
-                    </span>
-
-                    <h2 class="section-title">
-                        Bukan sekadar teknologi.
-                    </h2>
-
+                    <span class="section-label">Cara Kami Bekerja</span>
+                    <h2 class="section-title">Bukan sekadar teknologi.</h2>
                     <p class="section-description">
-
-                        Kami mulai dari kebutuhan Anda, kemudian
-                        mencari cara yang paling masuk akal untuk
-                        membuat pekerjaan menjadi lebih mudah.
-
+                        Kami mulai dari kebutuhan Anda, kemudian mencari cara yang paling masuk akal untuk membuat pekerjaan menjadi lebih mudah.
                     </p>
-
                 </div>
-
-
 
                 <div class="principles-grid">
 
-
                     <div class="principle reveal">
-
                         <div class="principle-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none">
-
-                                <circle
-                                    cx="11"
-                                    cy="11"
-                                    r="6.5"
-                                    stroke-width="1.7"/>
-
-                                <path
-                                    d="M16 16L21 21"
-                                    stroke-width="1.7"
-                                    stroke-linecap="round"/>
-
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <circle cx="11" cy="11" r="6.5" stroke-width="1.7"/>
+                                <path d="M16 16L21 21" stroke-width="1.7" stroke-linecap="round"/>
                             </svg>
-
                         </div>
-
-                        <h3 class="principle-title">
-                            Mulai dari Kebutuhan
-                        </h3>
-
+                        <h3 class="principle-title">Mulai dari Kebutuhan</h3>
                         <p class="principle-text">
-                            Kami memahami masalah terlebih dahulu,
-                            bukan langsung menawarkan teknologi.
+                            Kami memahami masalah terlebih dahulu, bukan langsung menawarkan teknologi.
                         </p>
-
                     </div>
 
-
-
                     <div class="principle reveal">
-
                         <div class="principle-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none">
-
-                                <path
-                                    d="M12 3V21"
-                                    stroke-width="1.7"
-                                    stroke-linecap="round"/>
-
-                                <path
-                                    d="M4 8L12 3L20 8L12 13L4 8Z"
-                                    stroke-width="1.7"
-                                    stroke-linejoin="round"/>
-
-                                <path
-                                    d="M4 16L12 21L20 16"
-                                    stroke-width="1.7"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"/>
-
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M12 3V21" stroke-width="1.7" stroke-linecap="round"/>
+                                <path d="M4 8L12 3L20 8L12 13L4 8Z" stroke-width="1.7" stroke-linejoin="round"/>
+                                <path d="M4 16L12 21L20 16" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-
                         </div>
-
-                        <h3 class="principle-title">
-                            Dibuat Sesuai Kondisi
-                        </h3>
-
+                        <h3 class="principle-title">Dibuat Sesuai Kondisi</h3>
                         <p class="principle-text">
-                            Solusi dapat disesuaikan dengan tempat,
-                            proses kerja, dan kebutuhan pengguna.
+                            Solusi dapat disesuaikan dengan tempat, proses kerja, dan kebutuhan pengguna.
                         </p>
-
                     </div>
 
-
-
                     <div class="principle reveal">
-
                         <div class="principle-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none">
-
-                                <path
-                                    d="M12 3V21"
-                                    stroke-width="1.7"
-                                    stroke-linecap="round"/>
-
-                                <path
-                                    d="M5 8H19"
-                                    stroke-width="1.7"
-                                    stroke-linecap="round"/>
-
-                                <path
-                                    d="M7 13H17"
-                                    stroke-width="1.7"
-                                    stroke-linecap="round"/>
-
-                                <path
-                                    d="M9 18H15"
-                                    stroke-width="1.7"
-                                    stroke-linecap="round"/>
-
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M12 3V21" stroke-width="1.7" stroke-linecap="round"/>
+                                <path d="M5 8H19" stroke-width="1.7" stroke-linecap="round"/>
+                                <path d="M7 13H17" stroke-width="1.7" stroke-linecap="round"/>
+                                <path d="M9 18H15" stroke-width="1.7" stroke-linecap="round"/>
                             </svg>
-
                         </div>
-
-                        <h3 class="principle-title">
-                            Bisa Berkembang
-                        </h3>
-
+                        <h3 class="principle-title">Bisa Berkembang</h3>
                         <p class="principle-text">
-                            Solusi tidak harus berhenti di versi
-                            pertama dan dapat dikembangkan bertahap.
+                            Solusi tidak harus berhenti di versi pertama dan dapat dikembangkan bertahap.
                         </p>
-
                     </div>
 
-
-
                     <div class="principle reveal">
-
                         <div class="principle-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none">
-
-                                <path
-                                    d="M20 11.5C20 16.2 16.4 20 12 20C7.6 20 4 16.2 4 11.5C4 7.1 7.6 4 12 4C16.4 4 20 7.1 20 11.5Z"
-                                    stroke-width="1.7"/>
-
-                                <path
-                                    d="M8 12C8.8 13 10 13.5 12 13.5C14 13.5 15.2 13 16 12"
-                                    stroke-width="1.7"
-                                    stroke-linecap="round"/>
-
-                                <circle
-                                    cx="9"
-                                    cy="10"
-                                    r="1"
-                                    fill="currentColor"
-                                    stroke="none"/>
-
-                                <circle
-                                    cx="15"
-                                    cy="10"
-                                    r="1"
-                                    fill="currentColor"
-                                    stroke="none"/>
-
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M20 11.5C20 16.2 16.4 20 12 20C7.6 20 4 16.2 4 11.5C4 7.1 7.6 4 12 4C16.4 4 20 7.1 20 11.5Z" stroke-width="1.7"/>
+                                <path d="M8 12C8.8 13 10 13.5 12 13.5C14 13.5 15.2 13 16 12" stroke-width="1.7" stroke-linecap="round"/>
+                                <circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/>
+                                <circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/>
                             </svg>
-
                         </div>
-
-                        <h3 class="principle-title">
-                            Mudah Digunakan
-                        </h3>
-
+                        <h3 class="principle-title">Mudah Digunakan</h3>
                         <p class="principle-text">
-                            Teknologi seharusnya membantu,
-                            bukan membuat pengguna semakin bingung.
+                            Teknologi seharusnya membantu, bukan membuat pengguna semakin bingung.
                         </p>
-
                     </div>
-
 
                 </div>
 
             </div>
-
         </section>
 
-
-
         <!-- =========================================================
-             ABOUT
+             ABOUT SECTION
              ========================================================= -->
-
-        <section
-            class="section about-section">
-
+        <section class="section about-section">
             <div class="container about-grid">
 
-
                 <div class="reveal">
-
-                    <span class="about-label">
-                        Tentang KIRAVA
-                    </span>
-
-                    <h2 class="about-title">
-                        Kami membuat teknologi
-                        terasa lebih sederhana.
-                    </h2>
-
+                    <span class="about-label">Tentang KIRAVA</span>
+                    <h2 class="about-title">Kami membuat teknologi terasa lebih sederhana.</h2>
                     <p class="about-text">
-
-                        KIRAVA hadir untuk membantu mengubah kebutuhan
-                        nyata menjadi solusi yang bisa digunakan.
-                        Dari pertanian, peternakan, rumah, pendidikan,
-                        hingga usaha.
-
+                        KIRAVA hadir untuk membantu mengubah kebutuhan nyata menjadi solusi yang bisa digunakan. Dari pertanian, peternakan, rumah, pendidikan, hingga usaha.
                     </p>
 
-
                     <div class="about-points">
-
                         <div class="about-point">
-
-                            <span class="about-check">
-                                ✓
-                            </span>
-
+                            <span class="about-check">✓</span>
                             Sesuai kebutuhan
-
                         </div>
 
-
                         <div class="about-point">
-
-                            <span class="about-check">
-                                ✓
-                            </span>
-
+                            <span class="about-check">✓</span>
                             Mudah digunakan
-
                         </div>
 
-
                         <div class="about-point">
-
-                            <span class="about-check">
-                                ✓
-                            </span>
-
+                            <span class="about-check">✓</span>
                             Dapat dikembangkan
-
                         </div>
-
 
                         <div class="about-point">
-
-                            <span class="about-check">
-                                ✓
-                            </span>
-
+                            <span class="about-check">✓</span>
                             Pendampingan solusi
-
                         </div>
-
                     </div>
-
                 </div>
 
-
-
                 <div class="about-card reveal">
-
                     <div class="about-card-logo">
-
-                        <svg
-                            viewBox="0 0 80 80"
-                            fill="none">
-
-                            <path
-                                d="M18 54L32 25L40 40L58 22"
-                                stroke="white"
-                                stroke-width="4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"/>
-
-                            <circle
-                                cx="18"
-                                cy="54"
-                                r="5"
-                                fill="white"/>
-
-                            <circle
-                                cx="32"
-                                cy="25"
-                                r="5"
-                                fill="white"/>
-
-                            <circle
-                                cx="40"
-                                cy="40"
-                                r="5"
-                                fill="white"/>
-
-                            <circle
-                                cx="58"
-                                cy="22"
-                                r="5"
-                                fill="white"/>
-
+                        <svg viewBox="0 0 80 80" fill="none">
+                            <path d="M18 54L32 25L40 40L58 22" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="18" cy="54" r="5" fill="white"/>
+                            <circle cx="32" cy="25" r="5" fill="white"/>
+                            <circle cx="40" cy="40" r="5" fill="white"/>
+                            <circle cx="58" cy="22" r="5" fill="white"/>
                         </svg>
-
                     </div>
 
-
                     <div>
-
-                        <h3 class="about-card-title">
-                            KIRAVA
-                        </h3>
-
+                        <h3 class="about-card-title">KIRAVA</h3>
                         <p class="about-card-text">
                             Technology solution for real-world needs.
                         </p>
-
                     </div>
-
                 </div>
 
-
             </div>
-
         </section>
-
-
 
         <!-- =========================================================
-             CONTACT
+             CONTACT CTA BOX
              ========================================================= -->
-
-        <section
-            class="contact"
-            id="kontak">
-
+        <section class="contact" id="kontak">
             <div class="container">
-
                 <div class="contact-box reveal">
-
                     <div class="contact-content">
-
-                        <span class="contact-label">
-                            Mari Mulai
-                        </span>
-
-                        <h2 class="contact-title">
-                            Ceritakan kebutuhan Anda.
-                        </h2>
-
+                        <span class="contact-label">Mari Mulai</span>
+                        <h2 class="contact-title">Ceritakan kebutuhan Anda.</h2>
                         <p class="contact-text">
-
-                            Tidak perlu tahu teknologi apa yang
-                            harus digunakan. Ceritakan saja masalah
-                            atau kebutuhan Anda. Kami bantu mencari
-                            kemungkinan solusinya.
-
+                            Tidak perlu tahu teknologi apa yang harus digunakan. Ceritakan saja masalah atau kebutuhan Anda. Kami bantu mencari kemungkinan solusinya.
                         </p>
 
-
                         <div class="contact-actions">
-
-                            <a
-                                href="#"
-                                class="btn-primary"
-                                data-wa="Halo KIRAVA, saya ingin berkonsultasi mengenai kebutuhan saya.">
-
+                            <a href="#" class="btn-primary" data-wa="Halo KIRAVA, saya ingin berkonsultasi mengenai kebutuhan saya.">
                                 Konsultasi melalui WhatsApp
-
-                                <svg
-                                    width="18"
-                                    height="18"
-                                    viewBox="0 0 24 24"
-                                    fill="none">
-
-                                    <path
-                                        d="M5 12H19M13 6L19 12L13 18"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"/>
-
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-
                             </a>
 
-
-                            <a
-                                href="#home"
-                                class="btn-secondary">
-
+                            <a href="#home" class="btn-secondary">
                                 Kembali ke atas
-
                             </a>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
-
     </main>
 
-
+    <!-- =========================================================
+         FLOATING WHATSAPP BUTTON
+         ========================================================= -->
+    <a href="#" class="floating-wa-btn" data-wa="Halo KIRAVA, saya ingin berkonsultasi mengenai solusi yang saya butuhkan." aria-label="Konsultasi via WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span>Konsultasi</span>
+    </a>
 
     <!-- =========================================================
          FOOTER
          ========================================================= -->
-
     <footer>
-
         <div class="container footer-inner">
-
             <div>
-
-                <div class="footer-brand">
-                    KIRAVA
-                </div>
-
-                <div class="footer-copy">
-                    Solusi teknologi untuk kebutuhan nyata.
-                </div>
-
+                <div class="footer-brand">KIRAVA</div>
+                <div class="footer-copy">Solusi teknologi untuk kebutuhan nyata.</div>
             </div>
-
 
             <div class="footer-links">
-
-                <a href="#solusi">
-                    Solusi
-                </a>
-
-                <a href="#tentang">
-                    Tentang
-                </a>
-
-                <a href="#kontak">
-                    Kontak
-                </a>
-
+                <a href="#solusi">Solusi</a>
+                <a href="#tentang">Tentang</a>
+                <a href="#kontak">Kontak</a>
             </div>
-
 
             <div class="footer-copy">
-                © <span id="year"></span> KIRAVA
+                © <span id="year"></span> KIRAVA. All rights reserved.
             </div>
-
         </div>
-
     </footer>
-
-
 
     <!-- =========================================================
          JAVASCRIPT
          ========================================================= -->
-
     <script>
-
         /* =========================================================
-           KIRAVA CONFIGURATION
+           KIRAVA CONFIGURATION & WHATSAPP
            ========================================================= */
 
-        /*
-         * GANTI NOMOR WHATSAPP DI SINI JIKA DIPERLUKAN.
-         *
-         * Format:
-         * 628xxxxxxxxxx
-         *
-         * Jangan gunakan:
-         * 08xxxxxxxxxx
-         */
+        const DEFAULT_PHONE = "6289504008817";
 
-        const WHATSAPP_NUMBER =
-            "6289504008817";
+        function buildWhatsAppUrl(message) {
+            if (window.KIRAVA_CONFIG && typeof window.KIRAVA_CONFIG.getWhatsAppUrl === "function") {
+                return window.KIRAVA_CONFIG.getWhatsAppUrl(message);
+            }
+            const phone = (window.WHATSAPP_NUMBER || DEFAULT_PHONE).replace(/[^0-9]/g, "");
+            const formatted = phone.startsWith("0") ? "62" + phone.slice(1) : phone;
+            return "https://wa.me/" + formatted + "?text=" + encodeURIComponent(message || "Halo KIRAVA, saya ingin berkonsultasi.");
+        }
 
-
-        /* =========================================================
-           WHATSAPP LINKS
-           ========================================================= */
-
-        document
-            .querySelectorAll("[data-wa]")
-            .forEach(function(element) {
-
-                const message =
-                    element.getAttribute("data-wa") ||
-                    "Halo KIRAVA, saya ingin berkonsultasi.";
-
-                const url =
-                    "https://wa.me/" +
-                    WHATSAPP_NUMBER +
-                    "?text=" +
-                    encodeURIComponent(message);
-
-                element.setAttribute(
-                    "href",
-                    url
-                );
-
-                element.setAttribute(
-                    "target",
-                    "_blank"
-                );
-
-                element.setAttribute(
-                    "rel",
-                    "noopener noreferrer"
-                );
-
-            });
-
-
+        document.querySelectorAll("[data-wa]").forEach(function(element) {
+            const message = element.getAttribute("data-wa") || "Halo KIRAVA, saya ingin berkonsultasi.";
+            element.setAttribute("href", buildWhatsAppUrl(message));
+            element.setAttribute("target", "_blank");
+            element.setAttribute("rel", "noopener noreferrer");
+        });
 
         /* =========================================================
            HEADER SCROLL
            ========================================================= */
 
-        const siteHeader =
-            document.getElementById(
-                "siteHeader"
-            );
+        const siteHeader = document.getElementById("siteHeader");
 
         function updateHeader() {
-
             if (window.scrollY > 30) {
-
-                siteHeader.classList.add(
-                    "scrolled"
-                );
-
+                siteHeader.classList.add("scrolled");
             } else {
-
-                siteHeader.classList.remove(
-                    "scrolled"
-                );
-
+                siteHeader.classList.remove("scrolled");
             }
-
         }
 
-        window.addEventListener(
-            "scroll",
-            updateHeader,
-            {
-                passive: true
-            }
-        );
-
+        window.addEventListener("scroll", updateHeader, { passive: true });
         updateHeader();
-
-
 
         /* =========================================================
            MOBILE MENU
            ========================================================= */
 
-        const mobileToggle =
-            document.getElementById(
-                "mobileToggle"
-            );
+        const mobileToggle = document.getElementById("mobileToggle");
+        const navMenu = document.getElementById("navMenu");
 
-        const navMenu =
-            document.getElementById(
-                "navMenu"
-            );
-
-
-        mobileToggle.addEventListener(
-            "click",
-            function() {
-
-                navMenu.classList.toggle(
-                    "open"
-                );
-
-            }
-        );
-
-
-        document
-            .querySelectorAll(".nav-link, .nav-cta")
-            .forEach(function(link) {
-
-                link.addEventListener(
-                    "click",
-                    function() {
-
-                        navMenu.classList.remove(
-                            "open"
-                        );
-
-                    }
-                );
-
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener("click", function() {
+                const isOpen = navMenu.classList.toggle("open");
+                mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
             });
 
-
+            document.querySelectorAll(".nav-link, .nav-cta").forEach(function(link) {
+                link.addEventListener("click", function() {
+                    navMenu.classList.remove("open");
+                    mobileToggle.setAttribute("aria-expanded", "false");
+                });
+            });
+        }
 
         /* =========================================================
-           SCROLL REVEAL
+           SCROLL REVEAL ANIMATION
            ========================================================= */
 
-        const revealElements =
-            document.querySelectorAll(
-                ".reveal"
-            );
+        const revealElements = document.querySelectorAll(".reveal");
 
-
-        if (
-            "IntersectionObserver"
-            in window
-        ) {
-
-            const revealObserver =
-                new IntersectionObserver(
-                    function(entries) {
-
-                        entries.forEach(
-                            function(entry) {
-
-                                if (
-                                    entry.isIntersecting
-                                ) {
-
-                                    entry.target.classList.add(
-                                        "visible"
-                                    );
-
-                                    revealObserver.unobserve(
-                                        entry.target
-                                    );
-
-                                }
-
-                            }
-                        );
-
-                    },
-                    {
-                        threshold: .12
+        if ("IntersectionObserver" in window) {
+            const revealObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        revealObserver.unobserve(entry.target);
                     }
-                );
+                });
+            }, { threshold: .12 });
 
-
-            revealElements.forEach(
-                function(element) {
-
-                    revealObserver.observe(
-                        element
-                    );
-
-                }
-            );
-
+            revealElements.forEach(function(element) {
+                revealObserver.observe(element);
+            });
         } else {
-
-            revealElements.forEach(
-                function(element) {
-
-                    element.classList.add(
-                        "visible"
-                    );
-
-                }
-            );
-
-        }
-
-
-
-        /* =========================================================
-           IMAGE FALLBACK
-           ========================================================= */
-
-        document
-            .querySelectorAll(
-                ".product-photo img"
-            )
-            .forEach(function(image) {
-
-                image.addEventListener(
-                    "error",
-                    function() {
-
-                        const parent =
-                            image.parentElement;
-
-                        parent.classList.add(
-                            "image-missing"
-                        );
-
-                        image.style.display =
-                            "none";
-
-                    }
-                );
-
+            revealElements.forEach(function(element) {
+                element.classList.add("visible");
             });
-
-
+        }
 
         /* =========================================================
-           YEAR
+           IMAGE FALLBACK (Handles missing local file gracefully)
            ========================================================= */
 
-        document
-            .getElementById("year")
-            .textContent =
-            new Date().getFullYear();
+        const CDN_FALLBACKS = {
+            "farm.jpg": "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1200&q=80",
+            "livestock.jpg": "https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?auto=format&fit=crop&w=1200&q=80",
+            "home.jpg": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=80",
+            "edu.jpg": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80",
+            "business.jpg": "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1200&q=80"
+        };
 
+        document.querySelectorAll(".product-photo img").forEach(function(image) {
+            image.addEventListener("error", function() {
+                const src = image.getAttribute("src") || "";
+                const filename = src.split("/").pop();
 
+                if (CDN_FALLBACKS[filename] && !image.dataset.triedFallback) {
+                    image.dataset.triedFallback = "true";
+                    image.src = CDN_FALLBACKS[filename];
+                    return;
+                }
+
+                const parent = image.parentElement;
+                if (parent) {
+                    parent.classList.add("image-missing");
+                }
+                image.style.display = "none";
+            });
+        });
 
         /* =========================================================
-           GENERATIVE NEURAL NETWORK
+           CURRENT YEAR
            ========================================================= */
 
-        const canvas =
-            document.getElementById(
-                "neuralCanvas"
-            );
-
-        const ctx =
-            canvas.getContext(
-                "2d"
-            );
-
-
-        let width = 0;
-        let height = 0;
-
-        let animationFrame = null;
-
-        let nodes = [];
-
-        let pulses = [];
-
-
-        const reduceMotion =
-            window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-            ).matches;
-
-
-
-        function resizeCanvas() {
-
-            const rect =
-                canvas.getBoundingClientRect();
-
-            const dpr =
-                Math.min(
-                    window.devicePixelRatio || 1,
-                    2
-                );
-
-            width =
-                rect.width;
-
-            height =
-                rect.height;
-
-            canvas.width =
-                width * dpr;
-
-            canvas.height =
-                height * dpr;
-
-            ctx.setTransform(
-                dpr,
-                0,
-                0,
-                dpr,
-                0,
-                0
-            );
-
-            createNetwork();
-
+        const yearEl = document.getElementById("year");
+        if (yearEl) {
+            yearEl.textContent = new Date().getFullYear();
         }
 
+        /* =========================================================
+           GENERATIVE NEURAL NETWORK (CANVAS)
+           ========================================================= */
 
+        const canvas = document.getElementById("neuralCanvas");
+        if (canvas) {
+            const ctx = canvas.getContext("2d");
 
-        function random(min, max) {
+            let width = 0;
+            let height = 0;
+            let animationFrame = null;
+            let nodes = [];
+            let pulses = [];
 
-            return (
-                Math.random() *
-                (max - min)
-            ) + min;
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        }
+            function resizeCanvas() {
+                const rect = canvas.getBoundingClientRect();
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
+                width = rect.width;
+                height = rect.height;
 
+                canvas.width = width * dpr;
+                canvas.height = height * dpr;
 
-        function createNetwork() {
-
-            nodes = [];
-            pulses = [];
-
-            const mobile =
-                window.innerWidth < 760;
-
-            const count =
-                mobile ? 38 : 65;
-
-
-            for (
-                let i = 0;
-                i < count;
-                i++
-            ) {
-
-                nodes.push({
-
-                    x:
-                        random(
-                            width * .03,
-                            width * .97
-                        ),
-
-                    y:
-                        random(
-                            height * .05,
-                            height * .95
-                        ),
-
-                    vx:
-                        random(
-                            -.16,
-                            .16
-                        ),
-
-                    vy:
-                        random(
-                            -.16,
-                            .16
-                        ),
-
-                    r:
-                        random(
-                            1.1,
-                            2.7
-                        ),
-
-                    phase:
-                        random(
-                            0,
-                            Math.PI * 2
-                        )
-
-                });
-
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                createNetwork();
             }
 
-
-            const pulseCount =
-                mobile ? 4 : 8;
-
-
-            for (
-                let i = 0;
-                i < pulseCount;
-                i++
-            ) {
-
-                pulses.push({
-
-                    node:
-                        Math.floor(
-                            Math.random() *
-                            nodes.length
-                        ),
-
-                    progress:
-                        Math.random(),
-
-                    speed:
-                        random(
-                            .0015,
-                            .003
-                        )
-
-                });
-
+            function random(min, max) {
+                return (Math.random() * (max - min)) + min;
             }
 
-        }
+            function createNetwork() {
+                nodes = [];
+                pulses = [];
 
+                const mobile = window.innerWidth < 760;
+                const count = mobile ? 38 : 65;
 
+                for (let i = 0; i < count; i++) {
+                    nodes.push({
+                        x: random(width * .03, width * .97),
+                        y: random(height * .05, height * .95),
+                        vx: random(-.16, .16),
+                        vy: random(-.16, .16),
+                        r: random(1.1, 2.7),
+                        phase: random(0, Math.PI * 2)
+                    });
+                }
 
-        function distance(
-            a,
-            b
-        ) {
+                const pulseCount = mobile ? 4 : 8;
+                for (let i = 0; i < pulseCount; i++) {
+                    pulses.push({
+                        node: Math.floor(Math.random() * nodes.length),
+                        progress: Math.random(),
+                        speed: random(.0015, .003)
+                    });
+                }
+            }
 
-            const dx =
-                a.x - b.x;
+            function distance(a, b) {
+                const dx = a.x - b.x;
+                const dy = a.y - b.y;
+                return Math.sqrt(dx * dx + dy * dy);
+            }
 
-            const dy =
-                a.y - b.y;
+            function drawNetwork(time) {
+                ctx.clearRect(0, 0, width, height);
 
-            return Math.sqrt(
-                dx * dx +
-                dy * dy
-            );
+                const mobile = window.innerWidth < 760;
+                const maxDistance = mobile ? 112 : 155;
 
-        }
-
-
-
-        function drawNetwork(
-            time
-        ) {
-
-            ctx.clearRect(
-                0,
-                0,
-                width,
-                height
-            );
-
-
-            const mobile =
-                window.innerWidth < 760;
-
-            const maxDistance =
-                mobile
-                    ? 112
-                    : 155;
-
-
-            /*
-             * UPDATE NODES
-             */
-
-            nodes.forEach(
-                function(node) {
-
+                // Update nodes
+                nodes.forEach(function(node) {
                     if (!reduceMotion) {
-
                         node.x += node.vx;
                         node.y += node.vy;
-
                     }
 
-
-                    if (
-                        node.x < -20 ||
-                        node.x > width + 20
-                    ) {
-
+                    if (node.x < -20 || node.x > width + 20) {
                         node.vx *= -1;
-
                     }
-
-
-                    if (
-                        node.y < -20 ||
-                        node.y > height + 20
-                    ) {
-
+                    if (node.y < -20 || node.y > height + 20) {
                         node.vy *= -1;
-
                     }
+                });
 
-                }
-            );
+                // Connections
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const a = nodes[i];
+                        const b = nodes[j];
+                        const dist = distance(a, b);
 
-
-
-            /*
-             * CONNECTIONS
-             */
-
-            for (
-                let i = 0;
-                i < nodes.length;
-                i++
-            ) {
-
-                for (
-                    let j = i + 1;
-                    j < nodes.length;
-                    j++
-                ) {
-
-                    const a =
-                        nodes[i];
-
-                    const b =
-                        nodes[j];
-
-                    const dist =
-                        distance(
-                            a,
-                            b
-                        );
-
-
-                    if (
-                        dist <
-                        maxDistance
-                    ) {
-
-                        const alpha =
-                            (
-                                1 -
-                                dist /
-                                maxDistance
-                            ) * .24;
-
-
-                        ctx.beginPath();
-
-                        ctx.moveTo(
-                            a.x,
-                            a.y
-                        );
-
-                        ctx.lineTo(
-                            b.x,
-                            b.y
-                        );
-
-
-                        ctx.strokeStyle =
-                            "rgba(80,190,255," +
-                            alpha +
-                            ")";
-
-
-                        ctx.lineWidth =
-                            .7;
-
-
-                        ctx.stroke();
-
+                        if (dist < maxDistance) {
+                            const alpha = (1 - dist / maxDistance) * .24;
+                            ctx.beginPath();
+                            ctx.moveTo(a.x, a.y);
+                            ctx.lineTo(b.x, b.y);
+                            ctx.strokeStyle = "rgba(80, 190, 255, " + alpha + ")";
+                            ctx.lineWidth = .7;
+                            ctx.stroke();
+                        }
                     }
-
                 }
 
-            }
-
-
-
-            /*
-             * NODES
-             */
-
-            nodes.forEach(
-                function(node) {
-
-                    const pulse =
-                        (
-                            Math.sin(
-                                time * .001 +
-                                node.phase
-                            ) + 1
-                        ) / 2;
-
-
-                    const radius =
-                        node.r +
-                        pulse * .7;
-
+                // Nodes
+                nodes.forEach(function(node) {
+                    const pulse = (Math.sin(time * .001 + node.phase) + 1) / 2;
+                    const radius = node.r + pulse * .7;
 
                     ctx.beginPath();
-
-                    ctx.arc(
-                        node.x,
-                        node.y,
-                        radius,
-                        0,
-                        Math.PI * 2
-                    );
-
-
-                    ctx.fillStyle =
-                        "rgba(110,220,255,.75)";
-
-
-                    ctx.shadowBlur =
-                        12;
-
-
-                    ctx.shadowColor =
-                        "rgba(67,230,255,.55)";
-
-
+                    ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
+                    ctx.fillStyle = "rgba(110, 220, 255, .75)";
+                    ctx.shadowBlur = 12;
+                    ctx.shadowColor = "rgba(67, 230, 255, .55)";
                     ctx.fill();
-
                     ctx.shadowBlur = 0;
+                });
 
-                }
-            );
+                // Moving pulses
+                if (!reduceMotion) {
+                    pulses.forEach(function(pulse) {
+                        const start = nodes[pulse.node];
+                        if (!start) return;
 
+                        let target = null;
+                        let shortest = Infinity;
 
-
-            /*
-             * MOVING PULSES
-             */
-
-            if (!reduceMotion) {
-
-                pulses.forEach(
-                    function(pulse) {
-
-                        const start =
-                            nodes[
-                                pulse.node
-                            ];
-
-                        if (!start) {
-                            return;
-                        }
-
-
-                        let target =
-                            null;
-
-                        let shortest =
-                            Infinity;
-
-
-                        nodes.forEach(
-                            function(candidate) {
-
-                                if (
-                                    candidate ===
-                                    start
-                                ) {
-
-                                    return;
-
-                                }
-
-
-                                const d =
-                                    distance(
-                                        start,
-                                        candidate
-                                    );
-
-
-                                if (
-                                    d <
-                                    maxDistance &&
-                                    d <
-                                    shortest
-                                ) {
-
-                                    shortest =
-                                        d;
-
-                                    target =
-                                        candidate;
-
-                                }
-
+                        nodes.forEach(function(candidate) {
+                            if (candidate === start) return;
+                            const d = distance(start, candidate);
+                            if (d < maxDistance && d < shortest) {
+                                shortest = d;
+                                target = candidate;
                             }
-                        );
+                        });
 
+                        if (!target) return;
 
-                        if (!target) {
-                            return;
-                        }
+                        pulse.progress += pulse.speed;
 
-
-                        pulse.progress +=
-                            pulse.speed;
-
-
-                        if (
-                            pulse.progress >= 1
-                        ) {
-
+                        if (pulse.progress >= 1) {
                             pulse.progress = 0;
-
-                            pulse.node =
-                                Math.floor(
-                                    Math.random() *
-                                    nodes.length
-                                );
-
+                            pulse.node = Math.floor(Math.random() * nodes.length);
                             return;
-
                         }
 
-
-                        const x =
-                            start.x +
-                            (
-                                target.x -
-                                start.x
-                            ) *
-                            pulse.progress;
-
-
-                        const y =
-                            start.y +
-                            (
-                                target.y -
-                                start.y
-                            ) *
-                            pulse.progress;
-
+                        const x = start.x + (target.x - start.x) * pulse.progress;
+                        const y = start.y + (target.y - start.y) * pulse.progress;
 
                         ctx.beginPath();
-
-                        ctx.arc(
-                            x,
-                            y,
-                            2.1,
-                            0,
-                            Math.PI * 2
-                        );
-
-
-                        ctx.fillStyle =
-                            "rgba(145,242,255,.95)";
-
-
-                        ctx.shadowBlur =
-                            15;
-
-                        ctx.shadowColor =
-                            "#43e6ff";
-
-
+                        ctx.arc(x, y, 2.1, 0, Math.PI * 2);
+                        ctx.fillStyle = "rgba(145, 242, 255, .95)";
+                        ctx.shadowBlur = 15;
+                        ctx.shadowColor = "#43e6ff";
                         ctx.fill();
-
-                        ctx.shadowBlur =
-                            0;
-
-                    }
-                );
-
-            }
-
-        }
-
-
-
-        function animate(
-            time
-        ) {
-
-            drawNetwork(
-                time
-            );
-
-            if (!reduceMotion) {
-
-                animationFrame =
-                    requestAnimationFrame(
-                        animate
-                    );
-
-            }
-
-        }
-
-
-
-        window.addEventListener(
-            "resize",
-            resizeCanvas
-        );
-
-
-        resizeCanvas();
-
-
-        if (reduceMotion) {
-
-            drawNetwork(
-                0
-            );
-
-        } else {
-
-            animationFrame =
-                requestAnimationFrame(
-                    animate
-                );
-
-        }
-
-
-
-        /* =========================================================
-           GENTLE PARALLAX FOR NEURAL STAGE
-           ========================================================= */
-
-        const neuralStage =
-            document.querySelector(
-                ".neural-stage"
-            );
-
-
-        if (
-            neuralStage &&
-            !reduceMotion &&
-            window.innerWidth > 760
-        ) {
-
-            window.addEventListener(
-                "mousemove",
-                function(event) {
-
-                    const rect =
-                        neuralStage.getBoundingClientRect();
-
-
-                    const x =
-                        (
-                            event.clientX -
-                            rect.left
-                        ) /
-                        rect.width -
-                        .5;
-
-
-                    const y =
-                        (
-                            event.clientY -
-                            rect.top
-                        ) /
-                        rect.height -
-                        .5;
-
-
-                    const icons =
-                        neuralStage.querySelectorAll(
-                            ".neural-icon"
-                        );
-
-
-                    icons.forEach(
-                        function(icon, index) {
-
-                            const amount =
-                                5 +
-                                index * 1.2;
-
-
-                            icon.style.transform =
-                                "translate(" +
-                                (
-                                    x * amount
-                                ) +
-                                "px," +
-                                (
-                                    y * amount
-                                ) +
-                                "px)";
-
-                        }
-                    );
-
+                        ctx.shadowBlur = 0;
+                    });
                 }
-            );
+            }
 
+            function animate(time) {
+                drawNetwork(time);
+                if (!reduceMotion) {
+                    animationFrame = requestAnimationFrame(animate);
+                }
+            }
+
+            window.addEventListener("resize", resizeCanvas);
+            resizeCanvas();
+
+            if (reduceMotion) {
+                drawNetwork(0);
+            } else {
+                animationFrame = requestAnimationFrame(animate);
+            }
+
+            // GENTLE PARALLAX FOR NEURAL STAGE (DESKTOP)
+            const neuralStage = document.querySelector(".neural-stage");
+            if (neuralStage && !reduceMotion && window.innerWidth > 760) {
+                window.addEventListener("mousemove", function(event) {
+                    const rect = neuralStage.getBoundingClientRect();
+                    const x = (event.clientX - rect.left) / rect.width - .5;
+                    const y = (event.clientY - rect.top) / rect.height - .5;
+
+                    const icons = neuralStage.querySelectorAll(".neural-icon");
+                    icons.forEach(function(icon, index) {
+                        const amount = 5 + index * 1.2;
+                        icon.style.transform = "translate(" + (x * amount) + "px, " + (y * amount) + "px)";
+                    });
+                });
+            }
         }
-
-
     </script>
-
 </body>
 </html>
