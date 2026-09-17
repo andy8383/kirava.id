@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#07111f">
 
-    <title>KIRAVA — Solusi Teknologi untuk Kebutuhan Nyata</title>
+    <title>KIRA VA — Solusi Teknologi untuk Kebutuhan Nyata</title>
 
     <meta name="description"
           content="Setiap kebutuhan memiliki cara yang berbeda untuk diselesaikan. KIRAVA membantu menghadirkan solusi yang dirancang sesuai kebutuhan Anda, baik untuk rumah, usaha, sekolah, pertanian, maupun peternakan. Anda cukup menyampaikan apa yang ingin Anda capai, kami membantu mewujudkannya.">
@@ -14,11 +14,11 @@
     <meta name="author" content="KIRAVA">
 
     <!-- Open Graph & Social Cards -->
-    <meta property="og:title" content="KIRAVA — Solusi Teknologi untuk Kebutuhan Nyata">
+    <meta property="og:title" content="KIRA VA — Solusi Teknologi untuk Kebutuhan Nyata">
     <meta property="og:description" content="KIRAVA membantu menghadirkan solusi yang membuat pekerjaan lebih mudah untuk rumah, usaha, sekolah, pertanian, dan peternakan.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kirava.id">
-    <meta property="og:site_name" content="KIRAVA">
+    <meta property="og:site_name" content="KIRA VA">
     <meta property="og:locale" content="id_ID">
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -180,13 +180,33 @@
         }
 
         .brand-text {
+            display: inline-flex;
+            align-items: baseline;
+            gap: .06em;
             color: var(--navy-900);
             transition: color .3s ease;
+        }
+
+        .brand-accent {
+            color: var(--blue);
+            text-shadow: 0 0 18px rgba(67, 230, 255, .22);
+            transition: color .3s ease, text-shadow .3s ease;
+        }
+
+        .brand-wordmark {
+            display: inline-flex;
+            align-items: baseline;
+            gap: .08em;
         }
 
         /* When on dark hero at very top, adapt brand text contrast */
         .site-header:not(.scrolled) .brand-text {
             color: #ffffff;
+        }
+
+        .site-header:not(.scrolled) .brand-accent {
+            color: var(--cyan);
+            text-shadow: 0 0 18px rgba(67, 230, 255, .65);
         }
 
         .site-header:not(.scrolled) .nav-link {
@@ -331,6 +351,15 @@
             font-weight: 800;
             letter-spacing: .16em;
             text-transform: uppercase;
+        }
+
+        .hero-eyebrow .brand-wordmark {
+            color: #dceeff;
+            letter-spacing: .12em;
+        }
+
+        .hero-eyebrow .brand-accent {
+            color: var(--cyan);
         }
 
         .hero-eyebrow-dot {
@@ -1039,10 +1068,18 @@
         }
 
         .about-card-title {
+            display: inline-flex;
+            align-items: baseline;
+            gap: .08em;
             margin-top: auto;
             font-size: 26px;
             letter-spacing: -.03em;
             font-weight: 800;
+        }
+
+        .about-card-title .brand-accent,
+        .footer-brand .brand-accent {
+            color: var(--cyan);
         }
 
         .about-card-text {
@@ -1173,6 +1210,9 @@
         }
 
         .footer-brand {
+            display: inline-flex;
+            align-items: baseline;
+            gap: .08em;
             color: white;
             font-weight: 800;
             font-size: 18px;
@@ -1500,7 +1540,7 @@
                         <circle cx="30" cy="13" r="3" fill="white"/>
                     </svg>
                 </span>
-                <span class="brand-text">KIRAVA 2</span>
+                <span class="brand-text"><span>KIRA</span><span class="brand-accent">VA</span></span>
             </a>
 
             <button class="mobile-toggle" id="mobileToggle" aria-label="Buka menu navigasi" aria-expanded="false">
@@ -1531,7 +1571,7 @@
                 <div class="hero-copy reveal">
                     <div class="hero-eyebrow">
                         <span class="hero-eyebrow-dot"></span>
-                        KIRAVA
+                        <span class="brand-wordmark"><span>KIRA</span><span class="brand-accent">VA</span></span>
                     </div>
 
                     <h1 class="hero-title">
@@ -1949,7 +1989,7 @@
                     </div>
 
                     <div>
-                        <h3 class="about-card-title">KIRAVA</h3>
+                        <h3 class="about-card-title"><span>KIRA</span><span class="brand-accent">VA</span></h3>
                         <p class="about-card-text">
                             Technology solution for real-world needs.
                         </p>
@@ -2006,7 +2046,7 @@
     <footer>
         <div class="container footer-inner">
             <div>
-                <div class="footer-brand">KIRAVA</div>
+                <div class="footer-brand"><span>KIRA</span><span class="brand-accent">VA</span></div>
             </div>          
 
             <div class="footer-copy">
